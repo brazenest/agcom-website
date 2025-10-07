@@ -6,10 +6,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => {
-        console.log('test')
-        setIsModalOpen(true);
-    }
+    const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
     const [name, setName] = useState('')
@@ -34,7 +31,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
                 },
             })
 
-            const { response: responseData } = await res.json()
+            const responseData = await res.json()
             e.target.reset()
             dataDiv.innerHTML = responseData
 
