@@ -29,8 +29,8 @@ export const sendVisitorMessage = async ({ adminEmail, userEmail, visitorName, v
         return response?.messageId
             ? { ok: true }
             : { ok: false, msg: "Failed to send email" };
-    } catch (error: any) {
-        console.log("ERROR", error.message);
+    } catch (error: unknown) {
+        console.log("ERROR", error);
         return { ok: false, msg: "Failed to send email" };
     }
 };

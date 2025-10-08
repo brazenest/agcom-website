@@ -8,8 +8,3 @@ export async function POST(req: NextRequest) {
     const sendVisitorMessageResponse = await sendVisitorMessage({ adminEmail, userEmail, visitorName, visitorEmail, visitorMessage });
     return NextResponse.json(sendVisitorMessageResponse)
 }
-
-type RouteResponse = {
-    status: 'ok' | 'error',
-    error?: Error,
-}

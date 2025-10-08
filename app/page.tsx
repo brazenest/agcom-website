@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContactFormModal from "./lib/components/contact-form";
 
 export default function HomePage() {
@@ -12,7 +13,7 @@ export default function HomePage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold mb-4 text-center">Software Engineer</h2>
             <div className="mb-4 flex justify-center">
-              <img
+              <Image
                 src="/how-to-become-software-engineer.jpg"
                 alt="Software Engineer"
                 width="1280"
@@ -38,7 +39,7 @@ export default function HomePage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold mb-4 text-center">Video Producer</h2>
             <div className="mb-4 flex justify-center">
-              <img
+              <Image
                 src="/68a3702a58846b61c98d0185_captura-de-pantalla-2025-08-18-a-las-80721-p-m_a48ba7bb9b164e67ada7eff80f9ed2c5_2000.jpeg"
                 alt="Video Producer"
                 width="1280"
@@ -65,7 +66,7 @@ export default function HomePage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold mb-4 text-center">Photographer</h2>
             <div className="mb-4 flex justify-center">
-              <img
+              <Image
                 src="/camera-7726802_1280.jpg"
                 alt="Photographer"
                 width={1280}
@@ -73,7 +74,7 @@ export default function HomePage() {
                 className="rounded-lg"
               />
             </div>
-            <p className="text-gray-700 mb-4">As a professional photographer, I specialize in capturing stunning images that tell a story and evoke emotion. With a keen eye for detail and a passion for creativity, I offer a wide range of photography services, including portrait, landscape, event, and commercial photography. My approach combines technical expertise with artistic vision to deliver high-quality images that exceed client expectations. Whether it's a personal portrait session or a large-scale commercial project, I am dedicated to providing exceptional service and results.</p>
+            <p className="text-gray-700 mb-4">As a professional photographer, I specialize in capturing stunning images that tell a story and evoke emotion. With a keen eye for detail and a passion for creativity, I offer a wide range of photography services, including portrait, landscape, event, and commercial photography. My approach combines technical expertise with artistic vision to deliver high-quality images that exceed client expectations. Whether it&apos;s a personal portrait session or a large-scale commercial project, I am dedicated to providing exceptional service and results.</p>
             <div className="text-center">
               <a
                 target="_blank" rel="noopener noreferrer"
@@ -89,7 +90,7 @@ export default function HomePage() {
           <div className="bg-gray-900 text-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold mb-4 text-center">Contact Me</h2>
             <div className="mb-4 flex justify-center">
-              <img
+              <Image
                 src="/WideNet_Software_Engineer_Skills.webp"
                 alt="Contact Me"
                 width={1200}

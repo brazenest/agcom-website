@@ -13,7 +13,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: { preventDefault: () => void; target: { reset: () => void; }; }) => {
         e.preventDefault()
         try {
             const res = await fetch('/api/contact', {
@@ -28,11 +28,14 @@ export default function ContactFormModal({ id }: ContactFormProps) {
                 },
             })
             const responseData = await res.json()
+
+            // Log the contact form submission
             console.log('Contact form submitted! responseData:', responseData)
+ 
             e.target.reset()
             closeModal()
         } catch (err: any) {
-            console.error('Error:', err)
+            console.error('Contact form submission Error:', err)
         }
     }
 
@@ -47,7 +50,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
             <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <h1 className="text-2xl font-bold mb-4">Contact Me</h1>
                 <hr className="my-4" />
-                <p className="mb-4">I'd love to hear from you! Whether you have a question about my experience, want to discuss potential collaboration opportunities, or just want to say hello, feel free to reach out. I'm always open to connecting with fellow professionals, recruiters, and anyone interested in the tech industry. Please fill out the contact form below, and I will get back to you as soon as possible. Looking forward to hearing from you!</p>
+                <p className="mb-4">I&apos;d love to hear from you! Whether you have a question about my experience, want to discuss potential collaboration opportunities, or just want to say hello, feel free to reach out. I&apos;m always open to connecting with fellow professionals, recruiters, and anyone interested in the tech industry. Please fill out the contact form below, and I will get back to you as soon as possible. Looking forward to hearing from you!</p>
                 <form id={id} className="contact-form flex flex-col" onSubmit={handleSubmit} autoComplete="on">
                     <label htmlFor="name" className="mt-2">Your name</label>
                     <input

@@ -1,9 +1,11 @@
+import Image from "next/image"
+
 export const Card = ({ id, heading, imageUri, imageAltText, imageWidth, imageHeight, cardText, linkUri, color, linkTextColor, linkText }: CardProps) => {
     return (
         <div id={id} className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold mb-4 text-center">{heading}</h2>
             <div className="mb-4 flex justify-center">
-                <img
+                <Image
                     src={imageUri}
                     alt={imageAltText}
                     width={imageWidth}
