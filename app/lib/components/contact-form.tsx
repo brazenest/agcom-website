@@ -34,7 +34,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
  
             e.target.reset()
             closeModal()
-        } catch (err: any) {
+        } catch (err) {
             console.error('Contact form submission Error:', err)
         }
     }
