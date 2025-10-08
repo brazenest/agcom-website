@@ -15,9 +15,6 @@ export default function ContactFormModal({ id }: ContactFormProps) {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-
-        const dataDiv = document.getElementById('contact-form-data') as HTMLElement
-        dataDiv.innerHTML = ''
         try {
             const res = await fetch('/api/contact', {
                 method: 'POST',
@@ -30,11 +27,10 @@ export default function ContactFormModal({ id }: ContactFormProps) {
                     'Content-Type': 'application/json',
                 },
             })
-
             const responseData = await res.json()
+            console.log('Contact form submitted! responseData:', responseData)
             e.target.reset()
-            dataDiv.innerHTML = responseData
-
+            closeModal()
         } catch (err: any) {
             console.error('Error:', err)
         }
@@ -52,13 +48,34 @@ export default function ContactFormModal({ id }: ContactFormProps) {
                 <h1 className="text-2xl font-bold mb-4">Contact Me</h1>
                 <hr className="my-4" />
                 <p className="mb-4">I'd love to hear from you! Whether you have a question about my experience, want to discuss potential collaboration opportunities, or just want to say hello, feel free to reach out. I'm always open to connecting with fellow professionals, recruiters, and anyone interested in the tech industry. Please fill out the contact form below, and I will get back to you as soon as possible. Looking forward to hearing from you!</p>
-                <form id={id} className="contact-form flex flex-col" onSubmit={handleSubmit}>
+                <form id={id} className="contact-form flex flex-col" onSubmit={handleSubmit} autoComplete="on">
                     <label htmlFor="name" className="mt-2">Your name</label>
-                    <input type="text" name="name" className="border rounded p-2 my-2" placeholder="ex. John Smith" onChange={e => setName(e.target.value)} />
+                    <input
+                        type="text"
+                        name="name"
+                        className="border rounded p-2 my-2"
+                        placeholder="ex. John Smith"
+                        autoFocus
+                        required
+                        onChange={e => setName(e.target.value)}
+                    />
                     <label htmlFor="email" className="mt-2">Email address</label>
-                    <input type="text" name="email" className="border rounded p-2 my-2" placeholder="ex. you@domain.com" onChange={e => setEmail(e.target.value)} />
+                    <input
+                        type="text"
+                        name="email"
+                        className="border rounded p-2 my-2"
+                        placeholder="ex. you@domain.com"
+                        pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z]+"
+                        required
+                        onChange={e => setEmail(e.target.value)}
+                    />
                     <label htmlFor="message" className="mt-2">Your message</label>
-                    <textarea name="message" className="border rounded p-2 my-2" onChange={e => setMessage(e.target.value)}></textarea>
+                    <textarea
+                        name="message"
+                        className="border rounded p-2 my-2"
+                        required
+                        onChange={e => setMessage(e.target.value)}
+                    ></textarea>
                     <button type="submit" className="my-1 bg-blue-500 text-white hover:bg-blue-600 rounded-lg p-4">Send your message</button>
                     <div id="contact-form-data"></div>
                 </form>
