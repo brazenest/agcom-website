@@ -13,7 +13,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
 
-    const handleSubmit = async (e: { preventDefault: () => void; target: { reset: () => void; }; }) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         try {
             const res = await fetch('/api/contact', {
