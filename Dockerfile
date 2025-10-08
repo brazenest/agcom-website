@@ -11,11 +11,11 @@ COPY yarn.lock /usr/src/app
 # Production use node instead of root
 # USER node
 
-RUN npm install --production
+RUN yarn install --production
 
 COPY . /usr/src/app
 
-RUN npm run build
+RUN yarn build
 
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]

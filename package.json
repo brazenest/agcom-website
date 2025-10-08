@@ -1,6 +1,6 @@
 {
-  "name": "agcom-website",
-  "version": "0.1.0",
+  "name": "@agcom/website",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -31,5 +31,10 @@
     "eslint-config-next": "15.5.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "The code for the aldengillespy.com website",
+  "main": "index.js",
+  "repository": "https://github.com/brazenest/agcom-website",
+  "author": "Alden Gillespy <61519345+brazenest@users.noreply.github.com>",
+  "license": "CC-BY-NC-ND-4.0"
 }
