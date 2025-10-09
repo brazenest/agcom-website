@@ -2,6 +2,7 @@ FROM node:alpine
 
 RUN mkdir -p /usr/src/app
 ENV PORT 3000
+ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /usr/src/app
 
