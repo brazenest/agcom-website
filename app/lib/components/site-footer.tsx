@@ -10,6 +10,7 @@ export default function SiteFooter() {
             <div id="site-footer-inner" className="sm:w-1/2 p-4 text-center sm:text-end">
                 <p className="mb-2">&copy; 2025 Alden Gillespy</p>
                 <p className="mb-2">Made with love in the breathtaking Silicon Slopes of beautiful Salt Lake City, Utah, United States.</p>
+                <p className="mb-2 text-sm">version 0.1.2</p>
             </div>
         </footer>
     )
