@@ -1,6 +1,6 @@
 # AG Website
 
-__v0.1.0__ (1 October 2025)
+__v0.1.0__ (9 October 2025)
 
 ## How to use
 
