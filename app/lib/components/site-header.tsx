@@ -7,6 +7,7 @@ export default function SiteHeader() {
                 <nav id="site-header-nav-primary" role="navigation" className="flex p-10 space-x-10 list-none justify-center text-gray-700 font-semibold">
                     <Link href="/">@aldengillespy / @brazenest</Link>
                     <Link href="/resume">Resume</Link>
+                    <Link href="/blog">Blog</Link>
                     <Link href="#site-footer">Contact</Link>
                 </nav>
             </div>
