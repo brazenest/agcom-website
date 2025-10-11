@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 
 export default async function BlogArticlesPage({ params }) {
 
-    let { slug } = await params
+    const { slug } = await params
     console.log('incoming request, slug:', slug)
 
     if (!slug.test(/^[a-zA-Z0-9-_]+$/)) {
