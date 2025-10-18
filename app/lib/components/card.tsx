@@ -22,7 +22,7 @@ export const Card = ({ layout = 'top', heading, img, classes = [], children }: C
             result = (
                 <div className={"card flex flex-col md:flex-row mb-20 p-6 shadow-md border border-slate-200 rounded-lg ".concat(classes.join(' '))}>
                     <span className="card-image-wrap md:w-1/2 mx-4 mb-7">
-                        {heading && <CardHeading classes={["md:hidden"]}>{heading}</CardHeading>}
+                        {heading && <CardHeading classes={["md:hidden", "text-center"]}>{heading}</CardHeading>}
                         {img && <Image {...img} />}
                     </span>
                     <span className="card-content-wrap md:w-1/2 mx-4">
@@ -37,7 +37,7 @@ export const Card = ({ layout = 'top', heading, img, classes = [], children }: C
             result = (
                 <div className={"card flex flex-col md:flex-row mb-20 p-6  shadow-md border border-slate-200 rounded-lg ".concat(classes.join(' '))}>
                     <span className="card-image-wrap md:order-2 md:w-1/2 mx-4 mb-7">
-                        {heading && <CardHeading classes={["md:hidden"]}>{heading}</CardHeading>}
+                        {heading && <CardHeading classes={["md:hidden", "text-center"]}>{heading}</CardHeading>}
                         {img && <Image {...img} />}
                     </span>
                     <span className="card-content-wrap md:order-1 md:w-1/2 mx-4">

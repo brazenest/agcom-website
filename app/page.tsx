@@ -8,29 +8,32 @@ import Image from "next/image";
 export default function HomePage() {
   return (
     <>
-    <div className="shadow-md1 border1 border-slate-2001 rounded-lg">
-      <h1 className="text-5xl font-bold mt-15 mb-7 text-center">Welcome to <wbr />my digital home on the web.</h1>
-      <ColorBar background="linear-gradient(to right, lab(54.1736% 13.3369 -74.6839), lab(52.0183% 66.11 -78.2316), lab(76.3898% 14.5258 98.4589))" classes={["mt-2", "mb-6"]} />
-      <Container size={4} flex={true} classes={["space-x-6"]}>
-        <div className="w-3/5">
-          <p><strong>Hi, I’m Alden Gillespy.</strong> I’m a full-stack software engineer who loves bringing ideas to life through clean, thoughtful code. Over the years, I’ve built everything from interactive web apps to full-scale platforms using technologies like React, TypeScript, Node.js, Next.js, and Python. I enjoy working across the stack — crafting smooth, intuitive interfaces on the front end and building reliable, efficient systems behind the scenes.</p>
+      <div className="shadow-md1 border1 border-slate-2001 rounded-lg">
+        <h1 className="text-4xl font-bold mt-15 mb-7">Hi, I’m Alden Gillespy.</h1>
+        <ColorBar background="linear-gradient(to right, lab(54.1736% 13.3369 -74.6839), lab(52.0183% 66.11 -78.2316), lab(76.3898% 14.5258 98.4589))" classes={["mt-2", "mb-6"]} />
+        <Container size={4}>
+          <div className="md:flex md:space-x-6 space-y-8">
+            <div className="md:w-2/5 md:order-2">
+              <Image
+                src="/me-coffeeshop-cropped_Original.PNG"
+                width={957}
+                height={690}
+                alt="Alden Gillespy"
+              />
+            </div>
+            <div className="md:w-3/5 md:order-1">
+              <p>I’m a <strong>full-stack software engineer</strong> who loves bringing ideas to life through clean, thoughtful code. Over the years, I’ve built everything from interactive web apps to full-scale platforms using technologies like <strong>React, TypeScript, Node.js, Next.js, PHP, and Python</strong>. I enjoy working across the stack — crafting smooth, intuitive interfaces on the front end and building reliable, efficient systems behind the scenes.</p>
 
-          <p>My journey into software hasn’t been the traditional one, but it’s been packed with learning, persistence, and creative problem-solving. I’ve learned to adapt quickly, find clarity in complex problems, and build with both precision and purpose. I’m driven by curiosity — whether that means exploring a new framework, improving performance, or designing systems that make life a little easier for the people using them.</p>
+              <p><strong>My journey into software</strong> hasn’t been the traditional one, but it’s been packed with learning, persistence, and creative problem-solving. <strong>I’ve learned to adapt quickly</strong>, find clarity in complex problems, and build with both precision and purpose. <strong>I’m driven by curiosity</strong> — whether that means exploring a new framework, improving performance, or designing systems that make life a little easier for the people using them.</p>
 
-          <p>When I’m not coding, I’m usually learning something new, experimenting with side projects, or refining old ones just to see how much better I can make them. For me, software engineering is equal parts art and logic — and that’s what keeps me excited to keep building.</p>
-        </div>
-        <div className="w-2/5">
-          <Image
-            src="/me-coffeeshop-cropped_Original.PNG"
-            width={957}
-            height={690}
-            alt="Alden Gillespy"
-          />
-        </div>
-      </Container>
+              <p>When I’m not coding, <strong>I’m always learning something new</strong>, experimenting with side projects, or refining old ones just to see how much better I can make them. For me, software engineering is equal parts art and logic — and that’s what keeps me excited to keep building.</p>
+            </div>
+          </div>
+
+        </Container>
       </div>
       <div>
-        <h2 className="text-center font-bold text-3xl mt-20 mb-14">
+        <h2 className="text-center font-bold text-3xl mt-6 md:mt-20 mb-14">
           My Talents
         </h2>
         {/* Software Engineer Card */}
