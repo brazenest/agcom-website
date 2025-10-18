@@ -10,7 +10,9 @@ export const TalentCard = ({ children, ...talentCardProps }) => {
     )
 }
 
-export const Card = ({ layout = 'top', heading, img, children }: CardProps) => {
+const CardHeading = ({ children, classes }) => <h3 className={"card-heading font-bold text-2xl mt-7 mb-6 ".concat(classes.join(' '))}>{children}</h3>
+
+export const Card = ({ layout = 'top', heading, img, classes = [], children }: CardProps) => {
 
     let result: ReactNode
 
@@ -18,12 +20,13 @@ export const Card = ({ layout = 'top', heading, img, children }: CardProps) => {
 
         case 'left':
             result = (
-                <div className="card md:flex">
-                    <span className="card-image-wrap md:w-3/7">
+                <div className={"card flex flex-col md:flex-row mb-20 p-6 shadow-md border border-slate-200 rounded-lg ".concat(classes.join(' '))}>
+                    <span className="card-image-wrap md:w-1/2 mx-4 mb-7">
+                        {heading && <CardHeading classes={["md:hidden"]}>{heading}</CardHeading>}
                         {img && <Image {...img} />}
                     </span>
-                    <span className="card-content-wrap md:w-4/7 ms-4">
-                        {heading && <h3 className="text-center font-semibold text-2xl mt-4 mb-4">{heading}</h3>}
+                    <span className="card-content-wrap md:w-1/2 mx-4">
+                        {heading && <CardHeading classes={["hidden", "md:block"]}>{heading}</CardHeading>}
                         {children}
                     </span>
                 </div>
@@ -32,12 +35,13 @@ export const Card = ({ layout = 'top', heading, img, children }: CardProps) => {
 
         case 'right':
             result = (
-                <div className="card">
-                    <span className="card-image-wrap">
+                <div className={"card flex flex-col md:flex-row mb-20 p-6  shadow-md border border-slate-200 rounded-lg ".concat(classes.join(' '))}>
+                    <span className="card-image-wrap md:order-2 md:w-1/2 mx-4 mb-7">
+                        {heading && <CardHeading classes={["md:hidden"]}>{heading}</CardHeading>}
                         {img && <Image {...img} />}
                     </span>
-                    <span className="card-content-wrap">
-                        {heading && <h3 className="text-center font-bold text-2xl my-6">{heading}</h3>}
+                    <span className="card-content-wrap md:order-1 md:w-1/2 mx-4">
+                        {heading && <CardHeading classes={["hidden", "md:block"]}>{heading}</CardHeading>}
                         {children}
                     </span>
                 </div>
@@ -70,15 +74,19 @@ type CardProps = {
         height?: number,
         placeholder?: PlaceholderValue,
         blurDataURL?: string,
+        className: string,
     },
+    classes?: ClassAttribute[],
     children: ReactNode,
 }
 
+type ClassAttribute = string
+
 export const CardInfobar = ({ children }) => {
     return (
-        <div className="flex">
-                    {children}
-                  </div>
+        <div className="flex justify-center p-4">
+            {children}
+        </div>
     )
 }
 /*

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { Open_Sans, Noto_Sans, IBM_Plex_Sans, Karla } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./lib/components/site-header";
 import SiteFooter from "./lib/components/site-footer";
 
-const openSans = Open_Sans({
-  variable: '--font-open-sans',
+const sansFont = Noto_Sans({
+  variable: '--font-noto-sans',
   subsets: ["latin"],
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -22,11 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${openSans.variable} antialiased`}
+        className={`${sansFont.variable} antialiased`}
       >
          <SiteHeader />
         <div className="font-sans">
-          <main id="site" className="px-4">
+          <main id="site" className="px-4 max-w-7xl mx-auto">
               {children}
           </main>
         </div>

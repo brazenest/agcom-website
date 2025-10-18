@@ -1,4 +1,4 @@
-# AG Website
+# Alden Gillespy's Personal Website
 
 __v0.2.3__ (11 October 2025)
 

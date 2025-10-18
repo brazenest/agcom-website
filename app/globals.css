@@ -69,7 +69,7 @@
 }
 
 .font-sans {
-    font-family: var(--font-open-sans) !important;
+    font-family: var(--font-noto-sans) !important;
 }
 
 .article-body p {
@@ -78,6 +78,10 @@
 
 .article-body blockquote {
   margin: var(--article-blockquote-margin);
+}
+
+.container p {
+  @apply mb-4;
 }
 
 .list {
