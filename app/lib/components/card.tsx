@@ -1,5 +1,87 @@
+import { PlaceholderValue } from "next/dist/shared/lib/get-img-props"
 import Image from "next/image"
+import { ReactNode } from "react"
 
+export const TalentCard = ({ children, ...talentCardProps }) => {
+    return (
+        <Card {...talentCardProps}>
+            {children}
+        </Card>
+    )
+}
+
+export const Card = ({ layout = 'top', heading, img, children }: CardProps) => {
+
+    let result: ReactNode
+
+    switch (layout) {
+
+        case 'left':
+            result = (
+                <div className="card md:flex">
+                    <span className="card-image-wrap md:w-3/7">
+                        {img && <Image {...img} />}
+                    </span>
+                    <span className="card-content-wrap md:w-4/7 ms-4">
+                        {heading && <h3 className="text-center font-semibold text-2xl mt-4 mb-4">{heading}</h3>}
+                        {children}
+                    </span>
+                </div>
+            )
+            break
+
+        case 'right':
+            result = (
+                <div className="card">
+                    <span className="card-image-wrap">
+                        {img && <Image {...img} />}
+                    </span>
+                    <span className="card-content-wrap">
+                        {heading && <h3 className="text-center font-bold text-2xl my-6">{heading}</h3>}
+                        {children}
+                    </span>
+                </div>
+            )
+            break
+
+        case 'top':
+        default:
+            result = (
+                <div className="card">
+                    {heading && <h3 className="text-center font-bold text-2xl my-6">{heading}</h3>}
+                    {img && <Image {...img} />}
+                    {children}
+                </div>
+            )
+            break
+
+    }
+
+    return result
+}
+
+type CardProps = {
+    layout?: 'top' | 'left' | 'right',
+    heading?: string,
+    img?: {
+        src: string,
+        alt: string,
+        width?: number,
+        height?: number,
+        placeholder?: PlaceholderValue,
+        blurDataURL?: string,
+    },
+    children: ReactNode,
+}
+
+export const CardInfobar = ({ children }) => {
+    return (
+        <div className="flex">
+                    {children}
+                  </div>
+    )
+}
+/*
 export const Card = ({ id, heading, imageUri, imageAltText, imageWidth, imageHeight, cardText, linkUri, color, linkTextColor, linkText }: CardProps) => {
     return (
         <div id={id} className="bg-white rounded-lg shadow-md p-6">
@@ -39,3 +121,4 @@ type CardProps = {
     linkTextColor: string,
     linkText: string,
 }
+*/

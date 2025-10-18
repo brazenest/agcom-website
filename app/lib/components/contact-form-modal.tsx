@@ -31,7 +31,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
 
             // Log the contact form submission
             console.log('Contact form submitted! responseData:', responseData)
- 
+
             e.target.reset()
             closeModal()
         } catch (err) {
@@ -43,7 +43,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
         <div id="contact-form-modal-wrap" className="text-gray-900">
             <button
                 onClick={openModal}
-                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                className="p-4 m-4 rounded-lg bg-green-500 text-white hover:bg-green-600"
             >
                 Send me a message!
             </button>

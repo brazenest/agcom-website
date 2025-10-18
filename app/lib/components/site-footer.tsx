@@ -1,4 +1,4 @@
-import ContactFormModal from "./contact-form";
+import ContactFormModal from "./contact-form-modal";
 
 export default function SiteFooter() {
     return (

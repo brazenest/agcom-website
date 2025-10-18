@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-// import { Noto_Sans } from "next/font/google";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./lib/components/site-header";
 import SiteFooter from "./lib/components/site-footer";
-
-// const notoSans = Noto_Sans({
-//   variable: '--font-noto-sans',
-//   subsets: ["latin"],
-// })
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
@@ -30,10 +24,14 @@ export default function RootLayout({
       <body
         className={`${openSans.variable} antialiased`}
       >
-        <SiteHeader />
-        {children}
+         <SiteHeader />
+        <div className="font-sans">
+          <main id="site" className="px-4">
+              {children}
+          </main>
+        </div>
         <SiteFooter />
       </body>
-    </html>
+    </html >
   );
 }

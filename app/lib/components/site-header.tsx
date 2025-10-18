@@ -1,15 +1,24 @@
-import Link from "./link";
+import { PrimaryNavbar } from "./primary-navbar";
 
 export default function SiteHeader() {
+    const links = [
+        {
+            href: '/',
+            content: '',
+        },
+        {
+            href: '/resume',
+            content: 'Resume',
+        },
+        {
+            href: '/articles',
+            content: 'Articles',
+        },
+    ]
     return (
         <header id="site-header" role="banner">
             <div id="site-header-nav-primary-wrap" className="mx-auto max-w-4xl">
-                <nav id="site-header-nav-primary" role="navigation" className="flex p-10 space-x-10 list-none justify-center text-gray-700 font-semibold">
-                    <Link href="/">@aldengillespy / @brazenest</Link>
-                    <Link href="/resume">Resume</Link>
-                    <Link href="/blog">Blog</Link>
-                    <Link href="#site-footer">Contact</Link>
-                </nav>
+                <PrimaryNavbar links={links} />
             </div>
 
         </header>

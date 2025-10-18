@@ -1,3 +1,5 @@
+import { BlogHeading } from "@/app/lib/components/blog-heading";
+
 export default function BlogLayout({
   children,
 }: Readonly<{
@@ -5,7 +7,7 @@ export default function BlogLayout({
 }>) {
     return (
         <div>
-            <h1>Alden Gillespy&apos;s Blog</h1>
+          <BlogHeading>Alden Gillespy&apos;s Blog</BlogHeading>
             {children}
         </div>
     )
