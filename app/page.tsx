@@ -10,7 +10,11 @@ export default function HomePage() {
     <>
       <div className="shadow-md1 border1 border-slate-2001 rounded-lg">
         <h1 className="text-5xl text-center font-semibold mt-15 mb-9">Hi, I’m Alden Gillespy.</h1>
+<<<<<<< HEAD
         <ColorBar background="linear-gradient(to right, lab(54.1736% 13.3369 -74.6839), lab(52.0183% 66.11 -78.2316), lab(76.3898% 14.5258 98.4589))" classes={["my-7"]} />
+=======
+        <ColorBar background="linear-gradient(to right, lab(54.1736% 13.3369 -74.6839), lab(52.0183% 66.11 -78.2316), lab(76.3898% 14.5258 98.4589))" classes={["my-6"]} />
+>>>>>>> bfb396f86bd4ff028d7110215cffcf3f0ace06c2
         <Container size={4}>
           <div className="md:flex md:space-x-6 space-y-8">
             <div className="md:w-2/5 md:order-2">
