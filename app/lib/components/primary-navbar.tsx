@@ -20,11 +20,11 @@ export const PrimaryNavbar = ({ links }) => {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-6">
-                        <Link href="#about" className="text-gray-700 hover:text-blue-600">
-                            About
+                        <Link href="/blog" className="text-gray-700 hover:text-blue-600">
+                            Blog
                         </Link>
-                        <Link href="#projects" className="text-gray-700 hover:text-blue-600">
-                            Projects
+                        <Link href="/about-me" className="text-gray-700 hover:text-blue-600">
+                            About Me
                         </Link>
                         <Link href="#contact" className="text-gray-700 hover:text-blue-600">
                             Contact
@@ -46,18 +46,18 @@ export const PrimaryNavbar = ({ links }) => {
                 <div className="md:hidden bg-white border-t border-gray-200 shadow-md">
                     <div className="px-4 py-2 space-y-2">
                         <Link
-                            href="#about"
+                            href="/blog"
                             onClick={() => setIsOpen(false)}
                             className="block text-gray-700 hover:text-blue-600"
                         >
-                            About
+                            Blog
                         </Link>
                         <Link
-                            href="#projects"
+                            href="/about-me"
                             onClick={() => setIsOpen(false)}
                             className="block text-gray-700 hover:text-blue-600"
                         >
-                            Projects
+                            About Me
                         </Link>
                         <Link
                             href="#contact"
