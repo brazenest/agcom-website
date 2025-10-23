@@ -10,7 +10,7 @@ export const TalentCard = ({ children, ...talentCardProps }) => {
     )
 }
 
-const CardHeading = ({ children, classes }) => <h3 className={"card-heading font-bold text-2xl mt-7 mb-6 ".concat(classes.join(' '))}>{children}</h3>
+const CardHeading = ({ children, classes }) => <h3 className={"card-heading font-semibold text-xl mt-3 mb-5 ".concat(classes.join(' '))}>{children}</h3>
 
 export const Card = ({ layout = 'top', heading, img, classes = [], children }: CardProps) => {
 
@@ -20,7 +20,7 @@ export const Card = ({ layout = 'top', heading, img, classes = [], children }: C
 
         case 'left':
             result = (
-                <div className={"card flex flex-col md:flex-row mb-20 p-6 shadow-md border border-slate-200 rounded-lg ".concat(classes.join(' '))}>
+                <div className={"card flex flex-col md:flex-row p-5 shadow-md border border-slate-200 rounded-lg ".concat(classes.join(' '))}>
                     <span className="card-image-wrap md:w-1/2 mx-4 mb-7">
                         {heading && <CardHeading classes={["md:hidden", "text-center"]}>{heading}</CardHeading>}
                         {img && <Image {...img} />}
@@ -35,7 +35,7 @@ export const Card = ({ layout = 'top', heading, img, classes = [], children }: C
 
         case 'right':
             result = (
-                <div className={"card flex flex-col md:flex-row mb-20 p-6  shadow-md border border-slate-200 rounded-lg ".concat(classes.join(' '))}>
+                <div className={"card flex flex-col md:flex-row p-5 shadow-md border border-slate-200 rounded-lg ".concat(classes.join(' '))}>
                     <span className="card-image-wrap md:order-2 md:w-1/2 mx-4 mb-7">
                         {heading && <CardHeading classes={["md:hidden", "text-center"]}>{heading}</CardHeading>}
                         {img && <Image {...img} />}
@@ -84,7 +84,7 @@ type ClassAttribute = string
 
 export const CardInfobar = ({ children }) => {
     return (
-        <div className="flex justify-center p-4">
+        <div className="flex justify-center p-6">
             {children}
         </div>
     )

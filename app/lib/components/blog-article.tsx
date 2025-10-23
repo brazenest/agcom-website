@@ -5,14 +5,15 @@ export const BlogArticle = ({ id, title, datePublished, author, body, tags }: Bl
     // Construct date meta
     const date = new Date(datePublished)
     const articleDate = date.toISOString().split('T')[0]
+
     return (
         <article id={`article-${id}`}>
-            <h1 className="text-4xl font-bold mb-3">{title}</h1>
+            <h1 className="text-3xl font-bold mb-3">{title}</h1>
             <ul className="article-meta list-none flex space-x-5 text-sm">
                 <li>by <a href={`mailto:no@name.com`}>{author.name}</a></li>
                 <li>{articleDate}</li>
             </ul>
-            <div className="article-body"><BlogArticleBody content={body} /></div>
+            <div className="article-body"><BlogArticleBody content={`<span class="article-body-inner">${body}</span>`} /></div>
         </article>
     )
 }

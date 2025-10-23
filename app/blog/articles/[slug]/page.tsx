@@ -20,10 +20,10 @@ export default async function BlogArticlesPage({ params }) {
         notFound()
     }
 
-    const data = result.data[0][0]
+    const data = result.data[0]
 
     return (
-        <div className="article-wrap mx-auto max-w-5xl px-3 lg:p-10">
+        <div className="article-wrap mx-auto max-w-5xl px-3">
             <BlogArticle
                 id={data.id}
                 slug={data.slug}

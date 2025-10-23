@@ -15,7 +15,6 @@ export const ButtonLink = ({ children, href, theme = 'slate' }: ButtonLinkProps)
         `hover:bg-${theme}-600`,
         `active:bg-${theme}-800`,
         'p-4',
-        'm-4',
         'rounded-lg',
         'text-white'
     )

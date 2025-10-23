@@ -27,7 +27,7 @@ export default function RootLayout({
       >
          <SiteHeader />
         <div className="font-sans">
-          <main id="site" className="px-4 max-w-7xl mx-auto">
+          <main id="site" className="px-4 max-w-7xl mx-auto pt-28">
               {children}
           </main>
         </div>

@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { Modal } from "./modal";
 
-export default function ContactFormModal({ id }: ContactFormProps) {
+export default function ContactFormModal({ id, buttonText = 'Contact Me' }: ContactFormProps) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -45,7 +45,7 @@ export default function ContactFormModal({ id }: ContactFormProps) {
                 onClick={openModal}
                 className="p-4 m-4 rounded-lg bg-green-500 text-white hover:bg-green-600"
             >
-                Send me a message!
+                {buttonText}
             </button>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <h1 className="text-2xl font-bold mb-4">Contact Me</h1>
@@ -79,7 +79,6 @@ export default function ContactFormModal({ id }: ContactFormProps) {
                         onChange={e => setMessage(e.target.value)}
                     ></textarea>
                     <button type="submit" className="my-1 bg-blue-500 text-white hover:bg-blue-600 rounded-lg p-4">Send your message</button>
-                    <div id="contact-form-data"></div>
                 </form>
             </Modal>
         </div>
@@ -90,4 +89,5 @@ export default function ContactFormModal({ id }: ContactFormProps) {
 
 type ContactFormProps = {
     id: string,
+    buttonText?: string,
 }

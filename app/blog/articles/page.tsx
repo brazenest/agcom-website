@@ -1,28 +1,24 @@
-import { notFound } from "next/navigation";
 import { createArticleUrlFromSlug } from "@/app/lib/create-article-url-from-slug"
 import { ListItem } from "@/app/lib/components/list";
+import { getTags } from "@/app/lib/get-tags";
 
 export default async function BlogArticlesPage() {
 
-    const response = await fetch(`http://localhost:3000/api/articles?sortOrder=newestFirst`);
-    if (!response.ok) {
-        throw new Error(`Response: ${response.status} ${response.statusText}`);
-    }
-
-    const result = await response.json()
-    if (!result.ok) {
-        notFound()
-    }
-
-    const articles = result.data[0]
-
+    const tags = await getTags()
     return (
-        <>
-            <h2 className="text-xl mb-3">Articles</h2>
-            <ol id="articles-list" className="list">
-                {articles.map(({ slug, title }) => <ListItem key={slug}><a href={createArticleUrlFromSlug(slug)}>{title}</a></ListItem>)}
-            </ol>
-        </>
+        <div className="md:flex">
+            <div className="w-2/3">
+                <h2 className="text-2xl mb-4">Articles I&apos;ve Written</h2>
+                <ol id="articles-list" className="list">
+                    {articles.map(({ slug, title, excerpt }) => <ListItem key={slug}><a href={createArticleUrlFromSlug(slug)}><h3 className="text-xl mb-2 font-bold">{title}</h3></a><p>{excerpt}</p></ListItem>)}
+                </ol>
+            </div>
+            <div className="w-1/3">
+                <h2 className="text-xl mb-4">Tag Cloud</h2>
+                {tags}
+            </div>
+
+        </div>
 
     )
 }

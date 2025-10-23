@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react"; // icons
+import ContactFormModal from "./contact-form-modal";
 
 export const PrimaryNavbar = ({ links }) => {
 
@@ -19,16 +20,17 @@ export const PrimaryNavbar = ({ links }) => {
                     </Link>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex space-x-6">
-                        <Link href="/blog" className="text-gray-700 hover:text-blue-600">
+                    <div className="hidden md:flex space-x-6 ">
+                        <Link href="/blog" className="text-gray-700 hover:text-blue-600 content-center">
                             Blog
                         </Link>
-                        <Link href="/about-me" className="text-gray-700 hover:text-blue-600">
+                        <Link href="/about-me" className="text-gray-700 hover:text-blue-600 content-center">
                             About Me
                         </Link>
-                        <Link href="#contact" className="text-gray-700 hover:text-blue-600">
-                            Contact
+                        <Link href="/resume" className="text-gray-700 hover:text-blue-600 content-center">
+                            Resume
                         </Link>
+                        <ContactFormModal id="contact-modal-link-desktop" buttonText="Contact Me!" />
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -58,6 +60,13 @@ export const PrimaryNavbar = ({ links }) => {
                             className="block text-gray-700 hover:text-blue-600"
                         >
                             About Me
+                        </Link>
+                        <Link
+                            href="/resume"
+                            onClick={() => setIsOpen(false)}
+                            className="block text-gray-700 hover:text-blue-600"
+                        >
+                            Resume
                         </Link>
                         <Link
                             href="#contact"

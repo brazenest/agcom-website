@@ -20,7 +20,16 @@ const nextConfig: NextConfig = {
   //       ]
   //     }
   //   ]
-  // }
+  // },
+  async redirects() {
+    return [
+      // {
+      //   source: '/blog',
+      //   destination: '/blog/articles',
+      //   permanent: false,
+      // },
+    ];
+  },
 };
 
 export default nextConfig;
