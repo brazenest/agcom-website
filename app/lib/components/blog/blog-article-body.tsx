@@ -1,6 +1,3 @@
-import { renderToHTML } from "next/dist/server/render";
-import React from "react";
-
 export const BlogArticleBody = ({ content }: BlogArticleBodyProps) => {
 
     return (

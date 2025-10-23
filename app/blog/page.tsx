@@ -1,22 +1,33 @@
 export default function BlogPage() {
-  return (
-    <main className="flex flex-col min-h-screen text-gray-900">
-      {/* ===== Blog Hero ===== */}
-      <section className="relative flex flex-col items-center justify-center text-center min-h-[50vh] px-6 sm:px-12 lg:px-24 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 text-white">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Blog</h1>
-          <p className="text-lg md:text-xl leading-relaxed mb-6">
-            Thoughts on software engineering, clean code, design systems, and the occasional experiment.
-          </p>
-        </div>
-      </section>
+  const posts: BlogArticleModel[] = []
 
+  return (
+    <main id="page-content" className="flex flex-col min-h-screen text-gray-900">
       {/* ===== Blog Grid ===== */}
       <section className="px-6 sm:px-12 lg:px-24 py-32 bg-[#F8FAFC]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-semibold mb-12 text-center text-gray-900">Latest Posts</h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/articles/${post.slug}`}
+              className="group block bg-white shadow-md hover:shadow-xl transition-shadow duration-300 rounded-2xl p-8 border border-gray-100"
+            >
+              <div className="text-sm text-gray-500 mb-3">
+                {post.date} • {post.primaryTag} • {post.readTime}
+              </div>
+              <h2 className="text-2xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
+                {post.title}
+              </h2>
+              <p className="text-gray-600 mt-3 leading-relaxed">{post.excerpt}</p>
+              <div className="mt-5 text-blue-600 font-medium group-hover:text-pink-500 transition-colors">
+                Read more →
+              </div>
+            </Link>
+          ))}
+
             {/* Example Post 1 */}
             <article className="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition text-left">
               <div className="mb-4 text-sm text-gray-500">September 2025 • Engineering</div>
@@ -89,9 +100,7 @@ export default function BlogPage() {
       </section>
 
       {/* ===== Footer ===== */}
-      <footer className="px-6 sm:px-12 lg:px-24 py-12 bg-gray-900 text-gray-300 text-center text-sm">
-        © {new Date().getFullYear()} Alden Gillespy — Built with Next.js & Tailwind CSS
-      </footer>
+      
     </main>
   );
 }

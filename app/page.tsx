@@ -1,4 +1,4 @@
-import { getArticles } from "./lib/get-articles";
+import { getArticles } from "./lib/functions/get-articles";
 
 export default async function Blog() {
     const articles = await getArticles()

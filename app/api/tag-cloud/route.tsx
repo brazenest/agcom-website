@@ -1,4 +1,4 @@
-import { queryDatabase } from "@/app/lib/query-database";
+import { queryDatabase } from "@/app/lib/functions/query-database";
 import { DbQuery, DbWhereCondition } from "@/app/lib/types/db";
 import { NextRequest, NextResponse } from "next/server";
 

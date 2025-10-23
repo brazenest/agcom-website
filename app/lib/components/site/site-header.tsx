@@ -1,4 +1,4 @@
-import { PrimaryNavbar } from "./primary-navbar";
+import { PrimaryNavbar } from "../primary-navbar";
 
 export default function SiteHeader() {
     const links = [

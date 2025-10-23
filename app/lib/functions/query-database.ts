@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER } from "./constants"
-import { DbQuery } from "./types/db"
+import { DbQuery } from "../types/db"
 
 const connectionParams = {
     host: DB_HOST,

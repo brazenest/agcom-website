@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import mysql from 'mysql2/promise';
-import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER } from "@/app/lib/constants";
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER } from "@/app/lib/functions/constants";
 
 const connectionParams = {
     host: DB_HOST,

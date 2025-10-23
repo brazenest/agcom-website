@@ -1,4 +1,4 @@
-import { BlogHeading } from "@/app/lib/components/blog-heading";
+import { BlogPageBanner } from "@/app/lib/components/blog/blog-page-banner";
 
 export default function BlogLayout({
   children,
@@ -6,9 +6,10 @@ export default function BlogLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-      <BlogHeading><a href="/blog">Alden Gillespy&apos;s Blog</a></BlogHeading>
-      <div className="md:flex md:max-w-3xl lg:max-w-4xl mx-auto">
+    <div id="blog-area">
+      {/* ===== Blog Hero ===== */}
+      <BlogPageBanner />
+      <div id="content" className="md:flex lg:max-w-7xl mx-auto">
         {children}
       </div>
     </div>

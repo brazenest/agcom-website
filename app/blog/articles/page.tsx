@@ -1,6 +1,6 @@
-import { createArticleUrlFromSlug } from "@/app/lib/create-article-url-from-slug"
+import { createArticleUrlFromSlug } from "@/app/lib/functions/create-article-url-from-slug"
 import { ListItem } from "@/app/lib/components/list";
-import { getTags } from "@/app/lib/get-tags";
+import { getTags } from "@/app/lib/functions/get-tags";
 
 export default async function BlogArticlesPage() {
 

@@ -1,4 +1,4 @@
-import { BlogArticle } from '@/app/lib/components/blog-article';
+import { BlogArticle } from '@/app/lib/components/blog/blog-article';
 import { notFound } from 'next/navigation';
 
 export default async function BlogArticlesPage({ params }) {

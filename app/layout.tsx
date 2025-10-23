@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Open_Sans, Noto_Sans, IBM_Plex_Sans, Karla } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "./lib/components/site-header";
-import SiteFooter from "./lib/components/site-footer";
+import SiteHeader from "./lib/components/site/site-header";
+import SiteFooter from "./lib/components/site/site-footer";
 
 const sansFont = Noto_Sans({
   variable: '--font-noto-sans',
@@ -21,15 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html id="root" lang="en">
       <body
+        id="site"
         className={`${sansFont.variable} antialiased`}
       >
-         <SiteHeader />
-        <div className="font-sans">
-          <main id="site" className="px-4 max-w-7xl mx-auto pt-28">
-              {children}
-          </main>
+        <SiteHeader />
+        <div id="site-content" className="font-sans max-w-7xl mx-auto pt-16">
+          {children}
         </div>
         <SiteFooter />
       </body>

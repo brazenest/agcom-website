@@ -23,11 +23,11 @@ const nextConfig: NextConfig = {
   // },
   async redirects() {
     return [
-      // {
-      //   source: '/blog',
-      //   destination: '/blog/articles',
-      //   permanent: false,
-      // },
+      {
+        source: '/blog/articles',
+        destination: '/blog',
+        permanent: false,
+      },
     ];
   },
 };
