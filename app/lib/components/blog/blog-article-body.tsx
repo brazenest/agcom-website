@@ -1,9 +1,10 @@
-export const BlogArticleBody = ({ content }: BlogArticleBodyProps) => {
+import Markdown from "react-markdown"
 
-    return (
-        <div className="article-body" dangerouslySetInnerHTML={{ __html: content }} />
-    )
-}
+export const BlogArticleBody = ({ content }: BlogArticleBodyProps) => (
+    <div className="article-body">
+        <Markdown>{content}</Markdown>
+    </div>
+)
 
 type BlogArticleBodyProps = {
     content: string,

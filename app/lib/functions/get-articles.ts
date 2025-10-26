@@ -1,19 +1,19 @@
-import type { ApiArticleParam } from '@/app/lib/types/api'
+import type { ApiQueryParam, ApiQueryResponseT, queryApiParamsT } from '@/app/lib/types/api'
 import { notFound } from 'next/navigation';
-import { API_REQUEST_SCHEME, API_REQUEST_HOST, API_REQUEST_PORT, API_ARTICLES_REQUEST_PATH } from './constants';
+import { queryApi } from './query-api';
 
-export const getArticles = async ({ params }: getArticlesProps = {}) => {
-    const queryParamString = (params ? params : [])
-    .map(({ key, value }) => `${key}=${value}`)
-    .concat('sortOrder=newestFirst')
-    .join('&')
-    
-    const response = await fetch(`${API_REQUEST_SCHEME}://${API_REQUEST_HOST}:${API_REQUEST_PORT}${API_ARTICLES_REQUEST_PATH}?${queryParamString}`);
-    if (!response.ok) {
-        throw new Error(`Response: ${response.status} ${response.statusText}`);
+export const getArticles = async ({ params = [] }: getArticlesProps = {}) => {
+
+    const queryRequestParams: queryApiParamsT = {
+        endpoint: 'articles',
+        method: 'GET',
+        params,
     }
 
-    const result = await response.json()
+    queryRequestParams.params?.push({ key: 'sortOrder', value: 'newestFirst' })
+
+    const result = await queryApi(queryRequestParams)
+
     if (!result.ok) {
         notFound()
     }
@@ -22,5 +22,5 @@ export const getArticles = async ({ params }: getArticlesProps = {}) => {
 }
 
 type getArticlesProps = {
-    params?: ApiArticleParam[],
+    params?: ApiQueryParam[],
 }

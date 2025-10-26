@@ -17,14 +17,20 @@
     "lucide-react": "^0.546.0",
     "mariadb": "^3.4.5",
     "mysql2": "^3.15.2",
+    "net": "^1.0.2",
     "next": "15.5.4",
+    "next-remove-imports": "^1.0.12",
     "node-html-parser": "^7.0.1",
     "nodemailer": "^7.0.7",
     "nodemailer-ses-transport": "^1.5.1",
     "react": "19.1.0",
+    "react-datepicker": "^8.8.0",
     "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "react-tag-input": "^6.10.6",
     "react-to-print": "^3.2.0",
-    "sequelize": "^6.37.7"
+    "rehype-sanitize": "^6.0.0",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

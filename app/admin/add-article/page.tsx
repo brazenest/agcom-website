@@ -1,17 +1,23 @@
 'use client'
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { calculateReadtime } from '@/app/lib/functions/calculate-readtime';
+import { DateSelector } from '@/app/lib/components/blog/date-selector';
+import { queryApi } from '@/app/lib/functions/query-api';
 
 const ContentEditor = dynamic(() => import('@/app/lib/components/content-editor'), {
   ssr: false,
 });
 
-export default function BlogAdminPage() {
-  const [articleTitle, setArticleTitle] = useState('')
+export default function BlogAdminAddArticlePage() {
   const [articleSlug, setArticleSlug] = useState('')
-  const [articleExcerpt, setArticleExcerpt] = useState('')
-  const [articleBody, setArticleBody] = useState('')
   const [articleSlugIsVirgin, setArticleSlugIsVirgin] = useState(true)
+  const [articleTitle, setArticleTitle] = useState('')
+  const [articleExcerpt, setArticleExcerpt] = useState('')
+  const [articleAuthor, setArticleAuthor] = useState(1)
+  const [articleTags, setArticleTags] = useState([])
+  const [articleDatePublished, setArticleDatePublished] = useState(new Date())
+  const [articleBody, setArticleBody] = useState('')
 
   const handleChangeArticleTitle = (ev) => {
     if (articleSlugIsVirgin) {
@@ -27,53 +33,43 @@ export default function BlogAdminPage() {
   }
   const handleChangeArticleSlug = (ev) => setArticleSlug(ev.target.value)
   const handleChangeArticleExcerpt = (ev) => setArticleExcerpt(ev.target.value)
+  const handleChangeArticleDatePublished = (date: string) => setArticleDatePublished(date)
+  const handleChangeArticleAuthor = (ev) => setArticleAuthor(parseInt(ev.target.value))
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault()
-  }
+  const handleFormSubmit = (ev) => ev.preventDefault()
 
-  const handleClickSubmit = async ({ currentEditorRef }) => {
-
-    console.log('add-article: currentEditorRef === ', currentEditorRef)
-    const bodyContent = currentEditorRef.getContent()
-    setArticleBody(bodyContent)
-
-    let datePublished = new Date(Date.now());
-    const offset = datePublished.getTimezoneOffset();
-    datePublished = new Date(datePublished.getTime() + (offset * 60 * 1000));
-    const articleDatePublished = datePublished.toISOString().split('T')[0]
-
+  const handleClickSubmit = async () => {
+    console.log('Admin | BlogAdminAddArticlePage(): Submitting article / handleClickSubmit() running...')
     const data = {
-      title: articleTitle,
       slug: articleSlug,
+      title: articleTitle,
       excerpt: articleExcerpt,
+      datePublished: articleDatePublished.toISOString().split('T')[0],
+      tags: articleTags,
+      author: articleAuthor,
+      readtime: calculateReadtime(articleBody),
       body: articleBody,
-      datePublished: articleDatePublished,
+    }
+    console.log('Admin | BlogAdminAddArticlePage(): Submitting article data |-|', data)
+    const queryResponse = await queryApi({ endpoint: 'articles', method: 'POST', data })
+    if (!queryResponse.ok) {
+      console.log('Admin | BlogAdminAddArticlePage(): API response not-ok for adding article |-|', queryResponse.message)
+      return
     }
 
-    const response = await fetch('https://stunning-guide-grjrr7659p439wwx-3000.app.github.dev/api/articles/',
-      {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-          // "Content-Type": "application/x-www-form-urlencoded",
-          // "Content-Type": "multipart/form-data",
-        },
-      }
-    )
-    const result = await response.json()
-    if (!result.ok) {
-      throw new Error('BlogAdminPage(): API response not-ok for adding article ====', result)
-    }
-
-    setArticleTitle('')
+    console.log('Admin | BlogAdminAddArticlePage(): Article added successfully! |-|', queryResponse.data)
+    
+    // Reset form
     setArticleSlug('')
     setArticleSlugIsVirgin(true)
+    setArticleTitle('')
     setArticleExcerpt('')
-    currentEditorRef.setContent('')
+    setArticleDatePublished(new Date())
+    setArticleTags([])
+    setArticleAuthor(-1)
     setArticleBody('')
-
+    
+    // Focus title input after submission
     document.getElementById('blog-admin-add-article-form-input--title')!.focus()
   }
 
@@ -93,10 +89,19 @@ export default function BlogAdminPage() {
           </span>
           <span className="grid grid-cols-4 grid-rows-1 my-2">
             <label htmlFor="excerpt">Excerpt</label>
-            <textarea name="excerpt" rows={3} cols={54} tabIndex={2} className="border rounded p-3 col-span-3" value={articleExcerpt} onChange={handleChangeArticleExcerpt} />
+            <textarea name="excerpt" rows={4} cols={54} tabIndex={3} className="border rounded p-3 col-span-3" value={articleExcerpt} onChange={handleChangeArticleExcerpt} />
+          </span>
+          <span className="grid grid-cols-4 grid-rows-1 my-2">
+            <label htmlFor="datePublished">Date Published</label>
+            <DateSelector value={articleDatePublished} handleChange={handleChangeArticleDatePublished} />
+          </span>
+          <span className="grid grid-cols-4 grid-rows-1 my-2">
+            <label htmlFor="author">Author ID</label>
+            <input type="text" name="author" size={10} tabIndex={5} className="border rounded p-3 col-span-1" value={articleAuthor} onChange={handleChangeArticleAuthor} />
           </span>
         </div>
-        <ContentEditor tabIndex={3} handleClickSubmit={handleClickSubmit} submitButtonText="Publish This Article" />
+        <ContentEditor content={articleBody} handleChange={setArticleBody} />
+        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-5" onClick={handleClickSubmit}>Submit article</button>
       </form>
 
       <h2 className="text-lg">Usage notes</h2>

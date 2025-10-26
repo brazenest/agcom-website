@@ -4,8 +4,8 @@
   --background: #ffffff;
   --foreground: var(--color-slate-900);
   --link-color: var(--color-blue-500);
-  --link-decoration: underline;
-  --link-decoration-style: dotted;
+  /* --link-decoration: underline; */
+  /* --link-decoration-style: dotted; */
   --link-decoration-thickness: 0.25;
   --link-underline-offset: 0.25em;
   --article-blockquote-margin: 2em;
@@ -79,12 +79,50 @@
 }
 
 .article-body p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.625;
 }
 
 .article-body blockquote {
   margin: var(--article-blockquote-margin);
   font-style: italic;
+}
+
+.article-body ul {
+  @apply list-disc list-outside ml-6 my-6;
+}
+
+.article-body ol {
+  @apply list-decimal list-outside ml-6 my-6;
+}
+
+.article-body blockquote {
+  @apply italic border-l-4 pl-4;
+  border-color: var(--color-slate-300);
+  margin: var(--article-blockquote-margin) 0;
+}
+
+.article-body h2 {
+  @apply text-2xl font-bold mt-13 mb-7;
+}
+
+.article-body h3 {
+  @apply text-xl font-bold mt-9 mb-6;
+}
+
+.article-body h4 {
+  @apply text-lg font-bold mt-4 mb-2;
+}
+
+.article-body a {
+  color: var(--link-color);
+  text-decoration: var(--link-decoration);
+  text-decoration-style: var(--link-decoration-style);
+  text-decoration-thickness: var(--link-decoration-thickness);
+  text-underline-offset: var(--link-underline-offset);
+}
+
+.prose .article-body {
+  @apply leading-relaxed;
 }
 
 .container p {

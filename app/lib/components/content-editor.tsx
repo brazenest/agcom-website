@@ -1,48 +1,31 @@
-import { Editor } from "@tinymce/tinymce-react";
-import { useRef } from "react";
+import { BlogArticleBodyT } from "../types/blog"
+import rehypeSanitize from "rehype-sanitize"
+import dynamic from "next/dynamic";
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
 
-export default function ContentEditor({
-    initialContent = '',
-    tabIndex = 1,
-    handleClickSubmit,
-    submitButtonText = 'Submit',
-}: ContentEditorProps) {
-    const editorRef = useRef(null);
+const MDEditor = dynamic(
+  () => import("@uiw/react-md-editor"),
+  { ssr: false }
+);
 
+export default function ContentEditor({ content, handleChange }: ContentEditorProps) {
     return (
         <div className="content-editor-wrap">
-            <Editor
-                apiKey='q2goeohomsxg1uxvf6hlvyxp3b6rqzkhdovv9726tx87p0dn'
-                onInit={(_evt, editor) => editorRef.current = editor}
-                initialValue={initialContent}
-                tabIndex={tabIndex}
-                init={{
-                    height: 500,
-                    menubar: false,
-                    plugins: [
-                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-                        'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                        'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
-                    ],
-                    toolbar: 'undo redo | blocks | ' +
-                        'bold italic forecolor | alignleft aligncenter ' +
-                        'alignright alignjustify | bullist numlist outdent indent | ' +
-                        'removeformat | help',
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+            <MDEditor
+                value={content}
+                onChange={handleChange}
+                previewOptions={{
+                    rehypePlugins: [[rehypeSanitize]],
                 }}
+                height={450}
+                textareaProps={{ tabIndex: 5 }}
             />
-            <div className="content-editor-bottom-button-bar">
-                <button className="bg-blue-500 text-white p-2 rounded-lg m-4" type="submit" onClick={
-                    () => handleClickSubmit({ currentEditorRef: editorRef.current! })
-                }>{submitButtonText}</button>
-            </div>
         </div>
     )
 }
 
 type ContentEditorProps = {
-    initialContent?: string,
-    tabIndex?: number,
-    handleClickSubmit: (Object) => void,
-    submitButtonText: string,
+    content: BlogArticleBodyT,
+    handleChange: (value: any) => void,
 }
