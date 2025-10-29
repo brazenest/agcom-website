@@ -1,70 +1,73 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: var(--color-slate-900);
-  --link-color: var(--color-blue-500);
-  /* --link-decoration: underline; */
-  /* --link-decoration-style: dotted; */
-  --link-decoration-thickness: 0.25;
-  --link-underline-offset: 0.25em;
+  /* Light mode */
+  --c-bg: #f8f9fb;
+  --c-text: #0b0c10;
+  --c-subtext: #35373b;
+  --c-accent-blue: #1e3a8a;
+  --c-accent-amber: #d5853e;
+  --c-card-bg: #ffffff;
+  --c-border: rgba(0,0,0,0.05);
+
+  --color-bg: #f8f9fb;
+  --color-bg-alt: #ffffff;
+  --color-text: #0b0c10;
+  --color-subtext: #35373b;
+  --color-accent-blue: #1e3a8a;
+  --color-accent-amber: #d5853e;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-card-bg: #ffffff;
+  --color-shadow: rgba(15, 17, 25, 0.08);
+  --color-overlay: rgba(0, 0, 0, 0.04);
+  --color-gradient-left: rgba(30, 58, 138, 0.12);
+  --color-gradient-right: rgba(213, 133, 62, 0.15);
+
   --article-blockquote-margin: 2em;
-/*  --color-blue-500: oklch(62.3% 0.214 259.815);
-  --color-blue-300: oklch(80.9% 0.105 251.813);
-  --color-blue-50: oklch(97% 0.014 254.604);
-  --color-blue-100: oklch(93.2% 0.032 255.585);
-  --color-blue-200: oklch(88.2% 0.059 254.128);
-  --color-blue-400: oklch(70.7% 0.165 254.624);
-  --color-blue-600: oklch(54.6% 0.245 262.881);
-  --color-blue-700: oklch(48.8% 0.243 264.376);
-  --color-blue-800: oklch(42.4% 0.199 265.638);
-  --color-blue-900: oklch(37.9% 0.146 265.522);
-  --color-blue-950: oklch(28.2% 0.091 267.935);
-  --color-slate-50: oklch(98.4% 0.003 247.858);
-  --color-slate-100: oklch(96.8% 0.007 247.896);
-  --color-slate-200: oklch(92.9% 0.013 255.508);
-  --color-slate-300: oklch(86.9% 0.022 252.894);
-  --color-slate-400: oklch(70.4% 0.04 256.788);
-  --color-slate-500: oklch(55.4% 0.046 257.417);
-  --color-slate-600: oklch(44.6% 0.043 257.281);
-  --color-slate-700: oklch(37.2% 0.044 257.287);
-  --color-slate-800: oklch(27.9% 0.041 260.031);
-  --color-slate-900: oklch(20.8% 0.042 265.755);
-  --color-slate-950: oklch(12.9% 0.042 264.695);
-  --color-green-50: oklch(98.2% 0.018 155.826);
-  --color-green-100: oklch(96.2% 0.044 156.743);
-  --color-green-200: oklch(92.5% 0.084 155.995);
-  --color-green-300: oklch(87.1% 0.15 154.449);
-  --color-green-400: oklch(79.2% 0.209 151.711);
-  --color-green-500: oklch(72.3% 0.219 149.579);
-  --color-green-600: oklch(62.7% 0.194 149.214);
-  --color-green-700: oklch(52.7% 0.154 150.069);
-  --color-green-800: oklch(44.8% 0.119 151.328);
-  --color-green-900: oklch(39.3% 0.095 152.535);
-  --color-green-950: oklch(26.6% 0.065 152.934);
-  --color-neutral-50: oklch(98.5% 0 0);
-  --color-neutral-100: oklch(97% 0 0);
-  --color-neutral-200: oklch(92.2% 0 0);
-  --color-neutral-300: oklch(87% 0 0);
-  --color-neutral-400: oklch(70.8% 0 0);
-  --color-neutral-500: oklch(55.6% 0 0);
-  --color-neutral-600: oklch(43.9% 0 0);
-  --color-neutral-700: oklch(37.1% 0 0);
-  --color-neutral-800: oklch(26.9% 0 0);
-  --color-neutral-900: oklch(20.5% 0 0);
-  --color-neutral-950: oklch(14.5% 0 0); */
+  --font-tech: "Inter", system-ui, sans-serif;
+  --font-cinema: "Space Grotesk", Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-noto-sans);
+.dark {
+  /* Dark mode */
+  --c-bg: #0b0c10;
+  --c-text: #f5f6f8;
+  --c-subtext: #c6c8ce;
+  --c-accent-blue: #3b82f6;
+  --c-accent-amber: #d5853e;
+  --c-card-bg: #121317;
+  --c-border: rgba(255,255,255,0.08);
+
+  --color-bg: #0b0c10;
+  --color-bg-alt: #121317;
+  --color-text: #f5f6f8;
+  --color-subtext: #c6c8ce;
+  --color-accent-blue: #3b82f6;
+  --color-accent-amber: #d5853e;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-card-bg: #0f1117;
+  --color-shadow: rgba(15, 25, 70, 0.4);
+  --color-overlay: rgba(255, 255, 255, 0.05);
+  --color-gradient-left: rgba(59, 130, 246, 0.2);
+  --color-gradient-right: rgba(213, 133, 62, 0.25);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--color-slate-900);
-    --foreground: var(--color-white);
+html {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+* {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    fill 0.3s ease,
+    stroke 0.3s ease;
+}
+
+@media (hover: none) {
+  .group:hover {
+    transform: none !important;
   }
 }
 
@@ -74,12 +77,50 @@
   }
 }
 
-.font-sans {
-    font-family: var(--font-noto-sans) !important;
+section {
+  background-color: var(--color-bg);
+}
+
+.card {
+  background: var(--color-card-bg);
+  box-shadow: 0 10px 30px var(--color-shadow);
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent-amber);
+}
+
+button {
+  background-color: var(--color-accent-blue);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 8px 24px var(--color-shadow);
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background-color: #153070;
 }
 
 .article-body p {
-  margin-bottom: 1.625;
+  margin-bottom: 1.625em;
 }
 
 .article-body blockquote {
@@ -113,14 +154,6 @@
   @apply text-lg font-bold mt-4 mb-2;
 }
 
-.article-body a {
-  color: var(--link-color);
-  text-decoration: var(--link-decoration);
-  text-decoration-style: var(--link-decoration-style);
-  text-decoration-thickness: var(--link-decoration-thickness);
-  text-underline-offset: var(--link-underline-offset);
-}
-
 .prose .article-body {
   @apply leading-relaxed;
 }
@@ -143,19 +176,9 @@
   margin: 2rem 0;
 }
 
-a:not([type="button"]) {
-  text-decoration: var(--link-decoration);
-  text-decoration-style: var(--link-decoration-style);
-  text-decoration-thickness: var(--link-decoration-thickness);
-  text-underline-offset: var(--link-underline-offset);
-}
-
-a:hover:not([type="button"]) {
-  color: var(--color-blue-600);
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  font-family: Inter, system-ui, sans-serif;
 }

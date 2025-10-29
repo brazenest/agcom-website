@@ -5,7 +5,7 @@ export default function BlogAdminLayout({
 }>) {
     return (
         <div>
-            <h1 className="text-lg">Blog Administration</h1>
+            <h1 className="text-lg my-6">Blog Administration</h1>
             {children}
         </div>
     )

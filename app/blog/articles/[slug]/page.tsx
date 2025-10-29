@@ -20,7 +20,7 @@ export default async function BlogArticlePage({ params }) {
     const data = queryResponse.data[0] // first (and only) item
  
     return (
-        <div className="article-wrap mx-auto max-w-4xl px-3">
+        <div className="article-wrap mx-auto max-w-2xl px-3">
             <BlogArticle
                 // id={data.id}
                 slug={data.slug}

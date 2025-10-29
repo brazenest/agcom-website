@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
-import { Open_Sans, Noto_Sans, IBM_Plex_Sans, Karla } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./lib/components/site/site-header";
 import SiteFooter from "./lib/components/site/site-footer";
+import ThemeProvider from "./lib/components/ThemeProvider";
+import ThemeTransitionOverlay from "./lib/components/ThemeTransitionOverlay";
 
-const sansFont = Noto_Sans({
-  variable: '--font-noto-sans',
+const fontTech = Inter({
+  variable: '--font-tech',
   subsets: ["latin"],
-  display: "swap",
+})
+
+const fontCinema = Space_Grotesk({
+  variable: '--font-cinema',
+  subsets: ["latin"],
 })
 
 export const metadata: Metadata = {
-  title: "Alden Gillespy - Software Engineer, Video Editor, Photographer, Videographer",
+  title: "Alden Gillespy - Software Engineer, Video Editor, Photographer",
   description: "I am a super human with 5+ years experience in software engineering and video production roles, currently living in Salt Lake City, Utah, United States. I'm also a keen photographer of landscapes, candids, and architecture. Finally, I have a strong interest in city planning as a participant in the Cities Skylines game franchise.",
 };
 
@@ -21,16 +27,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html id="root" lang="en">
+    <html id="root" lang="en" suppressHydrationWarning>
       <body
         id="site"
-        className={`${sansFont.variable} antialiased`}
+        className={`${fontTech.variable} ${fontCinema.variable} antialiased`}
       >
-        <SiteHeader />
-        <div id="site-content" className="font-sans max-w-7xl mx-auto pt-16">
-          {children}
-        </div>
-        <SiteFooter />
+        <ThemeProvider>
+          <SiteHeader />
+          <div id="site-content" className="max-w-7xl mx-auto">
+            {children}
+          </div>
+          <SiteFooter />
+          <ThemeTransitionOverlay />
+        </ThemeProvider>
       </body>
     </html >
   );

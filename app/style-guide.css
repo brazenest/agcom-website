@@ -1,0 +1,292 @@
+/* =======================================================
+   Alden Gillespy — Hybrid Style Guide (Exact Match Palette)
+   Dark Tech + Cinematic Blue | Inter + Space Grotesk
+   ======================================================= */
+
+@import 'tailwindcss';
+
+/* -------------------------------------------------------
+   ROOT TOKENS
+------------------------------------------------------- */
+:root {
+  /* Core background & surfaces */
+  --c-bg-deep: #0B0C10;
+  --c-panel-shadow: rgba(0, 0, 0, 0.6);
+
+  /* Text colors */
+  --c-text-primary: #F5F6F8;
+  --c-text-secondary: #C6C8CE;
+
+  /* CTA / Accent Colors */
+  --c-cta-bg: #1E3A8A;
+  --c-cta-bg-hover: #153070;
+  --c-cta-text: #FFFFFF;
+
+  /* Cinematic blue gradient (creative side) */
+  --c-cinematic-blue-1: #0D1C4A;
+  --c-cinematic-blue-2: #1B2F77;
+  --c-cinematic-blue-3: #2E3E9F;
+
+  /* Hairline and border */
+  --c-hairline: rgba(255, 255, 255, 0.05);
+
+  /* Shadows & bloom */
+  --shadow-blue: 0 30px 60px rgba(15, 25, 70, 0.4);
+  --shadow-cta: 0 20px 40px rgba(30, 58, 138, 0.4);
+
+  /* Spacing scale (4px baseline) */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Radii */
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Motion */
+  --motion-fast: 140ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  --motion-smooth: 350ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* -------------------------------------------------------
+   BASE STYLES
+------------------------------------------------------- */
+html, body {
+  background-color: var(--c-bg-deep);
+  color: var(--c-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--c-cta-bg);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--motion-fast);
+}
+a:hover {
+  color: var(--c-cta-bg-hover);
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------
+   TYPOGRAPHY SCALE
+------------------------------------------------------- */
+h1, h2, h3 {
+  color: var(--c-text-primary);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 var(--space-md);
+}
+
+h1 {
+  font-size: clamp(2.25rem, 2vw + 1rem, 3rem);
+}
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+p {
+  font-size: 1rem;
+  color: var(--c-text-secondary);
+  margin: 0 0 var(--space-md);
+}
+
+/* Optional cinematic font usage */
+.cinematic-text {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* -------------------------------------------------------
+   BUTTONS
+------------------------------------------------------- */
+.button {
+  display: inline-block;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--motion-fast);
+}
+.button-primary {
+  background: var(--c-cta-bg);
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  box-shadow: 0 20px 40px rgba(30,58,138,0.4);
+}
+.button-primary:hover {
+  background: var(--c-cta-bg-hover);
+  transform: translateY(-1px);
+}
+
+
+/* -------------------------------------------------------
+   LAYOUT & SPACING
+------------------------------------------------------- */
+.section {
+  padding: var(--space-2xl) var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  padding: var(--space-lg);
+}
+
+/* -------------------------------------------------------
+   HERO SPLIT
+------------------------------------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 560px;
+}
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-left {
+  background-color: var(--c-bg-deep);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-2xl);
+  box-shadow: inset -24px 0 48px var(--c-panel-shadow);
+}
+
+.hero-right {
+  position: relative;
+  background: radial-gradient(
+    circle at 40% 30%,
+    var(--c-cinematic-blue-3) 0%,
+    var(--c-cinematic-blue-2) 40%,
+    var(--c-cinematic-blue-1) 75%,
+    #000000 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl);
+}
+
+.hero-name {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-lg);
+  color: var(--c-text-primary);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-headline {
+  color: var(--c-text-primary);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+  font-size: clamp(2.25rem, 2vw + 1rem, 3rem);
+}
+
+.hero-subhead {
+  color: var(--c-text-secondary);
+  font-weight: 400;
+  margin-bottom: var(--space-lg);
+  font-size: 1.125rem;
+}
+
+.hero-cta {
+  composes: button button-primary;
+}
+
+/* -------------------------------------------------------
+   CARDS
+------------------------------------------------------- */
+.card {
+  background-color: #111317;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-blue);
+  overflow: hidden;
+  transition: transform var(--motion-fast);
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card-content {
+  padding: var(--space-lg);
+}
+.card-title {
+  color: var(--c-text-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+.card-desc {
+  color: var(--c-text-secondary);
+  font-size: 0.95rem;
+}
+
+/* -------------------------------------------------------
+   LISTS
+------------------------------------------------------- */
+ul {
+  list-style-type: disc;
+  padding-left: var(--space-lg);
+}
+li {
+  margin-bottom: var(--space-xs);
+}
+
+/* -------------------------------------------------------
+   MOTION UTILITIES
+------------------------------------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeIn var(--motion-smooth) forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.985);
+  animation: scaleIn var(--motion-smooth) forwards;
+}
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
