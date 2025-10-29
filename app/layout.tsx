@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-// import { Noto_Sans } from "next/font/google";
-import { Open_Sans } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "./lib/components/site-header";
-import SiteFooter from "./lib/components/site-footer";
+import SiteHeader from "./lib/components/site/site-header";
+import SiteFooter from "./lib/components/site/site-footer";
+import ThemeProvider from "./lib/components/ThemeProvider";
+import ThemeTransitionOverlay from "./lib/components/ThemeTransitionOverlay";
 
-// const notoSans = Noto_Sans({
-//   variable: '--font-noto-sans',
-//   subsets: ["latin"],
-// })
+const fontTech = Inter({
+  variable: '--font-tech',
+  subsets: ["latin"],
+})
 
-const openSans = Open_Sans({
-  variable: '--font-open-sans',
+const fontCinema = Space_Grotesk({
+  variable: '--font-cinema',
   subsets: ["latin"],
 })
 
 export const metadata: Metadata = {
-  title: "Alden Gillespy - Software Engineer, Video Editor, Photographer, Videographer",
+  title: "Alden Gillespy - Software Engineer, Video Editor, Photographer",
   description: "I am a super human with 5+ years experience in software engineering and video production roles, currently living in Salt Lake City, Utah, United States. I'm also a keen photographer of landscapes, candids, and architecture. Finally, I have a strong interest in city planning as a participant in the Cities Skylines game franchise.",
 };
 
@@ -26,14 +27,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html id="root" lang="en" suppressHydrationWarning>
       <body
-        className={`${openSans.variable} antialiased`}
+        id="site"
+        className={`${fontTech.variable} ${fontCinema.variable} antialiased`}
       >
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <ThemeProvider>
+          <SiteHeader />
+          <div id="site-content" className="max-w-7xl mx-auto">
+            {children}
+          </div>
+          <SiteFooter />
+          <ThemeTransitionOverlay />
+        </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }
