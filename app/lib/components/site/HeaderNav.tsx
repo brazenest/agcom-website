@@ -1,134 +1,160 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 
-export default function HeaderNav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+export default function NavBar() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
+  const [scrollY, setScrollY] = useState(0);
+  const controls = useAnimation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    setMounted(true);
+
+    const handleScroll = () => {
+      const y = window.scrollY;
+      setScrollY(y);
+      const sections = document.querySelectorAll("section[id]");
+      let current = "";
+      sections.forEach((sec) => {
+        const top = sec.getBoundingClientRect().top;
+        if (top <= 120 && top >= -sec.clientHeight / 1.5)
+          current = sec.getAttribute("id") || "";
+      });
+      setActive(current);
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const links = [
+    { href: "#work", label: "Work" },
+    { href: "#about", label: "About" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+  const handleLinkClick = (href: string) => {
+    setOpen(false);
+    const el = document.querySelector(href);
+    if (el) {
+      const yOffset = -80;
+      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
+  // Calculate background opacity & blur dynamically
+  const bgOpacity = Math.min(scrollY / 300, 0.8);
+  const blurIntensity = Math.min(scrollY / 100, 10);
+  const scale = scrollY > 50 ? 0.985 : 1;
+
   return (
-    <header
-      className={`
-        fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${scrolled
-          ? "backdrop-blur-md bg-[#0B0C10]/85 border-b border-[#1E3A8A]/40"
-          : "bg-transparent border-b border-transparent"}
-      `}
+    <motion.header
+      animate={{
+        backdropFilter: `blur(${blurIntensity}px)`,
+        backgroundColor:
+          theme === "dark"
+            ? `rgba(17, 20, 24, ${bgOpacity})`
+            : `rgba(249, 250, 251, ${bgOpacity})`,
+        scale,
+      }}
+      transition={{ type: "spring", stiffness: 80, damping: 20 }}
+      className="fixed top-0 left-0 w-full z-50 border-b border-[var(--color-border)] shadow-sm"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* === Left: Name / Logo === */}
+      <nav id="site-header-nav" className="flex items-center justify-between px-6 md:px-16 py-4 transition-all duration-300">
         <Link
           href="/"
-          className="text-[#F5F6F8] font-bold text-lg tracking-wide"
-          style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+          className="font-display text-xl font-bold tracking-tight text-[var(--color-text)]"
         >
-          Alden&nbsp;Gillespy
+          Alden Gillespy
         </Link>
 
-        {/* === Desktop Navigation === */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/" className="text-[#C6C8CE] hover:text-[#F5F6F8] transition-colors">
-            Home
-          </Link>
-          <Link href="/work" className="text-[#C6C8CE] hover:text-[#F5F6F8] transition-colors">
-            Work
-          </Link>
-          <Link href="/about" className="text-[#C6C8CE] hover:text-[#F5F6F8] transition-colors">
-            About
-          </Link>
-          <Link href="/contact" className="text-[#C6C8CE] hover:text-[#F5F6F8] transition-colors">
-            Contact
-          </Link>
-
-          <Link
-            href="/work"
-            className="
-              bg-[#1E3A8A] hover:bg-[#153070]
-              text-white font-semibold
-              px-5 py-2 rounded-md
-              shadow-[0_12px_24px_rgba(30,58,138,0.4)]
-              transition-all duration-200
-              hover:-translate-y-0.5
-            "
-          >
-            View&nbsp;My&nbsp;Work
-          </Link>
-        </nav>
-
-        {/* === Mobile Menu Button === */}
-        <button
-          className="md:hidden text-[#F5F6F8] focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* === Accent Line (always visible) === */}
-      <div
-        className="
-          absolute bottom-0 left-0 w-full h-[1px]
-          bg-gradient-to-r from-transparent via-[#3B82F6]/60 to-transparent
-          pointer-events-none
-        "
-      />
-
-      {/* === Mobile Menu Panel === */}
-      {isOpen && (
-        <div className="md:hidden bg-[#0B0C10]/95 backdrop-blur-md border-t border-[#1E3A8A]/40">
-          {/* Cyan accent line under the header */}
-          <div
-            className="
-              w-full h-[1px]
-              bg-gradient-to-r from-transparent via-[#3B82F6]/60 to-transparent
-              mb-4
-            "
-          />
-
-          <div className="flex flex-col items-center space-y-4 py-6">
-            {["Home", "Work", "About", "Contact"].map((item) => (
-              <Link
-                key={item}
-                href={`/${item.toLowerCase()}`}
-                className="text-[#F5F6F8] text-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                {item}
-              </Link>
-            ))}
-            <Link
-              href="/work"
-              onClick={() => setIsOpen(false)}
-              className="
-                bg-[#1E3A8A] hover:bg-[#153070]
-                text-white font-semibold
-                px-6 py-2 rounded-md
-                shadow-[0_12px_24px_rgba(30,58,138,0.4)]
-                transition-all duration-200
-              "
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => handleLinkClick(link.href)}
+              className={`transition-colors font-medium ${
+                active === link.href.slice(1)
+                  ? "text-[var(--color-accent-blue)]"
+                  : "text-[var(--color-subtext)] hover:text-[var(--color-text)]"
+              }`}
             >
-              View&nbsp;My&nbsp;Work
-            </Link>
-          </div>
+              {link.label}
+            </button>
+          ))}
 
-          {/* Cyan line at bottom for visual closure */}
-          <div
-            className="
-              w-full h-[1px]
-              bg-gradient-to-r from-transparent via-[#3B82F6]/60 to-transparent
-              mt-4
-            "
-          />
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-lg border border-[var(--color-border)] hover:bg-[var(--color-surface)] transition"
+              aria-label="Toggle Theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4 text-[var(--color-subtext)]" />
+              ) : (
+                <Moon className="w-4 h-4 text-[var(--color-subtext)]" />
+              )}
+            </button>
+          )}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-[var(--color-text)]"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </nav>
+
+      {/* Mobile Drawer */}
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden bg-[var(--color-bg)] dark:bg-[var(--color-surface)] border-t border-[var(--color-border)] shadow-soft"
+        >
+          <div className="flex flex-col items-start px-6 py-4 space-y-4">
+            {links.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => handleLinkClick(link.href)}
+                className={`text-[var(--color-text)] transition ${
+                  active === link.href.slice(1)
+                    ? "text-[var(--color-accent-blue)]"
+                    : "hover:text-[var(--color-accent-blue)]"
+                }`}
+              >
+                {link.label}
+              </button>
+            ))}
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="mt-4 flex items-center gap-2 px-3 py-2 border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-surface)] transition"
+              >
+                {theme === "dark" ? (
+                  <>
+                    <Sun className="w-4 h-4" /> Light Mode
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-4 h-4" /> Dark Mode
+                  </>
+                )}
+              </button>
+            )}
+          </div>
+        </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 }

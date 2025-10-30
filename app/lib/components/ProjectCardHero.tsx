@@ -1,9 +1,14 @@
-import { useMotionValue, useTransform, motion } from "framer-motion";
-import Link from "next/link";
+'use client';
+
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
-export function ProjectCardHero({ href, imgSrc, label, title, blurb, tech }) {
+/* ======================================================
+   CINEMATIC HERO CARD
+   ====================================================== */
+export default function ProjectCardHero({ href, imgSrc, label, title, blurb, tech }) {
   const [hovered, setHovered] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);

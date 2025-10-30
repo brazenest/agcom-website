@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react"
-import { Modal } from "./modal";
+import { Modal } from "./Modal";
 
 export default function ContactFormModal({ id, buttonText = 'Contact Me' }: ContactFormProps) {
 

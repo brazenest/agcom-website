@@ -2,10 +2,10 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { calculateReadtime } from '@/app/lib/functions/calculate-readtime';
-import { DateSelector } from '@/app/lib/components/date-selector';
+import { DateSelector } from '@/app/lib/components/DateSelector';
 import { queryApi } from '@/app/lib/functions/query-api';
 
-const ContentEditor = dynamic(() => import('@/app/lib/components/content-editor'), {
+const ContentEditor = dynamic(() => import('@/app/lib/components/ContentEditor'), {
   ssr: false,
 });
 

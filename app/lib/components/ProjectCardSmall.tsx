@@ -1,9 +1,14 @@
-import { useMotionValue, useTransform, motion } from "framer-motion";
-import { Link } from "lucide-react";
+'use client';
+
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
-export function ProjectCardSmall({ href, imgSrc, label, title, blurb, tech }) {
+/* ======================================================
+   CINEMATIC SMALL PROJECT CARDS
+   ====================================================== */
+export default function ProjectCardSmall({ href, imgSrc, label, title, blurb, tech }) {
   const [hovered, setHovered] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);

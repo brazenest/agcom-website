@@ -1,292 +1,259 @@
-/* =======================================================
-   Alden Gillespy — Hybrid Style Guide (Exact Match Palette)
-   Dark Tech + Cinematic Blue | Inter + Space Grotesk
-   ======================================================= */
+/*──────────────────────────────────────────────
+Alden Gillespy • Cinematic + Engineering Web System
+Full Style Guide for TailwindCSS + CSS Variables
+──────────────────────────────────────────────*/
 
-@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* -------------------------------------------------------
-   ROOT TOKENS
-------------------------------------------------------- */
+/*──────────────────────────────
+GLOBAL VARIABLE DEFINITIONS
+──────────────────────────────*/
+
 :root {
-  /* Core background & surfaces */
-  --c-bg-deep: #0B0C10;
-  --c-panel-shadow: rgba(0, 0, 0, 0.6);
+  /*──────────── Base Palette (LIGHT) ────────────*/
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f3f4f6;
+  --color-border: #e5e7eb;
+  --color-text: #111827;
+  --color-subtext: #374151;
 
-  /* Text colors */
-  --c-text-primary: #F5F6F8;
-  --c-text-secondary: #C6C8CE;
+  /*──────────── Accents ────────────*/
+  --color-accent-blue: #2563eb;
+  --color-accent-blue-light: #3b82f6;
+  --color-accent-amber: #f59e0b;
+  --color-accent-amber-light: #fbbf24;
+  --color-accent-green: #10b981;
+  --color-accent-red: #ef4444;
 
-  /* CTA / Accent Colors */
-  --c-cta-bg: #1E3A8A;
-  --c-cta-bg-hover: #153070;
-  --c-cta-text: #FFFFFF;
+  /*──────────── Cinematic + Engineering Layers ────────────*/
+  --color-tech-bg: #e8ecf4;
+  --color-cinema-bg: #fdf6ef;
+  --color-tech-overlay: rgba(37, 99, 235, 0.1);
+  --color-cinema-overlay: rgba(245, 158, 11, 0.1);
 
-  /* Cinematic blue gradient (creative side) */
-  --c-cinematic-blue-1: #0D1C4A;
-  --c-cinematic-blue-2: #1B2F77;
-  --c-cinematic-blue-3: #2E3E9F;
+  /*──────────── Semantic Roles ────────────*/
+  --color-bg-hero: var(--color-bg);
+  --color-bg-section: var(--color-surface);
+  --color-bg-footer: var(--color-surface-alt);
 
-  /* Hairline and border */
-  --c-hairline: rgba(255, 255, 255, 0.05);
+  --color-card-surface: var(--color-surface);
+  --color-card-border: var(--color-border);
+  --color-card-text: var(--color-text);
 
-  /* Shadows & bloom */
-  --shadow-blue: 0 30px 60px rgba(15, 25, 70, 0.4);
-  --shadow-cta: 0 20px 40px rgba(30, 58, 138, 0.4);
+  --color-link: var(--color-accent-blue);
+  --color-link-hover: var(--color-accent-amber);
+  --color-link-external-icon: var(--color-accent-blue-light);
 
-  /* Spacing scale (4px baseline) */
-  --space-xs: 8px;
-  --space-sm: 12px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
+  --color-btn-primary-bg: var(--color-accent-blue);
+  --color-btn-primary-hover: #1d4ed8;
+  --color-btn-secondary-bg: var(--color-accent-amber);
+  --color-btn-outline-border: var(--color-border);
 
-  /* Radii */
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  /*──────────── Shadows & Depth ────────────*/
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 6px 24px rgba(0, 0, 0, 0.12);
 
-  /* Motion */
-  --motion-fast: 140ms cubic-bezier(0.2, 0.9, 0.2, 1);
-  --motion-smooth: 350ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  /*──────────── Border Radius ────────────*/
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /*──────────── Typography ────────────*/
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /*──────────── Font Sizes ────────────*/
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  /*──────────── Spacing ────────────*/
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-32: 8rem;
+
+  /*──────────── Transitions ────────────*/
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
 }
 
-/* -------------------------------------------------------
-   BASE STYLES
-------------------------------------------------------- */
-html, body {
-  background-color: var(--c-bg-deep);
-  color: var(--c-text-primary);
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 16px;
+/*──────────────────────────────
+DARK THEME (TRUE CINEMATIC)
+──────────────────────────────*/
+
+[data-theme="dark"] {
+  /*──────────── Core Backgrounds ────────────*/
+  --color-bg: #0a0c10;
+  --color-surface: #111418;
+  --color-surface-alt: #1a1f24;
+  --color-border: #262d36;
+
+  /*──────────── Text ────────────*/
+  --color-text: #f5f6f7;
+  --color-subtext: #9ca3af;
+
+  /*──────────── Accents ────────────*/
+  --color-accent-blue: #60a5fa;
+  --color-accent-blue-light: #93c5fd;
+  --color-accent-amber: #fbbf24;
+  --color-accent-amber-light: #fde68a;
+
+  /*──────────── Thematic Layers ────────────*/
+  --color-tech-bg: #0f1623;
+  --color-cinema-bg: #1a120a;
+  --color-tech-overlay: rgba(96, 165, 250, 0.2);
+  --color-cinema-overlay: rgba(251, 191, 36, 0.18);
+
+  /*──────────── Semantic Role Overrides ────────────*/
+  --color-bg-hero: linear-gradient(135deg, #0f1623 0%, #1a120a 100%);
+  --color-bg-section: #12161b;
+  --color-bg-footer: #0b0e12;
+
+  --color-card-surface: #171c22;
+  --color-card-border: #262d36;
+  --color-card-text: #e5e7eb;
+
+  --color-link: #60a5fa;
+  --color-link-hover: #fbbf24;
+  --color-link-external-icon: #93c5fd;
+
+  --color-btn-primary-bg: #2563eb;
+  --color-btn-primary-hover: #1e40af;
+  --color-btn-secondary-bg: #f59e0b;
+  --color-btn-outline-border: #374151;
+
+  /*──────────── Shadows ────────────*/
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.75);
+}
+
+/*──────────────────────────────
+SEMANTIC ELEMENT STYLES
+──────────────────────────────*/
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
   margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
 }
 
+header, footer {
+  background: var(--color-bg-hero);
+}
+
+section {
+  background-color: var(--color-bg-section);
+  padding: var(--space-20) var(--space-6);
+  transition: background-color var(--transition-slow);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+p {
+  font-size: var(--text-base);
+  color: var(--color-subtext);
+  margin-bottom: var(--space-4);
+}
+
+/*──────────── Links ────────────*/
 a {
-  color: var(--c-cta-bg);
-  font-weight: 500;
+  color: var(--color-link);
   text-decoration: none;
-  transition: color var(--motion-fast);
+  transition: color var(--transition-fast);
 }
 a:hover {
-  color: var(--c-cta-bg-hover);
-  text-decoration: underline;
+  color: var(--color-link-hover);
 }
 
-/* -------------------------------------------------------
-   TYPOGRAPHY SCALE
-------------------------------------------------------- */
-h1, h2, h3 {
-  color: var(--c-text-primary);
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  line-height: 1.1;
-  margin: 0 0 var(--space-md);
+a.external::after {
+  content: "↗";
+  margin-left: 0.25em;
+  font-size: 0.85em;
+  color: var(--color-link-external-icon);
 }
 
-h1 {
-  font-size: clamp(2.25rem, 2vw + 1rem, 3rem);
-}
-h2 {
-  font-size: 1.75rem;
-  font-weight: 600;
-}
-h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-p {
-  font-size: 1rem;
-  color: var(--c-text-secondary);
-  margin: 0 0 var(--space-md);
-}
-
-/* Optional cinematic font usage */
-.cinematic-text {
-  font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: 0.01em;
-}
-
-/* -------------------------------------------------------
-   BUTTONS
-------------------------------------------------------- */
-.button {
-  display: inline-block;
-  font-weight: 600;
+/*──────────── Buttons ────────────*/
+button, .btn {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
   border-radius: var(--radius-md);
-  padding: 12px 20px;
-  font-size: 1rem;
-  text-align: center;
+  padding: var(--space-3) var(--space-6);
   cursor: pointer;
-  transition: all var(--motion-fast);
+  border: none;
+  transition: all var(--transition-fast);
 }
-.button-primary {
-  background: var(--c-cta-bg);
+
+.btn-primary {
+  background-color: var(--color-btn-primary-bg);
   color: #fff;
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-weight: 600;
-  box-shadow: 0 20px 40px rgba(30,58,138,0.4);
+  box-shadow: var(--shadow-soft);
 }
-.button-primary:hover {
-  background: var(--c-cta-bg-hover);
-  transform: translateY(-1px);
+.btn-primary:hover {
+  background-color: var(--color-btn-primary-hover);
+  box-shadow: var(--shadow-strong);
 }
 
-
-/* -------------------------------------------------------
-   LAYOUT & SPACING
-------------------------------------------------------- */
-.section {
-  padding: var(--space-2xl) var(--space-xl);
-  max-width: 1200px;
-  margin: 0 auto;
+.btn-secondary {
+  background-color: var(--color-btn-secondary-bg);
+  color: #111;
 }
 
-.container {
-  padding: var(--space-lg);
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-btn-outline-border);
+  color: var(--color-text);
 }
 
-/* -------------------------------------------------------
-   HERO SPLIT
-------------------------------------------------------- */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  min-height: 560px;
-}
-@media (min-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.hero-left {
-  background-color: var(--c-bg-deep);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: var(--space-2xl);
-  box-shadow: inset -24px 0 48px var(--c-panel-shadow);
-}
-
-.hero-right {
-  position: relative;
-  background: radial-gradient(
-    circle at 40% 30%,
-    var(--c-cinematic-blue-3) 0%,
-    var(--c-cinematic-blue-2) 40%,
-    var(--c-cinematic-blue-1) 75%,
-    #000000 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-2xl);
-}
-
-.hero-name {
-  position: absolute;
-  top: var(--space-md);
-  left: var(--space-lg);
-  color: var(--c-text-primary);
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  font-weight: 500;
-}
-
-.hero-content {
-  max-width: 600px;
-}
-
-.hero-headline {
-  color: var(--c-text-primary);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: var(--space-md);
-  font-size: clamp(2.25rem, 2vw + 1rem, 3rem);
-}
-
-.hero-subhead {
-  color: var(--c-text-secondary);
-  font-weight: 400;
-  margin-bottom: var(--space-lg);
-  font-size: 1.125rem;
-}
-
-.hero-cta {
-  composes: button button-primary;
-}
-
-/* -------------------------------------------------------
-   CARDS
-------------------------------------------------------- */
+/*──────────── Cards ────────────*/
 .card {
-  background-color: #111317;
+  background-color: var(--color-card-surface);
+  border: 1px solid var(--color-card-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-blue);
-  overflow: hidden;
-  transition: transform var(--motion-fast);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-6);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 .card:hover {
-  transform: translateY(-3px);
-}
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.card-content {
-  padding: var(--space-lg);
-}
-.card-title {
-  color: var(--c-text-primary);
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
-}
-.card-desc {
-  color: var(--c-text-secondary);
-  font-size: 0.95rem;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
 }
 
-/* -------------------------------------------------------
-   LISTS
-------------------------------------------------------- */
-ul {
-  list-style-type: disc;
-  padding-left: var(--space-lg);
+/*──────────── Gradients ────────────*/
+.gradient-cinematic {
+  background: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-amber));
 }
-li {
-  margin-bottom: var(--space-xs);
+.gradient-tech {
+  background: linear-gradient(135deg, var(--color-tech-bg), var(--color-accent-blue));
 }
-
-/* -------------------------------------------------------
-   MOTION UTILITIES
-------------------------------------------------------- */
-.fade-in {
-  opacity: 0;
-  transform: translateY(8px);
-  animation: fadeIn var(--motion-smooth) forwards;
-}
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.scale-in {
-  opacity: 0;
-  transform: scale(0.985);
-  animation: scaleIn var(--motion-smooth) forwards;
-}
-@keyframes scaleIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.gradient-cinema {
+  background: linear-gradient(135deg, var(--color-cinema-bg), var(--color-accent-amber));
 }
