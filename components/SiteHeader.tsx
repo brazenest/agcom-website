@@ -1,4 +1,4 @@
-import HeaderNav from "./HeaderNav";
+import HeaderNav from "./HeaderNavbar";
 
 export default function SiteHeader() {
     return (

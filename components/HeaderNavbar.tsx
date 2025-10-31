@@ -78,8 +78,9 @@ export default function NavBar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <button
+            <a
               key={link.href}
+              href={link.href}
               onClick={() => handleLinkClick(link.href)}
               className={`transition-colors font-medium ${
                 active === link.href.slice(1)
@@ -88,7 +89,7 @@ export default function NavBar() {
               }`}
             >
               {link.label}
-            </button>
+            </a>
           ))}
 
           {mounted && (

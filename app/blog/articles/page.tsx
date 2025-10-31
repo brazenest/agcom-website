@@ -13,7 +13,7 @@ export default async function BlogPage() {
           <h2 className="text-3xl font-semibold mb-12 text-center text-gray-900">Latest Posts</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
-                <article key={post.slug} id={`article-${post.id}--${post.slug}`} className="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition text-left">
+                <article key={post.slug} id={`article-${post.id}--${post.slug}`} className="rounded-xl shadow-md p-8 hover:shadow-lg transition text-left">
                   <div className="mb-4 text-sm text-gray-500">{displayDate(post.datePublished as string)} • {post.readtime}</div>
                   <h3 className="text-2xl font-semibold mb-3 text-gray-900">
                     {post.title}

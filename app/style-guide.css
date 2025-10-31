@@ -148,6 +148,108 @@ DARK THEME (TRUE CINEMATIC)
   --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.75);
 }
 
+/*──────────────────────────────────────────────
+CINEMATIC + ENGINEERING GRADIENTS (UNIFIED PALETTE)
+──────────────────────────────────────────────*/
+
+.gradient-tech {
+  background: linear-gradient(
+    135deg,
+    #1e3a8a 0%,
+    #2563eb 40%,
+    #3b82f6 70%,
+    #0b1b3a 100%
+  );
+  background-size: 200% 200%;
+  transition: background-position 0.3s ease, filter 0.3s ease;
+}
+.gradient-tech:hover {
+  background-position: 100% 50%;
+  filter: brightness(1.05);
+}
+
+.gradient-cinema {
+  background: linear-gradient(
+    135deg,
+    #f59e0b 0%,
+    #fbbf24 40%,
+    #fdbb74 70%,
+    #7a3e00 100%
+  );
+  background-size: 200% 200%;
+  transition: background-position 0.3s ease, filter 0.3s ease;
+}
+.gradient-cinema:hover {
+  background-position: 100% 50%;
+  filter: brightness(1.05);
+}
+
+/* Dark mode deepens tones for cinematic richness */
+[data-theme="dark"] .gradient-tech {
+  background: linear-gradient(
+    135deg,
+    #0b1b3a 0%,
+    #1e3a8a 40%,
+    #2563eb 70%,
+    #3b82f6 100%
+  );
+}
+[data-theme="dark"] .gradient-cinema {
+  background: linear-gradient(
+    135deg,
+    #7a3e00 0%,
+    #b45309 40%,
+    #f59e0b 70%,
+    #fbbf24 100%
+  );
+}
+
+/*──────────────────────────────────────────────
+FILMIC AURA EFFECT — Adaptive Halo Lighting
+──────────────────────────────────────────────*/
+
+.aura-tech {
+  box-shadow:
+    0 0 20px rgba(37, 99, 235, 0.25),
+    0 0 40px rgba(37, 99, 235, 0.15),
+    inset 0 0 16px rgba(37, 99, 235, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.aura-tech:hover {
+  box-shadow:
+    0 0 30px rgba(59, 130, 246, 0.4),
+    0 0 60px rgba(37, 99, 235, 0.25),
+    inset 0 0 24px rgba(59, 130, 246, 0.2);
+}
+
+.aura-cinema {
+  box-shadow:
+    0 0 20px rgba(245, 158, 11, 0.25),
+    0 0 40px rgba(251, 191, 36, 0.15),
+    inset 0 0 16px rgba(245, 158, 11, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.aura-cinema:hover {
+  box-shadow:
+    0 0 30px rgba(251, 191, 36, 0.4),
+    0 0 60px rgba(245, 158, 11, 0.25),
+    inset 0 0 24px rgba(251, 191, 36, 0.2);
+}
+
+/* Dark mode — deeper, more cinematic glow */
+[data-theme="dark"] .aura-tech {
+  box-shadow:
+    0 0 25px rgba(96, 165, 250, 0.25),
+    0 0 50px rgba(59, 130, 246, 0.2),
+    inset 0 0 18px rgba(37, 99, 235, 0.15);
+}
+[data-theme="dark"] .aura-cinema {
+  box-shadow:
+    0 0 25px rgba(251, 191, 36, 0.25),
+    0 0 50px rgba(245, 158, 11, 0.2),
+    inset 0 0 18px rgba(245, 158, 11, 0.15);
+}
+
 /*──────────────────────────────
 SEMANTIC ELEMENT STYLES
 ──────────────────────────────*/
