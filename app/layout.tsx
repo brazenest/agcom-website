@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
+import "./style-guide.css";
 import "./globals.css";
-import SiteHeader from "./lib/components/site/site-header";
-import SiteFooter from "./lib/components/site/site-footer";
-import ThemeProvider from "./lib/components/ThemeProvider";
-import ThemeTransitionOverlay from "./lib/components/ThemeTransitionOverlay";
+import SiteHeader from "@/components/site/SiteHeader";
+import SiteFooter from "@/components/site/SiteFooter";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const fontTech = Inter({
   variable: '--font-tech',
@@ -34,11 +34,17 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <SiteHeader />
-          <div id="site-content" className="max-w-7xl mx-auto">
-            {children}
+          <div id="site-content-wrap">
+            <main className="min-h-screen max-w-7xl mx-auto bg-[var(--color-bg)] text-[var(--color-text)] font-sans transition-colors duration-300">
+              {children}
+            </main>
+            {/* Gradient side strip */}
+            <div className="fixed top-0 left-0 bottom-0 w-4 md:w-4 h-full bg-gradient-to-b from-[var(--color-accent-blue)] to-[var(--color-accent-amber)] opacity-80" />
+            <div className="fixed top-0 right-0 bottom-0 w-4 md:w-4 h-full bg-gradient-to-b from-[var(--color-accent-blue)] to-[var(--color-accent-amber)] opacity-80" />
+            {/* Cinematic gradient footer accent */}
+            <div className="bottom-0 left-0 w-full h-3 bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-amber)]" />
           </div>
           <SiteFooter />
-          <ThemeTransitionOverlay />
         </ThemeProvider>
       </body>
     </html >

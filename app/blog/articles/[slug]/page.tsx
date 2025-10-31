@@ -1,6 +1,6 @@
-import { BlogArticle } from '@/app/lib/components/blog/blog-article';
-import { queryApi } from '@/app/lib/functions/query-api';
-import { calculateReadtime } from '@/app/lib/functions/calculate-readtime';
+import { BlogArticle } from '@/components/blog/blog-article';
+import { queryApi } from '@/lib/query-api';
+import { calculateReadtime } from '@/lib/calculate-readtime';
 import { notFound } from 'next/navigation';
 
 export default async function BlogArticlePage({ params }) {

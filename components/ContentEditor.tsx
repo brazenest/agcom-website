@@ -1,4 +1,4 @@
-import { BlogArticleBodyT } from "../types/blog"
+import { BlogArticleBodyT } from "../app/lib/types/blog"
 import rehypeSanitize from "rehype-sanitize"
 import dynamic from "next/dynamic";
 import "@uiw/react-md-editor/markdown-editor.css";

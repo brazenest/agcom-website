@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BlogArticleTagT } from "../types/blog";
+import { BlogArticleTagT } from "../app/lib/types/blog";
 
 const ReactTags = require('react-tag-input').WithOutContext;
 

@@ -1,14 +1,19 @@
-import { useMotionValue, useTransform, motion } from "framer-motion";
-import { Link } from "lucide-react";
+'use client';
+
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
-export function ProjectCardSmall({ href, imgSrc, label, title, blurb, tech }) {
+/* ======================================================
+   CINEMATIC HERO CARD
+   ====================================================== */
+export default function ProjectCardHero({ href, imgSrc, label, title, blurb, tech }) {
   const [hovered, setHovered] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [0, 1], [3, -3]);
-  const rotateY = useTransform(x, [0, 1], [-3, 3]);
+  const rotateX = useTransform(y, [0, 1], [6, -6]);
+  const rotateY = useTransform(x, [0, 1], [-6, 6]);
 
   return (
     <Link href={href}>
@@ -23,47 +28,49 @@ export function ProjectCardSmall({ href, imgSrc, label, title, blurb, tech }) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{ rotateX, rotateY }}
-        transition={{ type: "spring", stiffness: 220, damping: 20 }}
+        transition={{ type: "spring", stiffness: 200, damping: 15 }}
         className="
           group relative overflow-hidden rounded-2xl
           bg-[var(--color-card-bg)]
           border border-[var(--color-border)]
           shadow-[0_30px_60px_var(--color-shadow)]
-          flex flex-col min-h-[240px]
+          flex flex-col md:col-span-2
+          min-h-[360px] md:min-h-[420px]
           transition-transform duration-300
           will-change-transform
-          perspective-[1000px]
+          perspective-[1200px]
         "
       >
         <Image
           src={imgSrc}
           alt=""
           fill
-          className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+          priority
         />
 
-        {/* Dynamic light */}
+        {/* Dynamic Light */}
         {hovered && (
           <motion.div
             style={{
               background: `radial-gradient(
                 circle at ${x.get() * 100}% ${y.get() * 100}%,
-                rgba(255,255,255,0.15) 0%,
-                transparent 60%
+                rgba(255,255,255,0.25) 0%,
+                transparent 70%
               )`,
             }}
             className="absolute inset-0 pointer-events-none mix-blend-overlay"
           />
         )}
 
-        {/* Reflection sheen (opposite cursor) */}
+        {/* Reflection Sheen (opposite cursor) */}
         {hovered && (
           <motion.div
             style={{
               background: `linear-gradient(
                 120deg,
-                rgba(255,255,255,0.04) 0%,
-                rgba(255,255,255,0.1) 30%,
+                rgba(255,255,255,0.05) 0%,
+                rgba(255,255,255,0.15) 30%,
                 transparent 80%
               )`,
               backgroundPosition: `${(1 - x.get()) * 100}% ${(1 - y.get()) * 100}%`,
@@ -78,12 +85,12 @@ export function ProjectCardSmall({ href, imgSrc, label, title, blurb, tech }) {
           />
         )}
 
-        {/* Color gradient */}
+        {/* Gradient overlay */}
         <div
           className="
-            absolute inset-0 opacity-60
+            absolute inset-0 opacity-70
             mix-blend-screen transition-opacity duration-500
-            group-hover:opacity-80
+            group-hover:opacity-90
           "
           style={{
             background:
@@ -93,15 +100,15 @@ export function ProjectCardSmall({ href, imgSrc, label, title, blurb, tech }) {
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.7)_70%)] opacity-70 group-hover:opacity-80 transition-opacity duration-300" />
 
-        {/* Text */}
-        <div className="relative z-10 p-5 md:p-6 mt-auto flex flex-col gap-2">
-          <div className="text-[0.7rem] uppercase tracking-wide text-[var(--color-subtext)] font-medium">
+        {/* Text Overlay */}
+        <div className="relative z-10 p-6 md:p-8 mt-auto flex flex-col gap-3">
+          <div className="text-xs uppercase tracking-wide text-[var(--color-subtext)] font-medium">
             {label}
           </div>
-          <h4 className="text-[var(--color-text)] font-semibold text-base md:text-lg leading-tight">
+          <h3 className="text-[var(--color-text)] font-semibold text-xl md:text-2xl leading-tight">
             {title}
-          </h4>
-          <p className="text-[var(--color-subtext)] text-[0.85rem] leading-relaxed">
+          </h3>
+          <p className="text-[var(--color-subtext)] text-sm leading-relaxed">
             {blurb}
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
@@ -109,7 +116,7 @@ export function ProjectCardSmall({ href, imgSrc, label, title, blurb, tech }) {
               <span
                 key={item}
                 className="
-                  text-[0.65rem] font-medium
+                  text-[0.7rem] font-medium
                   text-white/90 bg-white/10
                   rounded-md px-2 py-1 border border-white/10 backdrop-blur-[2px]
                 "

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import mysql from 'mysql2/promise';
-import { apiQueryDatabase } from "@/app/lib/functions/api/api-query-database";
-import { DB_CONNECTION_PARAMS } from "@/app/lib/functions/constants";
+import { apiQueryDatabase } from "@/lib/api/api-query-database";
+import { DB_CONNECTION_PARAMS } from "@/lib/constants";
 
 export async function GET(req: NextRequest) {
     const query: string[] = []

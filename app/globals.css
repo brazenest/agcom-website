@@ -1,58 +1,7 @@
 @import 'tailwindcss';
 
-:root {
-  /* Light mode */
-  --c-bg: #f8f9fb;
-  --c-text: #0b0c10;
-  --c-subtext: #35373b;
-  --c-accent-blue: #1e3a8a;
-  --c-accent-amber: #d5853e;
-  --c-card-bg: #ffffff;
-  --c-border: rgba(0,0,0,0.05);
-
-  --color-bg: #f8f9fb;
-  --color-bg-alt: #ffffff;
-  --color-text: #0b0c10;
-  --color-subtext: #35373b;
-  --color-accent-blue: #1e3a8a;
-  --color-accent-amber: #d5853e;
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-card-bg: #ffffff;
-  --color-shadow: rgba(15, 17, 25, 0.08);
-  --color-overlay: rgba(0, 0, 0, 0.04);
-  --color-gradient-left: rgba(30, 58, 138, 0.12);
-  --color-gradient-right: rgba(213, 133, 62, 0.15);
-
-  --article-blockquote-margin: 2em;
-  --font-tech: "Inter", system-ui, sans-serif;
-  --font-cinema: "Space Grotesk", Arial, sans-serif;
-}
-
-.dark {
-  /* Dark mode */
-  --c-bg: #0b0c10;
-  --c-text: #f5f6f8;
-  --c-subtext: #c6c8ce;
-  --c-accent-blue: #3b82f6;
-  --c-accent-amber: #d5853e;
-  --c-card-bg: #121317;
-  --c-border: rgba(255,255,255,0.08);
-
-  --color-bg: #0b0c10;
-  --color-bg-alt: #121317;
-  --color-text: #f5f6f8;
-  --color-subtext: #c6c8ce;
-  --color-accent-blue: #3b82f6;
-  --color-accent-amber: #d5853e;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-card-bg: #0f1117;
-  --color-shadow: rgba(15, 25, 70, 0.4);
-  --color-overlay: rgba(255, 255, 255, 0.05);
-  --color-gradient-left: rgba(59, 130, 246, 0.2);
-  --color-gradient-right: rgba(213, 133, 62, 0.25);
-}
-
 html {
+    scroll-behavior: smooth;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -181,4 +130,39 @@ body {
   color: var(--color-text);
   transition: background-color 0.4s ease, color 0.4s ease;
   font-family: Inter, system-ui, sans-serif;
+}
+
+/*──────────────────────────────────────────────
+CTA COLOR ISOLATION — Prevent button color bleed
+──────────────────────────────────────────────*/
+
+/* 1️⃣ Reset normal text color contexts for major structural containers */
+section, header, main, footer {
+  color: var(--color-text);
+}
+
+/* 2️⃣ Ensure paragraphs, list items, and inline links default to neutral text */
+p,
+li,
+a:not(.btn):not(.cta):not(.ghost) {
+  color: var(--color-text);
+}
+
+/* 3️⃣ Explicit CTA scope — only these may have colored backgrounds */
+a.btn,
+a.cta {
+  color: #fff !important;
+}
+
+/* 4️⃣ Stop color inheritance inside CTAs */
+a.btn *,
+a.cta * {
+  color: inherit !important;
+}
+
+/* 5️⃣ Maintain proper readability in dark theme */
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] a:not(.btn):not(.cta):not(.ghost) {
+  color: var(--color-subtext);
 }

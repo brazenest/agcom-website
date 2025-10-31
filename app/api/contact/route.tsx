@@ -1,4 +1,4 @@
-import { sendVisitorMessage } from "@/app/lib/functions/aws-ses-mailer";
+import { sendVisitorMessage } from "@/lib/aws-ses-mailer";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {

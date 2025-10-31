@@ -1,5 +1,5 @@
 import Markdown from "react-markdown";
-import type { BlogArticleSlugT, BlogArticleTitleT, BlogArticleDateT, BlogArticleBodyT, BlogArticleReadtimeT, BlogArticleExcerptT } from "../../types/blog";
+import type { BlogArticleSlugT, BlogArticleTitleT, BlogArticleDateT, BlogArticleBodyT, BlogArticleReadtimeT, BlogArticleExcerptT } from "../../app/lib/types/blog";
 
 export const BlogArticle = ({ title, slug, excerpt, datePublished, readtime, body }: BlogArticlePropsT) => {
 
