@@ -1,5 +1,5 @@
-import { queryDatabase } from "@/app/lib/functions/query-database";
-import { DbQuery, DbWhereCondition } from "@/app/lib/types/db";
+import { queryDatabase } from "@/lib/query-database";
+import { DbQuery, DbWhereCondition } from "@/lib/types/db";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {

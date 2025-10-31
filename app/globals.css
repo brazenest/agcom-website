@@ -131,3 +131,38 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease;
   font-family: Inter, system-ui, sans-serif;
 }
+
+/*──────────────────────────────────────────────
+CTA COLOR ISOLATION — Prevent button color bleed
+──────────────────────────────────────────────*/
+
+/* 1️⃣ Reset normal text color contexts for major structural containers */
+section, header, main, footer {
+  color: var(--color-text);
+}
+
+/* 2️⃣ Ensure paragraphs, list items, and inline links default to neutral text */
+p,
+li,
+a:not(.btn):not(.cta):not(.ghost) {
+  color: var(--color-text);
+}
+
+/* 3️⃣ Explicit CTA scope — only these may have colored backgrounds */
+a.btn,
+a.cta {
+  color: #fff !important;
+}
+
+/* 4️⃣ Stop color inheritance inside CTAs */
+a.btn *,
+a.cta * {
+  color: inherit !important;
+}
+
+/* 5️⃣ Maintain proper readability in dark theme */
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] a:not(.btn):not(.cta):not(.ghost) {
+  color: var(--color-subtext);
+}

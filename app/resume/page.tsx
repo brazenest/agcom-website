@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import DownloadButton from "@/app/lib/components/DownloadButton";
+import DownloadButton from "@/components/DownloadButton";
 
 export default function ResumePage() {
     const resumeRef = useRef<HTMLDivElement>(null);

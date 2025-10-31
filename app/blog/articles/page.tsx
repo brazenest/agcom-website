@@ -1,6 +1,6 @@
-import { BlogArticleT } from "../../lib/types/blog";
-import { displayDate } from "../../lib/functions/display-date";
-import { getArticles } from "../../lib/functions/get-articles";
+import { BlogArticleT } from "@/lib/types/blog";
+import { displayDate } from "@/lib/display-date";
+import { getArticles } from "@/lib/get-articles";
 
 export default async function BlogPage() {
   const posts: BlogArticleT[] = await getArticles()

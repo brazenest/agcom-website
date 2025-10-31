@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./style-guide.css";
 import "./globals.css";
-import SiteHeader from "./lib/components/site/SiteHeader";
-import SiteFooter from "./lib/components/site/SiteFooter";
-import ThemeProvider from "./lib/components/ThemeProvider";
+import SiteHeader from "@/components/site/SiteHeader";
+import SiteFooter from "@/components/site/SiteFooter";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const fontTech = Inter({
   variable: '--font-tech',

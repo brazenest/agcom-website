@@ -1,4 +1,4 @@
-import { UrlQueryParam } from "../types/generic"
+import { UrlQueryParam } from "./types/generic"
 import { generateUrlParamsString } from "./generate-url-params-string"
 
 export const generateUrl = ({ scheme, host, port, path = '/', queryParams = [], fragment = undefined }: generateUrlPropsT) => (

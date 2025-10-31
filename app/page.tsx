@@ -1,7 +1,7 @@
-import About from "./lib/components/About";
-import Contact from "./lib/components/Contact";
-import FeaturedWork from "./lib/components/home-page/FeaturedWork";
-import Hero from "./lib/components/Hero";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import FeaturedWork from "@/components/home-page/FeaturedWork";
+import Hero from "@/components/Hero";
 
 export default async function HomePage() {
     return (

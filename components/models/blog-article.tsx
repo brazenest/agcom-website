@@ -1,4 +1,4 @@
-import { BlogArticleAuthorT, BlogArticleBodyT, BlogArticleDateT, BlogArticleExcerptT, BlogArticleIdT, BlogArticleReadtimeT, BlogArticleSlugT, BlogArticleTagT, BlogArticleTitleT } from "../../types/blog";
+import { BlogArticleAuthorT, BlogArticleBodyT, BlogArticleDateT, BlogArticleExcerptT, BlogArticleIdT, BlogArticleReadtimeT, BlogArticleSlugT, BlogArticleTagT, BlogArticleTitleT } from "../../app/lib/types/blog";
 
 export type BlogArticleModel = {
     id: BlogArticleIdT,
