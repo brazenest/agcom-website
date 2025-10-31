@@ -3,10 +3,11 @@ export default function BlogLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    return (
-        <div>
-            <h1>Alden Gillespy&apos;s Blog</h1>
-            {children}
-        </div>
-    )
+  return (
+    <div id="blog-area">
+      <div id="content" className="md:flex lg:max-w-7xl mx-auto">
+        {children}
+      </div>
+    </div>
+  )
 }

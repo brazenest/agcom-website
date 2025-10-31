@@ -1,16 +1,16 @@
-# AG Website
+# Alden Gillespy's Personal Website
 
-__v0.2.3__ (11 October 2025)
+__v1.0.0__ (TBD)
 
 ## How to use
 
 To begin development:
 
-`npm i && npm run dev`
+`yarn && yarn dev`
 
 In the future, for development just run:
 
-`npm run dev`
+`yarn dev`
 
 ## Legal info
 
