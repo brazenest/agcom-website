@@ -1,49 +1,74 @@
-import HeroVisual from "./HeroVisual";
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import Link from "next/link";
 
 export default function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"], // hero responds as it leaves viewport
+  });
+
+  // map scroll position to slight gradient shifts
+  const blueY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const amberY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const blueOpacity = useTransform(scrollYProgress, [0, 1], [0.08, 0.02]);
+  const amberOpacity = useTransform(scrollYProgress, [0, 1], [0.08, 0.02]);
+
   return (
-    <section className="relative max-w-7xl mx-auto px-6 py-24">
-      {/* 2-column on lg+, stacked on mobile. Visual is RIGHT on lg+ */}
-      <div className="grid items-center gap-12 lg:grid-cols-2">
-        {/* LEFT: Headline + copy + CTAs */}
-        <div className="order-2 space-y-6 text-center lg:order-1 lg:text-left not-prose">
-          <h1 className="font-space-grotesk text-5xl md:text-6xl font-bold text-[#0B1B3A] dark:text-white">
-            Engineering + Cinematic Storytelling
-          </h1>
+    <section
+      ref={ref}
+      className="relative flex flex-col items-center justify-center text-center px-6 pt-40 pb-32 overflow-hidden"
+    >
+      {/* Ambient gradient layers */}
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(58,167,255,1),transparent_60%)]"
+        style={{
+          y: blueY,
+          opacity: blueOpacity,
+          filter: "blur(60px)",
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(255,156,74,1),transparent_60%)]"
+        style={{
+          y: amberY,
+          opacity: amberOpacity,
+          filter: "blur(60px)",
+        }}
+      />
 
-          {/* Paragraph stays neutral (not blue) */}
-          <p className="text-lg text-neutral-700 dark:text-neutral-300">
-            Software • Video Production • Photography
-          </p>
+      {/* Headline */}
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="font-cinema text-5xl md:text-6xl font-semibold text-gradient relative z-10"
+      >
+        Engineering + Cinematic Storytelling
+      </motion.h1>
 
-          {/* CTA row */}
-          <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
-            {/* PRIMARY (white text is inline-styled so your global anchor color cannot override) */}
-            <a
-              href="#work"
-              className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium shadow-md transition-colors duration-300 bg-[#2563EB] hover:bg-[#1D4ED8]"
-              style={{ color: "#fff" }} // <- hard force
-            >
-              View My Work
-            </a>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+        className="mt-6 max-w-xl text-[var(--color-text-secondary)] text-lg relative z-10"
+      >
+        Software • Video Production • Photography
+      </motion.p>
 
-            {/* SECONDARY (outline) */}
-            <a
-              href="#about"
-              className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium border-2 transition-colors duration-300 border-amber-500 text-amber-600 hover:border-amber-400 hover:text-amber-500 dark:text-amber-400 dark:hover:text-amber-300"
-            >
-              Learn More
-            </a>
-          </div>
-        </div>
-
-        {/* RIGHT: Visual */}
-        <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-          <div className="w-full max-w-[560px]">
-            <HeroVisual />
-          </div>
-        </div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
+        className="mt-10 relative z-10"
+      >
+        <Link href="#work" className="btn">
+          View My Work
+        </Link>
+      </motion.div>
     </section>
   );
 }

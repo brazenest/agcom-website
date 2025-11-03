@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { Modal } from "./Modal";
 
-export default function ContactFormModal({ id, buttonText = 'Contact Me' }: ContactFormProps) {
+export default function ContactFormModal({ id, buttonText = 'Contact Me', buttonClassName }: ContactFormProps) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -43,7 +43,8 @@ export default function ContactFormModal({ id, buttonText = 'Contact Me' }: Cont
         <div id="contact-form-modal-wrap" className="text-gray-900">
             <button
                 onClick={openModal}
-                className="p-4 m-4 rounded-lg bg-green-500 text-white hover:bg-green-600"
+                className={buttonClassName ?? "p-4 m-4 rounded-lg bg-green-500 text-white hover:bg-green-600"}
+                aria-label={buttonText}
             >
                 {buttonText}
             </button>
@@ -90,4 +91,5 @@ export default function ContactFormModal({ id, buttonText = 'Contact Me' }: Cont
 type ContactFormProps = {
     id: string,
     buttonText?: string,
+    buttonClassName?: string,
 }

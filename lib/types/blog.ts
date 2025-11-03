@@ -1,38 +1,38 @@
 
-export type BlogArticleIdT = BlogIdT
-export type BlogArticleSlugT = BlogSlugT
-export type BlogArticleTitleT = BlogTitleT
-export type BlogArticleExcerptT = BlogExcerptT
-export type BlogArticleDateT = BlogDateT
-export type BlogArticleTagT = BlogTagT
-export type BlogArticleAuthorT = BlogAuthorT
-export type BlogArticleReadtimeT = BlogReadtimeT
-export type BlogArticleBodyT = BlogBodyT
-export type BlogArticleT = {
-    id: BlogArticleIdT,
-    slug: BlogArticleSlugT,
-    title: BlogArticleTitleT,
-    excerpt: BlogArticleExcerptT,
-    datePublished: BlogArticleDateT,
-    // tags: BlogArticleTagT[],
-    // author: BlogArticleAuthorT,
-    readtime: BlogArticleReadtimeT,
-    body: BlogArticleBodyT,
+export type ArticleIdT = IdT
+export type ArticleSlugT = SlugT
+export type ArticleTitleT = TitleT
+export type ArticleExcerptT = ExcerptT
+export type ArticleDateT = DateT
+export type ArticleTagT = TagT
+export type ArticleAuthorT = AuthorT
+export type ArticleReadtimeT = ReadtimeT
+export type ArticleBodyT = BodyT
+export type ArticleT = {
+    id: ArticleIdT,
+    slug: ArticleSlugT,
+    title: ArticleTitleT,
+    excerpt: ArticleExcerptT,
+    datePublished: ArticleDateT,
+    // tags: ArticleTagT[],
+    // author: ArticleAuthorT,
+    readtime: ArticleReadtimeT,
+    body: ArticleBodyT,
 }
 
-type BlogEmailT = string
-type BlogNameT = string
+type EmailT = string
+type NameT = string
 
-type BlogIdT = number
-type BlogSlugT = string
-type BlogTitleT = string
-type BlogExcerptT = string
-type BlogDateT = Date | string
-type BlogTagT = string
-type BlogAuthorT = {
-    id: BlogIdT,
-    email?: BlogEmailT,
-    name?: BlogNameT,
+type IdT = number
+type SlugT = string
+type TitleT = string
+type ExcerptT = string
+type DateT = Date | string
+type TagT = string
+type AuthorT = {
+    id: IdT,
+    email?: EmailT,
+    name?: NameT,
 }
-type BlogReadtimeT = number
-type BlogBodyT = string
+type ReadtimeT = number
+type BodyT = string

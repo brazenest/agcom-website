@@ -1,128 +1,112 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    darkMode: ["class", "[data-theme='dark']"],
-    content: [
-        './app/**/*.{js,ts,jsx,tsx,mdx}', // For App Router projects
-        './pages/**/*.{js,ts,jsx,tsx,mdx}', // For Pages Router projects
-        './components/**/*.{js,ts,jsx,tsx,mdx}',
-        // Add other paths if you have components or files in different directories
-    ],
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ["var(--font-sans)"],
-                display: ["var(--font-display)"],
-            },
-            colors: {
-                bg: 'var(--color-bg)',
-                surface: 'var(--color-surface)',
-                'surface-alt': 'var(--color-surface-alt)',
-                border: 'var(--color-border)',
-                text: 'var(--color-text)',
-                subtext: 'var(--color-subtext)',
-                'accent-blue': 'var(--color-accent-blue)',
-                'accent-blue-light': 'var(--color-accent-blue-light)',
-                'accent-amber': 'var(--color-accent-amber)',
-                'accent-amber-light': 'var(--color-accent-amber-light)',
-                'accent-green': 'var(--color-accent-green)',
-                'accent-red': 'var(--color-accent-red)',
+  darkMode: ["class", '[data-theme="dark"]'], // supports either dark class or data-theme
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./styles/**/*.{css,scss}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        display: ["var(--font-display)"],
+        inter: ["Inter", "system-ui", "sans-serif"],
+        "space-grotesk": ["Space Grotesk", "system-ui", "sans-serif"],
+        engineering: ["Inter", "sans-serif"],
+        cinema: ["Space Grotesk", "sans-serif"],
+      },
 
-                /* Semantic Roles */
-                'bg-hero': 'var(--color-bg-hero)',
-                'bg-section': 'var(--color-bg-section)',
-                'bg-footer': 'var(--color-bg-footer)',
-                'card-surface': 'var(--color-card-surface)',
-                'card-border': 'var(--color-card-border)',
-                'card-text': 'var(--color-card-text)',
+      fontSize: {
+        base: "1rem",
+        xl: "1.5rem",
+        "2xl": "2rem",
+        "3xl": "2.5rem",
+        "4xl": "3rem"
+      },
 
-                link: 'var(--color-link)',
-                'link-hover': 'var(--color-link-hover)',
-                'link-external': 'var(--color-link-external-icon)',
-            },
+      lineHeight: {
+        normal: "1.6",
+        tight: "1.25"
+      },
 
-            /*────────── FONTS ──────────*/
-            fontFamily: {
-                sans: ['var(--font-sans)', 'sans-serif'],
-                display: ['var(--font-display)', 'sans-serif'],
-            },
+      letterSpacing: {
+        wide: "0.05em"
+      },
 
-            /*────────── BORDER RADIUS ──────────*/
-            borderRadius: {
-                sm: 'var(--radius-sm)',
-                md: 'var(--radius-md)',
-                lg: 'var(--radius-lg)',
-                xl: 'var(--radius-xl)',
-            },
-
-            /*────────── SHADOWS ──────────*/
-            boxShadow: {
-                soft: 'var(--shadow-soft)',
-                strong: 'var(--shadow-strong)',
-            },
-
-            /*────────── SPACING ──────────*/
-            spacing: {
-                1: 'var(--space-1)',
-                2: 'var(--space-2)',
-                3: 'var(--space-3)',
-                4: 'var(--space-4)',
-                6: 'var(--space-6)',
-                8: 'var(--space-8)',
-                12: 'var(--space-12)',
-                16: 'var(--space-16)',
-                20: 'var(--space-20)',
-                32: 'var(--space-32)',
-            },
-
-            /*────────── FONT SIZES ──────────*/
-            fontSize: {
-                xs: 'var(--text-xs)',
-                sm: 'var(--text-sm)',
-                base: 'var(--text-base)',
-                lg: 'var(--text-lg)',
-                xl: 'var(--text-xl)',
-                '2xl': 'var(--text-2xl)',
-                '3xl': 'var(--text-3xl)',
-                '4xl': 'var(--text-4xl)',
-                '5xl': 'var(--text-5xl)',
-            },
-
-            /*────────── TRANSITIONS ──────────*/
-            transitionDuration: {
-                fast: '150ms',
-                normal: '250ms',
-                slow: '400ms',
-            },
-            transitionTimingFunction: {
-                smooth: 'ease',
-            },
+      colors: {
+        /* Token-based color system */
+        bg: "#0E0E10",
+        surface: "#161618",
+        "surface-alt": "#1A1A1C",
+        divider: "#2A2A2E",
+        text: {
+          primary: "#F5F5F7",
+          secondary: "#A0A0A5",
+          inverse: "#0E0E10"
         },
-        boxShadow: {
-            soft: "var(--shadow-soft)",
-            strong: "var(--shadow-strong)",
+        accent: {
+          blue: "var(--color-accent-blue)",
+          amber: "var(--color-accent-amber)",
         },
-        borderRadius: {
-            xl: "var(--radius)",
-        },
+      },
+
+      backgroundImage: {
+        "gradient-tech": "var(--gradient-tech)",
+        "gradient-cinema": "var(--gradient-cinema)",
+        "gradient-hybrid": "var(--gradient-hybrid)",
+        "bg-hero": "var(--color-bg-hero)",
+      },
+
+      boxShadow: {
+        soft: "0 4px 20px rgba(0, 0, 0, 0.35)",
+        strong: "0 8px 40px rgba(0, 0, 0, 0.45)"
+      },
+
+      spacing: {
+        1: "0.25rem",
+        2: "0.5rem",
+        3: "0.75rem",
+        4: "1rem",
+        6: "1.5rem",
+        8: "2rem",
+        12: "3rem",
+        16: "4rem",
+        24: "6rem",
+        32: "8rem"
+      },
+
+      borderRadius: {
+        sm: "0.25rem",
+        md: "0.5rem",
+        lg: "1rem",
+        xl: "2rem",
+        "2xl": "3rem"
+      },
+
+      container: {
+        center: true,
+        padding: "2rem",
+        screens: {
+          sm: "640px",
+          md: "768px",
+          lg: "1024px",
+          xl: "1280px",
+          "2xl": "1440px"
+        }
+      },
+
+      transitionTimingFunction: {
+        fast: "var(--transition-fast)",
+        normal: "var(--transition-normal)",
+        slow: "var(--transition-slow)",
+      },
     },
-    /*────────── PLUGINS ──────────*/
-    plugins: [
-        function ({ addUtilities }) {
-            const newUtilities = {
-                '.gradient-cinematic': {
-                    background:
-                        'linear-gradient(to right, var(--color-accent-blue), var(--color-accent-amber))',
-                },
-                '.gradient-tech': {
-                    background:
-                        'linear-gradient(135deg, var(--color-tech-bg), var(--color-accent-blue))',
-                },
-                '.gradient-cinema': {
-                    background:
-                        'linear-gradient(135deg, var(--color-cinema-bg), var(--color-accent-amber))',
-                },
-            };
-            addUtilities(newUtilities, ['responsive', 'hover']);
-        },
-    ],
+  },
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

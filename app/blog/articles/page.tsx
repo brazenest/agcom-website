@@ -1,57 +1,48 @@
-import { BlogArticleT } from "@/lib/types/blog";
-import { displayDate } from "@/lib/display-date";
-import { getArticles } from "@/lib/get-articles";
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
-export default async function BlogPage() {
-  const posts: BlogArticleT[] = await getArticles()
+const posts = [
+  {
+    title: "Designing a Cinematic Developer Portfolio",
+    excerpt:
+      "How to merge the precision of engineering with the emotional resonance of film — the philosophy behind my site’s latest redesign.",
+    date: "October 30, 2025",
+    href: "/blog/cinematic-portfolio",
+  },
+  {
+    title: "React and Visual Storytelling",
+    excerpt:
+      "Exploring component-driven design as a medium for narrative — why interfaces should feel directed, not assembled.",
+    date: "October 10, 2025",
+    href: "/blog/react-storytelling",
+  },
+];
 
+export default function BlogPage() {
   return (
-    <main id="page-content" className="flex flex-col min-h-screen text-gray-900">
-      {/* ===== Blog Grid ===== */}
-      <section className="px-6 sm:px-12 lg:px-24 py-32 bg-[#F8FAFC]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-12 text-center text-gray-900">Latest Posts</h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-                <article key={post.slug} id={`article-${post.id}--${post.slug}`} className="rounded-xl shadow-md p-8 hover:shadow-lg transition text-left">
-                  <div className="mb-4 text-sm text-gray-500">{displayDate(post.datePublished as string)} • {post.readtime}</div>
-                  <h3 className="text-2xl font-semibold mb-3 text-gray-900">
-                    {post.title}
-                  </h3>
-                  <p className="text-base text-gray-700 leading-relaxed mb-4">
-                    {post.excerpt}
-                  </p>
-                  <a
-                    href={`/blog/articles/${post.slug}`}
-                    className="text-blue-500 font-semibold hover:text-purple-500 transition"
-                  >
-                    Read more →
-                  </a>
-                </article>
-            ))}
-          </div>
+    <main className="bg-[var(--color-bg)] min-h-screen">
+      <Navbar />
+      <section className="max-w-5xl mx-auto px-6 pt-40 pb-24">
+        {/* Ambient gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(58,167,255,0.05),transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,rgba(255,156,74,0.05),transparent_60%)] pointer-events-none" />
+
+        <h1 className="font-cinema text-4xl mb-8 text-gradient">Blog</h1>
+
+        <div className="grid gap-10">
+          {posts.map((post) => (
+            <Link
+              key={post.title}
+              href={post.href}
+              className="card block hover:bg-[var(--color-surface-alt)] transition-colors"
+            >
+              <h2 className="font-cinema text-2xl mb-2">{post.title}</h2>
+              <p className="font-engineering text-[var(--color-text-secondary)] mb-4">{post.excerpt}</p>
+              <p className="font-engineering text-xs text-[var(--color-text-secondary)]">{post.date}</p>
+            </Link>
+          ))}
         </div>
-      </section >
-
-      {/* ===== CTA Section ===== */}
-      < section className="px-6 sm:px-12 lg:px-24 py-32 bg-[#EDF1F5] text-center text-gray-700" >
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-6 text-gray-900">Join the Conversation</h2>
-          <p className="text-lg leading-relaxed mb-8">
-            I write about modern web development, design systems, and lessons learned along the way.
-            Subscribe or reach out if you’d like to chat about ideas or collaborate.
-          </p>
-          <a
-            href="mailto:hello@aldengillespy.com"
-            className="px-6 py-3 bg-blue-500 text-white rounded-xl font-semibold hover:bg-purple-500 transition"
-          >
-            Say Hello
-          </a>
-        </div>
-      </section >
-
-      {/* ===== Footer ===== */}
-
-    </main >
+      </section>
+    </main>
   );
 }

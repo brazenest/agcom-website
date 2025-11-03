@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* ---------- Base Layer ---------- */
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-engineering);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Headings ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-cinema);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-heading);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  background: var(--color-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
+}
+
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+/* ---------- Links ---------- */
+a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-amber);
+  opacity: 0.9;
+}
+
+/* ---------- Buttons ---------- */
+button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-engineering);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-inverse);
+  background: var(--color-accent-gradient);
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center text-sm font-medium rounded-lg;
+  background: var(--color-accent-gradient);
+  color: var(--color-text-inverse);
+  font-family: var(--font-engineering);
+  padding: 0.75rem 1.5rem;
+  transition: transform 0.25s var(--motion-ease-hero), box-shadow 0.25s var(--motion-ease-hero);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Ensure CTAs on colored backgrounds use strong white text for contrast */
+.cta-contrast {
+  color: #fff !important;
+}
+
+
+/* ---------- Card ---------- */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-6);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  background-color: var(--color-surface-alt);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ---------- Dividers ---------- */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-divider);
+  margin: var(--space-8) 0;
+}
+
+/* ---------- Utility Mix ---------- */
+.text-gradient {
+  background: var(--color-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-secondary { color: var(--color-text-secondary); }
+.surface { background-color: var(--color-surface); border-radius: var(--radius-lg); }

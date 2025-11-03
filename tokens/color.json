@@ -1,0 +1,88 @@
+{
+  "color": {
+    "base": {
+      "bg": {
+        "value": "#0E0E10",
+        "type": "color",
+        "comment": "Primary background — deep neutral black with cinematic tone"
+      },
+      "surface": {
+        "value": "#161618",
+        "type": "color",
+        "comment": "Elevated surfaces such as cards or panels"
+      },
+      "surfaceAlt": {
+        "value": "#1A1A1C",
+        "type": "color",
+        "comment": "Alternate surface tone for hover states"
+      },
+      "divider": {
+        "value": "#2A2A2E",
+        "type": "color",
+        "comment": "Subtle grid lines, separators, and borders"
+      }
+    },
+
+    "text": {
+      "primary": {
+        "value": "#F5F5F7",
+        "type": "color",
+        "comment": "Main body and heading text — soft white for readability"
+      },
+      "secondary": {
+        "value": "#A0A0A5",
+        "type": "color",
+        "comment": "Muted gray for metadata and subtext"
+      },
+      "inverse": {
+        "value": "#0E0E10",
+        "type": "color",
+        "comment": "Used inside bright UI elements like gradient buttons"
+      }
+    },
+
+    "accent": {
+      "blue": {
+        "value": "#3AA7FF",
+        "type": "color",
+        "comment": "Engineering accent color — precise and cool"
+      },
+      "amber": {
+        "value": "#FF9C4A",
+        "type": "color",
+        "comment": "Cinematic accent color — warm and expressive"
+      },
+      "gradient": {
+        "value": "linear-gradient(90deg, #3AA7FF, #FF9C4A)",
+        "type": "color",
+        "comment": "Hybrid accent for hero text and key highlights"
+      }
+    },
+
+    "overlay": {
+      "blue": {
+        "value": "rgba(58, 167, 255, 0.06)",
+        "type": "color",
+        "comment": "Subtle ambient lighting for engineering sections"
+      },
+      "amber": {
+        "value": "rgba(255, 156, 74, 0.06)",
+        "type": "color",
+        "comment": "Subtle ambient lighting for cinematic sections"
+      }
+    },
+
+    "shadow": {
+      "soft": {
+        "value": "0 4px 20px rgba(0, 0, 0, 0.35)",
+        "type": "shadow",
+        "comment": "Default shadow for surfaces and cards"
+      },
+      "strong": {
+        "value": "0 8px 40px rgba(0, 0, 0, 0.45)",
+        "type": "shadow",
+        "comment": "Deeper cinematic shadow for elevated elements"
+      }
+    }
+  }
+}

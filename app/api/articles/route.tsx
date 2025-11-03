@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import mysql from 'mysql2/promise';
 import { apiQueryDatabase } from "@/lib/api/api-query-database";
 import { DB_CONNECTION_PARAMS } from "@/lib/constants";
+import { calculateReadtime } from "@/lib/calculate-readtime";
 
 export async function GET(req: NextRequest) {
     const query: string[] = []
@@ -11,7 +12,6 @@ export async function GET(req: NextRequest) {
     const sortOrder = req.nextUrl.searchParams.get('sortOrder')
     const showHidden = req.nextUrl.searchParams.get('showHidden')?.toLowerCase()
     if (slug) {
-        console.log('slug is present.', slug)
         query.push(
             'SELECT articles.slug, articles.title, articles.author as authorId, articles.datePublished, articles.body, articles.excerpt, authors.name as authorName',
             'FROM articles',
@@ -61,7 +61,6 @@ export async function POST(req: NextRequest) {
     const query = `insert into articles (title, slug, excerpt, author, datePublished, body) values (?, ?, ?, ?, ?, ?)`
     const values = [data.title, data.slug, data.excerpt, 1, data.datePublished, data.body]
 
-    console.log('API POST: adding article with data ===', data)
     let dbResponse
     let responseData
 
@@ -71,13 +70,13 @@ export async function POST(req: NextRequest) {
             ok: true,
             data: dbResponse,
         }
+        responseData.data[0]['readtime'] = calculateReadtime(responseData.data[0].body)
     } catch (err: any) {
         responseData = {
             ok: false,
             message: err.message,
         }
     } finally {
-        console.log('API POST: closing database connection. response data ===', responseData)
         return NextResponse.json(responseData)
     }
 

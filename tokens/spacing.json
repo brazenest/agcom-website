@@ -1,0 +1,75 @@
+{
+  "spacing": {
+    "scale": {
+      "1": { "value": "0.25rem", "type": "spacing", "comment": "Extra-tight (4px)" },
+      "2": { "value": "0.5rem", "type": "spacing", "comment": "Tight (8px)" },
+      "3": { "value": "0.75rem", "type": "spacing", "comment": "Compact (12px)" },
+      "4": { "value": "1rem", "type": "spacing", "comment": "Base (16px)" },
+      "6": { "value": "1.5rem", "type": "spacing", "comment": "Comfortable (24px)" },
+      "8": { "value": "2rem", "type": "spacing", "comment": "Section gap (32px)" },
+      "12": { "value": "3rem", "type": "spacing", "comment": "Major gap (48px)" },
+      "16": { "value": "4rem", "type": "spacing", "comment": "Section padding (64px)" },
+      "24": { "value": "6rem", "type": "spacing", "comment": "Hero spacing (96px)" },
+      "32": { "value": "8rem", "type": "spacing", "comment": "Full section break (128px)" }
+    },
+
+    "section": {
+      "paddingY": {
+        "value": "{spacing.scale.24.value}",
+        "type": "spacing",
+        "comment": "Vertical padding for hero or large sections"
+      },
+      "paddingY-sm": {
+        "value": "{spacing.scale.16.value}",
+        "type": "spacing",
+        "comment": "Standard section vertical padding"
+      },
+      "paddingX": {
+        "value": "{spacing.scale.8.value}",
+        "type": "spacing",
+        "comment": "Horizontal page padding (32px)"
+      }
+    },
+
+    "container": {
+      "maxWidth-sm": {
+        "value": "640px",
+        "type": "dimension"
+      },
+      "maxWidth-md": {
+        "value": "768px",
+        "type": "dimension"
+      },
+      "maxWidth-lg": {
+        "value": "1024px",
+        "type": "dimension"
+      },
+      "maxWidth-xl": {
+        "value": "1280px",
+        "type": "dimension"
+      },
+      "maxWidth-2xl": {
+        "value": "1440px",
+        "type": "dimension",
+        "comment": "Ideal for cinematic layout width"
+      }
+    },
+
+    "radius": {
+      "sm": { "value": "0.25rem", "type": "borderRadius" },
+      "md": { "value": "0.5rem", "type": "borderRadius" },
+      "lg": { "value": "1rem", "type": "borderRadius" },
+      "xl": { "value": "2rem", "type": "borderRadius" },
+      "2xl": { "value": "3rem", "type": "borderRadius" }
+    },
+
+    "grid": {
+      "columns": { "value": 12, "type": "grid" },
+      "gutter": {
+        "value": "{spacing.scale.8.value}",
+        "type": "spacing",
+        "comment": "Default grid gutter width (32px)"
+      }
+    }
+  }
+}
