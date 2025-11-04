@@ -1,0 +1,12 @@
+{
+  "css.variables": {
+    "color-accent-blue": "#3b82f6",
+    "color-accent-amber": "#f59e0b"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class(?:Name)?=\"([^\"]*)\"", "([A-Za-z0-9\\-_:]+)"]
+  ]
+}

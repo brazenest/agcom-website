@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import removeImports from 'next-remove-imports';
+import path from "path";
 // @ts-check
 
 const nextConfigFn = (phase, { defaultConfig }) => {
@@ -16,6 +17,10 @@ const nextConfigFn = (phase, { defaultConfig }) => {
       API_PORT: '80',
       API_SCHEME: 'https',
     },
+    reactStrictMode: true,
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
     async headers() {
       return [
         {
