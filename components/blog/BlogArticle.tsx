@@ -1,6 +1,5 @@
 "use client";
-import { ArticleSlugT, ArticleTitleT, ArticleExcerptT, ArticleDateT, ArticleReadtimeT, ArticleBodyT } from "@/lib/types/blog";
-import { motion } from "framer-motion";
+import { ArticleSlugT, ArticleTitleT, ArticleExcerptT, ArticleDateT, ArticleReadtimeT, ArticleBodyT } from "@/types/blog";
 import { format } from "date-fns";
 import Markdown from 'react-markdown';
 import FlowReactiveBackground from "../layouts/FlowReactiveBackground";

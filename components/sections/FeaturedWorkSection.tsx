@@ -84,7 +84,7 @@ export default function FeaturedWork() {
               }}
             >
               <Link
-                href={project.href ?? "#"}
+                href={"#"}
                 target={project.href?.startsWith("http") ? "_blank" : "_self"}
                 className="group block bg-[var(--color-surface)] border border-[var(--color-divider)] rounded-xl p-8 hover:bg-[var(--color-surface-alt)] hover:shadow-[var(--shadow-strong)] transition-all duration-700 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
               >

@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { calculateReadtime } from '@/lib/calculate-readtime';
+import { calculateReadtime } from '@/functions/calculate-readtime';
 import { DateSelector } from '@/components/DateSelector';
-import { queryApi } from '@/lib/query-api';
+import { queryApi } from '@/functions/query-api';
 
 const ContentEditor = dynamic(() => import('@/components/ContentEditor'), {
   ssr: false,

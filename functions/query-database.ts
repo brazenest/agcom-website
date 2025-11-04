@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
-import { DB_CONNECTION_PARAMS } from "./constants"
-import { DbQuery } from "./types/db"
+import { DB_CONNECTION_PARAMS } from "@/constants"
+import { DbQuery } from "@/types/db"
 
 export const queryDatabase = async ({ query, values = [] }: QueryDatabaseProps) => {
 

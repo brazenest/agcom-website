@@ -91,6 +91,22 @@ button:hover,
   color: #fff !important;
 }
 
+/* small spinner used in forms */
+.spinner {
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* focus outline for interactive elements to improve keyboard visibility */
+.focus-ring:focus {
+  outline: 3px solid rgba(59,130,246,0.35);
+  outline-offset: 2px;
+}
+
 
 /* ---------- Card ---------- */
 .card {

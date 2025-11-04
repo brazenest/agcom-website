@@ -1,4 +1,4 @@
-import type { ApiQueryParam, ApiQueryResponseT, queryApiParamsT } from '@/app/lib/types/api'
+import type { ApiQueryParam, queryApiParamsT } from '@/types/api'
 import { notFound } from 'next/navigation';
 import { queryApi } from './query-api';
 

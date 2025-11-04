@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import { DB_CONNECTION_PARAMS } from '../constants';
+import { DB_CONNECTION_PARAMS } from '@/constants';
 
 export const apiQueryDatabase = async (queryStatement: string, queryValues: any[] = []) => {
     if (queryStatement.length === 0) {

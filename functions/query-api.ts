@@ -1,6 +1,6 @@
-import { queryApiParamsT } from "./types/api";
-import { generateApiUrl } from "./api/generate-api-url";
-import { API_CONNECTION_PARAMS } from "./constants";
+import { queryApiParamsT } from "@/types/api";
+import { generateApiUrl } from "./generate-api-url";
+import { API_CONNECTION_PARAMS } from "@/constants";
 
 export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {} }: queryApiParamsT) => {
     let response;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE_VERSION } from "@/lib/constants";
+import { SITE_VERSION } from "@/constants";
 
 export default function SiteFooter() {
     return (

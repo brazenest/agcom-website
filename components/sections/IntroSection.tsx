@@ -41,7 +41,7 @@ export default function IntroSection() {
         </h2>
 
         <p className="font-[var(--font-engineering)] text-[var(--color-text-secondary)] text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
-          I’m Alden Gillespy — a full-stack engineer and creative storyteller. My work combines precision software development with cinematic design principles to craft interfaces and experiences that move both technically and emotionally.
+          I’m Alden Gillespy — a full-stack engineer and creative storyteller. I’m a multidisciplinary creator who bridges software development and visual art. My work focuses on building elegant systems, whether through React and Node or through a camera lens.
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
