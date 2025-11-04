@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import mysql from 'mysql2/promise';
 import { apiQueryDatabase } from "@/functions/api-query-database";
-import { DB_CONNECTION_PARAMS } from "@/lib/constants";
+import { DB_CONNECTION_PARAMS } from "@/constants";
 import { calculateReadtime } from "@/functions/calculate-readtime";
 
 export async function GET(req: NextRequest) {

@@ -12,13 +12,19 @@ export const getArticles = async ({ params = [] }: getArticlesProps = {}) => {
 
     queryRequestParams.params?.push({ key: 'sortOrder', value: 'newestFirst' })
 
-    const result = await queryApi(queryRequestParams)
+    const response = await queryApi(queryRequestParams)
 
-    if (!result.ok) {
+    if (!response.ok) {
         notFound()
     }
 
-    return result.data
+    const responseData = response.data.map(article => ({
+        ...article,
+        date: article.datePublished,
+        href: `/blog/articles/${article.slug}`
+    }))
+
+    return responseData
 }
 
 type getArticlesProps = {

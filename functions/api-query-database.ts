@@ -24,6 +24,7 @@ export const apiQueryDatabase = async (queryStatement: string, queryValues: any[
             message: err.message,
         }
     } finally {
+        connection.end()
         return responseData
     }
 }

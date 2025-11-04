@@ -8,7 +8,7 @@ export const API_ARTICLES_REQUEST_PATH = '/api/articles'
 export const API_TAGCLOUD_REQUEST_PATH = '/api/tag-cloud'
 
 export const API_REQUEST_SCHEME = 'https'
-export const API_REQUEST_HOST = 'stunning-guide-grjrr7659p439wwx-3000.app.github.dev'
+export const API_REQUEST_HOST = 'animated-bassoon-xp7ppvx9j5xfpq96-3000.app.github.dev'
 export const API_REQUEST_PORT = 80
 
 export const API_CONNECTION_PARAMS = {
