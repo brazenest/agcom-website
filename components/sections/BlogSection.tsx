@@ -9,6 +9,7 @@ import Link from "next/link";
 const articles: ArticleT[] = (
   await getArticles({ params: [{ key: 'limit', value: 3 }] })
 ).map(article => ({
+  ...article,
   date: formatDate(article.date, 'MMMM YYYY'),
 }))
 
