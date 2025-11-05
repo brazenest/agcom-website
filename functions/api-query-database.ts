@@ -13,7 +13,6 @@ export const apiQueryDatabase = async (queryStatement: string, queryValues: any[
 
     try {
         dbResponse = await connection.execute(queryStatement, queryValues)
-        console.log('apiQueryDatabase(): Query:', queryStatement, '|-| Database Query Response:', dbResponse)
         responseData = {
             ok: true,
             data: dbResponse[0],
@@ -24,6 +23,7 @@ export const apiQueryDatabase = async (queryStatement: string, queryValues: any[
             message: err.message,
         }
     } finally {
+        connection.end()
         return responseData
     }
 }

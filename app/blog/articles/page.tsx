@@ -1,24 +1,17 @@
 import Navbar from "@/components/SiteNavbar";
+import { formatDate } from "@/functions/formatDate";
+import { getArticles } from "@/functions/get-articles";
+import { ArticleT } from "@/types/blog";
 import Link from "next/link";
 
-const posts = [
-  {
-    title: "Designing a Cinematic Developer Portfolio",
-    excerpt:
-      "How to merge the precision of engineering with the emotional resonance of film — the philosophy behind my site’s latest redesign.",
-    date: "October 30, 2025",
-    href: "/blog/cinematic-portfolio",
-  },
-  {
-    title: "React and Visual Storytelling",
-    excerpt:
-      "Exploring component-driven design as a medium for narrative — why interfaces should feel directed, not assembled.",
-    date: "October 10, 2025",
-    href: "/blog/react-storytelling",
-  },
-];
+export default async function BlogPage() {
+  const articles: ArticleT[] = (
+    await getArticles()
+  ).map(article => ({
+    ...article,
+    date: formatDate(article.date, 'MMMM YYYY'),
+  }))
 
-export default function BlogPage() {
   return (
     <main className="bg-[var(--color-bg)] min-h-screen">
       <Navbar />
@@ -30,15 +23,15 @@ export default function BlogPage() {
         <h1 className="font-cinema text-4xl mb-8 text-gradient">Blog</h1>
 
         <div className="grid gap-10">
-          {posts.map((post) => (
+          {articles.map((article) => (
             <Link
-              key={post.title}
-              href={post.href}
+              key={article.title}
+              href={article.href}
               className="card block hover:bg-[var(--color-surface-alt)] transition-colors"
             >
-              <h2 className="font-cinema text-2xl mb-2">{post.title}</h2>
-              <p className="font-engineering text-[var(--color-text-secondary)] mb-4">{post.excerpt}</p>
-              <p className="font-engineering text-xs text-[var(--color-text-secondary)]">{post.date}</p>
+              <h2 className="font-cinema text-2xl mb-2">{article.title}</h2>
+              <p className="font-engineering text-[var(--color-text-secondary)] mb-4">{article.excerpt}</p>
+              <p className="font-engineering text-xs text-[var(--color-text-secondary)]">{article.date}</p>
             </Link>
           ))}
         </div>

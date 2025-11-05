@@ -1,42 +1,17 @@
 "use client";
 
+import { formatDate } from "@/functions/formatDate";
+import { getArticles } from "@/functions/get-articles";
+import { ArticleT } from "@/types/blog";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-interface Article {
-  title: string;
-  excerpt: string;
-  date: string;
-  category: "engineering" | "cinematic" | "personal";
-  href: string;
-}
-
-const articles: Article[] = [
-  {
-    title: "Designing a Portfolio That Feels Like a Film",
-    excerpt:
-      "How I approached the visual language of aldengillespy.com — balancing engineering precision with cinematic emotion.",
-    date: "October 2025",
-    category: "cinematic",
-    href: "/blog/designing-a-portfolio-that-feels-like-a-film",
-  },
-  {
-    title: "Next.js Motion Design with Framer and Tailwind",
-    excerpt:
-      "A deep dive into using Framer Motion to create expressive, cinematic interactions in modern web applications.",
-    date: "September 2025",
-    category: "engineering",
-    href: "/blog/nextjs-motion-design",
-  },
-  {
-    title: "Why Storytelling Matters in Software",
-    excerpt:
-      "Behind every elegant UI is a story worth telling — how narrative structure informs interface design.",
-    date: "August 2025",
-    category: "personal",
-    href: "/blog/storytelling-in-software",
-  },
-];
+const articles: ArticleT[] = (
+  await getArticles({ params: [{ key: 'limit', value: 3 }] })
+).map(article => ({
+  ...article,
+  date: formatDate(article.date, 'MMMM YYYY'),
+}))
 
 export default function BlogSection() {
   return (
@@ -71,7 +46,7 @@ export default function BlogSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {articles.map((article, i) => (
             <motion.div
-              key={article.title}
+              key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{

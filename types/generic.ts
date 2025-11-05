@@ -6,5 +6,5 @@ export type ElementContent = string | ReactElement
 
 export type UrlQueryParam = {
     key: string,
-    value: string,
+    value: string | number,
 }

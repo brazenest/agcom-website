@@ -138,3 +138,39 @@ hr {
 
 .text-secondary { color: var(--color-text-secondary); }
 .surface { background-color: var(--color-surface); border-radius: var(--radius-lg); }
+
+/* ---------- Prose / Article Body ---------- */
+.prose p {
+  margin-top: 1em;
+  margin-bottom: 1.625em;
+  line-height: 1.6em;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  margin-top: 1.2em;
+  margin-bottom: .6em;
+}
+
+.prose code {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+.prose blockquote {
+  border-left-color: var(--color-accent-amber);
+  color: var(--color-text-secondary);
+  border-left-width: 2px;
+  padding-left: 1.375em;
+}
+
+.prose ul > li::marker {
+  color: var(--color-accent-blue);
+}
+.prose ul,
+.prose ol {
+  @apply list-disc list-inside pl-2;
+}
