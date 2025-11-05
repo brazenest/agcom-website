@@ -1,37 +1,20 @@
-import { BlogArticle } from '@/components/blog/blog-article';
-import { queryApi } from '@/lib/query-api';
-import { calculateReadtime } from '@/lib/calculate-readtime';
-import { notFound } from 'next/navigation';
+// app/blog/articles/[slug]/page.tsx
+import { getArticles } from "@/functions/get-articles";
+import { notFound } from "next/navigation";
+import BlogArticleClient from "@/components/blog/BlogArticleClient"; // 👈 import client component
+import { formatDate } from "@/functions/formatDate";
+import { ArticleT } from "@/types/blog";
 
-export default async function BlogArticlePage({ params }) {
-    const { slug } = await params
-    console.log('Blog Article Slug ===', slug)
-    if (!/^[a-zA-Z0-9-_]+$/.test(slug)) {
-        notFound()
-    }
+export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const articles: ArticleT[] = (
+    await getArticles({ params: [{ key: "slug", value: params.slug }] })
+  ).map(article => ({
+    ...article,
+    date: formatDate(article.date, 'MMMM YYYY'),
+  }))
 
-    const queryResponse = await queryApi({ endpoint: 'articles', data: { slug } })
+  if (!articles[0]) return notFound();
 
-    if (!queryResponse.ok) {
-        console.error(queryResponse.message)
-        notFound()
-    }
-
-    const data = queryResponse.data[0] // first (and only) item
- 
-    return (
-        <div className="article-wrap mx-auto max-w-2xl px-3">
-            <BlogArticle
-                // id={data.id}
-                slug={data.slug}
-                excerpt={data.excerpt}
-                // author={{ name: data.authorName }}
-                title={data.title}
-                datePublished={data.datePublished}
-                // tags={data.tags}
-                readtime={calculateReadtime(data.body)}
-                body={data.body}
-            />
-        </div>
-    )
+  // Pass the article down to the client component
+  return <BlogArticleClient article={articles[0]} />;
 }

@@ -1,13 +1,45 @@
-import { SITE_VERSION } from "../../app/lib/functions/constants";
+"use client";
 
-export default function SiteFooter() {
-    return (
-        <footer id="site-footer" role="contentinfo" className="max-w-7xl mx-auto px-6 py-12 bg-gray-900 text-gray-300">
-            <p className="mb-5">© {new Date().getFullYear()} Alden Gillespy</p>
-            <p className="mb-3 text-sm">Building clean, reliable, user-friendly web experiences</p>
-            <p className="mb-2 text-sm">Made with love in the Silicon Slopes of the Wasatch Valley and beautiful Salt Lake City, Utah, United States.</p>
-            <p className="text-xs">version {SITE_VERSION}</p>
-        </footer>
+import { motion } from "framer-motion";
+import Link from "next/link";
 
-    )
+export default function Footer() {
+  return (
+    <footer className="relative border-t border-[var(--color-divider)] bg-[var(--color-surface)] mt-24">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: [0.25, 0.8, 0.25, 1] }}
+        className="max-w-6xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-6 text-sm"
+      >
+        <p className="font-[var(--font-engineering)] text-[var(--color-text-secondary)]">
+          © {new Date().getFullYear()} Alden Gillespy — Engineering + Cinematic Storytelling
+        </p>
+
+        <div className="flex gap-6 text-[var(--color-text-secondary)] font-[var(--font-engineering)]">
+          <Link
+            href="https://youtube.com/c/SHADOWCATpictures"
+            target="_blank"
+            className="hover:text-[var(--color-accent-amber)] transition-colors"
+          >
+            YouTube
+          </Link>
+          <Link
+            href="https://www.instagram.com/agthecreative"
+            target="_blank"
+            className="hover:text-[var(--color-accent-amber)] transition-colors"
+          >
+            Instagram
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/alden-gillespy"
+            target="_blank"
+            className="hover:text-[var(--color-accent-amber)] transition-colors"
+          >
+            LinkedIn
+          </Link>
+        </div>
+      </motion.div>
+    </footer>
+  );
 }

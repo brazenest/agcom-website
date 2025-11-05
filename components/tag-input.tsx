@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { BlogArticleTagT } from "../app/lib/types/blog";
+import { ArticleTagT } from "@/types/blog";
 
 const ReactTags = require('react-tag-input').WithOutContext;
 
 const SEPARATORS = ["Enter", "Comma", "Tab"]
-const EXISTING_TAGS: BlogArticleTagT[] = []
+const EXISTING_TAGS: ArticleTagT[] = []
 
 const suggestions = EXISTING_TAGS
 
@@ -14,25 +14,25 @@ const KeyCodes = {
 };
 
 const TagInput = () => {
-  const [tags, setTags] = useState<BlogArticleTagT[]>([])
+  const [tags, setTags] = useState<ArticleTagT[]>([])
 
   const handleDelete = (index: number) => {
     setTags(tags.filter((_: any, i: number) => i !== index));
   };
 
-  const onTagUpdate = (index: number, newTag: BlogArticleTagT) => {
+  const onTagUpdate = (index: number, newTag: ArticleTagT) => {
     const updatedTags = [...tags];
     updatedTags.splice(index, 1, newTag);
     setTags(updatedTags);
   };
 
-  const handleAddition = (tag: BlogArticleTagT) => {
+  const handleAddition = (tag: ArticleTagT) => {
     setTags((prevTags) => {
       return [...prevTags, tag];
     });
   };
 
-  const handleDrag = (tag: BlogArticleTagT, currPos: number, newPos: number) => {
+  const handleDrag = (tag: ArticleTagT, currPos: number, newPos: number) => {
     const newTags = tags.slice();
 
     newTags.splice(currPos, 1);

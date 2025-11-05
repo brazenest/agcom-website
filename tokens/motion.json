@@ -1,0 +1,81 @@
+{
+  "motion": {
+    "duration": {
+      "long": {
+        "value": "1000ms",
+        "type": "duration",
+        "comment": "Hero entrances and major page transitions"
+      },
+      "medium": {
+        "value": "800ms",
+        "type": "duration",
+        "comment": "Section reveals and content fade-ins"
+      },
+      "short": {
+        "value": "250ms",
+        "type": "duration",
+        "comment": "Button hovers, micro-interactions"
+      },
+      "page": {
+        "value": "600ms",
+        "type": "duration",
+        "comment": "Crossfade between pages"
+      },
+      "overlay": {
+        "value": "400ms",
+        "type": "duration",
+        "comment": "Fade-to-black overlay cut"
+      }
+    },
+
+    "easing": {
+      "hero": {
+        "value": [0.16, 1, 0.3, 1],
+        "type": "cubic-bezier",
+        "comment": "Slow, cinematic ease for hero entrances"
+      },
+      "cinematic": {
+        "value": [0.25, 0.8, 0.25, 1],
+        "type": "cubic-bezier",
+        "comment": "Default cinematic ease for most motion"
+      },
+      "linear": {
+        "value": [0, 0, 1, 1],
+        "type": "cubic-bezier",
+        "comment": "For continuous ambient light drifts"
+      },
+      "easeOut": {
+        "value": [0, 0, 0.58, 1],
+        "type": "cubic-bezier",
+        "comment": "Quick responsive feedback (hover/press)"
+      }
+    },
+
+    "translate": {
+      "hero": {
+        "value": "40px",
+        "type": "distance",
+        "comment": "Headline rise distance"
+      },
+      "section": {
+        "value": "30px",
+        "type": "distance",
+        "comment": "Paragraph/card reveal offset"
+      },
+      "ui": {
+        "value": "10px",
+        "type": "distance",
+        "comment": "Minor element transitions"
+      }
+    },
+
+    "opacity": {
+      "min": { "value": 0, "type": "opacity" },
+      "max": { "value": 1, "type": "opacity" },
+      "ambient": {
+        "min": { "value": 0.02, "type": "opacity" },
+        "max": { "value": 0.08, "type": "opacity" }
+      }
+    }
+  }
+}

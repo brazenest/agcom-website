@@ -1,6 +1,6 @@
 # Alden Gillespy's Personal Website
 
-__v1.0.0__ (TBD)
+__v1.0.0__ (2025-11-05)
 
 ## How to use
 
