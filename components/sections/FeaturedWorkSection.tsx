@@ -16,14 +16,14 @@ const projects: Project[] = [
     description:
       "A React-based consumer activation flow handling millions of daily users, focused on reliability and intuitive UX.",
     category: "engineering",
-    href: "/work/ancestry-dna",
+    href: "https://ancestry.com/",
   },
   {
     title: "Timeshare Sales & Rentals Platform",
     description:
       "Full PHP + MySQL stack powering real-time listings, pricing, and customer dashboards for vacation ownership.",
     category: "engineering",
-    href: "/work/timeshare",
+    href: "https://www.sellmytimesharenow.com/",
   },
   {
     title: "SHADOWCATpictures",
@@ -37,7 +37,7 @@ const projects: Project[] = [
     description:
       "Next.js + TailwindCSS platform uniting engineering precision and cinematic design into a personal showcase.",
     category: "hybrid",
-    href: "/work/portfolio",
+    href: "#",
   },
 ];
 

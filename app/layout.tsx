@@ -4,8 +4,8 @@ import "@/styles/style-guide.css";
 import "@/styles/globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import PageTransition from "@/components/PageTransition";
-import SiteHeader from "@/components/layouts/SiteHeader";
-import SiteFooter from "@/components/layouts/SiteFooter";
+import SiteHeader from "@/components/site/SiteHeader";
+import SiteFooter from "@/components/site/SiteFooter";
 
 const fontTech = Inter({
   variable: '--font-tech',

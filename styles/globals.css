@@ -142,15 +142,18 @@ hr {
 /* ---------- Prose / Article Body ---------- */
 .prose p {
   margin-top: 1em;
-  margin-bottom: 1.625em;
-  line-height: 1.6em;
+  margin-bottom: calc(1em * 43 / 16);
+  line-height: calc(1em * 27 / 16);
 }
 
 .prose h1,
 .prose h2,
-.prose h3 {
-  margin-top: 1.2em;
-  margin-bottom: .6em;
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  margin-top: 1.5em;
+  margin-bottom: 2rem;
 }
 
 .prose code {
@@ -167,10 +170,16 @@ hr {
   padding-left: 1.375em;
 }
 
-.prose ul > li::marker {
+.prose ul > li::marker,
+.prose ol > li::marker {
   color: var(--color-accent-blue);
 }
 .prose ul,
 .prose ol {
-  @apply list-disc list-inside pl-2;
+  @apply list-disc list-outside pl-2 mx-4 my-2;
+}
+
+.prose ul li,
+.prose ol li {
+  @apply my-8;
 }

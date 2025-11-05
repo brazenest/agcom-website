@@ -1,4 +1,4 @@
-import Navbar from "@/components/SiteNavbar";
+import Navbar from "@/components/site/SiteNavbar";
 import { formatDate } from "@/functions/formatDate";
 import { getArticles } from "@/functions/get-articles";
 import { ArticleT } from "@/types/blog";

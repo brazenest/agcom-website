@@ -16,7 +16,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     const focusable = modalRef.current?.querySelectorAll<HTMLElement>(
       'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
     );
-    focusable && focusable[0]?.focus();
+    // focusable && focusable[0]?.focus();
 
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {

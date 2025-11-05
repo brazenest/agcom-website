@@ -1,16 +1,21 @@
-import Navbar from "@/components/SiteNavbar";
+import Navbar from "@/components/site/SiteNavbar";
 import Link from "next/link";
 import Image from "next/image";
 import AboutCard from "@/components/about/AboutCard";
 import AboutTimeline from "@/components/about/AboutTimeline";
+import ContactFormModal from "@/components/ContactFormModal";
+
+type AboutSkillT = {
+  title: string;
+  text: string;
+  category: ContentCategoryEnumT;
+  icon?: React.ReactNode;
+}
+
+type ContentCategoryEnumT = "engineering" | "cinematic" | "hybrid"
 
 export default function AboutPage() {
-  const skills: {
-    title: string;
-    text: string;
-    category: "engineering" | "cinematic" | "hybrid";
-    icon?: React.ReactNode;
-  }[] = [
+  const skills: AboutSkillT[] = [
     {
       title: "Software Engineering & Web Design",
       text: "Building polished web applications with React, TypeScript, Tailwind and pragmatic system design. I focus on accessibility, performance, and delightful motion.",
@@ -58,23 +63,24 @@ export default function AboutPage() {
     category?: "engineering" | "cinematic" | "hybrid";
   }[] = [
     {
-      year: "2025",
-      title: "Lead Frontend Engineer — Freelance & Collaborations",
-      description: "Designed and shipped motion-driven UI patterns for product launches and guided engineering teams on modern React architectures.",
+        year: "2023-2025",
+        title: "Consumer DNA Kit Activation Product — Full-Stack Engineer",
+        description: "Developed both front-end and back-end for Ancestry in React, Redux, Node.js, and Kotlin, creating a seamless onboarding experience for millions of users worldwide.",
       category: "engineering",
     },
     {
-      year: "2024",
-      title: "Cinematic Short — Director / Editor",
-      description: "Wrote, directed, and edited a short film screened at regional festivals. Focused on visual storytelling and color grading.",
-      category: "cinematic",
+        year: "2020-2021",
+        title: "Product Design & Systems Work - Full-Stack Developer, Timeshare Platform",
+        description: "Built a high-traffic timeshare sales and rentals platform at Concepta using PHP, MySQL, and Apache Solr, optimizing search performance and enabling thousands of daily user interactions.",
+        category: "hybrid",
     },
     {
-      year: "2022",
-      title: "Product Design & Systems Work",
-      description: "Built a portable design system and motion vocabulary used across marketing and product teams.",
-      category: "hybrid",
+        year: "2019—Present",
+        title: "Cinematic Short Films — Video Editor & Cinematic Producer",
+        description: "Began to produce and edit years' worth of cinematic videos of choreographed water fountains for my YouTube channel SHADOWCATpictures, earning 260,000+ views for their artistry, timing, and visual storytelling.",
+        category: "cinematic",
     },
+
   ];
 
   return (
@@ -105,7 +111,7 @@ export default function AboutPage() {
               </Link>
 
               <Link
-                href="/contact"
+                href="#contact"
                 className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] text-[var(--color-text-primary)] font-[var(--font-engineering)]"
               >
                 Get in Touch
@@ -158,29 +164,29 @@ export default function AboutPage() {
       <AboutTimeline timeline={timeline} />
 
       {/* Media / Highlights */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
+      {/* <section className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="font-[var(--font-cinema)] text-2xl mb-6 text-[var(--color-text-primary)]">Selected Projects</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Link href="/work/software-engineer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
+          <Link href="/#work/software-engineer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
             <div className="font-[var(--font-engineering)] font-semibold text-[var(--color-text-primary)] mb-2">Product Interfaces</div>
             <div className="text-sm text-[var(--color-text-secondary)]">Systems work, motion, and polished UIs for launch-ready products.</div>
           </Link>
 
-          <Link href="/work/video-producer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
+          <Link href="/#work/video-producer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
             <div className="font-[var(--font-engineering)] font-semibold text-[var(--color-text-primary)] mb-2">Films & Videos</div>
             <div className="text-sm text-[var(--color-text-secondary)]">Short films, commercials, and narrative-driven pieces I've directed and edited.</div>
           </Link>
 
-          <Link href="/work/photographer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
+          <Link href="/#work/photographer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
             <div className="font-[var(--font-engineering)] font-semibold text-[var(--color-text-primary)] mb-2">Photography</div>
             <div className="text-sm text-[var(--color-text-secondary)]">Portraits, location work, and stills for web and editorial use.</div>
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer CTA */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      <section id="contact" className="max-w-6xl mx-auto px-6 py-16">
         <div className="rounded-2xl p-8 bg-[var(--color-surface)] border border-[var(--color-divider)] flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="font-[var(--font-cinema)] text-xl text-[var(--color-text-primary)]">Want to collaborate?</h3>
@@ -188,8 +194,13 @@ export default function AboutPage() {
           </div>
 
             <div className="flex gap-3">
-            <Link href="/contact" aria-label="Contact Alden" className="inline-flex items-center px-5 py-3 rounded-lg bg-[var(--color-accent-blue)] text-white font-[var(--font-engineering)] cta-contrast">Contact</Link>
-            <Link href="/work" className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] font-[var(--font-engineering)]">See Work</Link>
+            <ContactFormModal
+              id="page-footer-contact"
+              buttonText="Contact"
+              aria-label="Contact Alden"
+              buttonClassName="inline-flex items-center px-5 py-3 rounded-lg bg-[var(--color-accent-blue)] text-white font-[var(--font-engineering)] !cta-contrast"
+            />
+            <Link href="/#work" className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] font-[var(--font-engineering)]">See Work</Link>
           </div>
         </div>
       </section>

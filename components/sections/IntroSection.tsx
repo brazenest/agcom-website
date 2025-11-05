@@ -52,7 +52,7 @@ export default function IntroSection() {
             View My Work
           </a>
           <a
-            href="#about"
+            href="/about"
             className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--color-divider)] text-[var(--color-text-primary)] font-[var(--font-engineering)] font-medium hover:bg-[var(--color-surface-alt)] transition-colors duration-300"
           >
             Learn More
