@@ -48,7 +48,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     document.addEventListener("keydown", onKeyDown);
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      previousActiveEl.current?.focus();
+      // previousActiveEl.current?.focus();
     };
   }, [isOpen, onClose]);
 

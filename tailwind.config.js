@@ -102,6 +102,18 @@ module.exports = {
         normal: "var(--transition-normal)",
         slow: "var(--transition-slow)",
       },
+      typography: ({ theme }) => ({
+        invert: {
+          css: {
+            "--tw-prose-body": theme("colors.gray.300"),
+            "--tw-prose-headings": theme("colors.white"),
+            "--tw-prose-links": theme("colors.blue.400"),
+            "--tw-prose-bold": theme("colors.white"),
+            "--tw-prose-quotes": theme("colors.gray.400"),
+            "--tw-prose-code": theme("colors.gray.200"),
+          },
+        },
+      }),
     },
   },
   plugins: [

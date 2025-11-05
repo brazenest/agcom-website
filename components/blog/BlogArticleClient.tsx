@@ -6,9 +6,6 @@ import remarkGfm from "remark-gfm";
 import { ArticleT } from "@/types/blog";
 
 export default function BlogPostClient({ article }: { article: ArticleT }) {
-    console.log('=================================================\nBlogArticleClient(): article ====', article)
-    console.log("article.body type:", typeof article.body, article.body);
-
     return (
         <article className="relative py-24 md:py-32 px-6 md:px-10 max-w-4xl mx-auto">
             {/* Ambient light layers */}
@@ -26,12 +23,7 @@ export default function BlogPostClient({ article }: { article: ArticleT }) {
             />
 
             <div className="relative z-10">
-                <motion.header
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: [0.25, 0.8, 0.25, 1] }}
-                    className="mb-12 text-center"
-                >
+                <header className="mb-12 text-center">
                     <p className="text-xs font-[var(--font-engineering)] text-[var(--color-text-secondary)] uppercase mb-2">
                         {article.category} {article.date}
                     </p>
@@ -41,30 +33,30 @@ export default function BlogPostClient({ article }: { article: ArticleT }) {
                     <p className="font-[var(--font-engineering)] text-[var(--color-text-secondary)] max-w-2xl mx-auto">
                         {article.excerpt}
                     </p>
-                </motion.header>
+                </header>
 
                 {/* Article body */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="prose prose-invert prose-lg font-[var(--font-engineering)] max-w-none"
-                >
+                <div className="prose prose-invert prose-lg font-[var(--font-engineering)] max-w-none">
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>
                         {article.body}
                     </ReactMarkdown>
-                </motion.div>
+                </div>
 
                 {/* Back link */}
-                <div className="mt-16 text-center">
+                <footer className="mt-16 text-center">
                     <a
-                        href="/#blog"
+                        href="/blog"
                         className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--color-divider)] text-[var(--color-text-primary)] font-[var(--font-engineering)] font-medium hover:bg-[var(--color-surface-alt)] transition-colors duration-300"
                     >
                         ← Back to Articles
                     </a>
-                </div>
+                </footer>
             </div>
+
+
+
+
+
         </article>
     );
 }

@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "@/styles/style-guide.css";
 import "@/styles/globals.css";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
 import ThemeProvider from "@/components/ThemeProvider";
-import DevAuditWrapper from "@/components/dev/DevAuditWrapper";
 import PageTransition from "@/components/PageTransition";
-import Footer from "@/components/layouts/Footer";
+import SiteHeader from "@/components/layouts/SiteHeader";
+import SiteFooter from "@/components/layouts/SiteFooter";
 
 const fontTech = Inter({
   variable: '--font-tech',
@@ -39,10 +37,10 @@ export default function RootLayout({
           <SiteHeader />
           <div id="site-content-wrap">
             <main className="min-h-screen max-w-7xl mx-auto bg-[var(--color-bg)] text-[var(--color-text)] font-sans transition-colors duration-300">
-              <PageTransition>{children}</PageTransition>
+              {children}
             </main>
           </div>
-          <Footer />
+          <SiteFooter />
         </ThemeProvider>
         {/* <DevAuditWrapper /> */}
       </body>

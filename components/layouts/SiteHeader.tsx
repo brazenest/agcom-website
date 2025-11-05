@@ -1,4 +1,4 @@
-import Navbar from "./SiteNavbar";
+import Navbar from "../SiteNavbar";
 
 export default function SiteHeader() {
     return (
