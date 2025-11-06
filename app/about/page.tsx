@@ -132,7 +132,7 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-2 text-sm text-[var(--color-text-primary)] font-[var(--font-engineering)]">
-              Hi, I'm Alden! Glad to meet you.
+              Hi, I&apos;m Alden! Glad to meet you.
             </div>
 
             <div className="text-sm text-[var(--color-text-secondary)]">Core Roles</div>

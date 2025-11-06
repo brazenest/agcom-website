@@ -27,5 +27,5 @@ export default function ContentEditor({ content, handleChange }: ContentEditorPr
 
 type ContentEditorProps = {
     content: ArticleBodyT,
-    handleChange: (value: any) => void,
+    handleChange: (value) => void,
 }

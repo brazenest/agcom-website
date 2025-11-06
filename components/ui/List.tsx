@@ -2,7 +2,7 @@ export const List = ({ itemsContent }) => {
     return (
         <div className="list-wrap">
             <ListItems>
-                {itemsContent.map(itemContent => <ListItem>{itemContent}</ListItem>)}
+                {itemsContent.map((itemContent, i) => <ListItem key={i}>{itemContent}</ListItem>)}
             </ListItems>
         </div>
     )

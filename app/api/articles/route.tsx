@@ -6,7 +6,7 @@ import { calculateReadtime } from "@/functions/calculate-readtime";
 
 export async function GET(req: NextRequest) {
     const query: string[] = []
-    let values: string[] = []
+    const values: string[] = []
 
     const slug = req.nextUrl.searchParams.get('slug')
     const sortOrder = req.nextUrl.searchParams.get('sortOrder')
@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
             data: dbResponse,
         }
         responseData.data[0]['readtime'] = calculateReadtime(responseData.data[0].body)
-    } catch (err: any) {
+    } catch (err) {
         responseData = {
             ok: false,
             message: err.message,

@@ -1,7 +1,5 @@
 import PageHero from "@/components/layouts/PageHero";
 import PageSection from "@/components/layouts/PageSection";
-import PageGrid from "@/components/layouts/PageGrid";
-import FeaturedWorkCard from "@/components/FeaturedWorkCard";
 import FeaturedWorkGrid from "@/components/work/FeaturedWorkGrid";
 
 export default function FeaturedWorkPage() {
