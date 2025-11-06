@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
     } catch (err) {
         responseData = {
             ok: false,
-            message: err.message,
+            message: err,
         }
     } finally {
         return NextResponse.json(responseData)
