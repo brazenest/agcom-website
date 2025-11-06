@@ -6,8 +6,9 @@ import { formatDate } from "@/functions/formatDate";
 import { ArticleT } from "@/types/blog";
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const { slug } = await params
   const articles: ArticleT[] = (
-    await getArticles({ params: [{ key: "slug", value: params.slug }] })
+    await getArticles({ params: [{ key: "slug", value: slug }] })
   ).map(article => ({
     ...article,
     date: formatDate(article.date, 'MMMM YYYY'),

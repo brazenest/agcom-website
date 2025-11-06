@@ -5,12 +5,11 @@ import Markdown from 'react-markdown';
 import FlowReactiveBackground from "../layouts/FlowReactiveBackground";
 import PageSection from "../layouts/PageSection";
 
-export const BlogArticle = ({ title, subtitle, slug, excerpt, datePublished, readtime, body }: ArticlePropsT) => {
+export const BlogArticle = ({ title, subtitle, datePublished, body }: ArticlePropsT) => {
 
     const date = new Date(datePublished)
     const articleDate = date.toISOString().split('T')[0]
     const formattedDate = format(new Date(articleDate), "MMMM d, yyyy")
-    const readtimeString = `${readtime} minute read`
 
     return (
             <article className="relative min-h-screen overflow-hidden">

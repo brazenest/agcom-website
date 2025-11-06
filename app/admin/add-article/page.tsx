@@ -33,7 +33,7 @@ export default function BlogAdminAddArticlePage() {
   }
   const handleChangeArticleSlug = (ev) => setArticleSlug(ev.target.value)
   const handleChangeArticleExcerpt = (ev) => setArticleExcerpt(ev.target.value)
-  const handleChangeArticleDatePublished = (date: string) => setArticleDatePublished(date)
+  const handleChangeArticleDatePublished = (date) => setArticleDatePublished(new Date(date))
   const handleChangeArticleAuthor = (ev) => setArticleAuthor(parseInt(ev.target.value))
 
   const handleFormSubmit = (ev) => ev.preventDefault()

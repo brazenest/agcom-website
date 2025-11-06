@@ -1,9 +1,9 @@
-import { BlogArticleT } from "./blog"
+import { ArticleT } from "./blog"
 import { UrlQueryParam } from "./generic"
 
 export type ApiArticlesQueryResponse = {
     ok: boolean,
-    data: BlogArticleT[],
+    data: ArticleT[],
 }
 
 export type ApiQueryParam = UrlQueryParam
