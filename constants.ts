@@ -1,4 +1,4 @@
-export const SITE_VERSION = '1.0.1'
+export const SITE_VERSION = '1.1.0'
 
 // export const API_REQUEST_SCHEME = 'http'
 // export const API_REQUEST_HOST = 'localhost'
@@ -8,7 +8,7 @@ export const API_ARTICLES_REQUEST_PATH = '/api/articles'
 export const API_TAGCLOUD_REQUEST_PATH = '/api/tag-cloud'
 
 export const API_REQUEST_SCHEME = 'https'
-export const API_REQUEST_HOST = 'animated-bassoon-xp7ppvx9j5xfpq96-3000.app.github.dev'
+export const API_REQUEST_HOST = 'aldengillespy.com'
 export const API_REQUEST_PORT = 80
 
 export const API_CONNECTION_PARAMS = {
@@ -32,3 +32,5 @@ export const DB_CONNECTION_PARAMS = {
     password: DB_PASSWORD,
     database: DB_NAME,
 }
+
+export const GOOGLE_ANALYTICS_MEASUREMENT_ID = 'G-DGCKGYKJK8'
