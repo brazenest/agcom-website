@@ -1,4 +1,4 @@
-export const SITE_VERSION = '1.0.1'
+export const SITE_VERSION = '1.1.0'
 
 // export const API_REQUEST_SCHEME = 'http'
 // export const API_REQUEST_HOST = 'localhost'
