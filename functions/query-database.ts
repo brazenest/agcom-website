@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 import { DB_CONNECTION_PARAMS } from "@/constants"
-import { DbQuery } from "@/types/db"
+import { DbClausePredicateEquality, DbQuery } from "@/types/db"
 
 export const queryDatabase = async ({ query, values = [] }: QueryDatabaseProps) => {
 
@@ -14,7 +14,7 @@ export const queryDatabase = async ({ query, values = [] }: QueryDatabaseProps) 
         } else if (Array.isArray(predicate)) { // a set of 1D values
             return `${keyword} ${predicate.join(', ')})}`
         } else { // a set of 2D values
-            return `${keyword} ${predicate.map(({ key, value }: { key: string, value: string }) => `${key} = ${value}`)}`
+            return `${keyword} ${(predicate as DbClausePredicateEquality[]).map(({ key, value }: { key: string, value: string }) => `${key} = ${value}`)}`
         }
 
     }).join(' ')

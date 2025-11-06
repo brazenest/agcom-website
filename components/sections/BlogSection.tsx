@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = 'force-dynamic';
 
 import { formatDate } from "@/functions/formatDate";
 import { getArticles } from "@/functions/get-articles";

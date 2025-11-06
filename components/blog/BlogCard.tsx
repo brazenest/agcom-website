@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function BlogCard({ post, delay }: any) {
+export default function BlogCard({ post, delay }) {
   const gradientClass =
     post.category?.toLowerCase() === "cinematic"
       ? "gradient-cinema"

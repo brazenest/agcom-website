@@ -27,7 +27,7 @@ export default function FeaturedWork() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-          {projects.map(project => <FeaturedWorkCard project={project} />)}
+          {projects.map((project, i) => <FeaturedWorkCard key={i} project={project} />)}
         </div>
       </div>
     </section>
