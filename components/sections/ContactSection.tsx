@@ -1,6 +1,6 @@
 "use client";
 
-import ContactModal from "../contact/ContactModal";
+import Link from "next/link";
 
 export default function ContactSection() {
   return (
@@ -9,7 +9,12 @@ export default function ContactSection() {
         <h2 className="font-[var(--font-cinema)] text-2xl mb-2 text-[var(--color-text-primary)]">Let’s talk</h2>
         <p className="text-[var(--color-text-secondary)] mb-6">Interested in working together or have a question? Send me a note and I’ll get back to you.</p>
         <div className="flex items-center justify-center">
-          <ContactModal />
+          <Link
+            href="mailto:ag@aldengillespy.com"
+            className="btn px-5 py-2 rounded-lg text-white transition"
+          >
+            Contact Me
+          </Link>
         </div>
       </div>
     </section>

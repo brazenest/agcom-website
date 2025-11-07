@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import ContactModal from "@/components/contact/ContactModal";
 
 export default function Navbar() {
   return (
@@ -23,7 +22,12 @@ export default function Navbar() {
           <Link href="/about" className="hover:text-[var(--color-accent-amber)] transition-colors">
             About
           </Link>
-          <ContactModal />
+          <Link
+            href="mailto:ag@aldengillespy.com"
+            className="btn px-5 py-2 rounded-lg text-white transition"
+          >
+            Contact Me
+          </Link>
         </div>
       </div>
     </nav>
