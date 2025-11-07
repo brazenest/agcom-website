@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ContactFormModal from "../ContactFormModal";
+import ContactModal from "@/components/contact/ContactModal";
 
 export default function Navbar() {
   return (
@@ -23,11 +23,7 @@ export default function Navbar() {
           <Link href="/about" className="hover:text-[var(--color-accent-amber)] transition-colors">
             About
           </Link>
-          <ContactFormModal
-            id="site-nav-contact"
-            buttonText="Contact Me!"
-            buttonClassName="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-amber)] text-white font-[var(--font-engineering)] !text-black"
-          />
+          <ContactModal />
         </div>
       </div>
     </nav>
