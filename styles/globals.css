@@ -183,3 +183,8 @@ hr {
 .prose ol li {
   @apply my-8;
 }
+
+@layer base {
+  .font-engineering { font-family: "Inter", sans-serif; }
+  .font-cinematic { font-family: "Space Grotesk", sans-serif; }
+}
