@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import AboutCard from "@/components/about/AboutCard";
 import AboutTimeline from "@/components/about/AboutTimeline";
-import ContactModal from "@/components/contact/ContactModal";
 
 type AboutSkillT = {
   title: string;
@@ -103,7 +102,7 @@ export default function AboutPage() {
 
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/work"
+                href="/#work"
                 className="inline-flex items-center px-5 py-3 rounded-lg bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-amber)] text-white font-[var(--font-engineering)] font-medium transition-transform duration-200 hover:-translate-y-[1px] !text-black"
                 aria-label="View my work"
               >
@@ -111,7 +110,7 @@ export default function AboutPage() {
               </Link>
 
               <Link
-                href="#contact"
+                href="mailto:ag@aldengillespy.com"
                 className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] text-[var(--color-text-primary)] font-[var(--font-engineering)]"
               >
                 Get in Touch
@@ -194,7 +193,12 @@ export default function AboutPage() {
           </div>
 
             <div className="flex gap-3">
-            <ContactModal />
+            <Link
+            href="mailto:ag@aldengillespy.com"
+            className="btn px-5 py-2 rounded-lg text-white transition"
+          >
+            Contact Me
+          </Link>
             <Link href="/#work" className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] font-[var(--font-engineering)]">See Work</Link>
           </div>
         </div>
