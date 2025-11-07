@@ -1,6 +1,6 @@
 # Alden Gillespy's Personal Website
 
-__v1.1.1__ (2025-11-07)
+__v1.1.2__ (2025-11-07)
 
 ## How to use
 
