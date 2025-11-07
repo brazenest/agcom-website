@@ -1,8 +1,5 @@
-export const SITE_VERSION = '1.1.3'
+export const SITE_VERSION = '1.2.0'
 
-// export const API_REQUEST_SCHEME = 'http'
-// export const API_REQUEST_HOST = 'localhost'
-// export const API_REQUEST_PORT = 3000
 export const API_REQUEST_PATH = '/api'
 export const API_ARTICLES_REQUEST_PATH = '/api/articles'
 export const API_TAGCLOUD_REQUEST_PATH = '/api/tag-cloud'
