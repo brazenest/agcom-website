@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import AboutCard from "@/components/about/AboutCard";
 import AboutTimeline from "@/components/about/AboutTimeline";
-import ContactFormModal from "@/components/ContactFormModal";
+import ContactModal from "@/components/contact/ContactModal";
 
 type AboutSkillT = {
   title: string;
@@ -194,12 +194,7 @@ export default function AboutPage() {
           </div>
 
             <div className="flex gap-3">
-            <ContactFormModal
-              id="page-footer-contact"
-              buttonText="Contact"
-              aria-label="Contact Alden"
-              buttonClassName="inline-flex items-center px-5 py-3 rounded-lg bg-[var(--color-accent-blue)] text-white font-[var(--font-engineering)] !cta-contrast"
-            />
+            <ContactModal />
             <Link href="/#work" className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] font-[var(--font-engineering)]">See Work</Link>
           </div>
         </div>
