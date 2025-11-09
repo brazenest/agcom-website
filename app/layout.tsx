@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Space_Grotesk, Inter } from "next/font/google";
-import "@/styles/style-guide.css";
 import "@/styles/globals.css";
-import ThemeProvider from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import SiteFooter from "@/components/site/SiteFooter";
 import { GOOGLE_ANALYTICS_MEASUREMENT_ID } from "@/constants";
@@ -49,7 +48,7 @@ export default function RootLayout({
         id="site"
         className={`${fontTech.variable} ${fontCinema.variable} antialiased`}
       >
-        <ThemeProvider>
+        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
           <SiteHeader links={siteHeaderNavbarLinks} />
           <div id="site-content-wrap">
             <main className="min-h-screen max-w-7xl mx-auto bg-[var(--color-bg)] text-[var(--color-text)] font-sans transition-colors duration-300">

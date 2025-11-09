@@ -1,0 +1,35 @@
+:root[data-theme="dark"] {
+  /* ====== BASE COLORS ====== */
+  --color-bg: #0D0D0F; /* Deep neutral base */
+  --color-surface: #18181B; /* Elevated surfaces like cards, navs */
+  --color-text-primary: #FAFAFA; /* High contrast text */
+  --color-text-secondary: #B0B0B0; /* Muted secondary text */
+  --color-border: #2A2A2A; /* Soft border contrast */
+  --color-hover: #3391FF; /* Active blue accent on hover */
+  --color-highlight: rgba(255, 171, 64, 0.1); /* Warm amber highlight overlay */
+
+  /* ====== ACCENTS ====== */
+  --color-accent-engineering: #3A9BFF; /* Cool tech blue */
+  --color-accent-cinematic: #FF9B4A; /* Warm amber/orange */
+
+  /* ====== SHADOWS / DEPTH ====== */
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.6);
+
+  /* ====== GRADIENTS ====== */
+  --gradient-engineering: linear-gradient(135deg, #1E56CC 0%, #3A9BFF 100%);
+  --gradient-cinematic: linear-gradient(135deg, #FF9B4A 0%, #FFD6A3 100%);
+
+  /* ====== GENERAL ELEMENTS ====== */
+  --color-button-bg: var(--color-accent-engineering);
+  --color-button-text: #FFFFFF;
+  --color-button-hover-bg: #1E56CC;
+
+  --color-link: var(--color-accent-engineering);
+  --color-link-hover: #9AD0FF;
+
+  /* ====== SCROLLBAR (for WebKit browsers) ====== */
+  --scrollbar-track: #111114;
+  --scrollbar-thumb: #333338;
+  --scrollbar-thumb-hover: #3A9BFF;
+}

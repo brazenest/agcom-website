@@ -1,149 +1,39 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import './light.css';
+@import './dark.css';
 
-/* ---------- Base Layer ---------- */
-html,
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  font-family: var(--font-engineering);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
+:root {
+    /* ---------- Typography ---------- */
+    --font-engineering: "Inter", sans-serif;
+    --font-cinematic: "Space Grotesk", sans-serif;
+    --font-sans: var(--font-engineering);
+    --font-display: var(--font-cinema);
+    --font-size-base: 1rem;
+    --font-size-xs: calc(0.75 * var(--font-size-base));
+    --font-size-sm: calc(0.875 * var(--font-size-base));
+    --font-size-md: var(--font-size-base);
+    --font-size-lg: calc(1.125 * var(--font-size-base));
+    --font-size-xl: calc(1.5 * var(--font-size-base));
+    --font-size-2xl: calc(2 * var(--font-size-base));
+    --font-size-3xl: calc(2.5 * var(--font-size-base));
+    --font-size-4xl: calc(3 * var(--font-size-base));
+    --line-height-base: 1.6;
+    --line-height-heading: 1.25;
 }
 
-/* ---------- Headings ---------- */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-cinema);
-  color: var(--color-text-primary);
-  line-height: var(--line-height-heading);
-  font-weight: 600;
-}
-
-h1 {
-  font-size: var(--font-size-4xl);
-  background: var(--color-accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
-}
-
-h2 { font-size: var(--font-size-3xl); }
-h3 { font-size: var(--font-size-2xl); }
-h4 { font-size: var(--font-size-xl); }
-h5 { font-size: var(--font-size-lg); }
-h6 { font-size: var(--font-size-base); }
-
-/* ---------- Links ---------- */
-a {
-  color: var(--color-accent-blue);
-  text-decoration: none;
-  transition: color 0.2s ease, opacity 0.2s ease;
-}
-
-a:hover {
-  color: var(--color-accent-amber);
-  opacity: 0.9;
-}
-
-/* ---------- Buttons ---------- */
-button,
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-3) var(--space-6);
-  font-family: var(--font-engineering);
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--color-text-inverse);
-  background: var(--color-accent-gradient);
-  border: none;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-button:hover,
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-soft);
-}
-
-.btn-primary {
-  @apply inline-flex items-center justify-center text-sm font-medium rounded-lg;
-  background: var(--color-accent-gradient);
-  color: var(--color-text-inverse);
-  font-family: var(--font-engineering);
-  padding: 0.75rem 1.5rem;
-  transition: transform 0.25s var(--motion-ease-hero), box-shadow 0.25s var(--motion-ease-hero);
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-soft);
-}
-
-/* Ensure CTAs on colored backgrounds use strong white text for contrast */
-.cta-contrast {
-  color: #fff !important;
-}
-
-/* small spinner used in forms */
-.spinner {
-  border-top-color: transparent;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+/* ========= Attributes ========= */
 
 /* focus outline for interactive elements to improve keyboard visibility */
 .focus-ring:focus {
-  outline: 3px solid rgba(59,130,246,0.35);
-  outline-offset: 2px;
+    outline: 3px solid rgba(59, 130, 246, 0.35);
+    outline-offset: 2px;
 }
-
-
-/* ---------- Card ---------- */
-.card {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: var(--space-6);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  background-color: var(--color-surface-alt);
-  box-shadow: var(--shadow-strong);
-}
-
-/* ---------- Dividers ---------- */
-hr {
-  border: none;
-  border-top: 1px solid var(--color-divider);
-  margin: var(--space-8) 0;
-}
-
-/* ---------- Utility Mix ---------- */
-.text-gradient {
-  background: var(--color-accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-secondary { color: var(--color-text-secondary); }
-.surface { background-color: var(--color-surface); border-radius: var(--radius-lg); }
 
 /* ---------- Prose / Article Body ---------- */
 .prose p {
-  margin-top: 1em;
-  margin-bottom: 1.5em;
-  line-height: calc(1em * 27 / 16);
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    line-height: calc(1em * 27 / 16);
 }
 
 .prose h1,
@@ -152,39 +42,165 @@ hr {
 .prose h4,
 .prose h5,
 .prose h6 {
-  margin-top: 1.5em;
-  margin-bottom: 2rem;
+    margin-top: 1.2em;
+    margin-bottom: .75em;
 }
 
 .prose code {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 0.15em 0.4em;
-  border-radius: 4px;
-  font-size: 0.95em;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.95em;
 }
 
 .prose blockquote {
-  border-left-color: var(--color-accent-amber);
-  color: var(--color-text-secondary);
-  border-left-width: 2px;
-  padding-left: 1.375em;
+    border-left-color: var(--color-accent-amber);
+    color: var(--color-text-secondary);
+    border-left-width: 2px;
+    padding-left: 1.375em;
 }
 
-.prose ul > li::marker,
-.prose ol > li::marker {
-  color: var(--color-accent-blue);
+.prose ul>li::marker,
+.prose ol>li::marker {
+    color: var(--color-accent-blue);
 }
+
 .prose ul,
 .prose ol {
-  @apply list-disc list-outside pl-2 mx-4 my-2;
+    @apply list-disc list-outside pl-2 mx-4 my-2;
 }
 
 .prose ul li,
 .prose ol li {
-  @apply my-8;
+    @apply my-8;
 }
 
-@layer base {
-  .font-engineering { font-family: "Inter", sans-serif; }
-  .font-cinematic { font-family: "Space Grotesk", sans-serif; }
+/* small spinner used in forms */
+.spinner {
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.surface {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+}
+
+.text.secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-gradient {
+    background: var(--gradient-cinematic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ========= Elements =========== */
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    opacity: 0.9;
+}
+
+a[type="button"],
+button,
+.btn {
+    background-color: var(--color-button-bg);
+    color: var(--color-button-text);
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    font-family: var(--font-engineering);
+    font-size: var(--font-size-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    @apply inline-block rounded-xl px-6 py-3 font-medium transition-all duration-300 select-none justify-center items-center;
+}
+
+a[type="button"]:hover,
+button:hover,
+.btn:hover {
+    background-color: var(--color-button-hover-bg);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+a[type="button"].primary,
+button.primary,
+.btn.primary {
+    background: var(--color-accent-gradient);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-cinematic);
+    font-weight: 600;
+}
+
+h1:not(h1[class*="text-"]) {
+    font-size: var(--font-size-4xl);
+    font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
+}
+
+h2:not(h2[class*="text-"]) {
+    font-size: var(--font-size-3xl);
+}
+
+h3:not(h3[class*="text-"]) {
+    font-size: var(--font-size-2xl);
+}
+
+h4:not(h4[class*="text-"]) {
+    font-size: var(--font-size-xl);
+}
+
+h5:not(h5[class*="text-"]) {
+    font-size: var(--font-size-lg);
+}
+
+h6:not(h6[class*="text-"]) {
+    font-size: var(--font-size-md);
+}
+
+hr {
+    border: none;
+    background-color: var(--color-border);
+    margin: var(--space-8) 0;
+}
+
+nav {
+    background-color: var(--color-surface);
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-engineering);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html,
+body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
