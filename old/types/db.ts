@@ -12,5 +12,8 @@ export type DbClausePredicateEquality = {
 
 export type DbWhereCondition = DbClausePredicateEquality
 
-export type DbQuery = DbClause[]
+export type DbQuery = string
 export type DbQueryStatement = string
+
+export type DbQueryValue = string
+export type DbQueryValues = DbQueryValue[]

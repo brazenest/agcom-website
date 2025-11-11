@@ -1,3 +1,6 @@
+export const runtime = "nodejs";          // ✅ ensures Node environment
+export const dynamic = "force-dynamic";   // ✅ disables static prerender
+
 import SiteIndexHero from "@/components/SiteIndexHero";
 import IntroSection from "@/components/sections/IntroSection";
 import FeaturedWorkSection from "@/components/sections/FeaturedWorkSection";

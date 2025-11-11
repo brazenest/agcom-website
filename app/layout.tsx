@@ -22,6 +22,12 @@ const fontCinema = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Alden Gillespy - Software Engineer, Video Editor, Photographer",
   description: "I am a super human with 5+ years experience in software engineering and video production roles, currently living in Salt Lake City, Utah, United States. I'm also a keen photographer of landscapes, candids, and architecture. Finally, I have a strong interest in city planning as a participant in the Cities Skylines game franchise.",
+  icons: {
+        icon: [
+          { url: '/assets/images/favicons/favicon-color.ico', media: '(prefers-color-scheme: light)' },
+          { url: '/assets/images/favicons/favicon.ico', media: '(prefers-color-scheme: dark)' },
+        ],
+      },
 };
 
 const siteHeaderNavbarLinks = [

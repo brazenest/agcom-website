@@ -1,6 +1,8 @@
-import type { ApiQueryParam, queryApiParamsT } from '@/types/api'
+export const runtime = 'nodejs';
+
 import { notFound } from 'next/navigation';
-import { queryApi } from './query-api';
+import { queryDatabase } from '../server/db/queryDatabase';
+import { DbQueryValue } from '@/types/db';
 
 export const getArticles = async ({ params = [] }: getArticlesProps = {}) => {
 
@@ -12,21 +14,20 @@ export const getArticles = async ({ params = [] }: getArticlesProps = {}) => {
 
     queryRequestParams.params?.push({ key: 'sortOrder', value: 'newestFirst' })
 
-    const response = await queryApi(queryRequestParams)
+    const response = await queryDatabase({ query })
 
-    if (!response.ok) {
-        notFound()
-    }
+    // const responseData = response.data.length ? response.data.map(article => ({
+    //     ...article,
+    //     date: article.datePublished,
+    //     href: `/blog/articles/${article.slug}`
+    // })) : response.data
 
-    const responseData = response.data.map(article => ({
-        ...article,
-        date: article.datePublished,
-        href: `/blog/articles/${article.slug}`
-    }))
-
-    return responseData
+    return response.data
 }
 
 type getArticlesProps = {
-    params?: ApiQueryParam[],
+    params?: {
+        slug?: string,
+        limit?: string,
+    }
 }
