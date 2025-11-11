@@ -13,14 +13,13 @@ export default async function BlogPage() {
   }))
 
   return (
-    <main className="bg-[var(--color-bg)] min-h-screen">
-      <Navbar />
+    <>
       <section className="max-w-5xl mx-auto px-6 pt-40 pb-24">
         {/* Ambient gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(58,167,255,0.05),transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,rgba(255,156,74,0.05),transparent_60%)] pointer-events-none" />
 
-        <h1 className="font-cinema text-4xl mb-8 text-gradient">Blog</h1>
+        <h1 className="font-cinema text-4xl mb-8 text-accent">Blog</h1>
 
         <div className="grid gap-10">
           {articles.map((article) => (
@@ -36,6 +35,6 @@ export default async function BlogPage() {
           ))}
         </div>
       </section>
-    </main>
+    </>
   );
 }

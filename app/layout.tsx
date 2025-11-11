@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Space_Grotesk, Inter } from "next/font/google";
 import "@/styles/globals.css";
+import '@/styles/colors.css'
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import SiteFooter from "@/components/site/SiteFooter";
 import { GOOGLE_ANALYTICS_MEASUREMENT_ID } from "@/constants";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const fontTech = Inter({
   variable: '--font-tech',
@@ -57,7 +59,6 @@ export default function RootLayout({
           </div>
           <SiteFooter />
         </ThemeProvider>
-        {/* <DevAuditWrapper /> */}
         <GoogleAnalytics gaId={GOOGLE_ANALYTICS_MEASUREMENT_ID} />
       </body>
     </html >

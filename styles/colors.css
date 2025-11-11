@@ -1,0 +1,78 @@
+/* ============================================
+   Alden Gillespy — Engineering (light) & Cinematic (dark)
+   ============================================ */
+
+/* Engineering theme — Light */
+  @theme {
+    --color-bg: #f9fafb;
+    --color-bg-surface: #ffffff;
+    --color-border: #d7dde3;
+    --color-text: #0c1b2a;
+    --color-text-secondary: #4a5568;
+    --color-accent: #3aa7ff;
+    --color-accent-hover: #6fc4ff;
+    --color-accent-muted: #eaf6ff;
+    --shadow-color: rgba(0, 0, 0, 0.07);
+  }
+
+/* Cinematic theme — Dark */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-bg: #0c0d0f;
+    --color-bg-surface: #151719;
+    --color-border: #2a2c31;
+    --color-text: #f2f1ed;
+    --color-text-secondary: #a99f95;
+    --color-accent: #ff9c4a;
+    --color-accent-hover: #ffc67a;
+    --color-accent-muted: #3c2e1a;
+    --shadow-color: rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* Manual overrides for [data-theme] attribute */
+[data-theme='light'] {
+  @theme {
+    --color-bg: #f9fafb;
+    --color-bg-surface: #ffffff;
+    --color-border: #d7dde3;
+    --color-text: #0c1b2a;
+    --color-text-secondary: #4a5568;
+    --color-accent: #3aa7ff;
+    --color-accent-hover: #6fc4ff;
+    --color-accent-muted: #eaf6ff;
+    --shadow-color: rgba(0, 0, 0, 0.07);
+  }
+}
+
+[data-theme='dark'] {
+  @theme {
+    --color-bg: #0c0d0f;
+    --color-bg-surface: #151719;
+    --color-border: #2a2c31;
+    --color-text: #f2f1ed;
+    --color-text-secondary: #a99f95;
+    --color-accent: #ff9c4a;
+    --color-accent-hover: #ffc67a;
+    --color-accent-muted: #3c2e1a;
+    --shadow-color: rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* Smooth transitions */
+body,
+html,
+header,
+section,
+div,
+a,
+h1,
+h2,
+h3,
+p {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    fill 0.3s ease;
+}

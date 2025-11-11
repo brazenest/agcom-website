@@ -1,6 +1,6 @@
 :root[data-theme="light"] {
   /* ====== BASE COLORS ====== */
-  --color-bg: #FAFAFA; /* Light neutral background */
+  --color-bg: #FFFFFF; /* Light neutral background */
   --color-surface: #FFFFFF; /* Elevated surfaces like cards and navs */
   --color-text-primary: #121212; /* High-contrast dark text */
   --color-text-secondary: #4A4A4A; /* Muted gray for secondary text */

@@ -1,6 +1,4 @@
 @import 'tailwindcss';
-@import './light.css';
-@import './dark.css';
 
 :root {
     /* ---------- Typography ---------- */
@@ -113,34 +111,6 @@ a {
 a:hover {
     color: var(--color-link-hover);
     opacity: 0.9;
-}
-
-a[type="button"],
-button,
-.btn {
-    background-color: var(--color-button-bg);
-    color: var(--color-button-text);
-    border: none;
-    border-radius: var(--radius-lg);
-    cursor: pointer;
-    font-family: var(--font-engineering);
-    font-size: var(--font-size-sm);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    @apply inline-block rounded-xl px-6 py-3 font-medium transition-all duration-300 select-none justify-center items-center;
-}
-
-a[type="button"]:hover,
-button:hover,
-.btn:hover {
-    background-color: var(--color-button-hover-bg);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-hover);
-}
-
-a[type="button"].primary,
-button.primary,
-.btn.primary {
-    background: var(--color-accent-gradient);
 }
 
 h1,
