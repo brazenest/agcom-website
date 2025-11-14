@@ -1,16 +1,11 @@
 # Alden Gillespy's Personal Website
 
-__v1.1.3__ (2025-11-07)
+The code for the official website for Alden Gillespy
 
-## How to use
+## Release info
 
-To begin development:
-
-`yarn && yarn dev`
-
-In the future, for development just run:
-
-`yarn dev`
+* Version __1.2.0__
+* Released on 2025-11-14
 
 ## Legal info
 

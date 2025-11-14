@@ -1,20 +1,19 @@
-import SiteIndexHero from "@/components/SiteIndexHero";
-import SiteNavbar from "@/components/site/SiteNavbar";
-import IntroSection from "@/components/sections/IntroSection";
-import FeaturedWorkSection from "@/components/sections/FeaturedWorkSection";
-import BlogSection from "@/components/sections/BlogSection";
-import ContactSection from "@/components/sections/ContactSection";
+import HomeHero from "@/components/HomeHero";
+import HomeIntroSection from "@/components/HomeIntroSection";
+import HomeFeaturedWorkSection from "@/components/HomeFeaturedWorkSection";
+import HomeBlogSection from "@/components/HomeBlogSection";
+import HomeContactSection from "@/components/HomeContactSection";
+
 
 export default function HomePage() {
 
   return (
-    <main className="bg-[var(--color-bg)] min-h-screen">
-      <SiteNavbar />
-      <SiteIndexHero />
-      <IntroSection />
-      <FeaturedWorkSection />
-      <BlogSection />
-      <ContactSection />
+    <main>
+      <HomeHero />
+      <HomeIntroSection />
+      <HomeFeaturedWorkSection />
+      <HomeBlogSection />
+      <HomeContactSection />
     </main>
   );
 }

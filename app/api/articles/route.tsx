@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import mysql from 'mysql2/promise';
-import { apiQueryDatabase } from "@/functions/api-query-database";
-import { DB_CONNECTION_PARAMS } from "@/constants";
-import { calculateReadtime } from "@/functions/calculate-readtime";
+import { apiQueryDatabase } from "@/functions/apiQueryDatabase";
+import { calculateReadtime } from "@/functions/calculateReadtime";
 
 export async function GET(req: NextRequest) {
     const query: string[] = []
@@ -57,7 +56,13 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     const data = await req.json()
 
-    const connection = await mysql.createConnection(DB_CONNECTION_PARAMS)
+    const connection = await mysql.createConnection({
+        host: process.env.NEXT_PUBLIC_DB_HOST,
+        port: (process.env.NEXT_PUBLIC_DB_PORT as unknown) as number,
+        user: process.env.NEXT_PUBLIC_DB_USER,
+        password: process.env.NEXT_PUBLIC_DB_PASSWORD,
+        database: process.env.NEXT_PUBLIC_DB_NAME,
+    })
     const query = `insert into articles (title, slug, excerpt, author, datePublished, body) values (?, ?, ?, ?, ?, ?)`
     const values = [data.title, data.slug, data.excerpt, 1, data.datePublished, data.body]
 

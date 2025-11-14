@@ -1,17 +1,9 @@
-export const List = ({ itemsContent }) => {
+export function List({ items }: { items: string[] }) {
     return (
-        <div className="list-wrap">
-            <ListItems>
-                {itemsContent.map((itemContent, i) => <ListItem key={i}>{itemContent}</ListItem>)}
-            </ListItems>
-        </div>
-    )
+        <ul className="list-disc list-inside text-text-secondary dark:text-dark-text-secondary space-y-2">
+            {items.map((item, i) => (
+                <li key={i}>{item}</li>
+            ))}
+        </ul>
+    );
 }
-
-const ListItems = ({ children: items }) => (
-    <div className="list-items-wrap">
-        {items}
-    </div>
-)
-
-export const ListItem = ({ children: content }) => <li className="list-item">{content}</li>

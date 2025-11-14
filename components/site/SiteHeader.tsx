@@ -1,9 +1,12 @@
-import Navbar from "./SiteNavbar";
+import { SiteNavbar } from "@/components/site/SiteNavbar";
+import type { LinkT } from "@/types/link";
 
-export default function SiteHeader() {
-    return (
-        <header id="site-header" role="banner">
-                <Navbar />
-        </header>
-    )
+export const SiteHeader = ({ links }: SiteHeaderProps) => (
+    <header id="site-header" role="banner">
+        <SiteNavbar links={links} />
+    </header>
+)
+
+type SiteHeaderProps = {
+    links: LinkT[],
 }
