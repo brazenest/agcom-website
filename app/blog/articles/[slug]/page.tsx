@@ -1,7 +1,7 @@
 // app/blog/articles/[slug]/page.tsx
 import { getArticles } from "@/functions/getArticles";
 import { notFound } from "next/navigation";
-import BlogArticleClient from "@/components/blog/BlogArticleClient"; // 👈 import client component
+import BlogArticleClient from "@/components/BlogArticleClient"; // 👈 import client component
 import { formatDate } from "@/functions/formatDate";
 import { ArticleT } from "@/types/article";
 
