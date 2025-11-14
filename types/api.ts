@@ -13,10 +13,3 @@ export type ApiQueryResponseT = {
     data?: any,
     message?: string,
 }
-
-export type queryApiParamsT = {
-    endpoint: string;
-    params?: ApiQueryParam[];
-    method?: 'GET' | 'POST';
-    data?: any;
-}

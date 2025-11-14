@@ -1,0 +1,35 @@
+:root[data-theme="light"] {
+  /* ====== BASE COLORS ====== */
+  --color-bg: #FFFFFF; /* Light neutral background */
+  --color-surface: #FFFFFF; /* Elevated surfaces like cards and navs */
+  --color-text-primary: #121212; /* High-contrast dark text */
+  --color-text-secondary: #4A4A4A; /* Muted gray for secondary text */
+  --color-border: #E5E5E5; /* Subtle divider tone */
+  --color-hover: #1E56CC; /* Active blue hover */
+  --color-highlight: #FFF3E0; /* Gentle amber highlight overlay */
+
+  /* ====== ACCENTS ====== */
+  --color-accent-engineering: #2A6FFF; /* Cool blue for tech aesthetic */
+  --color-accent-cinematic: #FF9B4A; /* Warm amber/orange for creative accent */
+
+  /* ====== SHADOWS / DEPTH ====== */
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* ====== GRADIENTS ====== */
+  --gradient-engineering: linear-gradient(135deg, #2A6FFF 0%, #9AD0FF 100%);
+  --gradient-cinematic: linear-gradient(135deg, #FF9B4A 0%, #FFD6A3 100%);
+
+  /* ====== GENERAL ELEMENTS ====== */
+  --color-button-bg: var(--color-accent-engineering);
+  --color-button-text: #FFFFFF;
+  --color-button-hover-bg: #1E56CC;
+
+  --color-link: var(--color-accent-engineering);
+  --color-link-hover: #1E56CC;
+
+  /* ====== SCROLLBAR (for WebKit browsers) ====== */
+  --scrollbar-track: #F0F0F0;
+  --scrollbar-thumb: #CFCFCF;
+  --scrollbar-thumb-hover: #2A6FFF;
+}

@@ -1,45 +1,51 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { Section } from "@/components/ui/Section";
+import { SocialIcons } from "./SocialIcons";
 
-export default function Footer() {
+export function SiteFooter({ links }) {
   return (
-    <footer className="relative border-t border-[var(--color-divider)] bg-[var(--color-surface)] mt-24">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.25, 0.8, 0.25, 1] }}
-        className="max-w-6xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-6 text-sm"
-      >
-        <p className="font-[var(--font-engineering)] text-[var(--color-text-secondary)]">
-          © {new Date().getFullYear()} Alden Gillespy — Engineering + Cinematic Storytelling
+    <footer className="relative mt-32 border-t border-border dark:border-dark-border">
+
+      {/* Ambient glow */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-radial from-brand-300/20 to-transparent blur-3xl dark:from-dark-brand-500/20" />
+      </div>
+
+      <Section className="py-16 text-center bg-surface dark:bg-dark-surface">
+
+        <h3 className="font-cinematic text-2xl text-text dark:text-dark-text mb-4">
+          Alden Gillespy
+        </h3>
+
+        <p className="text-text-secondary dark:text-dark-text-secondary font-engineering mb-8">
+          Engineering + Cinematic Storytelling
         </p>
 
-        <div className="flex gap-6 text-[var(--color-text-secondary)] font-[var(--font-engineering)]">
-          <Link
-            href="https://youtube.com/c/SHADOWCATpictures"
-            target="_blank"
-            className="hover:text-[var(--color-accent-amber)] transition-colors"
-          >
-            YouTube
-          </Link>
-          <Link
-            href="https://www.instagram.com/agthecreative"
-            target="_blank"
-            className="hover:text-[var(--color-accent-amber)] transition-colors"
-          >
-            Instagram
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/alden-gillespy"
-            target="_blank"
-            className="hover:text-[var(--color-accent-amber)] transition-colors"
-          >
-            LinkedIn
-          </Link>
+        <div className="flex justify-center gap-6 text-sm font-engineering">
+          {links.map(({ href, content }) => (
+            <FooterLink key={href} href={href}>
+              {content}
+            </FooterLink>
+          ))}
         </div>
-      </motion.div>
+
+        <SocialIcons className="mt-10" />
+
+        <p className="mt-10 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
+          © {new Date().getFullYear()} Alden Gillespy. All rights reserved.
+        </p>
+      </Section>
     </footer>
+  );
+}
+
+function FooterLink({ href, children }: any) {
+  return (
+    <Link
+      href={href}
+      className="text-text dark:text-dark-text hover:text-brand-500 dark:hover:text-dark-brand-500 transition-colors"
+    >
+      {children}
+    </Link>
   );
 }

@@ -1,14 +1,14 @@
 // app/blog/articles/[slug]/page.tsx
-import { getArticles } from "@/functions/get-articles";
+import { getArticles } from "@/functions/getArticles";
 import { notFound } from "next/navigation";
 import BlogArticleClient from "@/components/blog/BlogArticleClient"; // 👈 import client component
 import { formatDate } from "@/functions/formatDate";
-import { ArticleT } from "@/types/blog";
+import { ArticleT } from "@/types/article";
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { slug } = await params
   const articles: ArticleT[] = (
-    await getArticles({ params: [{ key: "slug", value: slug }] })
+    await getArticles({ params: { slug } })
   ).map(article => ({
     ...article,
     date: formatDate(article.date, 'MMMM YYYY'),

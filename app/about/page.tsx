@@ -1,8 +1,7 @@
-import Navbar from "@/components/site/SiteNavbar";
 import Link from "next/link";
 import Image from "next/image";
-import AboutCard from "@/components/about/AboutCard";
-import AboutTimeline from "@/components/about/AboutTimeline";
+import AboutCard from "@/components/AboutCard";
+import AboutTimeline from "@/components/AboutTimeline";
 
 type AboutSkillT = {
   title: string;
@@ -61,31 +60,29 @@ export default function AboutPage() {
     description: string;
     category?: "engineering" | "cinematic" | "hybrid";
   }[] = [
-    {
+      {
         year: "2023-2025",
         title: "Consumer DNA Kit Activation Product — Full-Stack Engineer",
         description: "Developed both front-end and back-end for Ancestry in React, Redux, Node.js, and Kotlin, creating a seamless onboarding experience for millions of users worldwide.",
-      category: "engineering",
-    },
-    {
+        category: "engineering",
+      },
+      {
         year: "2020-2021",
         title: "Product Design & Systems Work - Full-Stack Developer, Timeshare Platform",
         description: "Built a high-traffic timeshare sales and rentals platform at Concepta using PHP, MySQL, and Apache Solr, optimizing search performance and enabling thousands of daily user interactions.",
         category: "hybrid",
-    },
-    {
+      },
+      {
         year: "2019—Present",
         title: "Cinematic Short Films — Video Editor & Cinematic Producer",
         description: "Began to produce and edit years' worth of cinematic videos of choreographed water fountains for my YouTube channel SHADOWCATpictures, earning 260,000+ views for their artistry, timing, and visual storytelling.",
         category: "cinematic",
-    },
+      },
 
-  ];
+    ];
 
   return (
-    <main className="bg-[var(--color-bg)] min-h-screen">
-      <Navbar />
-
+    <>
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 pt-28 pb-12 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(58,167,255,0.03),transparent_60%)] pointer-events-none" />
@@ -192,17 +189,18 @@ export default function AboutPage() {
             <p className="text-sm text-[var(--color-text-secondary)]">I’m available for contract work, creative collaborations, and speaking opportunities.</p>
           </div>
 
-            <div className="flex gap-3">
+          <div className="flex gap-3">
             <Link
-            href="mailto:ag@aldengillespy.com"
-            className="btn px-5 py-2 rounded-lg text-white transition"
-          >
-            Contact Me
-          </Link>
+              href="mailto:ag@aldengillespy.com"
+              className="btn px-5 py-2 rounded-lg text-white transition"
+            >
+              Contact Me
+            </Link>
             <Link href="/#work" className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] font-[var(--font-engineering)]">See Work</Link>
           </div>
         </div>
       </section>
-    </main>
+
+    </>
   );
 }
