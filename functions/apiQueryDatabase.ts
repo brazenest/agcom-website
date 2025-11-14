@@ -5,13 +5,16 @@ export const apiQueryDatabase = async (queryStatement: string, queryValues = [])
         throw new Error('apiQueryDatabase(): Query statement is empty.')
     }
 
-    const connection = await mysql.createConnection({
+    const dbConnectionParams = {
         host: process.env.AG_DB_HOST,
         port: (process.env.AG_DB_PORT as unknown) as number,
         user: process.env.AG_DB_USER,
         password: process.env.AG_DB_PASSWORD,
         database: process.env.AG_DB_NAME,
-    })
+    }
+    console.log('apiQueryDatabase(): dbConnectionParams =', dbConnectionParams)
+    
+    const connection = await mysql.createConnection(dbConnectionParams)
 
     let dbResponse
     let responseData
