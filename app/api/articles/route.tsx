@@ -57,11 +57,11 @@ export async function POST(req: NextRequest) {
     const data = await req.json()
 
     const connection = await mysql.createConnection({
-        host: process.env.AG_DB_HOST,
-        port: (process.env.AG_DB_PORT as unknown) as number,
-        user: process.env.AG_DB_USER,
-        password: process.env.AG_DB_PASSWORD,
-        database: process.env.AG_DB_NAME,
+        host: process.env.NEXT_PUBLIC_DB_HOST,
+        port: (process.env.NEXT_PUBLIC_DB_PORT as unknown) as number,
+        user: process.env.NEXT_PUBLIC_DB_USER,
+        password: process.env.NEXT_PUBLIC_DB_PASSWORD,
+        database: process.env.NEXT_PUBLIC_DB_NAME,
     })
     const query = `insert into articles (title, slug, excerpt, author, datePublished, body) values (?, ?, ?, ?, ?, ?)`
     const values = [data.title, data.slug, data.excerpt, 1, data.datePublished, data.body]

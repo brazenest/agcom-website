@@ -1,8 +1,8 @@
-import HomeHero from "@/components/home/HomeHero";
-import HomeIntroSection from "@/components/home/HomeIntroSection";
-import HomeFeaturedWorkSection from "@/components/home/HomeFeaturedWorkSection";
-import HomeBlogSection from "@/components/home/HomeBlogSection";
-import HomeContactSection from "@/components/home/HomeContactSection";
+import HomeHero from "@/components/HomeHero";
+import HomeIntroSection from "@/components/HomeIntroSection";
+import HomeFeaturedWorkSection from "@/components/HomeFeaturedWorkSection";
+import HomeBlogSection from "@/components/HomeBlogSection";
+import HomeContactSection from "@/components/HomeContactSection";
 
 
 export default function HomePage() {

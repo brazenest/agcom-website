@@ -10,7 +10,7 @@ export default async function BlogPage() {
     ...article,
     date: formatDate(article.date, 'MMMM YYYY'),
   }))
-return <div>{articles[0]}</div>
+
   return (
     <>
       <section className="max-w-5xl mx-auto px-6 pt-40 pb-24">

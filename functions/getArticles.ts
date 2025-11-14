@@ -10,7 +10,7 @@ export const getArticles = async ({ params = {} }: getArticlesProps = {}) => {
         endpoint: 'articles',
         params: Object.keys(params).map(key => ({ key, value: params[key] })),
     })
-console.log('getArticles(): apiResponse2 ====', apiResponse)
+
     return apiResponse.data
 }
 

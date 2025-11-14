@@ -113,7 +113,7 @@ export default function RootLayout({
 
         </SectionProvider>
 
-        <GoogleAnalytics gaId={process.env.AG_GOOGLE_ANALYTICS_MEASUREMENT_ID} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID!} />
       </body>
     </html >
   );

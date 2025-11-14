@@ -1,8 +1,7 @@
-import Navbar from "@/components/site/SiteNavbar";
 import Link from "next/link";
 import Image from "next/image";
-import AboutCard from "@/components/about/AboutCard";
-import AboutTimeline from "@/components/about/AboutTimeline";
+import AboutCard from "@/components/AboutCard";
+import AboutTimeline from "@/components/AboutTimeline";
 
 type AboutSkillT = {
   title: string;
