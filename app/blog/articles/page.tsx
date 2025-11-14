@@ -1,7 +1,6 @@
-import Navbar from "@/components/site/SiteNavbar";
 import { formatDate } from "@/functions/formatDate";
-import { getArticles } from "@/functions/get-articles";
-import { ArticleT } from "@/types/blog";
+import { getArticles } from "@/functions/getArticles";
+import { ArticleT } from "@/types/article";
 import Link from "next/link";
 
 export default async function BlogPage() {
@@ -11,7 +10,7 @@ export default async function BlogPage() {
     ...article,
     date: formatDate(article.date, 'MMMM YYYY'),
   }))
-
+return <div>{articles[0]}</div>
   return (
     <>
       <section className="max-w-5xl mx-auto px-6 pt-40 pb-24">

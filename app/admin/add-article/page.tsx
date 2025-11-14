@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { calculateReadtime } from '@/functions/calculate-readtime';
+import { calculateReadtime } from '@/functions/calculateReadtime';
 import { DateSelector } from '@/components/DateSelector';
 import { queryApi } from '@/functions/query-api';
 
