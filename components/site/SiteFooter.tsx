@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { SocialIcons } from "./SocialIcons";
@@ -33,6 +34,9 @@ export function SiteFooter({ links }) {
 
         <p className="mt-10 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
           © {new Date().getFullYear()} Alden Gillespy. All rights reserved.
+        </p>
+        <p className="mt-4 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
+          version {process.env.NEXT_PUBLIC_SITE_VERSION}
         </p>
       </Section>
     </footer>
