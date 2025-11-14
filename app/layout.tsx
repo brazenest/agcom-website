@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import 'dotenv/config'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Space_Grotesk, Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { GOOGLE_ANALYTICS_MEASUREMENT_ID } from "@/constants";
 import { LinkT } from "@/types/link";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { SectionProvider } from "@/components/providers/SectionProvider";
@@ -113,7 +113,7 @@ export default function RootLayout({
 
         </SectionProvider>
 
-        <GoogleAnalytics gaId={GOOGLE_ANALYTICS_MEASUREMENT_ID} />
+        <GoogleAnalytics gaId={process.env.AG_GOOGLE_ANALYTICS_MEASUREMENT_ID} />
       </body>
     </html >
   );
