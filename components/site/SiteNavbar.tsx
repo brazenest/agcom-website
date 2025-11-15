@@ -175,7 +175,7 @@ function NavLink({
 }
 
 /* ---------- Mobile Nav Link ---------- */
-function MobileNavLink({ href, id, children, onClick }: any) {
+function MobileNavLink({ href, id, children, onClick }) {
   const activeSection = useActiveSection();
   const active = activeSection === id;
 

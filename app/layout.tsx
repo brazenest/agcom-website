@@ -9,10 +9,8 @@ import { LinkT } from "@/types/link";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { SectionProvider } from "@/components/providers/SectionProvider";
 import { BackgroundTint } from "@/components/site/BackgroundTint";
-import { ScrollMotionBlur } from "@/components/effects/ScrollMotionBlur";
 import { FilmGrain } from "@/components/site/FilmGrain";
 import { ParallaxLights } from "@/components/site/ParallaxLights";
-import { CinematicGrade } from "@/components/site/CinematicGrade";
 import { BloomOverlay } from "@/components/site/BloomOverlay";
 import { Vignette } from "@/components/site/Vignette";
 

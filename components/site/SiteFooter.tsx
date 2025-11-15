@@ -43,7 +43,7 @@ export function SiteFooter({ links }) {
   );
 }
 
-function FooterLink({ href, children }: any) {
+function FooterLink({ href, children }) {
   return (
     <Link
       href={href}
