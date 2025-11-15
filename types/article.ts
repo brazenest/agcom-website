@@ -14,8 +14,6 @@ export type ArticleT = {
     title: ArticleTitleT,
     excerpt: ArticleExcerptT,
     date: ArticleDateT,
-    readtime: ArticleReadtimeT,
     body: ArticleBodyT,
-    category: ArticleCategoryT,
     href: ArticleHrefT,
 }
