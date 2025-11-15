@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export const FadeIn = ({ children, delay = 0, className = "" }: any) => (
+export const FadeIn = ({ children, delay = 0, className = "" }) => (
     <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

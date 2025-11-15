@@ -3,21 +3,21 @@
 import { motion } from 'framer-motion';
 
 export default function LogoMark({ size = 32 }: { size?: number }) {
-    return (
-        <motion.svg
-            viewBox="0 0 170 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-11 w-auto transition-transform duration-300"
-            whileHover={{ scale: 1.03 }}
-        >
-            {/* “A” mark */}
-            <motion.path
-                d="M5 27L16 5L27 27H22L16 15L10 27H5Z"
-                fill="var(--color-accent)"
-                transition={{ duration: 0.3 }}
-            />
-  {/* Clean geometric “G”
+  return (
+    <motion.svg
+      viewBox={`0 0 170 ${size}`}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-11 w-auto transition-transform duration-300"
+      whileHover={{ scale: 1.03 }}
+    >
+      {/* “A” mark */}
+      <motion.path
+        d="M5 27L16 5L27 27H22L16 15L10 27H5Z"
+        fill="var(--color-accent)"
+        transition={{ duration: 0.3 }}
+      />
+      {/* Clean geometric “G”
           Technique: circle stroke with a controlled gap (dasharray) + inner bar.
           - Round linecaps make the gap ends look intentional.
           - We rotate the circle so the gap sits on the RIGHT.
@@ -47,19 +47,19 @@ export default function LogoMark({ size = 32 }: { size?: number }) {
         strokeLinecap="round"
         transition={{ duration: 0.3 }}
       />
-            {/* Name text */}
-            <text
-                x="73"
-                y="22"
-                fontFamily="Space Grotesk, sans-serif"
-                fontWeight="600"
-                fontSize="13"
-                fill="var(--color-text)"
-                letterSpacing="0.02em"
-            >
-                Alden Gillespy
-            </text>
-            {/* <text
+      {/* Name text */}
+      <text
+        x="73"
+        y="22"
+        fontFamily="Space Grotesk, sans-serif"
+        fontWeight="600"
+        fontSize="13"
+        fill="var(--color-text)"
+        letterSpacing="0.02em"
+      >
+        Alden Gillespy
+      </text>
+      {/* <text
       x="70"
       y="28"
       fontFamily="Space Grotesk, sans-serif"
@@ -70,6 +70,6 @@ export default function LogoMark({ size = 32 }: { size?: number }) {
       >
         @brazenest / @agthecreative
       </text> */}
-        </motion.svg>
-    );
+    </motion.svg>
+  );
 }

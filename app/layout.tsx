@@ -6,13 +6,10 @@ import "@/styles/globals.css";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LinkT } from "@/types/link";
-import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { SectionProvider } from "@/components/providers/SectionProvider";
 import { BackgroundTint } from "@/components/site/BackgroundTint";
-import { ScrollMotionBlur } from "@/components/effects/ScrollMotionBlur";
 import { FilmGrain } from "@/components/site/FilmGrain";
 import { ParallaxLights } from "@/components/site/ParallaxLights";
-import { CinematicGrade } from "@/components/site/CinematicGrade";
 import { BloomOverlay } from "@/components/site/BloomOverlay";
 import { Vignette } from "@/components/site/Vignette";
 
@@ -36,21 +33,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-
-const navbarLinks: LinkT[] = [
-  {
-    href: '/#work',
-    content: 'Work',
-  },
-  {
-    href: '/blog',
-    content: 'Blog',
-  },
-  {
-    href: '/about',
-    content: 'About',
-  },
-]
 
 const footerLinks: LinkT[] = [
   {
@@ -90,18 +72,13 @@ export default function RootLayout({
 
           {/* Cinematic layers, order from farthest back to front */}
           <BackgroundTint />
-          {/* <ScrollMotionBlur /> */}
           <FilmGrain />
           <ParallaxLights />
-          {/* <CinematicGrade /> */}
           <BloomOverlay />
           <Vignette />
-          
-          {/* UI overlays */}
-          <ScrollProgress />
 
           {/* Header */}
-          <SiteHeader links={navbarLinks} />
+          <SiteHeader />
 
           {/* Content */}
           <div id="site-content-wrap" className="min-h-screen">

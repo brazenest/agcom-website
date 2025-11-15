@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; 
+
 import { formatDate } from "@/functions/formatDate";
 import { getArticles } from "@/functions/getArticles";
 import { ArticleT } from "@/types/article";

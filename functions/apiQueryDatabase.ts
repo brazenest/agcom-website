@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 
-export const apiQueryDatabase = async (queryStatement: string, queryValues = []) => {
+export const apiQueryDatabase = async (queryStatement: string, queryValues: string[] = []) => {
     if (queryStatement.length === 0) {
         throw new Error('apiQueryDatabase(): Query statement is empty.')
     }

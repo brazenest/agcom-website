@@ -7,7 +7,7 @@ export function MotionBlurWrapper({
   children,
   intensity = 30,
   ...props
-}: any) {
+}) {
   const ref = useRef(null);
   const velocity = useVelocity(motion(ref).x); // Track x-axis velocity
 

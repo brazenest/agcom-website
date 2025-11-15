@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import clsx from "clsx";
 
 export function MobileMenu({ open, close }: { open: boolean; close: () => void }) {
@@ -28,7 +28,7 @@ export function MobileMenu({ open, close }: { open: boolean; close: () => void }
     );
 }
 
-function MobileLink({ href, children, close }: any) {
+function MobileLink({ href, children, close }) {
     return (
         <Link
             href={href}
