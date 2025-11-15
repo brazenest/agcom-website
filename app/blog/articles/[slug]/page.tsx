@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import BlogArticleClient from "@/components/BlogArticleClient"; // 👈 import client component
 import { formatDate } from "@/functions/formatDate";
 import { ArticleT } from "@/types/article";
-ls
+
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { slug } = await params
   const articles: ArticleT[] = (
