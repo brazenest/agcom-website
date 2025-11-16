@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
     const slug = req.nextUrl.searchParams.get('slug')
     const sortOrder = req.nextUrl.searchParams.get('sortOrder')
     const showHidden = req.nextUrl.searchParams.get('showHidden')?.toLowerCase()
-    console.log('API /articles GET(): slug =', slug)
+
     if (slug) {
 
         query.push(
@@ -54,7 +54,6 @@ export async function GET(req: NextRequest) {
     }
 
     const queryString = query.join(' ')
-    console.log('API /articles GET(): queryString =', queryString)
     const queryResponse = await apiQueryDatabase(queryString, values)
 
     return NextResponse.json(queryResponse)

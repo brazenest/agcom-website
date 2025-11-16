@@ -9,7 +9,6 @@ import { ArticleT } from "@/types/article";
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { slug } = await params
-  console.log('BlogPost(): slug =', slug)
   const articles: ArticleT[] = (
     await getArticles({ params: { slug } })
   ).map(article => ({
@@ -17,7 +16,6 @@ export default async function BlogPost({ params }: { params: { slug: string } })
     date: formatDate(article.date, 'MMMM YYYY'),
   }))
 
-  console.log('BlogPost(): articles ====', articles)
   if (!articles[0]) return notFound();
 
   // Pass the article down to the client component
