@@ -41,7 +41,7 @@ export default function BlogAdminAddArticlePage() {
       slug: articleSlug,
       title: articleTitle,
       excerpt: articleExcerpt,
-      datePublished: articleDate.toISOString().split('T')[0],
+      date: articleDate.toISOString().split('T')[0],
       readtime: calculateReadtime(articleBody),
       body: articleBody,
     }
@@ -112,7 +112,7 @@ export default function BlogAdminAddArticlePage() {
             />
           </span>
           <span className="grid grid-cols-4 grid-rows-1 my-6 items-center">
-            <label htmlFor="datePublished">Date</label>
+            <label htmlFor="date">Date</label>
             <DateSelector
               value={articleDate}
               handleChange={handleChangeArticleDate}
