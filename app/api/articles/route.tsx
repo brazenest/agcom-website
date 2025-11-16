@@ -78,8 +78,15 @@ export async function POST(req: NextRequest) {
         password: process.env.NEXT_PUBLIC_DB_PASSWORD,
         database: process.env.NEXT_PUBLIC_DB_NAME,
     })
-    const query = `insert into articles (title, slug, excerpt, author, datePublished, body) values (?, ?, ?, ?, ?, ?)`
-    const values = [data.title, data.slug, data.excerpt, 1, data.datePublished, data.body]
+    const query = `insert into articles (title, slug, excerpt, date, body, readtime) values (?, ?, ?, ?, ?, ?)`
+    const values = [
+        data.title,
+        data.slug,
+        data.excerpt,
+        data.date,
+        data.body,
+        calculateReadtime(data.body),
+    ]
 
     let dbResponse
     let responseData
@@ -90,7 +97,6 @@ export async function POST(req: NextRequest) {
             ok: true,
             data: dbResponse,
         }
-        responseData.data[0]['readtime'] = calculateReadtime(responseData.data[0].body)
     } catch (err) {
         responseData = {
             ok: false,

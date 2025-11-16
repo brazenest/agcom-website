@@ -14,9 +14,7 @@ export default function BlogAdminAddArticlePage() {
   const [articleSlugIsVirgin, setArticleSlugIsVirgin] = useState(true)
   const [articleTitle, setArticleTitle] = useState('')
   const [articleExcerpt, setArticleExcerpt] = useState('')
-  const [articleAuthor, setArticleAuthor] = useState(1)
-  const [articleTags, setArticleTags] = useState([])
-  const [articleDatePublished, setArticleDatePublished] = useState(new Date())
+  const [articleDate, setArticleDate] = useState(new Date())
   const [articleBody, setArticleBody] = useState('')
 
   const handleChangeArticleTitle = (ev) => {
@@ -33,8 +31,7 @@ export default function BlogAdminAddArticlePage() {
   }
   const handleChangeArticleSlug = (ev) => setArticleSlug(ev.target.value)
   const handleChangeArticleExcerpt = (ev) => setArticleExcerpt(ev.target.value)
-  const handleChangeArticleDatePublished = (date) => setArticleDatePublished(new Date(date))
-  const handleChangeArticleAuthor = (ev) => setArticleAuthor(parseInt(ev.target.value))
+  const handleChangeArticleDate = (date) => setArticleDate(new Date(date))
 
   const handleFormSubmit = (ev) => ev.preventDefault()
 
@@ -44,9 +41,7 @@ export default function BlogAdminAddArticlePage() {
       slug: articleSlug,
       title: articleTitle,
       excerpt: articleExcerpt,
-      datePublished: articleDatePublished.toISOString().split('T')[0],
-      tags: articleTags,
-      author: articleAuthor,
+      datePublished: articleDate.toISOString().split('T')[0],
       readtime: calculateReadtime(articleBody),
       body: articleBody,
     }
@@ -64,9 +59,7 @@ export default function BlogAdminAddArticlePage() {
     setArticleSlugIsVirgin(true)
     setArticleTitle('')
     setArticleExcerpt('')
-    setArticleDatePublished(new Date())
-    setArticleTags([])
-    setArticleAuthor(-1)
+    setArticleDate(new Date())
     setArticleBody('')
 
     // Focus title input after submission
@@ -119,22 +112,10 @@ export default function BlogAdminAddArticlePage() {
             />
           </span>
           <span className="grid grid-cols-4 grid-rows-1 my-6 items-center">
-            <label htmlFor="datePublished">Date Published</label>
+            <label htmlFor="datePublished">Date</label>
             <DateSelector
-              value={articleDatePublished}
-              handleChange={handleChangeArticleDatePublished}
-            />
-          </span>
-          <span className="grid grid-cols-4 grid-rows-1 my-6 items-center">
-            <label htmlFor="author">Author ID</label>
-            <input
-              type="text"
-              name="author"
-              size={10}
-              tabIndex={5}
-              className="col-span-1 p-4 border rounded"
-              value={articleAuthor}
-              onChange={handleChangeArticleAuthor}
+              value={articleDate}
+              handleChange={handleChangeArticleDate}
             />
           </span>
         </div>
@@ -150,8 +131,8 @@ export default function BlogAdminAddArticlePage() {
         </button>
       </form>
 
-      <h2 className="text-lg">Usage notes</h2>
-      <ul className="list-disc list-inside">
+      <h2 className="text-sm">Usage notes</h2>
+      <ul className="list-disc list-inside text-xs">
         <li>For an initial article, as you type into the title field, the slug field will automatically generate an acceptable slug for your article. The autogeneration will cease permanently upon your placing focus on the slug field.</li>
       </ul>
 
