@@ -1,6 +1,4 @@
 // app/blog/articles/[slug]/page.tsx
-export const dynamic = "force-dynamic";
-
 import { getArticles } from "@/functions/getArticles";
 import { notFound } from "next/navigation";
 import BlogArticleClient from "@/components/BlogArticleClient"; // 👈 import client component

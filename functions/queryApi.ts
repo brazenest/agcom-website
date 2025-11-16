@@ -8,16 +8,8 @@ import { createApiUrl } from "./createApiUrl";
 
 export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {} }: queryApiParamsT) => {
 
-    const processEnvHasNextPublicPrefixedValues = Object.keys(process.env)
-        .some(key =>
-            key.match(/^NEXT_PUBLIC_.*$/)
-        )
-    console.log('queryApi(): process.env has NEXT_PUBLIC_* values?', processEnvHasNextPublicPrefixedValues)
-
     // Construct URL with query parameters
     const requestUrl = createApiUrl({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL!, endpoint, params })
-
-    console.log('queryApi(): requestUrl =', requestUrl)
 
     let fetchParams
 
@@ -45,8 +37,6 @@ export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {
 
     const apiResponse = await fetch(requestUrl, fetchParams)
     const response = await apiResponse.json()
-
-    console.log('queryApi(): response ====', response)
 
     return response
 }

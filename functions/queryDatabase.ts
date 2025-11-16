@@ -8,8 +8,6 @@ export const queryDatabase = async ({ query, values = [] }: QueryDatabaseProps) 
      TODO: Make this function more robust, i.e. able to handle a variety of potential cases.
     */
 
-    console.log('queryDatabase(): query ====', query)
-    console.log('queryDatabase(): values ====', values)
     const connection = await mysql.createConnection({
         host: process.env.NEXT_PUBLIC_DB_HOST,
         port: (process.env.NEXT_PUBLIC_DB_PORT as unknown) as number,
@@ -19,7 +17,6 @@ export const queryDatabase = async ({ query, values = [] }: QueryDatabaseProps) 
     })
     const response = await connection.execute(query, values)
     connection.end()
-    console.log('queryDatabase(): response ====', response)
 
     return response
 }

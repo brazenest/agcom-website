@@ -12,8 +12,6 @@ export default async function BlogPage() {
     ...article,
     date: formatDate(article.date, 'MMMM YYYY'),
   }))
-
-  console.log('BlogPage(): articles ====', articles)
   
   return (
     <>

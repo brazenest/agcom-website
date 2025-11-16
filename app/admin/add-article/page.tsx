@@ -36,7 +36,6 @@ export default function BlogAdminAddArticlePage() {
   const handleFormSubmit = (ev) => ev.preventDefault()
 
   const handleClickSubmit = async () => {
-    console.log('Admin | BlogAdminAddArticlePage(): Submitting article / handleClickSubmit() running...')
     const data = {
       slug: articleSlug,
       title: articleTitle,
@@ -45,7 +44,7 @@ export default function BlogAdminAddArticlePage() {
       readtime: calculateReadtime(articleBody),
       body: articleBody,
     }
-    console.log('Admin | BlogAdminAddArticlePage(): Submitting article data |-|', data)
+
     const queryResponse = await queryApi({ endpoint: 'articles', method: 'POST', data })
     if (!queryResponse.ok) {
       console.log('Admin | BlogAdminAddArticlePage(): API response not-ok for adding article |-|', queryResponse.message)
@@ -68,7 +67,6 @@ export default function BlogAdminAddArticlePage() {
 
   return (
     <div className="max-w-4xl mx-auto">
-
       <form id="blog-admin-add-article-form" onSubmit={(event) => handleFormSubmit(event)}>
         <div className="max-w-xl my-5 justify-between items-center">
           <h2 className="col-span-4 text-2xl font-bold mb-7">Add an article</h2>
@@ -125,9 +123,8 @@ export default function BlogAdminAddArticlePage() {
         />
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-5 py-2 px-4 rounded"
           onClick={handleClickSubmit}>
-          Submit article
+            Submit article
         </button>
       </form>
 
@@ -135,7 +132,6 @@ export default function BlogAdminAddArticlePage() {
       <ul className="list-disc list-inside text-xs">
         <li>For an initial article, as you type into the title field, the slug field will automatically generate an acceptable slug for your article. The autogeneration will cease permanently upon your placing focus on the slug field.</li>
       </ul>
-
     </div>
   );
 }

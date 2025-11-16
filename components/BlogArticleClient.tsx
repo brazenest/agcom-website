@@ -51,12 +51,7 @@ export default function BlogPostClient({ article }: { article: ArticleT }) {
                         ← Back to Articles
                     </a>
                 </footer>
-            </div>
-
-
-
-
-
+            </div>            
         </article>
     );
 }
