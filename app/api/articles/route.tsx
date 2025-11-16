@@ -71,6 +71,17 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     const data = await req.json()
 
+    const dateObj = new Date(data.date)
+    const dateValues = {
+        year: dateObj.getFullYear(),
+        month: String(dateObj.getMonth() + 1).padStart(2, '0'),
+        day: String(dateObj.getDate()).padStart(2, '0'),
+        hour: String(dateObj.getHours()).padStart(2, '0'),
+        minute: String(dateObj.getMinutes()).padStart(2, '0'),
+        second: String(dateObj.getSeconds()).padStart(2, '0'),
+    }
+    data.date = `${dateValues.year}-${dateValues.month}-${dateValues.day} ${dateValues.hour}:${dateValues.minute}:${dateValues.second}`
+
     const connection = await mysql.createConnection({
         host: process.env.NEXT_PUBLIC_DB_HOST,
         port: (process.env.NEXT_PUBLIC_DB_PORT as unknown) as number,
@@ -105,6 +116,4 @@ export async function POST(req: NextRequest) {
     } finally {
         return NextResponse.json(responseData)
     }
-
-
 }
