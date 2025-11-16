@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import mysql from 'mysql2/promise';
 import { apiQueryDatabase } from "@/functions/apiQueryDatabase";
+import { calculateReadtime } from "@/functions/calculateReadtime";
 
 export async function GET(req: NextRequest) {
     const query: string[] = []
