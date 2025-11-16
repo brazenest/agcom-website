@@ -16,6 +16,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
     date: formatDate(article.date, 'MMMM YYYY'),
   }))
 
+  console.log('BlogPost(): articles ====', articles)
   if (!articles[0]) return notFound();
 
   // Pass the article down to the client component
