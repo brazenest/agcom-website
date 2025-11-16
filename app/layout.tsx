@@ -99,7 +99,7 @@ export default function RootLayout({
           <ScrollProgress />
 
           {/* Header */}
-          <SiteHeader links={navbarLinks} />
+          <SiteHeader />
 
           {/* Content */}
           <div id="site-content-wrap" className="min-h-screen">
