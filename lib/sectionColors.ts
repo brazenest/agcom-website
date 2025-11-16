@@ -10,6 +10,17 @@ export const sectionColors = {
         barTo: "neutral-600",
         navTint: "text-neutral-950",
     },
+    hero: {
+        tintLight: "bg-brand-50",
+        tintDark: "dark:bg-dark-surface-muted",
+        tintOverlayLight: "bg-brand-100/70",
+        tintOverlayDark: "dark:bg-dark-brand-300/50",
+        glow: "shadow-[0_0_18px_rgba(58,167,255,0.45)]",
+        darkGlow: "dark:shadow-[0_0_20px_rgba(255,160,50,0.35)]",
+        barFrom: "brand-300",
+        barTo: "brand-600",
+        navTint: "text-brand-900",
+    },
     home: {
         tintLight: "bg-brand-50",
         tintDark: "dark:bg-dark-surface-muted",
