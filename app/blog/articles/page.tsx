@@ -3,7 +3,12 @@ export const dynamic = "force-dynamic";
 import { formatDate } from "@/functions/formatDate";
 import { getArticles } from "@/functions/getArticles";
 import { ArticleT } from "@/types/article";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Blog – Engineering, Design & Cinematic Storytelling | Alden Gillespy",
+};
 
 export default async function BlogPage() {
   const articles: ArticleT[] = (
