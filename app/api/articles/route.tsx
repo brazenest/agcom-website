@@ -7,27 +7,28 @@ export async function GET(req: NextRequest) {
     const query: string[] = []
     const values: string[] = []
 
-    console.log('queryApi(): at top of function.')
+    console.log('API /articles GET(): at top of function.')
 
     const slug = req.nextUrl.searchParams.get('slug')
     const sortOrder = req.nextUrl.searchParams.get('sortOrder')
     const showHidden = req.nextUrl.searchParams.get('showHidden')?.toLowerCase()
     if (slug) {
 
-        console.log('queryApi(): we are requesting a single article. slug =', slug)
+        console.log('API /articles GET(): we are requesting a single article. slug =', slug)
 
         query.push(
-            'SELECT articles.slug, articles.title, articles.author as authorId, articles.datePublished, articles.body, articles.excerpt, authors.name as authorName',
+            'SELECT slug, title, date, body, excerpt',
             'FROM articles',
-            'JOIN authors',
-            'ON authors.id = articles.author',
-            'WHERE articles.slug=?',
+            'WHERE slug=? AND visible=?',
             'LIMIT 1',
         )
-        values.push(slug)
+        values.push(
+            slug,
+            'true',
+        )
     } else {
 
-        console.log('queryApi(): we are requesting all articles.')
+        console.log('API /articles GET(): we are requesting all articles.')
 
         // SELECT
         const selectColumns = ['*']
@@ -58,12 +59,12 @@ export async function GET(req: NextRequest) {
 
     const queryString = query.join(' ')
 
-    console.log('queryApi(): queryString ====', queryString)
+    console.log('API /articles GET(): queryString ====', queryString)
 
     const queryResponse = await apiQueryDatabase(queryString, values)
 
-    console.log('queryApi(): queryResponse ====', queryResponse)
-    
+    console.log('API /articles GET(): queryResponse ====', queryResponse)
+
     return NextResponse.json(queryResponse)
 }
 
