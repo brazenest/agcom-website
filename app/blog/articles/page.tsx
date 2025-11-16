@@ -13,6 +13,8 @@ export default async function BlogPage() {
     date: formatDate(article.date, 'MMMM YYYY'),
   }))
 
+  console.log('BlogPage(): articles ====', articles)
+  
   return (
     <>
       <section className="max-w-5xl mx-auto px-6 pt-40 pb-24">
