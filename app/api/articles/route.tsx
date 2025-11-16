@@ -7,10 +7,15 @@ export async function GET(req: NextRequest) {
     const query: string[] = []
     const values: string[] = []
 
+    console.log('queryApi(): at top of function.')
+
     const slug = req.nextUrl.searchParams.get('slug')
     const sortOrder = req.nextUrl.searchParams.get('sortOrder')
     const showHidden = req.nextUrl.searchParams.get('showHidden')?.toLowerCase()
     if (slug) {
+
+        console.log('queryApi(): we are requesting a single article. slug =', slug)
+
         query.push(
             'SELECT articles.slug, articles.title, articles.author as authorId, articles.datePublished, articles.body, articles.excerpt, authors.name as authorName',
             'FROM articles',
@@ -21,6 +26,9 @@ export async function GET(req: NextRequest) {
         )
         values.push(slug)
     } else {
+
+        console.log('queryApi(): we are requesting all articles.')
+
         // SELECT
         const selectColumns = ['*']
         query.push(`SELECT ${selectColumns.join(', ')}`)
@@ -48,8 +56,14 @@ export async function GET(req: NextRequest) {
         }
     }
 
-    const queryResponse = await apiQueryDatabase(query.join(' '), values)
+    const queryString = query.join(' ')
 
+    console.log('queryApi(): queryString ====', queryString)
+
+    const queryResponse = await apiQueryDatabase(queryString, values)
+
+    console.log('queryApi(): queryResponse ====', queryResponse)
+    
     return NextResponse.json(queryResponse)
 }
 
