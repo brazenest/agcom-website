@@ -8,10 +8,9 @@ import { createApiUrl } from "./createApiUrl";
 
 export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {} }: queryApiParamsT) => {
 
-    console.log('queryApi(): endpoint =', endpoint, ', params =', params, ', method =', method)
     // Construct URL with query parameters
     const requestUrl = createApiUrl({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL!, endpoint, params })
-    console.log('queryApi(): requestUrl =', requestUrl)
+
     let fetchParams
 
     switch (method) {

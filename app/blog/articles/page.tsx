@@ -11,6 +11,7 @@ export default async function BlogPage() {
   ).map(article => ({
     ...article,
     date: formatDate(article.date, 'MMMM YYYY'),
+    href: `/blog/articles/${article.slug}`,
   }))
   
   return (
