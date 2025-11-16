@@ -25,13 +25,31 @@ const fontCinema = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "Alden Gillespy - Software Engineer, Video Editor, Photographer",
-  description: "I am a super human with 5+ years experience in software engineering and video production roles, currently living in Salt Lake City, Utah, United States. I'm also a keen photographer of landscapes, candids, and architecture. Finally, I have a strong interest in city planning as a participant in the Cities Skylines game franchise.",
+  title: "Alden Gillespy — Full-Stack Software Engineer, Web Designer & Video Producer",
+  description: "Full-stack software engineer, web designer, and video producer blending product-grade engineering with cinematic storytelling for modern digital experiences.",
   icons: {
     icon: [
       { url: '/assets/images/favicons/favicon-color.ico', media: '(prefers-color-scheme: light)' },
       { url: '/assets/images/favicons/favicon.ico', media: '(prefers-color-scheme: dark)' },
     ],
+  },
+  metadataBase: new URL("https://aldengillespy.com"),
+  keywords: [
+    "Software Engineer",
+    "Full-Stack Engineer",
+    "React",
+    "Next.js",
+    "Web Design",
+    "Video Production",
+    "Cinematic Storytelling",
+    "Design Systems",
+  ],
+  openGraph: {
+    title: "Alden Gillespy — Full-Stack Software Engineer, Web Designer & Video Producer",
+    description:
+      "Full-stack engineering meets cinematic storytelling — portfolio, case studies, and articles.",
+    url: "https://aldengillespy.com",
+    type: "website",
   },
 };
 

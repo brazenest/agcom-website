@@ -7,6 +7,19 @@ import BlogArticleClient from "@/components/BlogArticleClient"; // 👈 import c
 import { formatDate } from "@/functions/formatDate";
 import { ArticleT } from "@/types/article";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const article = await getArticles({ params: { slug: params.slug } });
+
+  return {
+    title: `${article.title} – Blog by Alden Gillespy`,
+    description: article.excerpt,
+  };
+}
+
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { slug } = await params
   const articles: ArticleT[] = (

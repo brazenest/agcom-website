@@ -2,6 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import AboutCard from "@/components/AboutCard";
 import AboutTimeline from "@/components/AboutTimeline";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Alden Gillespy – Software Engineer, Web Designer & Video Producer",
+}
 
 type AboutSkillT = {
   title: string;
