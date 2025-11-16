@@ -3,7 +3,7 @@ import type { LinkT } from "@/types/link";
 
 export const SiteHeader = ({ links }: SiteHeaderProps) => (
     <header id="site-header" role="banner">
-        <SiteNavbar links={links} />
+        <SiteNavbar />
     </header>
 )
 

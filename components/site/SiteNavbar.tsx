@@ -113,16 +113,16 @@ export function SiteNavbar() {
       >
         <div className="flex flex-col py-6 px-6 text-text dark:text-dark-text font-engineering gap-6">
 
-          <MobileNavLink id="hero" href="/" onClick={() => setMobileOpen(false)} active={pathname === "/"}>
+          <MobileNavLink id="hero" href="/" onClick={() => setMobileOpen(false)}>
             Home
           </MobileNavLink>
           <MobileNavLink id="work" href="/#work" onClick={() => setMobileOpen(false)}>
             Work
           </MobileNavLink>
-          <MobileNavLink id="blog" href="/blog" onClick={() => setMobileOpen(false)} active={pathname?.startsWith("/blog")}>
+          <MobileNavLink id="blog" href="/blog" onClick={() => setMobileOpen(false)}>
             Blog
           </MobileNavLink>
-          <MobileNavLink id="contact" href="/about" onClick={() => setMobileOpen(false)} active={pathname === "/about"}>
+          <MobileNavLink id="contact" href="/about" onClick={() => setMobileOpen(false)}>
             About
           </MobileNavLink>
 
@@ -175,7 +175,7 @@ function NavLink({
 }
 
 /* ---------- Mobile Nav Link ---------- */
-function MobileNavLink({ href, id, children, onClick }) {
+function MobileNavLink({ href, id, children, onClick }: MobileNavLinkProps) {
   const activeSection = useActiveSection();
   const active = activeSection === id;
 
@@ -193,4 +193,11 @@ function MobileNavLink({ href, id, children, onClick }) {
       {children}
     </Link>
   );
+}
+
+type MobileNavLinkProps = {
+  href: string,
+  id: string,
+  children: string,
+  onClick: () => void,
 }

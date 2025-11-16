@@ -8,6 +8,7 @@ export const sectionColors: Record<string, SectionColorSet> = {
         darkGlow: "dark:shadow-[0_0_20px_rgba(255,160,50,0.35)]",
         barFrom: "brand-300",
         barTo: "brand-600",
+        navTint: "text-brand-900",
     },
     about: {
         tintLight: "bg-brand-50",
@@ -18,6 +19,7 @@ export const sectionColors: Record<string, SectionColorSet> = {
         darkGlow: "dark:shadow-[0_0_20px_rgba(255,160,50,0.35)]",
         barFrom: "brand-300",
         barTo: "brand-600",
+        navTint: "text-brand-900",
     },
     intro: {
         tintLight: "bg-brand-100",
@@ -28,6 +30,7 @@ export const sectionColors: Record<string, SectionColorSet> = {
         darkGlow: "dark:shadow-[0_0_20px_rgba(255,160,50,0.35)]",
         barFrom: "brand-300",
         barTo: "brand-600",
+        navTint: "text-brand-900",
     },
     work: {
         tintLight: "bg-brand-200",
@@ -38,6 +41,7 @@ export const sectionColors: Record<string, SectionColorSet> = {
         darkGlow: "dark:shadow-[0_0_20px_rgba(255,160,50,0.35)]",
         barFrom: "brand-300",
         barTo: "brand-600",
+        navTint: "text-brand-900",
     },
     blog: {
         tintLight: "bg-brand-300",
@@ -48,6 +52,7 @@ export const sectionColors: Record<string, SectionColorSet> = {
         darkGlow: "dark:shadow-[0_0_20px_rgba(255,160,50,0.35)]",
         barFrom: "brand-300",
         barTo: "brand-600",
+        navTint: "text-brand-900",
     },
     contact: {
         tintLight: "bg-brand-400",
@@ -58,6 +63,7 @@ export const sectionColors: Record<string, SectionColorSet> = {
         darkGlow: "dark:shadow-[0_0_20px_rgba(255,160,50,0.35)]",
         barFrom: "brand-300",
         barTo: "brand-600",
+        navTint: "text-brand-900",
     },
 } as const;
 
@@ -70,4 +76,5 @@ type SectionColorSet = {
     darkGlow: string;
     barFrom: string;
     barTo: string;
+    navTint: string,
 }
