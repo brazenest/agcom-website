@@ -12,7 +12,7 @@ export const apiQueryDatabase = async (queryStatement: string, queryValues: stri
         password: process.env.NEXT_PUBLIC_DB_PASSWORD,
         database: process.env.NEXT_PUBLIC_DB_NAME,
     }
-    
+
     const connection = await mysql.createConnection(dbConnectionParams)
 
     let dbResponse

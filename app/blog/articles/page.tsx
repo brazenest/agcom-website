@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic"; 
+export const dynamic = "force-dynamic";
 
 import { formatDate } from "@/functions/formatDate";
 import { getArticles } from "@/functions/getArticles";
@@ -11,8 +11,9 @@ export default async function BlogPage() {
   ).map(article => ({
     ...article,
     date: formatDate(article.date, 'MMMM YYYY'),
+    href: `/blog/articles/${article.slug}`,
   }))
-
+  
   return (
     <>
       <section className="max-w-5xl mx-auto px-6 pt-40 pb-24">

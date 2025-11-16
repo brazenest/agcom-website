@@ -1,3 +1,4 @@
+// app/blog/articles/[slug]/page.tsx
 export const dynamic = "force-dynamic";
 
 import { getArticles } from "@/functions/getArticles";
