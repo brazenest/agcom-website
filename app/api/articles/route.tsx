@@ -72,6 +72,9 @@ export async function POST(req: NextRequest) {
     const data = await req.json()
 
     const dateObj = new Date(data.date)
+    
+    console.log('API /articles POST(): dateObj ====', dateObj)
+
     const dateValues = {
         year: dateObj.getFullYear(),
         month: String(dateObj.getMonth() + 1).padStart(2, '0'),
