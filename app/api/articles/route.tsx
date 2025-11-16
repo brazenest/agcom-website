@@ -72,20 +72,20 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     const data = await req.json()
 
-    const dateObj = parse(data.date, 'MM/DD/YYYY')
+    // const dateObj = parse(data.date, 'YYYY-MM-DD')
 
-    console.log('API /articles POST(): data ====', data)
-    console.log('API /articles POST(): dateObj ====', dateObj)
+    // console.log('API /articles POST(): data ====', data)
+    // console.log('API /articles POST(): dateObj ====', dateObj)
 
-    const dateValues = {
-        year: dateObj.getFullYear(),
-        month: String(dateObj.getMonth() + 1).padStart(2, '0'),
-        day: String(dateObj.getDate()).padStart(2, '0'),
-        hour: String(dateObj.getHours()).padStart(2, '0'),
-        minute: String(dateObj.getMinutes()).padStart(2, '0'),
-        second: String(dateObj.getSeconds()).padStart(2, '0'),
-    }
-    data.date = `${dateValues.year}-${dateValues.month}-${dateValues.day} ${dateValues.hour}:${dateValues.minute}:${dateValues.second}`
+    // const dateValues = {
+    //     year: dateObj.getFullYear(),
+    //     month: String(dateObj.getMonth() + 1).padStart(2, '0'),
+    //     day: String(dateObj.getDate()).padStart(2, '0'),
+    //     hour: String(dateObj.getHours()).padStart(2, '0'),
+    //     minute: String(dateObj.getMinutes()).padStart(2, '0'),
+    //     second: String(dateObj.getSeconds()).padStart(2, '0'),
+    // }
+    // data.date = `${dateValues.year}-${dateValues.month}-${dateValues.day} ${dateValues.hour}:${dateValues.minute}:${dateValues.second}`
 
     const connection = await mysql.createConnection({
         host: process.env.NEXT_PUBLIC_DB_HOST,
