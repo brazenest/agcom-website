@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import mysql from 'mysql2/promise';
+import { parse } from 'date-format-parse';
 import { apiQueryDatabase } from "@/functions/apiQueryDatabase";
 import { calculateReadtime } from "@/functions/calculateReadtime";
 
@@ -71,8 +72,8 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     const data = await req.json()
 
-    const dateObj = new Date(data.date)
-    
+    const dateObj = parse(data.date, 'MM/DD/YYYY')
+
     console.log('API /articles POST(): dateObj ====', dateObj)
 
     const dateValues = {
