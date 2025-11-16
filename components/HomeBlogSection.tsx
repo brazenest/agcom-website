@@ -13,7 +13,8 @@ import { Button } from "@/components/ui/Button";
 const articles: ArticleT[] = (await getArticles({ params: ({ limit: '3' }) }))
   .map(article => ({
     ...article,
-    date: formatDate(article.date, "MMMM YYYY"), href: `/blog/articles/${article.slug}`,
+    date: formatDate(article.date, "MMMM YYYY"),
+    href: `/blog/articles/${article.slug}`,
   }));
 
 export default function HomeBlogSection() {

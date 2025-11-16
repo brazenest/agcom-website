@@ -2,11 +2,9 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useActiveSection } from "@/components/providers/SectionProvider";
-import { sectionColors } from "@/lib/sectionColors";
 
 export function CinematicGrade() {
     const active = useActiveSection();
-    const c = sectionColors[active];
 
     return (
         <AnimatePresence>

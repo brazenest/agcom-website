@@ -10,17 +10,22 @@ export async function GET(req: NextRequest) {
     const slug = req.nextUrl.searchParams.get('slug')
     const sortOrder = req.nextUrl.searchParams.get('sortOrder')
     const showHidden = req.nextUrl.searchParams.get('showHidden')?.toLowerCase()
+
     if (slug) {
+
         query.push(
-            'SELECT articles.slug, articles.title, articles.author as authorId, articles.datePublished, articles.body, articles.excerpt, authors.name as authorName',
+            'SELECT slug, title, date, body, excerpt',
             'FROM articles',
-            'JOIN authors',
-            'ON authors.id = articles.author',
-            'WHERE articles.slug=?',
+            'WHERE slug=? AND visible=?',
             'LIMIT 1',
         )
-        values.push(slug)
+        values.push(
+            slug,
+            '1',
+        )
+
     } else {
+
         // SELECT
         const selectColumns = ['*']
         query.push(`SELECT ${selectColumns.join(', ')}`)
@@ -39,7 +44,7 @@ export async function GET(req: NextRequest) {
         // ORDER BY
         if (sortOrder) {
             const VALID_SORT_ORDERS = {
-                newestFirst: 'ORDER BY datePublished DESC',
+                newestFirst: 'ORDER BY date DESC',
             }
 
             if (Object.keys(VALID_SORT_ORDERS).includes(sortOrder)) {
@@ -48,7 +53,8 @@ export async function GET(req: NextRequest) {
         }
     }
 
-    const queryResponse = await apiQueryDatabase(query.join(' '), values)
+    const queryString = query.join(' ')
+    const queryResponse = await apiQueryDatabase(queryString, values)
 
     return NextResponse.json(queryResponse)
 }
@@ -63,8 +69,15 @@ export async function POST(req: NextRequest) {
         password: process.env.NEXT_PUBLIC_DB_PASSWORD,
         database: process.env.NEXT_PUBLIC_DB_NAME,
     })
-    const query = `insert into articles (title, slug, excerpt, author, datePublished, body) values (?, ?, ?, ?, ?, ?)`
-    const values = [data.title, data.slug, data.excerpt, 1, data.datePublished, data.body]
+    const query = `insert into articles (title, slug, excerpt, date, body, readtime) values (?, ?, ?, ?, ?, ?)`
+    const values = [
+        data.title,
+        data.slug,
+        data.excerpt,
+        data.date,
+        data.body,
+        calculateReadtime(data.body),
+    ]
 
     let dbResponse
     let responseData
@@ -75,7 +88,6 @@ export async function POST(req: NextRequest) {
             ok: true,
             data: dbResponse,
         }
-        responseData.data[0]['readtime'] = calculateReadtime(responseData.data[0].body)
     } catch (err) {
         responseData = {
             ok: false,
@@ -84,6 +96,4 @@ export async function POST(req: NextRequest) {
     } finally {
         return NextResponse.json(responseData)
     }
-
-
 }

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { calculateReadtime } from '@/functions/calculateReadtime';
 import { DateSelector } from '@/components/DateSelector';
-import { queryApi } from '@/functions/query-api';
+import { queryApi } from '@/functions/queryApi';
 
 const ContentEditor = dynamic(() => import('@/components/ContentEditor'), {
   ssr: false,
@@ -14,9 +14,7 @@ export default function BlogAdminAddArticlePage() {
   const [articleSlugIsVirgin, setArticleSlugIsVirgin] = useState(true)
   const [articleTitle, setArticleTitle] = useState('')
   const [articleExcerpt, setArticleExcerpt] = useState('')
-  const [articleAuthor, setArticleAuthor] = useState(1)
-  const [articleTags, setArticleTags] = useState([])
-  const [articleDatePublished, setArticleDatePublished] = useState(new Date())
+  const [articleDate, setArticleDate] = useState(new Date())
   const [articleBody, setArticleBody] = useState('')
 
   const handleChangeArticleTitle = (ev) => {
@@ -33,24 +31,20 @@ export default function BlogAdminAddArticlePage() {
   }
   const handleChangeArticleSlug = (ev) => setArticleSlug(ev.target.value)
   const handleChangeArticleExcerpt = (ev) => setArticleExcerpt(ev.target.value)
-  const handleChangeArticleDatePublished = (date) => setArticleDatePublished(new Date(date))
-  const handleChangeArticleAuthor = (ev) => setArticleAuthor(parseInt(ev.target.value))
+  const handleChangeArticleDate = (date) => setArticleDate(new Date(date))
 
   const handleFormSubmit = (ev) => ev.preventDefault()
 
   const handleClickSubmit = async () => {
-    console.log('Admin | BlogAdminAddArticlePage(): Submitting article / handleClickSubmit() running...')
     const data = {
       slug: articleSlug,
       title: articleTitle,
       excerpt: articleExcerpt,
-      datePublished: articleDatePublished.toISOString().split('T')[0],
-      tags: articleTags,
-      author: articleAuthor,
+      date: articleDate.toISOString().split('T')[0],
       readtime: calculateReadtime(articleBody),
       body: articleBody,
     }
-    console.log('Admin | BlogAdminAddArticlePage(): Submitting article data |-|', data)
+
     const queryResponse = await queryApi({ endpoint: 'articles', method: 'POST', data })
     if (!queryResponse.ok) {
       console.log('Admin | BlogAdminAddArticlePage(): API response not-ok for adding article |-|', queryResponse.message)
@@ -64,9 +58,7 @@ export default function BlogAdminAddArticlePage() {
     setArticleSlugIsVirgin(true)
     setArticleTitle('')
     setArticleExcerpt('')
-    setArticleDatePublished(new Date())
-    setArticleTags([])
-    setArticleAuthor(-1)
+    setArticleDate(new Date())
     setArticleBody('')
 
     // Focus title input after submission
@@ -75,7 +67,6 @@ export default function BlogAdminAddArticlePage() {
 
   return (
     <div className="max-w-4xl mx-auto">
-
       <form id="blog-admin-add-article-form" onSubmit={(event) => handleFormSubmit(event)}>
         <div className="max-w-xl my-5 justify-between items-center">
           <h2 className="col-span-4 text-2xl font-bold mb-7">Add an article</h2>
@@ -119,22 +110,10 @@ export default function BlogAdminAddArticlePage() {
             />
           </span>
           <span className="grid grid-cols-4 grid-rows-1 my-6 items-center">
-            <label htmlFor="datePublished">Date Published</label>
+            <label htmlFor="date">Date</label>
             <DateSelector
-              value={articleDatePublished}
-              handleChange={handleChangeArticleDatePublished}
-            />
-          </span>
-          <span className="grid grid-cols-4 grid-rows-1 my-6 items-center">
-            <label htmlFor="author">Author ID</label>
-            <input
-              type="text"
-              name="author"
-              size={10}
-              tabIndex={5}
-              className="col-span-1 p-4 border rounded"
-              value={articleAuthor}
-              onChange={handleChangeArticleAuthor}
+              value={articleDate}
+              handleChange={handleChangeArticleDate}
             />
           </span>
         </div>
@@ -144,17 +123,15 @@ export default function BlogAdminAddArticlePage() {
         />
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-5 py-2 px-4 rounded"
           onClick={handleClickSubmit}>
-          Submit article
+            Submit article
         </button>
       </form>
 
-      <h2 className="text-lg">Usage notes</h2>
-      <ul className="list-disc list-inside">
+      <h2 className="text-sm">Usage notes</h2>
+      <ul className="list-disc list-inside text-xs">
         <li>For an initial article, as you type into the title field, the slug field will automatically generate an acceptable slug for your article. The autogeneration will cease permanently upon your placing focus on the slug field.</li>
       </ul>
-
     </div>
   );
 }

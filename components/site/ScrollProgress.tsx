@@ -31,14 +31,14 @@ export function ScrollProgress() {
         return () => observers.forEach((o) => o.disconnect());
     }, []);
 
-    const c = sectionColors[active];
+    const c = sectionColors[active] ?? sectionColors.default;
 
     return (
         <motion.div
             className={clsx(
                 "fixed top-0 left-0 right-0 h-[3px] z-[60] origin-left transition-all duration-700",
                 "rounded-sm",
-                c.glow,
+                c.glow || '',
                 "dark:" + c.darkGlow
             )}
             style={{

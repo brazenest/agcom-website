@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ArticleT } from "@/types/blog";
+import { ArticleT } from "@/types/article";
 
 export default function BlogPostClient({ article }: { article: ArticleT }) {
     return (
@@ -51,12 +51,7 @@ export default function BlogPostClient({ article }: { article: ArticleT }) {
                         ← Back to Articles
                     </a>
                 </footer>
-            </div>
-
-
-
-
-
+            </div>            
         </article>
     );
 }

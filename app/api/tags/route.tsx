@@ -6,11 +6,11 @@ export async function GET(req: NextRequest) {
 
     const ids = req.nextUrl.searchParams.getAll('ids')
 
-    const query: DbQuery = []
+    const query: DbQuery[] = []
 
     query.push(
-        { keyword: 'SELECT', predicate: 'name' },
-        { keyword: 'FROM', predicate: 'tags' },
+        'SELECT name',
+        'FROM tags',
     )
 
     const whereConditions: DbWhereCondition[] = []
@@ -18,9 +18,9 @@ export async function GET(req: NextRequest) {
     const whereStatement = whereConditions
         .map(condition => `${condition.key} ${condition.value}`)
         .join(' AND ')
-    query.push({ keyword: 'WHERE', predicate: whereStatement })
+    query.push(`WHERE ${whereStatement}`)
 
-    const response = await queryDatabase({ query })
+    const response = await queryDatabase({ query: query.join(' ') })
 
     const result = response[0]
     return NextResponse.json(result)

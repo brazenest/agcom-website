@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export function Heading({
     level = 2,
     children,

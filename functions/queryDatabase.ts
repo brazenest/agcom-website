@@ -1,5 +1,4 @@
 import mysql from 'mysql2/promise';
-import { DB_CONNECTION_PARAMS } from "@/constants"
 import { DbQuery, DbQueryValue } from "@/types/db"
 
 export const queryDatabase = async ({ query, values = [] }: QueryDatabaseProps) => {
@@ -9,12 +8,15 @@ export const queryDatabase = async ({ query, values = [] }: QueryDatabaseProps) 
      TODO: Make this function more robust, i.e. able to handle a variety of potential cases.
     */
 
-    console.log('queryDatabase(): query ====', query)
-    console.log('queryDatabase(): values ====', values)
-    const connection = await mysql.createConnection(DB_CONNECTION_PARAMS)
+    const connection = await mysql.createConnection({
+        host: process.env.NEXT_PUBLIC_DB_HOST,
+        port: (process.env.NEXT_PUBLIC_DB_PORT as unknown) as number,
+        user: process.env.NEXT_PUBLIC_DB_USER,
+        password: process.env.NEXT_PUBLIC_DB_PASSWORD,
+        database: process.env.NEXT_PUBLIC_DB_NAME,
+    })
     const response = await connection.execute(query, values)
     connection.end()
-    console.log('queryDatabase(): response ====', response)
 
     return response
 }

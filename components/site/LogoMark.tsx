@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function LogoMark({ size = 32 }: { size?: number }) {
     return (
         <motion.svg
-            viewBox="0 0 170 32"
+            viewBox={`0 0 170 ${size}`}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="h-11 w-auto transition-transform duration-300"
