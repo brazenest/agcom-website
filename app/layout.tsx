@@ -35,21 +35,6 @@ export const metadata: Metadata = {
   },
 };
 
-const navbarLinks: LinkT[] = [
-  {
-    href: '/#work',
-    content: 'Work',
-  },
-  {
-    href: '/blog',
-    content: 'Blog',
-  },
-  {
-    href: '/about',
-    content: 'About',
-  },
-]
-
 const footerLinks: LinkT[] = [
   {
     href: '/',

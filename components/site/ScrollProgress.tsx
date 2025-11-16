@@ -31,7 +31,7 @@ export function ScrollProgress() {
         return () => observers.forEach((o) => o.disconnect());
     }, []);
 
-    const c = sectionColors[active];
+    const c = sectionColors[active] ?? sectionColors.default;
 
     return (
         <motion.div

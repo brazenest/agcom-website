@@ -1,4 +1,15 @@
-export const sectionColors: Record<string, SectionColorSet> = {
+export const sectionColors = {
+    default: {
+        tintLight: "bg-neutral-50",
+        tintDark: "dark:bg-neutral-900",
+        tintOverlayLight: "bg-neutral-100/70",
+        tintOverlayDark: "dark:bg-neutral-700/40",
+        glow: "",
+        darkGlow: "",
+        barFrom: "neutral-300",
+        barTo: "neutral-600",
+        navTint: "text-neutral-950",
+    },
     home: {
         tintLight: "bg-brand-50",
         tintDark: "dark:bg-dark-surface-muted",
@@ -65,7 +76,7 @@ export const sectionColors: Record<string, SectionColorSet> = {
         barTo: "brand-600",
         navTint: "text-brand-900",
     },
-} as const;
+} satisfies Record<string, SectionColorSet>;
 
 type SectionColorSet = {
     tintLight: string;
