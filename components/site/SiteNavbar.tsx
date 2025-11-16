@@ -108,7 +108,7 @@ export function SiteNavbar() {
           <MobileNavLink id="hero" href="/" onClick={() => setMobileOpen(false)}>
             Home
           </MobileNavLink>
-          <MobileNavLink id="work" href="/#work" onClick={() => setMobileOpen(false)} active={pathname === "/#work"}>
+          <MobileNavLink id="work" href="/#work" onClick={() => setMobileOpen(false)}>
             Work
           </MobileNavLink>
           <MobileNavLink id="blog" href="/blog" onClick={() => setMobileOpen(false)}>
