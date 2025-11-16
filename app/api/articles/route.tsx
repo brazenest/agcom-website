@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
 
     const dateObj = parse(data.date, 'MM/DD/YYYY')
 
-    console.log('API /articles POST(): data.date ====', data.date)
+    console.log('API /articles POST(): data ====', data)
     console.log('API /articles POST(): dateObj ====', dateObj)
 
     const dateValues = {
