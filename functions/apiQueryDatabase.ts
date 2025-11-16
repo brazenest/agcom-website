@@ -12,7 +12,7 @@ export const apiQueryDatabase = async (queryStatement: string, queryValues: stri
         password: process.env.NEXT_PUBLIC_DB_PASSWORD,
         database: process.env.NEXT_PUBLIC_DB_NAME,
     }
-    
+    console.log('apiQueryDatabase(): dbConnectionParams =', dbConnectionParams)
     const connection = await mysql.createConnection(dbConnectionParams)
 
     let dbResponse
@@ -24,6 +24,7 @@ export const apiQueryDatabase = async (queryStatement: string, queryValues: stri
             ok: true,
             data: dbResponse[0],
         }
+        console.log('apiQueryDatabase(): dbResponse ====', dbResponse)
     } catch (err: any) {
         responseData = {
             ok: false,

@@ -9,6 +9,7 @@ import { ArticleT } from "@/types/article";
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { slug } = await params
+  console.log('BlogPost(): slug =', slug)
   const articles: ArticleT[] = (
     await getArticles({ params: { slug } })
   ).map(article => ({
