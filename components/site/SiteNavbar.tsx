@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
-import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { useActiveSection } from "@/components/providers/SectionProvider";
 import { sectionColors } from "@/lib/sectionColors";
@@ -12,7 +11,6 @@ import { ThemeToggle } from "../ui/ThemeToggle";
 
 
 export function SiteNavbar() {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
