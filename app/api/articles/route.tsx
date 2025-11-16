@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
         )
         values.push(
             slug,
-            'true',
+            '1',
         )
 
     } else {
