@@ -47,19 +47,19 @@ export default function LogoMark({ size = 32 }: { size?: number }) {
         strokeLinecap="round"
         transition={{ duration: 0.3 }}
       />
-            {/* Name text */}
-            <text
-                x="73"
-                y="22"
-                fontFamily="Space Grotesk, sans-serif"
-                fontWeight="600"
-                fontSize="13"
-                fill="var(--color-text)"
-                letterSpacing="0.02em"
-            >
-                Alden Gillespy
-            </text>
-            {/* <text
+      {/* Name text */}
+      <text
+        x="73"
+        y="22"
+        fontFamily="Space Grotesk, sans-serif"
+        fontWeight="600"
+        fontSize="13"
+        fill="var(--color-text)"
+        letterSpacing="0.02em"
+      >
+        Alden Gillespy
+      </text>
+      {/* <text
       x="70"
       y="28"
       fontFamily="Space Grotesk, sans-serif"
@@ -70,6 +70,6 @@ export default function LogoMark({ size = 32 }: { size?: number }) {
       >
         @brazenest / @agthecreative
       </text> */}
-        </motion.svg>
-    );
+    </motion.svg>
+  );
 }

@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
 
         // WHERE
         const whereStatements: string[] = []
-        if (!showHidden || (showHidden !== 'true')) {
+        if (!showHidden || (showHidden && (showHidden !== 'true'))) {
             whereStatements.push(`visible = true`)
         }
         query.push(`WHERE ${whereStatements.join(' AND ')}`)
@@ -54,6 +54,9 @@ export async function GET(req: NextRequest) {
     }
 
     const queryString = query.join(' ')
+
+    console.log('API /articles GET(): queryString ====', queryString)
+    
     const queryResponse = await apiQueryDatabase(queryString, values)
 
     return NextResponse.json(queryResponse)

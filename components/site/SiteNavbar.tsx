@@ -5,8 +5,6 @@ import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import { Button } from "@/components/ui/Button";
 import { useActiveSection } from "@/components/providers/SectionProvider";
-import { sectionColors } from "@/lib/sectionColors";
-// import { LutToggle } from "@/components/site/LutToggle";
 import { ThemeToggle } from "../ui/ThemeToggle";
 
 
@@ -33,14 +31,10 @@ export function SiteNavbar() {
     return () => document.removeEventListener("mousedown", handleOutside);
   }, [mobileOpen]);
 
-  const activeSection = useActiveSection();
-  const tint = sectionColors[activeSection].navTint;
-
   return (
     <header
       className={clsx(
         "fixed top-0 left-0 w-full z-50 transition-all duration-500",
-        tint,
         scrolled
           ? "bg-surface/80 dark:bg-dark-surface/80 shadow-md"
           : "bg-transparent"
@@ -127,7 +121,7 @@ export function SiteNavbar() {
           <div className="flex justify-between items-center mt-4">
             <ThemeToggle />
           </div>
-          
+
           <Button variant="primary" asChild className="mt-2">
             <Link href="#contact">Contact</Link>
           </Button>
@@ -179,6 +173,7 @@ function MobileNavLink({ href, id, children, onClick }: MobileNavLinkProps) {
 
   return (
     <Link
+      id={id}
       href={href}
       onClick={onClick}
       className={clsx(

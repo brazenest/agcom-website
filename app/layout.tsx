@@ -6,7 +6,6 @@ import "@/styles/globals.css";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LinkT } from "@/types/link";
-import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { SectionProvider } from "@/components/providers/SectionProvider";
 import { BackgroundTint } from "@/components/site/BackgroundTint";
 import { FilmGrain } from "@/components/site/FilmGrain";
@@ -91,15 +90,10 @@ export default function RootLayout({
 
           {/* Cinematic layers, order from farthest back to front */}
           <BackgroundTint />
-          {/* <ScrollMotionBlur /> */}
           <FilmGrain />
           <ParallaxLights />
-          {/* <CinematicGrade /> */}
           <BloomOverlay />
           <Vignette />
-          
-          {/* UI overlays */}
-          <ScrollProgress />
 
           {/* Header */}
           <SiteHeader />

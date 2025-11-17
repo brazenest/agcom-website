@@ -31,8 +31,7 @@ export default function HomeBlogSection() {
               <Card className="hover:shadow-md transition-all duration-300">
                 <Link href={a.href} className="block group">
                   <div className="text-xs flex justify-between text-text-secondary dark:text-dark-text-secondary mb-4">
-                    <span className="capitalize">{a.category}</span>
-                    <span>{a.date}</span>
+                    <span className="capitalize">{a.date}</span>
                   </div>
 
                   <h3 className="font-cinematic text-xl mb-2 group-hover:text-brand-500 dark:group-hover:text-dark-brand-500">

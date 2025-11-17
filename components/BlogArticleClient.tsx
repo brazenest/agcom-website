@@ -25,7 +25,7 @@ export default function BlogPostClient({ article }: { article: ArticleT }) {
             <div className="relative z-10">
                 <header className="mb-12 text-center">
                     <p className="text-xs font-[var(--font-engineering)] text-[var(--color-text-secondary)] uppercase mb-2">
-                        {article.category} {article.date}
+                        {article.date}
                     </p>
                     <h1 className="font-[var(--font-cinema)] text-4xl md:text-5xl text-[var(--color-text-primary)] mb-4 leading-tight">
                         {article.title}

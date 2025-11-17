@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic"; 
 
 import HomeHero from "@/components/HomeHero";
 import HomeIntroSection from "@/components/HomeIntroSection";
