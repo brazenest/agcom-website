@@ -4,7 +4,7 @@ The code for the official website for Alden Gillespy
 
 ## Release info
 
-* Version __1.2.2__
+* Version __1.2.3__
 * Released on 2025-11-16
 
 ## Legal info
