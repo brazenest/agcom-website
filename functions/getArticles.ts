@@ -6,6 +6,10 @@ import { queryApi } from './queryApi';
 
 export const getArticles = async ({ params = {} }: getArticlesProps = {}) => {
 
+    if (!Object.keys(params).includes('sortOrder')) {
+        params['sortOrder'] = 'newestFirst'
+    }
+    
     const apiResponse = await queryApi({
         endpoint: 'articles',
         params: Object.keys(params).map(key => ({ key, value: params[key] })),

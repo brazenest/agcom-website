@@ -54,6 +54,9 @@ export async function GET(req: NextRequest) {
     }
 
     const queryString = query.join(' ')
+
+    console.log('API /articles GET(): queryString ====', queryString)
+    
     const queryResponse = await apiQueryDatabase(queryString, values)
 
     return NextResponse.json(queryResponse)
