@@ -2,17 +2,25 @@ export function Heading({
     level = 2,
     children,
     className = "",
+    variant = 'normal',
 }: {
     level?: 1 | 2 | 3 | 4 | 5 | 6;
     children: React.ReactNode;
     className?: string;
+    variant: 'normal' | 'primary' | 'secondary';
 }) {
-    const baseClassNameFragments = [`font-cinematic font-semibold text-text dark:text-dark-text ${className}`]
+    const baseClassNameFragments = [`font-cinematic font-semibold ${className}`]
     if (level === 1) baseClassNameFragments.push("text-4xl md:text-6xl")
     else if (level === 2) baseClassNameFragments.push("text-3xl md:text-4xl")
     else baseClassNameFragments.push("text-xl md:text-2xl")
 
+    if (variant === 'primary') {
+        baseClassNameFragments.push('text-text-brand-500 dark:text-dark-brand-500')
+    }
+
     const classNameString = baseClassNameFragments.join(' ')
+
+
 
     switch (level) {
         case 1:

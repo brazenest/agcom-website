@@ -9,13 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#3a9cff',
-        primaryDark: '#ff9c4a',
-        background: '#ffffff',
-        backgroundDark: '#151719',
         /* ------------------------------------------
-           LIGHT THEME — ENGINEERING BLUE
+          LIGHT THEME — ENGINEERING BLUE
         ------------------------------------------ */
+        primary: '#3a9cff',
+        background: '#ffffff',
+
         brand: {
           50: '#f3f8ff',
           100: '#e1efff',
@@ -43,10 +42,13 @@ const config: Config = {
         border: '#d7dde3',
         accent: '#3a9cff',
 
-        /* ------------------------------------------
-           DARK THEME — CINEMATIC AMBER
-        ------------------------------------------ */
         dark: {
+          /* ------------------------------------------
+            DARK THEME — CINEMATIC AMBER
+          ------------------------------------------ */
+          primary: '#ff9c4a',
+          background: '#151719',
+
           brand: {
             50: '#3c2e1a',
             100: '#4d351c',
@@ -70,6 +72,10 @@ const config: Config = {
           },
           border: '#2a2c31',
         },
+      },
+      fontFamily: {
+        cinematic: 'Space Grotesk, Inter, sans-serif',
+        engineering: 'Inter, sans-serif',
       }
     },
   },

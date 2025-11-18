@@ -3,6 +3,8 @@ import Image from "next/image";
 import AboutCard from "@/components/AboutCard";
 import AboutTimeline from "@/components/AboutTimeline";
 import type { Metadata } from "next";
+import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export const metadata: Metadata = {
   title: "About Alden Gillespy – Software Engineer, Web Designer & Video Producer",
@@ -89,38 +91,34 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 pt-28 pb-12 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(58,167,255,0.03),transparent_60%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(255,156,74,0.03),transparent_60%)] pointer-events-none" />
+      <section id="hero" className="max-w-6xl mx-auto px-6 pt-28 pb-12 relative">
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-          <div className="md:col-span-2">
-            <h1 className="font-[var(--font-cinema)] text-4xl md:text-5xl mb-4 text-[var(--color-text-primary)]">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+          <div className="md:col-span-3">
+            <h1 className="text-4xl md:text-5xl mb-4 text-primary dark:text-dark-primary">
               Alden Gillespy
             </h1>
-            <p className="font-[var(--font-engineering)] text-[var(--color-text-secondary)] mb-6 leading-relaxed max-w-xl">
+            <p className="text-secondary dark:text-dark-secondary mb-6 leading-relaxed max-w-xl">
               I’m a Software Engineer & Web Designer and a Video Producer & Photographer. I bridge product-grade engineering with cinematic craft — building interfaces that feel intentional and visuals that move people.
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Link
+              <ButtonLink
                 href="/#work"
-                className="inline-flex items-center px-5 py-3 rounded-lg bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-amber)] text-white font-[var(--font-engineering)] font-medium transition-transform duration-200 hover:-translate-y-[1px] !text-black"
-                aria-label="View my work"
               >
                 View Work
-              </Link>
+              </ButtonLink>
 
-              <Link
+              <ButtonLink
                 href="mailto:ag@aldengillespy.com"
-                className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] text-[var(--color-text-primary)] font-[var(--font-engineering)]"
+                variant="primary"
               >
                 Get in Touch
-              </Link>
+              </ButtonLink>
             </div>
           </div>
 
-          <div className="space-y-6 flex flex-col items-center text-center">
+          <div className="md:col-span-2 space-y-6 flex flex-col items-center text-center">
             <div className="w-40 h-40 md:w-48 md:h-48 relative rounded-full overflow-hidden ring-1 ring-[var(--color-divider)]">
               <Image
                 src="/assets/images/profile/alden.jpg"
@@ -132,28 +130,46 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="mt-2 text-sm text-[var(--color-text-primary)] font-[var(--font-engineering)]">
+            <div className="mt-2 text-sm text-primary dark:text-dark-primary">
               Hi, I&apos;m Alden! Glad to meet you.
             </div>
 
-            <div className="text-sm text-[var(--color-text-secondary)]">Core Roles</div>
+            <div className="text-sm text-secondary dark:text-dark-secondary">Core Roles</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-              <div className="p-4 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
-                <div className="font-[var(--font-engineering)] text-[var(--color-text-primary)] font-semibold">Software Engineer</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">React, TypeScript, Node, Design Systems</div>
+              <div className="p-4 rounded-xl border border-border dark:border-dark-border bg-[var(--color-surface)]">
+                <div className="text-primary dark:text-dark-primary font-semibold">Software Engineer</div>
+                <div className="text-sm text-secondary dark:text-dark-secondary">React, TypeScript, Node, Design Systems</div>
               </div>
-              <div className="p-4 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
-                <div className="font-[var(--font-engineering)] text-[var(--color-text-primary)] font-semibold">Video Producer / Photographer</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Cinematography, Color, Editing, Storyboarding</div>
+              <div className="p-4 rounded-xl border border-border dark:border-dark-border bg-[var(--color-surface)]">
+                <div className="text-primary dark:text-dark-primary font-semibold">Video Producer / Photographer</div>
+                <div className="text-sm text-secondary dark:text-dark-secondary">Cinematography, Color, Editing, Storyboarding</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <section id="about-me" className="max-w-5xl mx-auto my-12 px-6">
+        <div className="prose">
+          <h2 className="text-primary dark:text-dark-primary">About Me</h2>
+
+          <p>I’m <strong>Alden Gillespy</strong> — a <strong>Full-Stack Software Engineer</strong>, <strong>Web Designer</strong>, and <strong>Video Producer</strong> who lives at the intersection of <strong>engineering precision and cinematic storytelling</strong>. My work spans from <strong>scalable web applications</strong> to <strong>narrative visual content</strong>, and everything I build is driven by intentional design, emotional clarity, and technical reliability.</p>
+
+          <p>My background is deliberately hybrid. I studied <strong>Computer Science at the University of Florida</strong> and earned a <strong>Film & Video Production degree from Full Sail University</strong>. Those two identities collided early and never separated. I’ve worked as a <strong>full-stack engineer on consumer-scale onboarding flows used by millions</strong>, and I’ve also spent years shooting, editing, and producing videos designed to communicate ideas visually, memorably, and at a professional level.</p>
+
+          <p>Whether I’m engineering a product or producing a video, my philosophy stays the same: <strong>clarity over complexity, craft over shortcuts, and emotion over decoration</strong>. Code should feel as intentional as narrative editing. <strong></strong>Interfaces should have rhythm. Great experiences — whether interactive or cinematic — are invisible when they work and unforgettable when well-designed.</p>
+
+          <p>Today, I focus on bridging those worlds for companies and creatives who value <strong>high-quality work that doesn’t feel templated or generic</strong>. I architect and design full-stack web experiences using technologies like <strong>TypeScript, React, Next.js, Node, Tailwind, and AWS</strong> — and I create visual content using the language of film: <strong>camera, color, composition, and pacing</strong>.</p>
+
+          <p>In every project, I bring both sides of my brain: the engineer who builds systems that scale, and the filmmaker who knows how to make people care.</p>
+
+          <p>Outside of work, you’ll probably find me experimenting with new camera setups, writing about product and design, or solving problems no one asked me to solve — because that’s what engineers do.</p>
+        </div>
+      </section>
+
       {/* Skills Cards */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="font-[var(--font-cinema)] text-2xl mb-6 text-[var(--color-text-primary)]">What I do</h2>
+      <section id="skills" className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-2xl mb-6 text-primary dark:text-dark-primary">What I do</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skills.map((s, i) => (
             <AboutCard key={s.title} skill={s} index={i} />
@@ -161,48 +177,61 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <AboutTimeline timeline={timeline} />
+      <section id="timeline" className="max-w-6xl mx-auto px-6 py-12">
+        <h2>Progress Timeline</h2>
+        {/* Timeline */}
+        <AboutTimeline timeline={timeline} />
+      </section>
 
       {/* Media / Highlights */}
-      {/* <section className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="font-[var(--font-cinema)] text-2xl mb-6 text-[var(--color-text-primary)]">Selected Projects</h2>
+      <section id="highlights" className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-2xl mb-6 text-primary dark:text-dark-primary">Selected Projects</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Link href="/#work/software-engineer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
-            <div className="font-[var(--font-engineering)] font-semibold text-[var(--color-text-primary)] mb-2">Product Interfaces</div>
-            <div className="text-sm text-[var(--color-text-secondary)]">Systems work, motion, and polished UIs for launch-ready products.</div>
+          <Link href="/#work/software-engineer" className="block p-6 rounded-xl border border-border dark:border-dark-border bg-[var(--color-surface)]">
+            <div className="font-semibold text-primary dark:text-dark-primary mb-2">Product Interfaces</div>
+            <div className="text-sm text-secondary dark:text-dark-secondary">Systems work, motion, and polished UIs for launch-ready products.</div>
           </Link>
 
-          <Link href="/#work/video-producer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
-            <div className="font-[var(--font-engineering)] font-semibold text-[var(--color-text-primary)] mb-2">Films & Videos</div>
-            <div className="text-sm text-[var(--color-text-secondary)]">Short films, commercials, and narrative-driven pieces I've directed and edited.</div>
+          <Link href="/#work/video-producer" className="block p-6 rounded-xl border border-border dark:border-dark-border bg-[var(--color-surface)]">
+            <div className="font-semibold text-primary dark:text-dark-primary mb-2">Films & Videos</div>
+            <div className="text-sm text-secondary dark:text-dark-secondary">Short films, commercials, and narrative-driven pieces I&apos;ve directed and edited.</div>
           </Link>
 
-          <Link href="/#work/photographer" className="block p-6 rounded-xl border border-[var(--color-divider)] bg-[var(--color-surface)]">
-            <div className="font-[var(--font-engineering)] font-semibold text-[var(--color-text-primary)] mb-2">Photography</div>
-            <div className="text-sm text-[var(--color-text-secondary)]">Portraits, location work, and stills for web and editorial use.</div>
+          <Link href="/#work/photographer" className="block p-6 rounded-xl border border-border dark:border-dark-border bg-[var(--color-surface)]">
+            <div className="font-semibold text-primary dark:text-dark-primary mb-2">Photography</div>
+            <div className="text-sm text-secondary dark:text-dark-secondary">Portraits, location work, and stills for web and editorial use.</div>
           </Link>
         </div>
-      </section> */}
+      </section>
 
       {/* Footer CTA */}
       <section id="contact" className="max-w-6xl mx-auto px-6 py-16">
-        <div className="rounded-2xl p-8 bg-[var(--color-surface)] border border-[var(--color-divider)] flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="rounded-2xl p-8 bg-[var(--color-surface)] border border-border dark:border-dark-border flex flex-col md:flex-row items-center justify-between gap-4">
+
           <div>
-            <h3 className="font-[var(--font-cinema)] text-xl text-[var(--color-text-primary)]">Want to collaborate?</h3>
-            <p className="text-sm text-[var(--color-text-secondary)]">I’m available for contract work, creative collaborations, and speaking opportunities.</p>
+            <h3 className="text-xl text-primary dark:text-dark-primary !mt-0">
+              Want to collaborate?
+            </h3>
+            <p className="text-sm text-secondary dark:text-dark-secondary">
+              I’m available for contract work, creative collaborations, and speaking opportunities.
+            </p>
           </div>
 
           <div className="flex gap-3">
-            <Link
+            <ButtonLink
               href="mailto:ag@aldengillespy.com"
-              className="btn px-5 py-2 rounded-lg text-white transition"
+              variant="primary"
             >
               Contact Me
-            </Link>
-            <Link href="/#work" className="inline-flex items-center px-5 py-3 rounded-lg border border-[var(--color-divider)] font-[var(--font-engineering)]">See Work</Link>
+            </ButtonLink>
+            <ButtonLink
+              href="/#work"
+            >
+              See Work
+            </ButtonLink>
           </div>
+
         </div>
       </section>
 

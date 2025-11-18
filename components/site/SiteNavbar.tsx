@@ -45,20 +45,20 @@ export function SiteNavbar() {
         {/* ---------- Logo ---------- */}
         <Link
           href="/"
-          className="font-cinematic text-2xl text-text dark:text-dark-text"
+          className="text-2xl text-text dark:text-dark-text"
         >
           Alden Gillespy
         </Link>
 
         {/* ---------- Desktop Nav ---------- */}
-        <div className="hidden md:flex items-center gap-8 font-engineering">
+        <div className="hidden md:flex items-center gap-8">
 
           <NavLink id="hero" href="/">Home</NavLink>
           <NavLink id="work" href="/#work">Work</NavLink>
+          <NavLink id="about" href="/about">About</NavLink>
           <NavLink id="blog" href="/blog">Blog</NavLink>
-          <NavLink id="contact" href="/about">About</NavLink>
+          <NavLink id="contact" href="/resume">Resume</NavLink>
 
-          {/* <LutToggle /> */}
           <ThemeToggle />
 
           <Button variant="primary" asChild>
@@ -103,7 +103,7 @@ export function SiteNavbar() {
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex flex-col py-6 px-6 text-text dark:text-dark-text font-engineering gap-6">
+        <div className="flex flex-col py-6 px-6 text-text dark:text-dark-text gap-6">
 
           <MobileNavLink id="hero" href="/" onClick={() => setMobileOpen(false)}>
             Home
@@ -111,11 +111,14 @@ export function SiteNavbar() {
           <MobileNavLink id="work" href="/#work" onClick={() => setMobileOpen(false)}>
             Work
           </MobileNavLink>
+          <MobileNavLink id="contact" href="/about" onClick={() => setMobileOpen(false)}>
+            About
+          </MobileNavLink>
           <MobileNavLink id="blog" href="/blog" onClick={() => setMobileOpen(false)}>
             Blog
           </MobileNavLink>
-          <MobileNavLink id="contact" href="/about" onClick={() => setMobileOpen(false)}>
-            About
+          <MobileNavLink id="blog" href="/resume" onClick={() => setMobileOpen(false)}>
+            Resume
           </MobileNavLink>
 
           <div className="flex justify-between items-center mt-4">
@@ -149,17 +152,14 @@ function NavLink({
       href={href}
       className={clsx(
         "relative group transition-all duration-300 text-text dark:text-dark-text",
-        active && "text-brand-500 dark:text-dark-brand-500 font-semibold"
+        active && "text-primary dark:text-dark-primary font-semibold"
       )}
     >
       {children}
 
       <span
         className={clsx(
-          "absolute left-0 -bottom-1 h-[2px] rounded transition-all duration-300",
-          active
-            ? "w-full bg-brand-500 dark:bg-dark-brand-500"
-            : "w-0 group-hover:w-full bg-brand-400 dark:bg-dark-brand-400"
+          "absolute left-0 -bottom-1 h-[2px] rounded transition-all duration-300 w-0 group-hover:w-full bg-brand-400 dark:bg-dark-brand-400"
         )}
       />
     </Link>
@@ -179,7 +179,7 @@ function MobileNavLink({ href, id, children, onClick }: MobileNavLinkProps) {
       className={clsx(
         "block text-lg transition-all duration-300",
         active
-          ? "text-brand-500 dark:text-dark-brand-500 font-semibold"
+          ? "text-primary dark:text-dark-primary font-semibold"
           : "text-text dark:text-dark-text"
       )}
     >

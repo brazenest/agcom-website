@@ -10,7 +10,7 @@ interface ButtonProps
 
 export function Button({
     asChild = false,
-    variant = "primary",
+    variant = "secondary",
     className,
     ...props
 }: ButtonProps) {
@@ -36,3 +36,5 @@ export function Button({
         />
     );
 }
+
+export type ButtonVariantT = 'primary' | 'secondary'
