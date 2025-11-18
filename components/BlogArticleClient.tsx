@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ArticleT } from "@/types/article";

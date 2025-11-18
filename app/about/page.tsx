@@ -3,7 +3,6 @@ import Image from "next/image";
 import AboutCard from "@/components/AboutCard";
 import AboutTimeline from "@/components/AboutTimeline";
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/Button";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export const metadata: Metadata = {
