@@ -7,7 +7,7 @@ export function Heading({
     level?: 1 | 2 | 3 | 4 | 5 | 6;
     children: React.ReactNode;
     className?: string;
-    variant: 'normal' | 'primary' | 'secondary';
+    variant?: 'normal' | 'primary' | 'secondary';
 }) {
     const baseClassNameFragments = [`font-cinematic font-semibold ${className}`]
     if (level === 1) baseClassNameFragments.push("text-4xl md:text-6xl")

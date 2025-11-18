@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";

@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 interface AboutCardProps {
   skill: {
     title: string;
@@ -14,7 +12,7 @@ interface AboutCardProps {
 
 export default function AboutCard({ skill, index = 0 }: AboutCardProps) {
   return (
-    <div
+    <div id={`about-card-${index}`}
       className={`
         relative flex flex-col items-start justify-start rounded-2xl overflow-hidden
         p-8 shadow-lg transition-all duration-500
