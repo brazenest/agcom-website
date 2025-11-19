@@ -7,11 +7,8 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LinkT } from "@/types/link";
 import { SectionProvider } from "@/components/providers/SectionProvider";
-import { BackgroundTint } from "@/components/site/BackgroundTint";
-import { FilmGrain } from "@/components/site/FilmGrain";
-import { ParallaxLights } from "@/components/site/ParallaxLights";
-import { BloomOverlay } from "@/components/site/BloomOverlay";
-import { Vignette } from "@/components/site/Vignette";
+import ContactModal from "@/components/zones/contact/ContactModal";
+import { ThemeProvider } from "next-themes";
 
 const fontTech = Inter({
   variable: '--font-tech',
@@ -63,13 +60,14 @@ const footerLinks: LinkT[] = [
   },
   {
     href: '/blog',
-    content: 'Blog', 
+    content: 'Blog',
   },
   {
     href: '/about',
     content: 'About',
   },
-  { href: 'mailto:ag@aldengillespy.com',
+  {
+    href: 'mailto:ag@aldengillespy.com',
     content: 'Contact',
   }
 ]
@@ -85,30 +83,28 @@ export default function RootLayout({
         id="site"
         className={`${fontTech.variable} ${fontCinema.variable} antialiased bg-background dark:bg-backgroundDark text-text dark:text-dark-text`}
       >
-        
-        <SectionProvider>
 
-          {/* Cinematic layers, order from farthest back to front */}
-          <BackgroundTint />
-          <FilmGrain />
-          <ParallaxLights />
-          <BloomOverlay />
-          <Vignette />
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <SectionProvider>
 
-          {/* Header */}
-          <SiteHeader />
+            {/* Header */}
+            <SiteHeader />
 
-          {/* Content */}
-          <div id="site-content-wrap" className="min-h-screen">
-            {children}
-          </div>
+            {/* Content */}
+            <div id="site-content-wrap" className="min-h-screen">
+              {children}
+            </div>
 
-          {/* Footer */}
-          <SiteFooter links={footerLinks} />
+            {/* Footer */}
+            <SiteFooter links={footerLinks} />
 
-        </SectionProvider>
+          </SectionProvider>
+
+          <ContactModal />  {/* Mount ONCE here */}
+        </ThemeProvider>
 
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID!} />
+
       </body>
     </html >
   );

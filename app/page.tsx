@@ -1,10 +1,10 @@
-export const dynamic = "force-dynamic"; 
+export const dynamic = "force-dynamic";
 
-import HomeHero from "@/components/HomeHero";
-import HomeIntroSection from "@/components/HomeIntroSection";
-import HomeFeaturedWorkSection from "@/components/HomeFeaturedWorkSection";
-import HomeBlogSection from "@/components/HomeBlogSection";
-import HomeContactSection from "@/components/HomeContactSection";
+import HomeHero from "@/components/zones/home/HomeHero";
+import HomeIntroSection from "@/components/zones/home/HomeIntroSection";
+import HomeFeaturedWorkSection from "@/components/zones/home/HomeFeaturedWorkSection";
+import HomeBlogSection from "@/components/zones/home/HomeBlogSection";
+import HomeContactSection from "@/components/zones/home/HomeContactSection";
 
 export default function HomePage() {
   return (

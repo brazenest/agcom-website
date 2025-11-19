@@ -10,12 +10,12 @@ export function Heading({
     variant?: 'normal' | 'primary' | 'secondary';
 }) {
     const baseClassNameFragments = [`font-cinematic font-semibold ${className}`]
-    if (level === 1) baseClassNameFragments.push("text-4xl md:text-6xl")
-    else if (level === 2) baseClassNameFragments.push("text-3xl md:text-4xl")
+    if (level === 1) baseClassNameFragments.push("text-4xl md:text-6xl text-brand-500 dark:text-dark-brand-500")
+    else if (level === 2) baseClassNameFragments.push("text-3xl md:text-4xl text-brand-600 dark:text-dark-brand-600")
     else baseClassNameFragments.push("text-xl md:text-2xl")
 
     if (variant === 'primary') {
-        baseClassNameFragments.push('text-text-brand-500 dark:text-dark-brand-500')
+        baseClassNameFragments.push('')
     }
 
     const classNameString = baseClassNameFragments.join(' ')

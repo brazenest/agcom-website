@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import { Heading } from "@/components/ui/Heading";
 import { formatDate } from "@/functions/formatDate";
 import { getArticles } from "@/functions/getArticles";
 import { ArticleT } from "@/types/article";
@@ -18,15 +19,17 @@ export default async function BlogPage() {
     date: formatDate(article.date, 'MMMM YYYY'),
     href: `/blog/articles/${article.slug}`,
   }))
-  
+
   return (
     <>
       <section className="max-w-5xl mx-auto px-6 pt-40 pb-24">
-        {/* Ambient gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(58,167,255,0.05),transparent_60%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,rgba(255,156,74,0.05),transparent_60%)] pointer-events-none" />
 
-        <h1 className="font-cinema text-4xl mb-8 text-accent">Blog</h1>
+        <Heading
+          level={1}
+          variant="normal"
+        >
+          Blog
+        </Heading>
 
         <div className="grid gap-10">
           {articles.map((article) => (
@@ -41,7 +44,8 @@ export default async function BlogPage() {
             </Link>
           ))}
         </div>
-      </section>
+        
+      </section >
     </>
   );
 }

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
 body {
   @apply bg-surface dark:bg-dark-surface text-text dark:text-dark-text transition-colors duration-300;
 }
@@ -13,17 +12,17 @@ body {
 
 #site-content-wrap h1,
 #site-content-wrap .h1 {
-  @apply font-cinematic text-5xl md:text-6xl;
+  @apply font-cinematic text-5xl md:text-6xl mb-14 mt-12;
 }
 
 #site-content-wrap h2,
 #site-content-wrap .h2 {
-  @apply font-cinematic text-4xl;
+  @apply font-cinematic text-4xl text-brand-600 dark:text-dark-brand-600;
 }
 
 #site-content-wrap h3,
 #site-content-wrap .h3 {
-  @apply font-cinematic text-3xl;
+  @apply font-cinematic text-3xl text-brand-700 dark:text-dark-brand-700;
 }
 
 #site-content-wrap h4,

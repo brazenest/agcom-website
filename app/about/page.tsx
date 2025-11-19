@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import AboutCard from "@/components/AboutCard";
-import AboutTimeline from "@/components/AboutTimeline";
+import AboutCard from "@/components/zones/about/AboutCard";
+import AboutTimeline from "@/components/zones/about/AboutTimeline";
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { AboutHeroButtonBar } from "@/components/zones/about/AboutHeroButtonBar";
 
 export const metadata: Metadata = {
   title: "About Alden Gillespy – Software Engineer, Web Designer & Video Producer",
@@ -101,20 +102,8 @@ export default function AboutPage() {
               I’m a Software Engineer & Web Designer and a Video Producer & Photographer. I bridge product-grade engineering with cinematic craft — building interfaces that feel intentional and visuals that move people.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              <ButtonLink
-                href="/#work"
-              >
-                View Work
-              </ButtonLink>
+          <AboutHeroButtonBar />
 
-              <ButtonLink
-                href="mailto:ag@aldengillespy.com"
-                variant="primary"
-              >
-                Get in Touch
-              </ButtonLink>
-            </div>
           </div>
 
           <div className="md:col-span-2 space-y-6 flex flex-col items-center text-center">

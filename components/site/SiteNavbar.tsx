@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
-import { Button } from "@/components/ui/Button";
 import { useActiveSection } from "@/components/providers/SectionProvider";
 import { ThemeToggle } from "../ui/ThemeToggle";
+import { ContactButton } from "../ui/ContactButton";
 
 
 export function SiteNavbar() {
@@ -61,9 +61,11 @@ export function SiteNavbar() {
 
           <ThemeToggle />
 
-          <Button variant="primary" asChild>
-            <Link href="#contact">Contact</Link>
-          </Button>
+          <ContactButton
+            variant="primary"
+          >
+            Contact
+          </ContactButton>
 
         </div>
 
@@ -125,9 +127,12 @@ export function SiteNavbar() {
             <ThemeToggle />
           </div>
 
-          <Button variant="primary" asChild className="mt-2">
-            <Link href="#contact">Contact</Link>
-          </Button>
+          <ContactButton
+            variant="primary"
+            className="mt-2"
+          >
+            Contact
+          </ContactButton>
         </div>
       </div>
     </header>
