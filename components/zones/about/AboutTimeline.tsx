@@ -1,5 +1,7 @@
 "use client";
 
+import { Heading } from "@/components/ui/Heading";
+import { PageSection } from "@/components/ui/PageSection";
 import { motion } from "framer-motion";
 
 interface TimelineItem {
@@ -15,7 +17,13 @@ interface AboutTimelineProps {
 
 export default function AboutTimeline({ timeline }: AboutTimelineProps) {
   return (
-    <section className="relative max-w-3xl mx-auto px-6 py-20">
+
+    <PageSection id="timeline" className="max-w-3xl mx-auto px-6 py-20">
+
+      <Heading level={2}>
+        Progress Timeline
+      </Heading>
+
       {/* Continuous gradient thread */}
       <motion.div
         className="absolute left-[1.375rem] top-0 bottom-0 w-[3px] rounded-full gradient-thread"
@@ -27,8 +35,8 @@ export default function AboutTimeline({ timeline }: AboutTimelineProps) {
             item.category === "engineering"
               ? "from-[var(--color-accent-blue)] to-[var(--color-accent-blue-light)]"
               : item.category === "cinematic"
-              ? "from-[var(--color-accent-amber)] to-[var(--color-accent-amber-light)]"
-              : "from-[var(--color-accent-blue)] to-[var(--color-accent-amber)]";
+                ? "from-[var(--color-accent-amber)] to-[var(--color-accent-amber-light)]"
+                : "from-[var(--color-accent-blue)] to-[var(--color-accent-amber)]";
 
           return (
             <motion.div
@@ -88,6 +96,10 @@ export default function AboutTimeline({ timeline }: AboutTimelineProps) {
           );
         })}
       </div>
-    </section>
+
+    </PageSection>
+
+
+
   );
 }

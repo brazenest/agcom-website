@@ -10,11 +10,9 @@ export default function HomeHero() {
   return (
     <Section
       id="hero"
-      className="relative flex flex-col items-center justify-center text-center pt-40 pb-32 overflow-hidden min-h-[90vh]"
+      className="relative flex flex-col items-center justify-center text-center  overflow-hidden min-h-[90vh]"
     >
-      <FadeIn className="flex flex-col justify-center">
-
-        <Heading level={1} className="font-cinematic">
+        <Heading level={1}>
           Engineering + Cinematic Storytelling
         </Heading>
 
@@ -30,10 +28,6 @@ export default function HomeHero() {
             <Link href="#contact">Get in Touch</Link>
           </Button>
         </div>
-
-      </FadeIn>
-
-
     </Section>
   );
 }

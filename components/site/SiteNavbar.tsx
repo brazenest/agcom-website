@@ -36,7 +36,7 @@ export function SiteNavbar() {
       className={clsx(
         "fixed top-0 left-0 w-full z-50 transition-all duration-500",
         scrolled
-          ? "bg-surface/80 dark:bg-dark-surface/80 shadow-md"
+          ? "bg-bg-alt shadow-md"
           : "bg-transparent"
       )}
     >

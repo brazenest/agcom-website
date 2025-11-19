@@ -8,75 +8,71 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // default body
+        sans: ["var(--font-engineering)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        // explicit classes: font-engineering, font-cinematic, font-heading
+        engineering: ["var(--font-engineering)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        cinematic: ["var(--font-cinematic)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        heading: ["var(--font-cinematic)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+      },
       colors: {
-        /* ------------------------------------------
-          LIGHT THEME — ENGINEERING BLUE
-        ------------------------------------------ */
-        primary: '#3a9cff',
-        background: '#ffffff',
-
+        bg: "var(--color-bg)",
+        "bg-alt": "var(--color-bg-alt)",
+        text: "var(--color-text)",
+        "text-muted": "var(--color-text-muted)",
+        accent: "var(--color-accent)",
+        "accent-hover": "var(--color-accent-hover)",
+        "accent-subtle": "var(--color-accent-subtle)",
+        border: "var(--color-border)",
+        "border-strong": "var(--color-border-strong)",
+        "card-bg": "var(--color-card-bg)",
+        "card-bg-hover": "var(--color-card-bg-hover)",
         brand: {
-          50: '#f3f8ff',
-          100: '#e1efff',
-          200: '#bddcff',
-          300: '#8cc4ff',
-          400: '#55aaff',
-          500: '#3a9cff',   // primary engineering blue
-          600: '#1d7edb',
-          700: '#1765b0',
-          800: '#144f8a',
-          900: '#123f6f',
-        },
-
-        surface: {
-          DEFAULT: '#ffffff',
-          muted: '#f7f9fb',
-        },
-
-        text: {
-          DEFAULT: '#0c1b2a',
-          secondary: '#4a5568',
-          inverse: '#ffffff',
-        },
-
-        border: '#d7dde3',
-        accent: '#3a9cff',
-
-        dark: {
-          /* ------------------------------------------
-            DARK THEME — CINEMATIC AMBER
-          ------------------------------------------ */
-          primary: '#ff9c4a',
-          background: '#151719',
-
-          brand: {
-            50: '#3c2e1a',
-            100: '#4d351c',
-            200: '#714a23',
-            300: '#915f2a',
-            400: '#b67533',
-            500: '#ff9c4a',   // primary cinematic amber
-            600: '#ffa85f',
-            700: '#ffb776',
-            800: '#ffc98f',
-            900: '#ffddb2',
-          },
-          surface: {
-            DEFAULT: '#151719',
-            muted: '#0c0d0f',
-          },
-          text: {
-            DEFAULT: '#f2f1ed',
-            secondary: '#a99f95',
-            inverse: '#0c0d0f',
-          },
-          border: '#2a2c31',
+          50: "var(--color-brand-50)",
+          100: "var(--color-brand-100)",
+          200: "var(--color-brand-200)",
+          300: "var(--color-brand-300)",
+          400: "var(--color-brand-400)",
+          500: "var(--color-brand-500)",   // primary engineering blue
+          600: "var(--color-brand-600)",
+          700: "var(--color-brand-700)",
+          800: "var(--color-brand-800)",
+          900: "var(--color-brand-900)",
         },
       },
-      fontFamily: {
-        cinematic: 'Space Grotesk, Inter, sans-serif',
-        engineering: 'Inter, sans-serif',
-      }
+      borderRadius: {
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+      },
+      boxShadow: {
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+      },
+      spacing: {
+        1: "var(--space-1)",
+        2: "var(--space-2)",
+        3: "var(--space-3)",
+        4: "var(--space-4)",
+        6: "var(--space-6)",
+        8: "var(--space-8)",
+        12: "var(--space-12)",
+        16: "var(--space-16)",
+      },
+      fontSize: {
+        xs: "var(--text-xs)",
+        sm: "var(--text-sm)",
+        base: "var(--text-base)",
+        lg: "var(--text-lg)",
+        xl: "var(--text-xl)",
+        "2xl": "var(--text-2xl)",
+        "3xl": "var(--text-3xl)",
+        "4xl": "var(--text-4xl)",
+        "5xl": "var(--text-5xl)",
+      },
     },
   },
   plugins: [],

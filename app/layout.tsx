@@ -79,6 +79,24 @@ export default function RootLayout({
 }>) {
   return (
     <html id="root" lang="en" suppressHydrationWarning>
+
+      {/* Prevent initial theme flash */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        let theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    `,
+        }}
+      />
+
+      {/* The BODY tag and page content */}
+
       <body
         id="site"
         className={`${fontTech.variable} ${fontCinema.variable} antialiased bg-background dark:bg-backgroundDark text-text dark:text-dark-text`}
@@ -91,7 +109,7 @@ export default function RootLayout({
             <SiteHeader />
 
             {/* Content */}
-            <div id="site-content-wrap" className="min-h-screen">
+            <div id="site-content-wrap" className="min-h-screen pt-40 pb-32">
               {children}
             </div>
 

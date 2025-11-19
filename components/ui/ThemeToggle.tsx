@@ -1,42 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useTheme } from "@/hooks/useTheme";
+import { motion } from "framer-motion";
 import { FaSun, FaMoon } from "react-icons/fa";
-import clsx from "clsx";
 
 export function ThemeToggle() {
-    const [theme, setTheme] = useState<"light" | "dark">("light");
-
-    // Load initial theme
-    useEffect(() => {
-        const stored = localStorage.getItem("theme") as "light" | "dark" | null;
-        if (stored) {
-            setTheme(stored);
-            document.documentElement.setAttribute("data-theme", stored);
-        }
-    }, []);
-
-    const toggle = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-        document.documentElement.setAttribute("data-theme", newTheme);
-    };
+    const { theme, toggle } = useTheme();
 
     return (
         <button
             onClick={toggle}
-            className={clsx(
-                "p-2 rounded-full transition-colors duration-300",
-                "bg-surface dark:bg-dark-surface border border-border dark:border-dark-border",
-                "hover:bg-surface-muted dark:hover:bg-dark-surface-muted"
-            )}
+            aria-label="Toggle theme"
+            className="relative flex items-center justify-center w-10 h-10 rounded-full 
+                 transition-colors duration-200 
+                 bg-bg-alt hover:bg-card-bg border border-border"
         >
-            {theme === "light" ? (
-                <FaMoon className="text-text dark:text-dark-text text-lg" />
-            ) : (
-                <FaSun className="text-text dark:text-dark-text text-lg" />
-            )}
+            <motion.div
+                key={theme}
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.18 }}
+                className="text-accent font-cinematic text-xl"
+            >
+                {theme === "light" ? <FaSun className="text-text dark:text-dark-text text-lg" /> : <FaMoon className="text-text dark:text-dark-text text-lg" />}
+            </motion.div>
         </button>
     );
 }
