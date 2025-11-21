@@ -1,18 +1,18 @@
 export const PrimaryText = ({ tag = 'p', className, children }) => {
 
-    const classNameParts = className ? [className] : []
+	const classNameParts = className ? [className] : []
 
-    classNameParts.push('text-primary dark:text-dark-primary')
+	classNameParts.push('text-primary dark:text-dark-primary')
 
-    const classes = classNameParts.join(' ')
+	const classes = classNameParts.join(' ')
 
-    switch (tag) {
+	switch (tag) {
 
-        case 'div':
-            return <div className={classes}>{children}</div>
+	case 'div':
+		return <div className={classes}>{children}</div>
 
-        case 'p':
-        default:
-            return <p className={classes}>{children}</p>
-    }
+	case 'p':
+	default:
+		return <p className={classes}>{children}</p>
+	}
 }

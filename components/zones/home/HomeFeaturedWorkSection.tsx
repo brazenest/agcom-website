@@ -1,67 +1,119 @@
-"use client";
-
-import Link from "next/link";
-import { FadeIn } from "@/components/ui/MotionWrapper";
+// components/home/FeaturedWorkSection.tsx
+import * as React from "react";
 import { Section } from "@/components/ui/Section";
-import { Heading } from "@/components/ui/Heading";
-import { Card } from "@/components/ui/Card";
+import { Card, CardContent } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 
-const projects = [
-  {
-    title: "Ancestry DNA Kit Activation",
-    description: "React-based consumer activation flow handling millions of daily users.",
-    category: "engineering",
-    href: "https://ancestry.com",
-  },
-  {
-    title: "Timeshare Sales & Rentals Platform",
-    description: "Full PHP + MySQL real-time listing engine for vacation ownership.",
-    category: "engineering",
-    href: "https://www.sellmytimesharenow.com/",
-  },
-  {
-    title: "SHADOWCATpictures",
-    description: "Cinematic YouTube channel of choreographed water performances.",
-    category: "cinematic",
-    href: "https://youtube.com/c/SHADOWCATpictures",
-  },
-  {
-    title: "Portfolio Website",
-    description: "Next.js + TailwindCSS platform uniting engineering and cinematic craft.",
-    category: "hybrid",
-    href: "#",
-  },
-];
+export function HomeFeaturedWorkSection() {
+	return (
+		<Section
+			align="left"
+			width="wide"
+			className="layout-section-bleed bg-surface-alt"
+			eyebrow="Selected Work"
+			title="Engineering-first products with cinematic clarity."
+			subtitle="From consumer DNA activation to content-heavy interfaces, I design systems that scale and still feel human."
+		>
+			<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+				{/* Project 1 — DNA Kit Activation */}
+				<Card className="bg-card-bg/90 border-border/70 shadow-lg">
+					<CardContent className="p-5 md:p-6 space-y-3">
+						<div className="flex items-center justify-between gap-2">
+							<p className="text-xs font-semibold tracking-[0.16em] uppercase text-text-muted">
+								Consumer DNA · Ancestry
+							</p>
+							<Badge variant="soft">Engineering</Badge>
+						</div>
+						<h3 className="font-heading text-lg md:text-xl text-text">
+							DNA Kit Activation Flow
+						</h3>
+						<p className="text-sm text-text-muted">
+							Full-stack React + Node flow for activating DNA kits, built for
+							millions of daily users with rock-solid reliability.
+						</p>
+						<div className="flex flex-wrap gap-2 text-[0.7rem]">
+							<Badge variant="outline">React</Badge>
+							<Badge variant="outline">TypeScript</Badge>
+							<Badge variant="outline">Node</Badge>
+							<Badge variant="soft">UX &amp; Motion</Badge>
+						</div>
+						<Button
+							variant="ghost"
+							size="sm"
+							className="mt-2 px-0 text-xs inline-flex items-center gap-1"
+						>
+							View case study
+							<span aria-hidden>↗</span>
+						</Button>
+					</CardContent>
+				</Card>
 
-export default function HomeFeaturedWorkSection() {
-  return (
-    <main id="work">
-      <Section>
-        <FadeIn>
-          <Heading level={2} className="text-center mb-16">Featured Work</Heading>
-        </FadeIn>
+				{/* Project 2 — Timeshare / listings, example */}
+				<Card className="bg-card-bg/90 border-border/70 shadow-md">
+					<CardContent className="p-5 md:p-6 space-y-3">
+						<div className="flex items-center justify-between gap-2">
+							<p className="text-xs font-semibold tracking-[0.16em] uppercase text-text-muted">
+								Property Search
+							</p>
+							<Badge variant="soft">Product</Badge>
+						</div>
+						<h3 className="font-heading text-lg md:text-xl text-text">
+							Timeshare Search &amp; Rentals
+						</h3>
+						<p className="text-sm text-text-muted">
+							High-clarity search and booking flows for a content-dense
+							timeshare platform, tuned for trust and conversion.
+						</p>
+						<div className="flex flex-wrap gap-2 text-[0.7rem]">
+							<Badge variant="outline">Next.js</Badge>
+							<Badge variant="outline">TypeScript</Badge>
+							<Badge variant="outline">MySQL</Badge>
+							<Badge variant="soft">Design Systems</Badge>
+						</div>
+						<Button
+							variant="ghost"
+							size="sm"
+							className="mt-2 px-0 text-xs inline-flex items-center gap-1"
+						>
+							View case study
+							<span aria-hidden>↗</span>
+						</Button>
+					</CardContent>
+				</Card>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {projects.map((p, i) => (
-            <FadeIn key={p.title} delay={i * 0.15}>
-              <Card className="hover:shadow-md transition-all duration-300">
-                <Link href={p.href} className="block group">
-                  <h3 className="font-cinematic text-2xl mb-3 text-text group-hover:text-brand-500 dark:text-dark-text dark:group-hover:text-dark-brand-500">
-                    {p.title}
-                  </h3>
-                  <p className="font-engineering text-text-secondary dark:text-dark-text-secondary mb-4">
-                    {p.description}
-                  </p>
+				{/* Project 3 — Cinematic / content-heavy */}
+				<Card className="bg-card-bg/90 border-border/70 shadow-md md:col-span-2 xl:col-span-1">
+					<CardContent className="p-5 md:p-6 space-y-3">
+						<div className="flex items-center justify-between gap-2">
+							<p className="text-xs font-semibold tracking-[0.16em] uppercase text-text-muted">
+								Narrative &amp; Visual Systems
+							</p>
+							<Badge variant="soft">Cinematic</Badge>
+						</div>
+						<h3 className="font-heading text-lg md:text-xl text-text">
+							Editorial &amp; branded video pieces
+						</h3>
+						<p className="text-sm text-text-muted">
+							Concept, shoot, and edit for pieces that marry product clarity
+							with cinematic framing, pacing, and color.
+						</p>
+						<div className="flex flex-wrap gap-2 text-[0.7rem]">
+							<Badge variant="outline">Direction</Badge>
+							<Badge variant="outline">Camera</Badge>
+							<Badge variant="outline">Edit &amp; Color</Badge>
+						</div>
+					</CardContent>
+				</Card>
+			</div>
 
-                  <span className="inline-block text-xs uppercase tracking-wide px-3 py-1 rounded-md bg-surface-muted dark:bg-dark-surface-muted text-text-secondary dark:text-dark-text-secondary">
-                    {p.category}
-                  </span>
-                </Link>
-              </Card>
-            </FadeIn>
-          ))}
-        </div>
-      </Section>
-    </main>
-  );
+			{/* Ambient band wash */}
+			<div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
+				<div className="absolute -top-20 left-0 h-40 w-40 rounded-full blur-3xl bg-accent/18" />
+				<div className="absolute -bottom-24 right-10 h-48 w-48 rounded-full blur-3xl bg-accent-subtle/30" />
+			</div>
+		</Section>
+	);
 }
+
+export default HomeFeaturedWorkSection;

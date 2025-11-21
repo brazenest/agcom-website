@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 export const DateSelector = ({ value, handleChange }: DateSelectorProps) => (
-    <DatePicker selected={value} onChange={(date) => handleChange(date as Date)} dateFormat="Pp" />
+	<DatePicker selected={value} onChange={(date) => handleChange(date as Date)} dateFormat="Pp" />
 );
 
 type DateSelectorProps = {

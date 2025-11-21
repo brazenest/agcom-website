@@ -14,9 +14,11 @@ export async function GET(req: NextRequest) {
     if (slug) {
 
         query.push(
-            'SELECT slug, title, date, body, excerpt',
+            'SELECT articles.slug as slug, articles.title as title, articles.date as date, articles.body as body, articles.excerpt as excerpt, categories.slug as category',
             'FROM articles',
-            'WHERE slug=? AND visible=?',
+            'JOIN categories',
+            'ON articles.category = categories.id',
+            'WHERE articles.slug=? AND articles.visible=?',
             'LIMIT 1',
         )
         values.push(

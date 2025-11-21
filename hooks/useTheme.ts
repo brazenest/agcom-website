@@ -3,28 +3,28 @@
 import { useEffect, useState } from "react";
 
 export function useTheme() {
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+	const [theme, setTheme] = useState<"light" | "dark">("light");
 
-    useEffect(() => {
-        const doc = document.documentElement;
-        const stored = localStorage.getItem("theme") as "light" | "dark" | null;
+	useEffect(() => {
+		const doc = document.documentElement;
+		const stored = localStorage.getItem("theme") as "light" | "dark" | null;
 
-        const initial =
+		const initial =
             stored ??
             (window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light");
+            	? "dark"
+            	: "light");
 
-        doc.setAttribute("data-theme", initial);
-        setTheme(initial);
-    }, []);
+		doc.setAttribute("data-theme", initial);
+		setTheme(initial);
+	}, []);
 
-    const toggle = () => {
-        const next = theme === "light" ? "dark" : "light";
-        localStorage.setItem("theme", next);
-        document.documentElement.setAttribute("data-theme", next);
-        setTheme(next);
-    };
+	const toggle = () => {
+		const next = theme === "light" ? "dark" : "light";
+		localStorage.setItem("theme", next);
+		document.documentElement.setAttribute("data-theme", next);
+		setTheme(next);
+	};
 
-    return { theme, toggle };
+	return { theme, toggle };
 }

@@ -3,11 +3,11 @@ import { Button } from "./Button"
 import type { ButtonVariantT } from "./Button"
 
 export const ButtonLink = ({ href, variant = "secondary", children}: ButtonLinkProps) => (
-    <Button variant={variant}>
-        <Link href={href}>
-        {children}
-        </Link>
-    </Button>
+	<Button variant={variant}>
+		<Link href={href}>
+			{children}
+		</Link>
+	</Button>
 )
 
 type ButtonLinkProps = {

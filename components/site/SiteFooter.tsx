@@ -4,43 +4,39 @@ import { Section } from "@/components/ui/Section";
 import { SiteFooterSocialIconsBar } from "./SiteFooterSocialIconsBar";
 
 export const SiteFooter = ({ links }) => (
-  <footer className="relative mt-32 border-t border-border dark:border-dark-border">
+	<footer className="relative mt-32 border-t border-border dark:border-dark-border">
 
-    <Section className="py-16 text-center bg-surface dark:bg-dark-surface">
+		<Section
+			title="Alden Gillespy"
+			subtitle="Engineering + Cinematic Storytelling"
+			className="py-16 text-center bg-surface dark:bg-dark-surface"
+		>
 
-      <h3 className="font-cinematic text-2xl text-text dark:text-dark-text mb-4">
-        Alden Gillespy
-      </h3>
+			<div className="flex justify-center gap-6 text-sm font-engineering">
+				{links.map(({ href, content }) => (
+					<FooterLink key={href} href={href}>
+						{content}
+					</FooterLink>
+				))}
+			</div>
 
-      <p className="text-text-secondary dark:text-dark-text-secondary font-engineering mb-8">
-        Engineering + Cinematic Storytelling
-      </p>
+			<SiteFooterSocialIconsBar className="mt-10" />
 
-      <div className="flex justify-center gap-6 text-sm font-engineering">
-        {links.map(({ href, content }) => (
-          <FooterLink key={href} href={href}>
-            {content}
-          </FooterLink>
-        ))}
-      </div>
-
-      <SiteFooterSocialIconsBar className="mt-10" />
-
-      <p className="mt-10 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
+			<p className="mt-10 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
         © {new Date().getFullYear()} Alden Gillespy. All rights reserved.
-      </p>
-      <p className="mt-4 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
+			</p>
+			<p className="mt-4 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
         version {process.env.NEXT_PUBLIC_SITE_VERSION}
-      </p>
-    </Section>
-  </footer>
+			</p>
+		</Section>
+	</footer>
 )
 
 const FooterLink = ({ href, children }) => (
-  <Link
-    href={href}
-    className="text-text dark:text-dark-text hover:text-brand-500 dark:hover:text-dark-brand-500 transition-colors"
-  >
-    {children}
-  </Link>
+	<Link
+		href={href}
+		className="text-text dark:text-dark-text hover:text-brand-500 dark:hover:text-dark-brand-500 transition-colors"
+	>
+		{children}
+	</Link>
 );

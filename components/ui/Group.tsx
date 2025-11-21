@@ -1,13 +1,13 @@
 export const Group = ({ id, wrap = false, children }: GroupProps) => {
-    const classes: ClassNameClause[] = ["flex gap-4"]
+	const classes: ClassNameClause[] = ["flex gap-4"]
 
-    if (wrap) classes.push('flex-wrap')
+	if (wrap) classes.push('flex-wrap')
 
-    return (
-        <div id={id} className={classes.join(' ')}>
-            {children}
-        </div >
-    )
+	return (
+		<div id={id} className={classes.join(' ')}>
+			{children}
+		</div >
+	)
 }
 
 type GroupProps = {

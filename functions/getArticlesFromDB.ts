@@ -1,21 +1,14 @@
 import { DbQueryValue } from "@/types/db";
 import { queryDatabase } from "./queryDatabase";
+import { ArticleT } from "@/types/blog";
 
-export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetArticleFromDBParams) => {
-	if (!id && !slug) throw new Error('getArticleFromDB() ERROR: Neither id nor slug was provided.')
+export const getArticlesFromDB = async ({ showHidden = false }: fnGetArticlesFromDBParams) => {
 
 	const values: DbQueryValue[] = []
 
 	// Build the WHERE predicate.
 	const whereParts: string[] = []
-	if (id) {
-		whereParts.push('id = ?')
-		values.push(id as string)
-	}
-	else if (slug) {
-		whereParts.push('slug = ?')
-		values.push(slug)
-	}
+
 	if (!showHidden) {
 		whereParts.push('visible = ?')
 		values.push('1')
@@ -43,8 +36,8 @@ export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetAr
 	// WHERE clause
 	const where = new DBQueryWhereClause(whereParts)
 
-	// LIMIT clause
-	const limit = new DBQueryLimitClause(['1'])
+	// ORDER BY clause
+	const orderBy = new DBQueryOrderByClause(['articles.date DESC'])
 
 	// Build the query string.
 	const query = [
@@ -53,19 +46,16 @@ export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetAr
 		join,
 		on,
 		where,
-		limit,
+		orderBy,
 	].join(' ')
 
-	console.log('getArticleFromDB() query ====', query)
 	// Return the result of the direct-to-DB query.
-	const result = await queryDatabase({ query, values })
+	const result = await queryDatabase<ArticleT>({ query, values });
 
-	return result[0]
+	return result
 }
 
-type fnGetArticleFromDBParams = {
-    id?: string | number,
-    slug?: string,
+type fnGetArticlesFromDBParams = {
     showHidden?: boolean,
 }
 
@@ -96,8 +86,6 @@ type DBQueryClauseParams = {
     conjoiner?: string
 }
 
-
-
 class DBQuerySelectClause extends DBQueryClause {
 	constructor(values) {
 		super('SELECT', values, { conjoiner: ', ' })
@@ -127,8 +115,8 @@ class DBQueryWhereClause extends DBQueryClause {
 	}
 }
 
-class DBQueryLimitClause extends DBQueryClause {
+class DBQueryOrderByClause extends DBQueryClause {
 	constructor(values) {
-		super('LIMIT', values, { conjoiner: ', ' })
+		super('ORDER BY', values, { conjoiner: ', ' })
 	}
 }

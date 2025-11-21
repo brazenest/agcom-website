@@ -3,14 +3,14 @@ import { ContactButton } from "@/components/ui/ContactButton";
 import { Group } from "@/components/ui/Group";
 
 export const AboutHeroButtonBar = () => (
-  <Group id="about-hero-buttonbar">
-    <ButtonLink
-      href="/#work"
-    >
+	<Group id="about-hero-buttonbar">
+		<ButtonLink
+			href="/#work"
+		>
       View Work
-    </ButtonLink>
-    <ContactButton>
+		</ButtonLink>
+		<ContactButton>
       Get in Touch
-    </ContactButton>
-  </Group>
+		</ContactButton>
+	</Group>
 )

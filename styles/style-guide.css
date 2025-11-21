@@ -1,9 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* styles/style-guide.css */
 /* Alden – Engineering (light) & Cinematic (dark) Design Tokens */
 
 :root {
     color-scheme: light;
 
+    /* Core content widths */
+    --layout-content-max: 70rem;
+    /* ~1120px: default content column */
+    --layout-content-wide: 88rem;
+    /* ~1408px: "cinematic" wide column */
+
+    /* Gutter (horizontal padding) */
+    --layout-gutter: 1.25rem;
+    /* mobile / small */
+
+    /* Section vertical spacing */
+    --layout-section-padding-min: 3rem;
+    --layout-section-padding-max: 5rem;
+
+    /* Prose max width (readability) */
+    --layout-prose-max: 60ch;
     /* Hues */
     --h-engineering: 212;
     /* blue */
@@ -52,7 +72,8 @@
     --color-brand-200: #bddcff;
     --color-brand-300: #8cc4ff;
     --color-brand-400: #55aaff;
-    --color-brand-500: #3a9cff; /* primary engineering blue */
+    --color-brand-500: #3a9cff;
+    /* primary engineering blue */
     --color-brand-600: #1d7edb;
     --color-brand-700: #1765b0;
     --color-brand-800: #144f8a;
@@ -79,12 +100,16 @@
 [data-theme="dark"] {
     color-scheme: dark;
 
+    --layout-content-wide: 100rem;
+    /* slightly more cinematic on dark */
+
     --color-brand-50: #3c2e1a;
     --color-brand-100: #4d351c;
     --color-brand-200: #714a23;
     --color-brand-300: #915f2a;
     --color-brand-400: #b67533;
-    --color-brand-500: #ff9c4a; /* primary cinematic amber */
+    --color-brand-500: #ff9c4a;
+    /* primary cinematic amber */
     --color-brand-600: #ffa85f;
     --color-brand-700: #ffb776;
     --color-brand-800: #ffc98f;
@@ -105,4 +130,106 @@
 
     --color-card-bg: #14161b;
     --color-card-bg-hover: hsl(var(--h-cinematic) 75% 18%);
+}
+
+/* On medium / laptop screens (≥ 1024px): loosen a bit */
+@media (min-width: 1024px) {
+    :root {
+        --layout-content-max: 72rem;
+        /* 1152px */
+        --layout-content-wide: 92rem;
+        /* 1472px */
+        --layout-gutter: 1.75rem;
+    }
+}
+
+/* On big desktops (≥ 1440px): give more room */
+@media (min-width: 1440px) {
+    :root {
+        --layout-content-max: 76rem;
+        /* 1216px */
+        --layout-content-wide: 96rem;
+        /* 1536px */
+        --layout-gutter: 2.25rem;
+    }
+}
+
+/* On ultra-wide (≥ 1920px): cinematic stretch */
+@media (min-width: 1920px) {
+    :root {
+        --layout-content-max: 80rem;
+        /* 1280px */
+        --layout-content-wide: 104rem;
+        /* 1664px */
+        --layout-gutter: 3rem;
+    }
+}
+
+@layer components {
+
+    /* Full viewport width, theme-aware page wrapper */
+    .layout-page {
+        @apply min-h-screen;
+        width: 100%;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+    }
+
+    /* Vertical rhythm for sections */
+    .layout-section {
+        padding-block: clamp(var(--layout-section-padding-min),
+                6vw,
+                var(--layout-section-padding-max));
+    }
+
+    .layout-section-tight {
+        padding-block: clamp(calc(var(--layout-section-padding-min) * 0.66),
+                4vw,
+                calc(var(--layout-section-padding-max) * 0.8));
+    }
+
+    .layout-section-spacious {
+        padding-block: clamp(calc(var(--layout-section-padding-min) * 1.1),
+                8vw,
+                calc(var(--layout-section-padding-max) * 1.2));
+    }
+
+    /* Makes a section background bleed edge-to-edge */
+    .layout-section-bleed {
+        margin-inline: calc(50% - 50vw);
+        width: 100vw;
+    }
+}
+
+@layer utilities {
+
+    /* Default contained column */
+    .layout-inner {
+        margin-inline: auto;
+        max-width: var(--layout-content-max);
+        padding-inline: var(--layout-gutter);
+        width: 100%;
+    }
+
+    /* Wider column for more cinematic sections */
+    .layout-inner-wide {
+        margin-inline: auto;
+        max-width: var(--layout-content-wide);
+        padding-inline: var(--layout-gutter);
+        width: 100%;
+    }
+
+    /* Full-width column (respects gutters, no max-width) */
+    .layout-inner-full {
+        margin-inline: auto;
+        max-width: 100%;
+        padding-inline: var(--layout-gutter);
+        width: 100%;
+    }
+
+    /* Keep long-form text readable, even in wide/full sections */
+    .layout-prose {
+        margin-inline: auto;
+        max-width: var(--layout-prose-max);
+    }
 }

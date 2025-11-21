@@ -10,11 +10,39 @@ const config: Config = {
     extend: {
       fontFamily: {
         // default body
-        sans: ["var(--font-engineering)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        sans: [
+          'var(--font-engineering)',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'sans-serif',
+        ],
         // explicit classes: font-engineering, font-cinematic, font-heading
-        engineering: ["var(--font-engineering)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        cinematic: ["var(--font-cinematic)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        heading: ["var(--font-cinematic)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        engineering: [
+          'var(--font-engineering)',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'sans-serif',
+        ],
+        cinematic: [
+          'var(--font-cinematic)',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'sans-serif',
+        ],
+        heading: [
+          'var(--font-cinematic)',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'sans-serif',
+        ],
       },
       colors: {
         bg: "var(--color-bg)",
@@ -61,6 +89,7 @@ const config: Config = {
         8: "var(--space-8)",
         12: "var(--space-12)",
         16: "var(--space-16)",
+        gutter: 'var(--layout-gutter)',
       },
       fontSize: {
         xs: "var(--text-xs)",
@@ -72,6 +101,13 @@ const config: Config = {
         "3xl": "var(--text-3xl)",
         "4xl": "var(--text-4xl)",
         "5xl": "var(--text-5xl)",
+      },
+      screens: {
+        '3xl': '1920px',
+      },
+      maxWidth: {
+        'content-max': 'var(--layout-content-max)',
+        'content-wide': 'var(--layout-content-wide)',
       },
     },
   },
