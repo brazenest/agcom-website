@@ -2,7 +2,7 @@ import rehypeSanitize from "rehype-sanitize"
 import dynamic from "next/dynamic";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
-import { ArticleBodyT } from "@/types/article";
+import { ArticleBodyT } from "@/types/blog";
 
 const MDEditor = dynamic(
     () => import("@uiw/react-md-editor"),

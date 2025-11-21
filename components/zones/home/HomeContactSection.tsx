@@ -1,29 +1,48 @@
-"use client";
-
-import { FadeIn } from "@/components/ui/MotionWrapper";
+// components/home/HomeContactSection.tsx
+import * as React from "react";
 import { Section } from "@/components/ui/Section";
-import { Heading } from "@/components/ui/Heading";
-import { Card } from "@/components/ui/Card";
-import { ContactButton } from "@/components/ui/ContactButton";
+import { Button } from "@/components/ui/Button";
 
-export default function HomeContactSection() {
-  return (
-    <Section id="contact" className="flex justify-center">
-      <FadeIn>
-        <Card className="text-center p-12 max-w-2xl w-full">
+export function HomeContactSection() {
+	return (
+		<Section
+			align="left"
+			width="wide"
+			className="layout-section-bleed relative bg-surface-alt"
+			eyebrow="Next steps"
+			title="Have a product, story, or project in mind?"
+			subtitle="Whether you need an engineer, a director, or both, I can help plan, build, and ship something considered."
+		>
+			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+				<div className="space-y-2 max-w-xl">
+					<p className="text-sm md:text-base text-text-muted">
+            I work well on product teams, in close collaboration with designers,
+            or directly with founders and producers. Tell me what you’re trying
+            to make and where you’re stuck.
+					</p>
+					<p className="text-xs text-text-muted/80">
+            Engineering + cinematic storytelling, end-to-end — or just the
+            piece you need.
+					</p>
+				</div>
 
-          <Heading level={2} className="mb-4">Let’s talk</Heading>
+				<div className="flex flex-wrap gap-3">
+					<Button size="lg">
+            Get in touch
+					</Button>
+					<Button variant="secondary" size="lg">
+            View work
+					</Button>
+				</div>
+			</div>
 
-          <p className="text-text-secondary dark:text-dark-text-secondary font-engineering mb-8">
-            Interested in working together or have a question? Send me a note and I’ll respond soon.
-          </p>
-
-          <ContactButton variant="primary">
-            Contact Me
-          </ContactButton>
-
-        </Card>
-      </FadeIn>
-    </Section>
-  );
+			{/* Ambient CTA wash */}
+			<div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
+				<div className="absolute -top-16 right-0 h-40 w-40 rounded-full blur-3xl bg-accent/20" />
+				<div className="absolute -bottom-20 left-8 h-40 w-40 rounded-full blur-3xl bg-accent-subtle/35" />
+			</div>
+		</Section>
+	);
 }
+
+export default HomeContactSection;

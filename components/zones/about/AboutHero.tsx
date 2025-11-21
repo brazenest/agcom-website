@@ -1,69 +1,90 @@
-import Image from 'next/image'
-import { AboutHeroButtonBar } from "./AboutHeroButtonBar"
-import { Heading } from '@/components/ui/Heading'
-import { SecondaryText } from '@/components/SecondaryText'
-import { PrimaryText } from '@/components/PrimaryText'
-import { PageSection } from '@/components/ui/PageSection'
-import { AboutCoreRoleT } from '@/types/about'
-import { AboutCoreRoles } from './AboutCoreRoles'
+// components/home/HomeHero.tsx
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Card, CardContent } from "@/components/ui/Card";
+import { Section } from "@/components/ui/Section";
+import * as React from "react";
 
-export const AboutHero = ({ title, text, coreRoles }: AboutHeroProps) => (
-    <PageSection id="hero">
+export function HomeHero() {
+	return (
+		<Section
+			align="left"
+			width="full"
+			className="relative overflow-hidden layout-section-bleed"
+			eyebrow="Engineering × Cinematic Storytelling"
+			title="Bridging product-grade engineering with cinematic craft."
+			subtitle="I design and build web experiences that feel as intentional as a well-cut scene — precise systems under the hood, cinematic polish on the surface."
+		>
+			<div className="grid gap-10 md:grid-cols-[minmax(0,1.4fr),minmax(0,1fr)] xl:grid-cols-[minmax(0,1.3fr),minmax(0,1fr)] items-center">
+				{/* Left: copy + CTAs */}
+				<div className="space-y-6">
+					<div className="flex flex-wrap gap-2">
+						<Badge variant="soft">Software Engineer &amp; Web Designer</Badge>
+						<Badge variant="outline">Video Producer &amp; Photographer</Badge>
+					</div>
 
-        {/* Intro */}
+					<p className="text-text-muted max-w-xl">
+                        From React and TypeScript to lenses and color grades, I work
+                        end-to-end: systems, UI, and the visuals that tell the story.
+					</p>
 
-        <div id="hero-intro" className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+					<div className="flex flex-wrap gap-3">
+						<Button size="lg">
+                            View Work
+						</Button>
+						<Button variant="secondary" size="lg">
+                            Get in Touch
+						</Button>
+					</div>
 
-            {/* Left column */}
+					<div className="flex flex-wrap gap-4 pt-4 text-xs text-text-muted">
+						<div className="flex flex-col">
+							<span className="font-semibold text-text">Engineering</span>
+							<span>React, Next.js, TypeScript</span>
+						</div>
+						<div className="flex flex-col">
+							<span className="font-semibold text-text">Cinematic</span>
+							<span>Direction, Camera, Edit, Color</span>
+						</div>
+					</div>
+				</div>
 
-            <div className="md:col-span-3">
+				{/* Right: “hero card” – feels like a product shot / frame */}
+				<Card className="relative bg-card-bg shadow-lg border-border/70">
+					<CardContent className="p-5 md:p-6 space-y-4">
+						<p className="text-xs font-semibold tracking-[0.18em] uppercase text-text-muted">
+                            Featured Flow
+						</p>
+						<h3 className="font-heading text-xl md:text-2xl text-text">
+                            Consumer DNA Kit Activation
+						</h3>
+						<p className="text-sm text-text-muted">
+                            A React-based activation experience handling millions of users,
+                            built for reliability, clarity, and a cinematic sense of progress.
+						</p>
 
-                <Heading level={1}>
-                    {title}
-                </Heading>
+						<div className="flex flex-wrap gap-2 text-[0.7rem]">
+							<Badge variant="soft">React</Badge>
+							<Badge variant="soft">TypeScript</Badge>
+							<Badge variant="soft">Node</Badge>
+							<Badge variant="outline">UX &amp; Motion</Badge>
+						</div>
 
-                <SecondaryText tag="div" className="leading-relaxed max-w-xl">
-                    {text}
-                </SecondaryText>
+						<div className="mt-4 text-[0.7rem] text-text-muted">
+							<span className="inline-flex h-2 w-2 rounded-full bg-accent mr-2" />
+                            Live production system · millions of activations
+						</div>
+					</CardContent>
 
-                <AboutHeroButtonBar />
-
-            </div>
-
-            {/* Right column */}
-
-            <div className="md:col-span-2 space-y-6 flex flex-col items-center text-center">
-
-                {/* Profile image */}
-
-                <div className="w-40 h-40 md:w-48 md:h-48 relative rounded-full overflow-hidden ring-1 ring-[var(--color-divider)]">
-                    <Image
-                        src="/assets/images/profile/alden.jpg"
-                        alt="Alden Gillespy — headshot"
-                        fill
-                        sizes="(max-width: 768px) 160px, 192px"
-                        className="object-cover"
-                        priority
-                    />
-                </div>
-
-                {/* Profile info */}
-
-                <PrimaryText className="mt-2 text-sm">
-                    Hi, I&apos;m Alden! Glad to meet you.
-                </PrimaryText>
-
-                <AboutCoreRoles roles={coreRoles} />
-
-            </div>
-
-        </div>
-
-    </PageSection>
-)
-
-type AboutHeroProps = {
-    title: string,
-    text: string,
-    coreRoles: AboutCoreRoleT[],
+					{/* Ambient engineering/cinematic wash */}
+					<div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
+						<div className="absolute -top-16 -right-10 h-40 w-40 rounded-full blur-3xl bg-accent/25" />
+						<div className="absolute -bottom-20 -left-10 h-40 w-40 rounded-full blur-3xl bg-accent-subtle/40" />
+					</div>
+				</Card>
+			</div>
+		</Section>
+	);
 }
+
+export default HomeHero;

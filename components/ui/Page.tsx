@@ -1,15 +1,15 @@
 export const Page = ({ id, className, children }: PageProps) => {
-    const classParts = className ? [className] : []
+	const classParts = className ? [className] : []
 
-    classParts.push('max-w-6xl mx-auto')
+	classParts.push('layout-page')
 
-    const classes = classParts.join(' ')
+	const classes = classParts.join(' ')
 
-    return (
-        <main id={id} className={classes}>
-            {children}
-        </main>
-    )
+	return (
+		<main id={id} className={classes}>
+			{children}
+		</main>
+	)
 }
 
 type PageProps = {

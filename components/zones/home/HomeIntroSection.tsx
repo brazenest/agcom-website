@@ -1,49 +1,47 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import { FadeIn } from "@/components/ui/MotionWrapper";
+// Example IntroSection with headshot
 import { Section } from "@/components/ui/Section";
-import { Heading } from "@/components/ui/Heading";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import Image from "next/image";
 
-export default function HomeIntroSection() {
-  return (
-    <main id="intro">
-      <Section className="flex flex-col md:flex-row items-center gap-16">
+export function HomeIntroSection() {
+	return (
+		<Section
+			align="left"
+			// 👇 keep this contained
+			width="default"
+			// 👇 no layout-section-bleed here
+			className=""
+			eyebrow="Hi, I'm Alden"
+			title="Glad to meet you."
+			subtitle="I bridge product-grade engineering with cinematic storytelling — code, design, camera, and color."
+		>
+			<div className="grid gap-8 md:grid-cols-[auto,minmax(0,1fr)] items-center">
+				{/* Headshot */}
+				<div className="relative flex justify-center md:justify-start">
+					<div className="relative h-32 w-32 md:h-40 md:w-40 rounded-full overflow-hidden border border-border/70 bg-surface">
+						<Image
+							src="/assets/images/profile/alden.jpg"
+							alt="Alden Gillespy — headshot"
+							fill
+							className="object-cover"
+							sizes="(min-width: 768px) 160px, 128px"
+						/>
+					</div>
+				</div>
 
-        <FadeIn className="w-full md:w-1/2 flex justify-center">
-          <Card className="p-0 overflow-hidden w-64 h-64 md:w-80 md:h-80">
-            <Image
-              src="/assets/images/profile/alden.jpg"
-              alt="Alden Gillespy portrait"
-              fill
-              className="object-cover"
-            />
-          </Card>
-        </FadeIn>
-
-        <FadeIn delay={0.1} className="w-full md:w-1/2 text-center md:text-left">
-          <Heading level={2} className="mb-6 font-cinematic">
-            I build things that look good and work beautifully.
-          </Heading>
-
-          <p className="font-engineering text-text-secondary dark:text-dark-text-secondary leading-relaxed max-w-xl mx-auto md:mx-0">
-            I’m Alden Gillespy — a full-stack engineer and creative storyteller. I bridge software development and visual art through thoughtful systems, cinematic visuals, and intentional UX.
-          </p>
-
-          <div className="flex gap-4 mt-8 justify-center md:justify-start">
-            <Button asChild>
-              <Link href="#work">View My Work</Link>
-            </Button>
-            <Button variant="secondary" asChild>
-              <Link href="/about">Learn More</Link>
-            </Button>
-          </div>
-        </FadeIn>
-
-      </Section>
-    </main>
-  );
+				{/* Copy */}
+				<div className="space-y-4 text-sm md:text-base text-text-muted">
+					<p>
+            I&apos;m a full-stack software engineer and web designer, and a video
+            producer / photographer focused on cinematic, intentional visuals.
+					</p>
+					<p>
+            On the engineering side, I care about reliability, clarity, and
+            systems. On the cinematic side, it&apos;s framing, pacing, and color.
+					</p>
+				</div>
+			</div>
+		</Section>
+	);
 }
+
+export default HomeIntroSection;

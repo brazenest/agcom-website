@@ -1,4 +1,4 @@
-import { ArticleT } from "./article"
+import { ArticleT } from "./blog"
 import { UrlQueryParam } from "./generic"
 
 export type ApiArticlesQueryResponse = {

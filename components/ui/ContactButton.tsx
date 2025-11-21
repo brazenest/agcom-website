@@ -5,17 +5,17 @@ import { Button, ButtonVariantT } from "./Button";
 import React from "react";
 
 export const ContactButton = ({ children, variant = 'primary', className = '' }: ContactButtonProps) => {
-    const { open } = useContactModal();
+	const { open } = useContactModal();
 
-    return (
-        <Button
-            className={className}
-            onClick={open}
-            variant={variant}
-        >
-            {children}
-        </Button>
-    )
+	return (
+		<Button
+			className={className}
+			onClick={open}
+			variant={variant}
+		>
+			{children}
+		</Button>
+	)
 
 }
 

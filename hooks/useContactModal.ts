@@ -9,7 +9,7 @@ interface ContactModalState {
 }
 
 export const useContactModal = create<ContactModalState>((set) => ({
-    isOpen: false,
-    open: () => set({ isOpen: true }),
-    close: () => set({ isOpen: false }),
+	isOpen: false,
+	open: () => set({ isOpen: true }),
+	close: () => set({ isOpen: false }),
 }));

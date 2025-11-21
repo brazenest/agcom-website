@@ -4,24 +4,24 @@ import { PageSection } from "@/components/ui/PageSection"
 import { AboutSkillT } from "@/types/about"
 
 export const AboutSkills = ({ skills }: AboutSkillsProps) => {
-    return (
-        <PageSection id="skills">
+	return (
+		<PageSection id="skills">
 
-            <Heading level={2}>
+			<Heading level={2}>
                 What I do
-            </Heading>
+			</Heading>
 
-            <div className="card-grid">
-                {skills.map(role => (
-                    <AboutSkillsCard
-                        key={role.title}
-                        role={role}
-                    />
-                ))}
-            </div>
+			<div className="card-grid">
+				{skills.map(role => (
+					<AboutSkillsCard
+						key={role.title}
+						role={role}
+					/>
+				))}
+			</div>
 
-        </PageSection>
-    )
+		</PageSection>
+	)
 }
 
 type AboutSkillsProps = {
