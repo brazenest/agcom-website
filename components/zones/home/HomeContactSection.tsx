@@ -1,7 +1,8 @@
 // components/home/HomeContactSection.tsx
 import * as React from "react";
 import { Section } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ContactCTAButton } from "@/components/zones/contact/ContactCTAButton";
 
 export function HomeContactSection() {
 	return (
@@ -16,23 +17,21 @@ export function HomeContactSection() {
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 				<div className="space-y-2 max-w-xl">
 					<p className="text-sm md:text-base text-text-muted">
-            I work well on product teams, in close collaboration with designers,
-            or directly with founders and producers. Tell me what you’re trying
-            to make and where you’re stuck.
+						I work well on product teams, in close collaboration with designers,
+						or directly with founders and producers. Tell me what you’re trying
+						to make and where you’re stuck.
 					</p>
 					<p className="text-xs text-text-muted/80">
-            Engineering + cinematic storytelling, end-to-end — or just the
-            piece you need.
+						Engineering + cinematic storytelling, end-to-end — or just the
+						slice you need most right now.
 					</p>
 				</div>
 
 				<div className="flex flex-wrap gap-3">
-					<Button size="lg">
-            Get in touch
-					</Button>
-					<Button variant="secondary" size="lg">
-            View work
-					</Button>
+					<ContactCTAButton size="lg" />
+					<ButtonLink href="/work" variant="secondary" size="lg">
+						View work
+					</ButtonLink>
 				</div>
 			</div>
 

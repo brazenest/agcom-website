@@ -6,38 +6,35 @@ export const revalidate = 0;
 export const fetchCache = "force-no-store";
 
 import { notFound } from "next/navigation";
-import BlogArticleClient from "@/components/zones/blog/BlogArticleClient"; // 👈 import client component
-import { formatDate } from "@/functions/formatDate";
 import { getArticleFromDB } from "@/functions/getArticleFromDB";
-import { ArticleT } from "@/types/blog";
+import { BlogArticleBody } from "@/components/zones/blog/BlogArticleBody";
+import { BlogArticleHero } from "@/components/zones/blog/BlogArticleHero";
+import { BlogIntroSection } from "@/components/zones/blog/BlogIntroSection";
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params
-  try {
-    const article = await getArticleFromDB({ slug });
-
-    return {
-      title: article?.title ?? "Article",
-      description: article?.excerpt ?? "",
-    };
-  } catch (e) {
-    console.error("Metadata DB failure:", e)
-    return {
-      title: "Article"
-    };
-  }
+	const { slug } = await params
+	const article = await getArticleFromDB({ slug });
+	if (!article) return {};
+	return {
+		title: article.title,
+		description: article.excerpt ?? undefined,
+	};
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageParams) {
-  const { slug } = await params
+	const { slug } = await params
 
-  const article = await getArticleFromDB({ slug })
-  article.date = formatDate(article.date, 'MMMM YYYY')
+	const article = await getArticleFromDB({ slug })
+	if (!article) return notFound();
 
-  if (!article) return notFound();
-
-  // Pass the article down to the client component
-  return <BlogArticleClient article={article} />;
+	// Pass the article down to the client component
+	return (
+		<>
+			<BlogIntroSection />
+			<BlogArticleHero article={article} />
+			<BlogArticleBody body={article.body} />
+		</>
+	)
 }
 
 type BlogPostPageParams = {

@@ -23,3 +23,11 @@ export type AboutTimelineItemT = {
   description: string,
   category?: ContentCategoryEnumT,
 }
+
+export type AboutHowIWorkWorkT = {
+  title: string,
+  description: string,
+  features: AboutHowIWorkWorkFeatureT[],
+}
+
+type AboutHowIWorkWorkFeatureT = string

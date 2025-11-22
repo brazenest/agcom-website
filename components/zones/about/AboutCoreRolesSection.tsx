@@ -2,7 +2,7 @@ import { AboutCoreRoleT } from "@/types/about";
 import { AboutCoreRolesCard } from "./AboutCoreRolesCard";
 import { Heading } from "@/components/ui/Heading";
 
-export const AboutCoreRoles = ({ roles }: AboutCoreRolesProps) => (
+export const AboutCoreRolesSection = ({ roles }: AboutCoreRolesProps) => (
 	<>
 		<Heading level={2} className="h4 text-text-muted">Core Roles</Heading>
 

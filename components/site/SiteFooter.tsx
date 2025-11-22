@@ -4,7 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { SiteFooterSocialIconsBar } from "./SiteFooterSocialIconsBar";
 
 export const SiteFooter = ({ links }) => (
-	<footer className="relative mt-32 border-t border-border dark:border-dark-border">
+	<footer className="relative border-t border-border dark:border-dark-border">
 
 		<Section
 			title="Alden Gillespy"

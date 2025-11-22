@@ -1,11 +1,12 @@
 // components/ui/Section.tsx
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { SectionAlign } from "@/types/ui";
 
 type SectionWidth = "default" | "wide" | "full";
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
-	align?: "left" | "center";
+	align?: SectionAlign;
 	eyebrow?: string;
 	title: string;
 	subtitle?: string;
@@ -25,7 +26,9 @@ export function Section({
 	const alignment =
 		align === "center"
 			? "text-center items-center"
-			: "text-left items-start";
+			: align === "responsive"
+				? "text-center items-center md:text-left md:items-start"
+				: "text-left items-start";
 
 	const widthClass =
 		width === "full"

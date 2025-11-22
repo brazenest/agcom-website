@@ -12,6 +12,7 @@ export function HomeCoreRolesSection() {
 			eyebrow="Core roles"
 			title="Two primary lenses. One cohesive point of view."
 			subtitle="I move between engineering and cinematic work, but the bar is the same: clarity, intention, and polish."
+			className="bg-bg-alt layout-section-tight"
 		>
 			<div className="grid gap-6 md:grid-cols-2">
 				{/* Engineering role */}

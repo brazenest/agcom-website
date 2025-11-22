@@ -9,17 +9,17 @@ import { ArticleT } from "@/types/blog";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog – Engineering, Design & Cinematic Storytelling | Alden Gillespy",
+	title: "Blog – Engineering, Design & Cinematic Storytelling | Alden Gillespy",
 };
 
 export default async function BlogPage() {
-  const articles: ArticleT[] = await getArticlesFromDB({})
+	const articles: ArticleT[] = await getArticlesFromDB({})
 
-  return (
-    <Page id="blog">
-      <PageTitle title="Blog" />
-      <BlogIntroSection />
-      <BlogArticlesSection articles={articles} />
-    </Page>
-  );
+	return (
+		<Page id="blog">
+			<PageTitle title="Blog" />
+			<BlogIntroSection />
+			<BlogArticlesSection articles={articles} />
+		</Page>
+	);
 }

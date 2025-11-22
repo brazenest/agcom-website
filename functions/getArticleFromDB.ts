@@ -1,5 +1,6 @@
 import { DbQueryValue } from "@/types/db";
 import { queryDatabase } from "./queryDatabase";
+import { ArticleT } from "@/types/blog";
 
 export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetArticleFromDBParams) => {
 	if (!id && !slug) throw new Error('getArticleFromDB() ERROR: Neither id nor slug was provided.')
@@ -13,7 +14,7 @@ export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetAr
 		values.push(id as string)
 	}
 	else if (slug) {
-		whereParts.push('slug = ?')
+		whereParts.push('articles.slug = ?')
 		values.push(slug)
 	}
 	if (!showHidden) {
@@ -56,9 +57,8 @@ export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetAr
 		limit,
 	].join(' ')
 
-	console.log('getArticleFromDB() query ====', query)
 	// Return the result of the direct-to-DB query.
-	const result = await queryDatabase({ query, values })
+	const result = await queryDatabase<ArticleT>({ query, values })
 
 	return result[0]
 }
