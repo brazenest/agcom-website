@@ -14,10 +14,10 @@ export async function GET(req: NextRequest) {
 	if (slug) {
 
 		query.push(
-			'SELECT articles.slug as slug, articles.title as title, articles.category as category, articles.date as date, articles.body as body, articles.excerpt as excerpt',
+			'SELECT *',
 			'FROM articles',
 			'JOIN categories',
-			'ON articles.category = categories.id',
+			'ON articles.category = categories.slug',
 			'WHERE articles.slug=? AND articles.visible=?',
 			'LIMIT 1',
 		)
@@ -56,8 +56,6 @@ export async function GET(req: NextRequest) {
 	}
 
 	const queryString = query.join(' ')
-
-	console.log('API /articles GET(): queryString ====', queryString)
     
 	const queryResponse = await apiQueryDatabase(queryString, values)
 

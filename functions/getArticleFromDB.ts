@@ -1,6 +1,5 @@
-import { DbQueryValue } from "@/types/db";
+import { DbArticle, DbQueryValue } from "@/types/db";
 import { queryDatabase } from "./queryDatabase";
-import { ArticleT } from "@/types/blog";
 
 export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetArticleFromDBParams) => {
 	if (!id && !slug) throw new Error('getArticleFromDB() ERROR: Neither id nor slug was provided.')
@@ -39,7 +38,7 @@ export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetAr
 	const join = new DBQueryJoinClause(['categories'])
 
 	// ON clause
-	const on = new DBQueryOnClause(['articles.category = categories.id'])
+	const on = new DBQueryOnClause(['articles.category = categories.slug'])
 
 	// WHERE clause
 	const where = new DBQueryWhereClause(whereParts)
@@ -58,7 +57,7 @@ export const getArticleFromDB = async ({ id, slug, showHidden = false }: fnGetAr
 	].join(' ')
 
 	// Return the result of the direct-to-DB query.
-	const result = await queryDatabase<ArticleT>({ query, values })
+	const result = await queryDatabase<DbArticle>({ query, values })
 
 	return result[0]
 }

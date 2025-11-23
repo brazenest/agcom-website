@@ -10,7 +10,7 @@ export type ArticleBodyT = string
 export type ArticleCategoryT = 'engineering' | 'cinematic' | 'process' | 'other'
 export type ArticleImageT = string
 export type ArticleHrefT = string
-export type ArticleT = RowDataPacket & {
+export type ArticleT = {
     id: ArticleIdT,
     slug: ArticleSlugT,
     title: ArticleTitleT,
