@@ -7,12 +7,13 @@ import { ContactCTAButton } from "@/components/zones/contact/ContactCTAButton";
 export function HomeContactSection() {
 	return (
 		<Section
-			align="left"
+			align="center"
 			width="wide"
-			className="layout-section-bleed relative bg-surface-alt"
+			spacing="comfortable"
+			className="section-space-tight-bottom layout-section-bleed relative bg-surface-alt"
 			eyebrow="Next steps"
 			title="Have a product, story, or project in mind?"
-			subtitle="Whether you need an engineer, a director, or both, I can help plan, build, and ship something considered."
+			subtitle="Whether it’s engineering, direction, or both, I can help plan, build, and ship something considered."
 		>
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 				<div className="space-y-2 max-w-xl">

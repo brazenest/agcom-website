@@ -11,13 +11,13 @@ export function HomeCoreRolesSection() {
 			width="default"
 			eyebrow="Core roles"
 			title="Two primary lenses. One cohesive point of view."
-			subtitle="I move between engineering and cinematic work, but the bar is the same: clarity, intention, and polish."
+			subtitle="Whether I’m building systems or shaping visuals, the standard stays the same — clarity, intention, and polish."
 			className="bg-bg-alt layout-section-tight"
 		>
 			<div className="grid gap-6 md:grid-cols-2">
 				{/* Engineering role */}
-				<Card className="bg-card-bg border-border/70 shadow-sm">
-					<CardContent className="p-5 md:p-6 space-y-3">
+				<Card className="bg-card-bg border-border shadow-md">
+					<CardContent className="p-5 md:p-6 space-y-3 border-l-4 border-accent">
 						<Badge variant="soft" className="text-xs">
               Software Engineer &amp; Web Designer
 						</Badge>
@@ -37,7 +37,7 @@ export function HomeCoreRolesSection() {
 				</Card>
 
 				{/* Cinematic role */}
-				<Card className="bg-card-bg border-border/70 shadow-sm">
+				<Card className="bg-card-bg/50 border-border/70 shadow-sm">
 					<CardContent className="p-5 md:p-6 space-y-3">
 						<Badge variant="outline" className="text-xs">
               Video Producer &amp; Photographer

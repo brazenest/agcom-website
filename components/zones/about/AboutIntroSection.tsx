@@ -7,6 +7,8 @@ export const AboutIntroSection = () => (
 	<Section
 		align="left"
 		width="default"
+		spacing="comfortable"
+		className="section-space-tight-top"
 		eyebrow="About"
 		title="Hi, I’m Alden — I bridge product-grade engineering with cinematic storytelling."
 		subtitle="Full-stack software engineer, web designer, and video producer / photographer."

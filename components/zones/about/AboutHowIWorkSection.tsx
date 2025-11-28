@@ -7,7 +7,7 @@ const works: AboutHowIWorkWorkT[] = [
 		title: 'Engineering',
 		description: 'React, Next.js, TypeScript, Node, and pragmatic system design — from prototypes to production systems.',
 		features: [
-			'Design systems &amp; component libraries',
+			'Design systems & component libraries',
 			'API integration and data flows',
 			'Performance, accessibility, reliability',
 		],
@@ -25,8 +25,8 @@ const works: AboutHowIWorkWorkT[] = [
 		title: 'Glue work',
 		description: 'The connective tissue between disciplines: naming, docs, motion specs, and making the system feel coherent.',
 		features: [
-			'Design tokens &amp; motion language',
-			'Documentation &amp; walkthroughs',
+			'Design tokens & motion language',
+			'Documentation & walkthroughs',
 			'Cross-functional collaboration',
 		],
 	},
@@ -36,11 +36,13 @@ export const AboutHowIWorkSection = () => (
 	<Section
 		align="left"
 		width="default"
+		spacing="default"
+		className="section-space-tight-top"
 		eyebrow="How I work"
 		title="Two core lenses, one standard of craft."
 		subtitle="Different toolchains, same expectation for reliability, clarity, and intention."
 	>
-		<div className="grid gap-8 md:grid-cols-3 text-sm md:text-base text-text-muted">
+		<div className="grid gap-10 md:grid-cols-3 text-sm md:text-base text-text-muted border-t border-border/40 pt-8">
 			{works.map(work => <AboutHowIWorkWorkCard key={work.title} work={work} />)}
 		</div>
 	</Section>

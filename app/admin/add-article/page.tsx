@@ -45,7 +45,7 @@ export default function BlogAdminAddArticlePage() {
 		const data = {
 			slug: articleSlug,
 			title: articleTitle,
-			category: articleCategory,
+			category: articleCategory!.value,
 			excerpt: articleExcerpt,
 			date: articleDate.toISOString().split('T')[0],
 			readtime: calculateReadtime(articleBody),

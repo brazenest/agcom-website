@@ -3,12 +3,12 @@
 /* -------------------------------------------------------------------------- */
 
 import { cn } from "@/lib/utils";
-import { ButtonVariantT, ButtonSizeT } from "@/types/ui";
+import { ButtonVariant, ButtonSize } from "@/types/ui";
 
 export interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: ButtonVariantT;
-    size?: ButtonSizeT;
+    variant?: ButtonVariant;
+    size?: ButtonSize;
 }
 
 const buttonBase =
@@ -16,7 +16,7 @@ const buttonBase =
     "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent " +
     "disabled:opacity-60 disabled:cursor-not-allowed rounded-lg";
 
-const buttonVariants: Record<ButtonVariantT, string> = {
+const buttonVariants: Record<ButtonVariant, string> = {
 	primary:
         "bg-accent text-bg shadow-md hover:bg-accent-hover focus-visible:ring-accent",
 	secondary:
@@ -27,7 +27,7 @@ const buttonVariants: Record<ButtonVariantT, string> = {
 	soft: "bg-accent-subtle text-text hover:bg-accent-subtle/90",
 };
 
-const buttonSizes: Record<ButtonSizeT, string> = {
+const buttonSizes: Record<ButtonSize, string> = {
 	sm: "text-sm px-3 py-1.5",
 	md: "text-sm px-4 py-2",
 	lg: "text-base px-5 py-2.5",

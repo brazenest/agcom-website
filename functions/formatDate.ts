@@ -1,5 +1,7 @@
 // functions/formatDate.ts
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
 /**
  * Format a Date or date-like string into a nice, readable form.
  */
@@ -21,6 +23,11 @@ export function formatDate(input: Date | string | null | undefined, format: Date
 	}
 
 	switch (format) {
+	case 'MMMM YYYY':
+	case 'monthyear':
+		return `${months[date.getMonth()]} ${date.getFullYear()}`
+		break
+
 	case 'datetime':
 		return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`
 
@@ -34,4 +41,4 @@ export function formatDate(input: Date | string | null | undefined, format: Date
 	}
 }
 
-type DateFormat = 'datetime' | 'default'
+type DateFormat = 'monthyear'| 'MMMM YYYY' | 'datetime' | 'default'

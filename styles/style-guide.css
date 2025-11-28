@@ -232,4 +232,32 @@
         margin-inline: auto;
         max-width: var(--layout-prose-max);
     }
+
+
+
+    /* Section vertical spacing presets */
+
+    .section-space-tight {
+        padding-block: clamp(1.75rem, 4vw, 2.5rem)
+    }
+
+    .section-space-default {
+        padding-block: clamp(2.5rem, 5vw, 4rem)
+    }
+
+    .section-space-comfortable {
+        padding-block: clamp(3rem, 6vw, 5rem)
+    }
+
+    .section-space-spacious {
+        padding-block: clamp(4rem, 8vw, 7rem)
+    }
+
+
+
+    /* Editorial top border for blog section */
+    .section-editorial-top {
+        border-top: 1px solid var(--color-border);
+        padding-top: clamp(2.5rem, 5vw, 4rem);
+    }
 }

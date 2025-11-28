@@ -7,9 +7,10 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 {/* CTA band */ }
 export const AboutCTASection = () => (
 	<Section
-		align="left"
+		align="center"
 		width="wide"
-		className="layout-section-bleed relative bg-surface-alt"
+		spacing="comfortable"
+		className="section-space-tight-bottom layout-section-bleed relative bg-surface-alt"
 		eyebrow="Next steps"
 		title="Have a role or project where this combination is useful?"
 		subtitle="I’m open to full-time roles and select freelance work where the mix of engineering and cinematic storytelling truly matters."
@@ -20,7 +21,7 @@ export const AboutCTASection = () => (
 				interface, or working on visuals that explain it, I’m usually most
 				helpful when I can sit across a couple of those layers at once.
 			</p>
-			<div className="flex flex-wrap gap-3">
+			<div className="flex flex-wrap gap-3 justify-center">
 				{/* 🔻 Opens the same contact modal as your header */}
 				<ContactCTAButton size="lg" />
 				

@@ -5,11 +5,12 @@ export const AboutBackground = () => (
 	<Section
 		align="left"
 		width="default"
+		spacing="comfortable"
 		eyebrow="Background"
 		title="A path that runs through both code and camera."
 		subtitle="I’ve spent years bouncing between engineering, design, and production — the throughline is making things feel considered."
 	>
-		<div className="layout-prose text-sm md:text-base text-text-muted space-y-4">
+		<div className="layout-prose text-sm md:text-base text-text-muted space-y-4 border-l-2 border-accent/20 pl-6">
 
 			<p>Whether I’m engineering a product or producing a video, my philosophy stays the same: <strong>clarity over complexity, craft over shortcuts, and emotion over decoration</strong>. Code should feel as intentional as narrative editing. <strong></strong>Interfaces should have rhythm. Great experiences — whether interactive or cinematic — are invisible when they work and unforgettable when well-designed.</p>
 

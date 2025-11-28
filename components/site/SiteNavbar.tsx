@@ -9,16 +9,9 @@ import { ContactButton } from "../ui/ContactButton";
 
 
 export function SiteNavbar() {
-	const [scrolled, setScrolled] = useState(false);
+
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const mobileMenuRef = useRef<HTMLDivElement | null>(null);
-
-	/* ---------- Shrink + Fade Background on Scroll ---------- */
-	useEffect(() => {
-		const handler = () => setScrolled(window.scrollY > 10);
-		window.addEventListener("scroll", handler);
-		return () => window.removeEventListener("scroll", handler);
-	}, []);
 
 	/* ---------- Close menu on click outside ---------- */
 	useEffect(() => {
@@ -32,14 +25,7 @@ export function SiteNavbar() {
 	}, [mobileOpen]);
 
 	return (
-		<header
-			className={clsx(
-				"fixed top-0 left-0 w-full z-50 transition-all duration-500",
-				scrolled
-					? "bg-bg-alt shadow-md"
-					: "bg-transparent"
-			)}
-		>
+		<>
 			<nav className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between transition-all duration-300">
 
 				{/* ---------- Logo ---------- */}
@@ -47,14 +33,14 @@ export function SiteNavbar() {
 					href="/"
 					className="text-2xl text-text dark:text-dark-text"
 				>
-          Alden Gillespy
+					Alden Gillespy
 				</Link>
 
 				{/* ---------- Desktop Nav ---------- */}
 				<div className="hidden md:flex items-center gap-8">
 
 					<NavLink id="hero" href="/">Home</NavLink>
-					<NavLink id="work" href="/#work">Work</NavLink>
+					<NavLink id="work" href="/work">Work</NavLink>
 					<NavLink id="about" href="/about">About</NavLink>
 					<NavLink id="blog" href="/blog">Blog</NavLink>
 					<NavLink id="contact" href="/resume">Resume</NavLink>
@@ -64,7 +50,7 @@ export function SiteNavbar() {
 					<ContactButton
 						variant="primary"
 					>
-            Contact
+						Contact
 					</ContactButton>
 
 				</div>
@@ -101,26 +87,26 @@ export function SiteNavbar() {
 			<div
 				ref={mobileMenuRef}
 				className={clsx(
-					"md:hidden fixed top-20 left-0 w-full bg-surface dark:bg-dark-surface border-t border-border dark:border-dark-border shadow-lg transition-all duration-300",
+					"md:hidden fixed top-20 left-0 w-full bg-surface dark:bg-dark-surface border-t border-border dark:border-dark-border shadow-lg transition-all duration-300 bg-bg-alt z-50",
 					mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
 				)}
 			>
 				<div className="flex flex-col py-6 px-6 text-text dark:text-dark-text gap-6">
 
 					<MobileNavLink id="hero" href="/" onClick={() => setMobileOpen(false)}>
-            Home
+						Home
 					</MobileNavLink>
-					<MobileNavLink id="work" href="/#work" onClick={() => setMobileOpen(false)}>
-            Work
+					<MobileNavLink id="work" href="/work" onClick={() => setMobileOpen(false)}>
+						Work
 					</MobileNavLink>
 					<MobileNavLink id="contact" href="/about" onClick={() => setMobileOpen(false)}>
-            About
+						About
 					</MobileNavLink>
 					<MobileNavLink id="blog" href="/blog" onClick={() => setMobileOpen(false)}>
-            Blog
+						Blog
 					</MobileNavLink>
 					<MobileNavLink id="blog" href="/resume" onClick={() => setMobileOpen(false)}>
-            Resume
+						Resume
 					</MobileNavLink>
 
 					<div className="flex justify-between items-center mt-4">
@@ -131,11 +117,11 @@ export function SiteNavbar() {
 						variant="primary"
 						className="mt-2"
 					>
-            Contact
+						Contact
 					</ContactButton>
 				</div>
 			</div>
-		</header>
+		</>
 	);
 }
 

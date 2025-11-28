@@ -249,6 +249,10 @@
     background-color: var(--color-bg-alt);
   }
 
+  /* .work-section {
+    margin-block: clamp(4rem, 10vw, 6rem);
+  } */
+
   /* Cards */
   .card {
     background-color: var(--color-card-bg);

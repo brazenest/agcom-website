@@ -1,5 +1,3 @@
-import { RowDataPacket } from "mysql2/promise"
-
 export type ArticleIdT = number
 export type ArticleSlugT = string
 export type ArticleTitleT = string
@@ -19,6 +17,7 @@ export type ArticleT = {
     image: ArticleImageT,
     date: ArticleDateT,
     dateFormatted?: ArticleDateT,
+    readtime: ArticleReadtimeT,
     body: ArticleBodyT,
     href: ArticleHrefT,
 }

@@ -1,12 +1,8 @@
-export const Page = ({ id, className, children }: PageProps) => {
-	const classParts = className ? [className] : []
+import { cn } from "@/lib/utils"
 
-	classParts.push('layout-page')
-
-	const classes = classParts.join(' ')
-
+export const Page = ({ id, className = '', children }: PageProps) => {
 	return (
-		<main id={id} className={classes}>
+		<main id={id} className={cn('layout-page', className)}>
 			{children}
 		</main>
 	)

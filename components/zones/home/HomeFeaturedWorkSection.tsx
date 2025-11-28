@@ -10,10 +10,11 @@ export function HomeFeaturedWorkSection() {
 		<Section
 			align="left"
 			width="wide"
+			spacing="spacious"
 			className="layout-section-bleed relative bg-surface-alt"
 			eyebrow="Selected work"
-			title="Engineering-first products with cinematic clarity."
-			subtitle="From consumer DNA activation to content-heavy interfaces, I design systems that scale and still feel human."
+			title="Products and visuals built for clarity and reliability."
+			subtitle="CFrom consumer DNA activation to content-heavy search, here are a few projects where craft mattered end-to-end."
 		>
 			<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
 				{/* Project 1 — DNA Kit Activation */}

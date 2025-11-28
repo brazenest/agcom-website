@@ -11,28 +11,31 @@ import { BlogArticlesSection } from "@/components/zones/blog/BlogArticlesSection
 import { getArticlesFromDB } from "@/functions/getArticlesFromDB";
 
 import type { ArticleT } from "@/types/blog";
+import HomeIntroSection from "@/components/zones/home/HomeIntroSection";
 
 export default async function HomePage() {
 	const articles: ArticleT[] = await getArticlesFromDB({});
 
 	return (
 		<Page id="home">
-			{/* 1. Spotlight hero */}
+			{/* Spotlight hero */}
 			<HomeHero />
 
-			{/* 2. Core roles / pillars (keep this as the single “who I am” grid) */}
+			<HomeIntroSection />
+
+			{/* Core roles / pillars (keep this as the single “who I am” grid) */}
 			<HomeCoreRolesSection />
 
-			{/* 3. Featured work – visual gallery / cards */}
-			<HomeFeaturedWorkSection />
-
-			{/* 4. Optional “what I do” philosophy / story (later: make this more prose-like) */}
+			{/* [Optional] “what I do” philosophy / story (later: make this more prose-like) */}
 			<HomeWhatIDoSection />
 
-			{/* 5. Latest writing / thinking */}
+			{/* Featured work – visual gallery / cards */}
+			<HomeFeaturedWorkSection />
+
+			{/* Latest writing / thinking */}
 			<BlogArticlesSection articles={articles} />
 
-			{/* 6. Full-bleed CTA band */}
+			{/* Full-bleed CTA band */}
 			<HomeContactSection />
 		</Page>
 	);

@@ -22,27 +22,28 @@ export function BlogArticlesSection({ articles }: BlogArticlesSectionProps) {
 		<Section
 			align="left"
 			width="default"
+			spacing="comfortable"
 			eyebrow="Notes & process"
 			title="Writing on engineering, design, and cinematic craft."
-			subtitle="In-progress thoughts on shipping resilient systems, designing motion, and bridging code with camera."
+			subtitle="Short pieces on resilient systems, motion, design language, and the intersection of code and camera."
 		>
-			<div className="mt-6 md:mt-8 space-y-8">
+			<div className="section-editorial-top mt-6 md:mt-8 grid gap-10 md:grid-cols-2">
 				{/* Featured article */}
 				<Link
 					href={`/blog/articles/${featured.slug}`}
 					className="group block"
 				>
-					<Card className="bg-card-bg border-border/70 shadow-sm group-hover:border-accent/70 group-hover:shadow-md transition-all">
+					<Card className="h-full bg-card-bg border-border/60 shadow-none group-hover:border-accent transition-all">
 						<CardContent className="p-5 md:p-6 space-y-3">
 							<div className="flex items-center justify-between gap-2 text-[0.7rem] text-text-muted">
 								<div className="flex items-center gap-2">
 									<span>{featured.category ?? "Article"}</span>
 									{featured.date && (
-										<span>{formatDate(featured.date)}</span>
+										<span>{formatDate(featured.date, 'MMMM YYYY')}</span>
 									)}
 								</div>
-								{featured.readingTime && (
-									<span>{featured.readingTime} min read</span>
+								{featured.readtime && (
+									<span>{featured.readtime} min read</span>
 								)}
 							</div>
 
@@ -68,7 +69,7 @@ export function BlogArticlesSection({ articles }: BlogArticlesSectionProps) {
 				{secondary.length > 0 && (
 					<div className="border-t border-border/60 divide-y divide-border/40">
 						{secondary.map(article => {
-							const displayDate = formatDate(article.date);
+							const displayDate = formatDate(article.date, 'MMMM YYYY');
 
 							return (
 								<Link
@@ -92,8 +93,8 @@ export function BlogArticlesSection({ articles }: BlogArticlesSectionProps) {
 													{article.category}
 												</Pill>
 											)}
-											{article.readingTime && (
-												<span>· {article.readingTime} min read</span>
+											{article.readtime && (
+												<span>· {article.readtime} min read</span>
 											)}
 										</div>
 									</div>

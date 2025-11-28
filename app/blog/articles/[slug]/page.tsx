@@ -30,7 +30,6 @@ export default async function BlogPostPage({ params }: BlogPostPageParams) {
 	// Pass the article down to the client component
 	return (
 		<>
-			<BlogIntroSection />
 			<BlogArticleHero article={article} />
 			<BlogArticleBody body={article.body} />
 		</>

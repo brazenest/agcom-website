@@ -146,7 +146,7 @@ export default function RootLayout({
 						<SiteHeader />
 
 						{/* Content */}
-						<div id="site-content-wrap" className="min-h-screen">
+						<div id="site-content-wrap" className="min-h-screen mt-20">
 							{children}
 						</div>
 

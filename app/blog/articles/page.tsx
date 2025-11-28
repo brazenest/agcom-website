@@ -17,8 +17,6 @@ export default async function BlogPage() {
 
 	return (
 		<Page id="blog">
-			<PageTitle title="Blog" />
-			<BlogIntroSection />
 			<BlogArticlesSection articles={articles} />
 		</Page>
 	);

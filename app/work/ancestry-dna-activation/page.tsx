@@ -1,158 +1,237 @@
 // app/work/ancestry-dna-activation/page.tsx
-export const dynamic = "force-dynamic";
 
-import * as React from "react";
-import { Section } from "@/components/ui/Section";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Pill } from "@/components/ui/Pill";
-import { ButtonLink } from "@/components/ui/ButtonLink";
+import { WorkHero } from "@/components/zones/work/WorkHero";
+import { WorkAbstract } from "@/components/zones/work/WorkAbstract";
+import { WorkProblemApproachOutcome } from "@/components/zones/work/WorkProblemApproachOutcome";
+import { WorkCTA } from "@/components/zones/work/WorkCTA";
+import { WorkChallenges } from "@/components/zones/work/WorkChallenges";
+import { WorkMeta } from "@/components/zones/work/WorkMeta";
+import { WorkAnatomy } from "@/components/zones/work/WorkAnatomy";
+import { WorkDeepDive } from "@/components/zones/work/WorkDeepDive";
+import { WorkInteractions } from "@/components/zones/work/WorkInteractions";
+import { WorkBeforeAfter } from "@/components/zones/work/WorkBeforeAfter";
 import { Page } from "@/components/ui/Page";
+import { WorkBody } from "@/components/zones/work/WorkBody";
 
-export default function AncestryDNAActivationPage() {
+export default function DNAKitActivationPage() {
 	return (
 		<Page id="work-ancestry-dna-activation">
-			{/* Hero */}
-			<Section
-				align="left"
-				width="wide"
-				eyebrow="Case Study · Ancestry"
-				title="Consumer DNA Kit Activation"
-				subtitle="A React-based activation flow handling millions of users, built for reliability, clarity, and a cinematic sense of progress."
+
+			<WorkHero
+				eyebrow="Consumer DNA • Ancestry"
+				title="Ancestry DNA Kit Activation"
+				subtitle="A React-based activation experience designed for reliability, clarity, and a cinematic sense of progress across millions of daily users."
+				imageSrc="/assets/images/work/ancestry-dna-activation/hero.jpg"
+				imageAlt="DNA kit activation flow screenshot"
+				variant="engineering"
+			/>
+
+			<WorkAbstract>
+				<p>
+					Activating a DNA kit is a uniquely sensitive moment: users are preparing to submit
+					biological data and expect the process to feel trustworthy, clear, and frictionless.
+					The original flow had grown organically and carried inconsistencies in layout,
+					validation, and messaging.
+				</p>
+
+				<p>
+					I redesigned the activation sequence across React, Node, and Redux infrastructure,
+					focusing on clarity, predictable patterns, and systemization. The result was a more
+					cohesive, emotionally considerate experience that held up under massive volume.
+				</p>
+			</WorkAbstract>
+
+			<WorkBody spacing="comfortable">
+				<p>
+					DNA kit activation is a sensitive, high-stakes process. Users must trust
+					the interface completely while understanding every step. Before exploring
+					the system’s anatomy, the context of the experience needs to be clear.
+				</p>
+			</WorkBody>
+
+			<WorkMeta
+				subtitle="A reliable, emotionally clear activation flow designed for trust and scale."
+				columns={[
+					{
+						label: "Platform",
+						value: "Consumer DNA kit activation"
+					},
+					{
+						label: "Tech stack",
+						value: ["React", "Redux", "TypeScript", "Node", "Kotlin"],
+						usePills: true
+					},
+					{
+						label: "Focus areas",
+						value: "Flow design, reliability patterns, clarity for sensitive steps"
+					},
+					{
+						label: "Role",
+						value: ["Frontend architecture", "UI patterns", "Motion design"]
+					}
+				]}
+			/>
+
+			<WorkBody spacing="default">
+				<p>
+					From identity verification to consent handling, each part of activation
+					carries both technical and emotional weight. The Problem–Approach–Outcome
+					framework helps clarify how the experience was shaped.
+				</p>
+			</WorkBody>
+
+			<WorkProblemApproachOutcome
+				spacing="comfortable"
+				sections={[
+					{
+						title: "Problem",
+						body:
+							"The legacy activation flow relied on mixed UI patterns, unclear validations, and inconsistent messaging. Users felt uncertain during key inputs, creating friction in a high-trust moment."
+					},
+					{
+						title: "Approach",
+						body:
+							"Systemize every step into reusable patterns: inputs, validation groups, progressive disclosure, error surfaces, and motion cues. Each screen needed to feel predictable, calm, and consistent."
+					},
+					{
+						title: "Outcome",
+						body:
+							"A stable, emotionally coherent flow that helped millions of users activate their kits confidently. Both support volume and error rates dropped as the interface became clearer and more consistent."
+					}
+				]}
+			/>
+
+			<WorkAnatomy
+				spacing="comfortable"
+				title="Activation Flow Anatomy"
+				subtitle="Systemized UI patterns made the flow predictable, scannable, and easier to complete under emotional load."
+				image="/assets/images/work/ancestry-dna-activation/anatomy.png"
+				imageAlt="Annotated diagram of the DNA activation flow"
+				variant="side"
+				imageCallouts={[
+					{
+						number: 1,
+						label: "Progress indicator",
+						body: "A calm, low-motion progress bar helped anchor users without adding stress.",
+						x: 14,
+						y: 5
+					},
+					{
+						number: 2,
+						label: "Structured input groups",
+						body: "Inputs were grouped logically with consistent label hierarchy and validation surfaces.",
+						x: 50,
+						y: 25
+					},
+					{
+						number: 3,
+						label: "Guidance sections",
+						body: "Light, unobtrusive helper text improved clarity on sensitive steps.",
+						x: 50,
+						y: 52
+					},
+					{
+						number: 4,
+						label: "Primary action lane",
+						body: "A stable bottom-anchored CTA kept users oriented across every step.",
+						x: 50,
+						y: 88
+					}
+				]}
+			/>
+
+			<WorkBody spacing="comfortable">
+				<p>
+					Mapping the activation flow visually helps identify friction points and
+					areas where user confidence drops. The following sections show how these
+					insights guided the engineering and experience work.
+				</p>
+			</WorkBody>
+
+			<WorkDeepDive
+				spacing="comfortable"
+				title="Designing for clarity in a sensitive moment"
+				subtitle="Why the activation flow required emotional neutrality, predictable patterns, and motion that supported comprehension—not speed."
 			>
-				<div className="flex flex-wrap gap-3 text-xs md:text-sm text-text-muted">
-					<Pill variant="soft" size="sm">
-						Full-stack Engineer
-					</Pill>
-					<Pill variant="subtle" size="sm">
-						React
-					</Pill>
-					<Pill variant="subtle" size="sm">
-						TypeScript
-					</Pill>
-					<Pill variant="subtle" size="sm">
-						Node
-					</Pill>
-					<Pill variant="subtle" size="sm">
-						UX &amp; Motion
-					</Pill>
-				</div>
-			</Section>
+				<p>
+					Users activating a DNA kit are often excited, anxious, or uncertain. This emotional
+					load makes clarity a top priority. We intentionally avoided abrupt transitions,
+					busy layouts, and surprising interactions.
+				</p>
 
-			{/* Context / problem */}
-			<Section
-				align="left"
-				width="default"
-				eyebrow="Context"
-				title="Helping people get from kit to insights without friction."
-				subtitle="The activation flow is the first real interaction most customers have with the DNA product — it has to be clear, trustworthy, and resilient."
-			>
-				<div className="layout-prose text-sm md:text-base text-text-muted space-y-4">
-					<p>
-						Here you can describe the previous state of the activation flow,
-						what was at risk (support load, churn, trust), and the constraints:
-						traffic volume, internal APIs, brand requirements, etc.
-					</p>
-					<p>
-						You can also highlight your role in shaping both the underlying
-						architecture and the surface-level experience: collaborating with
-						product, design, and other engineers.
-					</p>
-				</div>
-			</Section>
+				<p>
+					UI pieces were rebuilt as a stable system: inputs, validation groups, helper text,
+					section headers, and call-to-action lanes. When the system behaved predictably,
+					people trusted it more.
+				</p>
 
-			{/* System / approach – wide, more structured */}
-			<Section
-				align="left"
-				width="wide"
-				eyebrow="System & Approach"
-				title="Architecture and UX decisions for a resilient flow."
-				subtitle="Making sure the front-end, back-end, and UX all support a high-volume, high-stakes activation journey."
-			>
-				<div className="grid gap-8 md:grid-cols-3 text-sm md:text-base text-text-muted">
-					<Card className="bg-card-bg border-border/70 shadow-sm">
-						<CardContent className="p-5 md:p-6 space-y-2">
-							<h3 className="font-heading text-sm md:text-base text-text">
-								Front-end
-							</h3>
-							<p className="text-xs md:text-sm">
-								React/Next.js flow with clear states, inline validation, and
-								motion tuned to keep people oriented instead of overwhelmed.
-							</p>
-						</CardContent>
-					</Card>
+				<ul className="list-disc list-outside">
+					<li>Validation appears exactly where the user expects it.</li>
+					<li>Section headers double as orientation cues.</li>
+					<li>Motion decelerates instead of accelerating—calm, not urgent.</li>
+					<li>Copy emphasizes clarity over persuasion.</li>
+				</ul>
+			</WorkDeepDive>
 
-					<Card className="bg-card-bg border-border/70 shadow-sm">
-						<CardContent className="p-5 md:p-6 space-y-2">
-							<h3 className="font-heading text-sm md:text-base text-text">
-								Back-end
-							</h3>
-							<p className="text-xs md:text-sm">
-								Node services integrating with internal APIs, with attention to
-								failure modes, idempotency, and observability.
-							</p>
-						</CardContent>
-					</Card>
+			<WorkInteractions
+				title="Interaction Patterns"
+				subtitle="Predictable, lightweight patterns that reduce uncertainty during data entry."
+				items={[
+					{
+						title: "Guided input sequencing",
+						body: "Inputs present only the necessary fields per step, reducing overwhelm."
+					},
+					{
+						title: "Predictable validation",
+						body: "Errors surface inline and consistently, without modal interruptions."
+					},
+					{
+						title: "Focused transitions",
+						body: "Screens transition with soft deceleration to keep the flow calm."
+					},
+					{
+						title: "Unified CTA behavior",
+						body: "Primary actions remain in the same visual lane across all steps."
+					}
+				]}
+			/>
 
-					<Card className="bg-card-bg border-border/70 shadow-sm">
-						<CardContent className="p-5 md:p-6 space-y-2">
-							<h3 className="font-heading text-sm md:text-base text-text">
-								Experience
-							</h3>
-							<p className="text-xs md:text-sm">
-								Progressive disclosure, trust-building copy, and motion that
-								reinforces progress without feeling like UI “flair.”
-							</p>
-						</CardContent>
-					</Card>
-				</div>
-			</Section>
+			<WorkChallenges
+				spacing="default"
+				items={[
+					{
+						title: "High sensitivity inputs",
+						body:
+							"Names, birthdates, legal acknowledgments, and consent steps needed to feel safe, clear, and precise."
+					},
+					{
+						title: "Traffic volume",
+						body:
+							"Millions of activations required a flow that performed reliably with low latency and no UI stalls."
+					},
+					{
+						title: "Mixed legacy patterns",
+						body:
+							"Older patterns had to be replaced slowly while maintaining backward compatibility with production data."
+					}
+				]}
+			/>
 
-			{/* Outcomes / closing CTA */}
-			<Section
-				align="left"
-				width="default"
-				eyebrow="Outcomes"
-				title="What this unlocked."
-				subtitle="Summarize impact in terms of reliability, support load, or user behavior."
-			>
-				<div className="layout-prose text-sm md:text-base text-text-muted space-y-4">
-					<p>
-						You can add specific outcomes here: reduced support volume, fewer
-						activation drop-offs, clearer metrics, or better team velocity
-						because the flow was easier to reason about.
-					</p>
-				</div>
-			</Section>
+			<WorkBeforeAfter
+				title="Refining the activation experience"
+				subtitle="How the flow changed from scattered and inconsistent to structured, clear, and emotionally grounded."
+				before={{
+					label: "Before",
+					body: "Inconsistent UI patterns, scattered validation, and unclear sequencing created friction and uncertainty."
+				}}
+				after={{
+					label: "After",
+					body: "A structured, calm flow with clear validation, consistent layouts, and predictable user guidance."
+				}}
+			/>
 
-			<Section
-				align="left"
-				width="wide"
-				className="layout-section-bleed relative bg-surface-alt"
-				eyebrow="Next project"
-				title="Want to talk about a similar flow or product?"
-				subtitle="Happy to dig into activation, onboarding, or high-volume flows where reliability and clarity really matter."
-			>
-				<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-					<p className="text-sm md:text-base text-text-muted max-w-xl">
-						If you’re working on something with similar stakes — heavy traffic,
-						first-time trust, or complex internal systems — this is the kind of
-						work where I’m most useful.
-					</p>
-					<div className="flex flex-wrap gap-3">
-						<ButtonLink href="/contact" variant="secondary">
-							Get in touch
-						</ButtonLink>
-						<ButtonLink href="/work" variant="secondary">
-							Back to work index
-						</ButtonLink>
-					</div>
-				</div>
+			<WorkCTA variant="dna" spacing="comfortable" />
 
-				<div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
-					<div className="absolute -top-16 right-0 h-40 w-40 rounded-full blur-3xl bg-accent/20" />
-					<div className="absolute -bottom-20 left-8 h-40 w-40 rounded-full blur-3xl bg-accent-subtle/35" />
-				</div>
-			</Section>
 		</Page>
 	);
 }
