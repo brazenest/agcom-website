@@ -1,14 +1,17 @@
-import Image from "next/image";
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+// components/zones/work/WorkBeforeAfter.tsx
+import Image from "next/image"
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
+import { Label } from "@/components/ui/section/Label"
 
 const defaults = {
-	className: 'work-before-after',
+	className: 'work-beforeandafter',
 	title: 'Before & After',
 }
 
-export function WorkBeforeAfter({
+export const WorkBeforeAfter = ({
+	weight = 0,
 	align,
 	width,
 	spacing = 'default',
@@ -17,50 +20,60 @@ export function WorkBeforeAfter({
 	subtitle,
 	before,
 	after,
-}: WorkBeforeAfterProps) {
-	return (
-		<Section
-			align={align}
-			width={width}
-			spacing={spacing}
-			className={cn(defaults.className, className)}
-			title={title}
-			subtitle={subtitle}
-		>
-			<div className='grid gap-10 md:grid-cols-2'>
-				<div className='space-y-3'>
-					<h4 className='font-heading text-base text-text'>Before</h4>
+}: WorkBeforeAfterProps) => (
+	<Section
+		weight={weight}
+		align={align}
+		width={width}
+		spacing={spacing}
+		className={cn(defaults.className, className)}
+		title={title}
+		subtitle={subtitle}
+	>
+		<div className='grid gap-10 md:grid-cols-2'>
+			<div className='space-y-3'>
+				<Label text='Before' />
+				{before.src && (
 					<Image
-						src={before}
+						src={before.src!}
 						alt='Before redesign'
 						width={1200}
 						height={800}
 						className='rounded-lg border border-border'
 					/>
-				</div>
+				)}
+				{before.body && (
+					<p className='text-sm text-muted-foreground'>{before.body}</p>
+				)}
+			</div>
 
-				<div className='space-y-3'>
-					<h4 className='font-heading text-base text-text'>After</h4>
+			<div className='space-y-3'>
+				<Label text='After' />
+				{after.src && (
 					<Image
-						src={after}
+						src={after.src!}
 						alt='After redesign'
 						width={1200}
 						height={800}
 						className='rounded-lg border border-border'
 					/>
-				</div>
+				)}
+				{after.body && (
+					<p className='text-sm text-muted-foreground'>{after.body}</p>
+				)}
 			</div>
-		</Section>
-	);
+		</div>
+	</Section>
+)
+
+type BeforeAfterSide = {
+	src?: string
+	body?: string
 }
 
-export default WorkBeforeAfter;
-
-type BeforeAfterSide = string
-
 type WorkBeforeAfterProps = WorkSectionPropsBase & {
-	title?: string
-	subtitle?: string
 	before: BeforeAfterSide
 	after: BeforeAfterSide
 }
+
+export default WorkBeforeAfter

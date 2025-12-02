@@ -1,43 +1,42 @@
 // components/zones/work/WorkAbstract.tsx
-
-import { Section } from '@/components/ui/Section'
 import { cn } from '@/lib/utils'
-import { WorkSectionPropsBase } from '@/types/work'
+import type { WorkSectionPropsBase } from '@/types/work'
+import { Section } from '@/components/ui/Section'
 
 const defaults = {
-	className: '',
+	className: 'work-abstract',
 	title: 'Abstract',
 }
 
-export function WorkAbstract({
+export const WorkAbstract = ({
+	weight = 0,
 	align,
 	width,
-	spacing = 'comfortable',
+	spacing = 'default',
 	className,
 	title,
 	subtitle,
+	content,
 	children,
-}: WorkAbstractProps) {
-	return (
-		<Section
-			align={align}
-			width={width}
-			spacing={spacing}
-			className={cn(defaults.className, className)}
-			title={title}
-			subtitle={subtitle}
-		>
-			<div className="max-w-3xl space-y-4 text-base text-text-muted">
-				{children}
-			</div>
-		</Section>
-	)
+}: WorkAbstractProps) => (
+	<Section
+		weight={weight}
+		align={align}
+		width={width}
+		spacing={spacing}
+		className={cn(defaults.className, className)}
+		title={title}
+		subtitle={subtitle}
+	>
+		<div className="max-w-3xl space-y-4 md:space-y-6 md:text-lg">
+			{children ? children : content}
+		</div>
+	</Section>
+)
+
+type WorkAbstractProps = WorkSectionPropsBase & {
+	content?: React.ReactNode
+	children?: React.ReactNode
 }
 
 export default WorkAbstract
-
-type WorkAbstractProps = WorkSectionPropsBase & {
-	title?: string
-	subtitle?: string
-	children: React.ReactNode
-}

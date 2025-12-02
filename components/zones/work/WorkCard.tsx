@@ -1,14 +1,6 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-
-interface WorkCardProps {
-  slug: string;
-  title: string;
-  eyebrow: string;
-  subtitle: string;
-  category: "engineering" | "cinematic" | "hybrid";
-  image: string;
-}
+// components/zones/work/WorkCard.tsx
+import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 export const WorkCard = ({
 	title,
@@ -17,6 +9,7 @@ export const WorkCard = ({
 	category,
 	image
 }: WorkCardProps) => {
+
 	const accent =
     category === "engineering"
     	? "bg-accent/20"
@@ -49,5 +42,16 @@ export const WorkCard = ({
 				<div className={cn("h-1 w-12 rounded-full mt-3", accent)} />
 			</div>
 		</div>
-	);
-};
+	)
+}
+
+type WorkCardProps = {
+	slug: string
+	title: string
+	eyebrow: string
+	subtitle: string
+	category: "engineering" | "cinematic" | "hybrid"
+	image: string
+}
+
+export default WorkCard

@@ -1,43 +1,45 @@
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+// components/zones/work/WorkInteractions.tsx
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
+import { Column } from "@/components/ui/section/Column"
+import { ColumnGrid } from "@/components/ui/section/ColumnGrid"
+import { Label } from "@/components/ui/section/Label"
 
 const defaults = {
 	className: 'work-interactions',
 	title: 'Key Interactions',
 }
 
-export function WorkInteractions({
-	align ,
+export const WorkInteractions = ({
+	weight = 0,
+	align,
 	width,
 	spacing = 'default',
 	className,
 	title = defaults.title,
 	subtitle,
 	items,
-}: WorkInteractionsProps) {
-	return (
-		<Section
-			align={align}
-			width={width}
-			spacing={spacing}
-			className={cn(defaults.className, className)}
-			title={title}
-			subtitle={subtitle}
-		>
-			<div className='space-y-6'>
-				{items.map((it, i) => (
-					<div key={i} className='space-y-2'>
-						<h4 className='font-heading text-base text-text'>{it.title}</h4>
-						<p className='text-sm text-text-muted'>{it.body}</p>
-					</div>
-				))}
-			</div>
-		</Section>
-	);
-}
-
-export default WorkInteractions
+}: WorkInteractionsProps) => (
+	<Section
+		weight={weight}
+		align={align}
+		width={width}
+		spacing={spacing}
+		className={cn(defaults.className, className)}
+		title={title}
+		subtitle={subtitle}
+	>
+		<ColumnGrid numAcross={{ base: 1, md: 2 }}>
+			{items.map((it, i) => (
+				<Column key={i}>
+					<Label text={it.title} />
+					<p className='text-sm text-text-muted'>{it.body}</p>
+				</Column>
+			))}
+		</ColumnGrid>
+	</Section>
+)
 
 type InteractionItem = {
 	title: string
@@ -49,3 +51,5 @@ type WorkInteractionsProps = WorkSectionPropsBase & {
 	subtitle?: string
 	items: InteractionItem[]
 }
+
+export default WorkInteractions

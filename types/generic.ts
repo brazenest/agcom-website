@@ -1,3 +1,4 @@
+// types/generic.ts
 import { ReactElement } from "react"
 
 export type ElementIdAttribute = string
@@ -8,3 +9,5 @@ export type UrlQueryParam = {
     key: string,
     value: string | number,
 }
+
+export type SiteThemeMode = 'light' | 'dark' | 'system'

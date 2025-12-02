@@ -1,14 +1,15 @@
 // components/zones/work/WorkBody.tsx
-
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
 
 const defaults = {
 	className: 'work-body',
+	innerClassName: 'space-y-6 w-full',
 }
 
-export function WorkBody({
+export const WorkBody = ({
+	weight = 0,
 	align = 'left',
 	width = 'default',
 	spacing = 'default',
@@ -16,10 +17,15 @@ export function WorkBody({
 	eyebrow,
 	title,
 	subtitle,
+	content,
 	children
-}: WorkBodyProps) {
+}: WorkBodyProps) => {
+
+	const innerClassName = (!title && !subtitle && !eyebrow) ? 'w-full pb-12' : ''
+
 	return (
 		<Section
+			weight={weight}
 			align={align}
 			width={width}
 			spacing={spacing}
@@ -28,20 +34,18 @@ export function WorkBody({
 			title={title}
 			subtitle={subtitle}
 		>
-			<div className="space-y-6 text-text-muted w-full border-e border-s py-20">
-				<div className="layout-prose text-lg">
-					{children}
+			<div className={cn(defaults.innerClassName, innerClassName)}>
+				<div className="layout-prose text-start">
+					{children ? children : content}
 				</div>
 			</div>
 		</Section>
-	);
+	)
+}
+
+type WorkBodyProps = WorkSectionPropsBase & {
+	content?: React.ReactNode
+	children?: React.ReactNode
 }
 
 export default WorkBody
-
-type WorkBodyProps = WorkSectionPropsBase & {
-	eyebrow?: string
-	title?: string
-	subtitle?: string
-	children: React.ReactNode
-}

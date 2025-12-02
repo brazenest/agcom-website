@@ -1,7 +1,9 @@
-import Image from "next/image";
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+// components/zones/work/WorkSearchFlow.tsx
+import Image from "next/image"
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
+import { Label } from "@/components/ui/section/Label"
 
 const defaults = {
 	className: 'work-search-flow',
@@ -9,66 +11,62 @@ const defaults = {
 	title: 'Search flow',
 }
 
-export function WorkSearchFlow({
+export const WorkSearchFlow = ({
+	weight = 0,
 	align = 'left',
 	width = 'wide',
-	spacing = 'comfortable',
+	spacing = 'default',
 	className,
 	title = defaults.title,
 	subtitle,
 	steps,
-}: WorkSearchFlowProps) {
-	return (
-		<Section
-			eyebrow={defaults.eyebrow}
-			title={title}
-			subtitle={subtitle}
-			align={align}
-			width={width}
-			spacing={spacing}
-			className={cn(defaults.className, className)}
-		>
-			<div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
-				{steps.map((step, i) => (
-					<div key={i} className="flex flex-col gap-3">
-						{/* Step Label */}
-						{step.label && (
-							<p className="text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-text-muted">
-								{step.label}
-							</p>
-						)}
+}: WorkSearchFlowProps) => (
+	<Section
+		weight={weight}
+		eyebrow={defaults.eyebrow}
+		title={title}
+		subtitle={subtitle}
+		align={align}
+		width={width}
+		spacing={spacing}
+		className={cn(defaults.className, className)}
+	>
+		<div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+			{steps.map((step, i) => (
+				<div key={i} className="flex flex-col gap-3">
+					{/* Step Label */}
+					{step.label && (
+						<Label text={step.label} />
+					)}
 
-						{/* Step Image */}
-						{step.image && (
-							<div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-border bg-card-bg">
-								<Image
-									src={step.image}
-									alt={step.imageAlt ?? step.label ?? `Step ${i + 1}`}
-									fill
-									className="object-cover"
-								/>
-							</div>
-						)}
+					{/* Step Image */}
+					{step.image && (
+						<div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-border bg-card-bg">
+							<Image
+								src={step.image}
+								alt={step.imageAlt ?? step.label ?? `Step ${i + 1}`}
+								fill
+								className="object-cover"
+							/>
+						</div>
+					)}
 
-						{/* Step Title */}
-						{step.title && (
-							<h3 className="font-heading text-base md:text-lg text-text">
-								{step.title}
-							</h3>
-						)}
+					{/* Step Title */}
+					{step.title && (
+						<h3 className="font-heading text-base md:text-lg text-text">
+							{step.title}
+						</h3>
+					)}
 
-						{/* Step Body */}
-						<p className="text-sm md:text-base text-text-muted leading-relaxed">
-							{step.body}
-						</p>
-					</div>
-				))}
-			</div>
-		</Section>
-	);
-}
-
-export default WorkSearchFlow
+					{/* Step Body */}
+					<p className="text-sm md:text-base text-text-muted my-0">
+						{step.body}
+					</p>
+				</div>
+			))}
+		</div>
+	</Section>
+)
 
 type FlowStep = {
 	label?: string
@@ -83,3 +81,5 @@ type WorkSearchFlowProps = WorkSectionPropsBase & {
 	subtitle?: string
 	steps: FlowStep[]
 }
+
+export default WorkSearchFlow

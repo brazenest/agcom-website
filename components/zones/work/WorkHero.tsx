@@ -1,38 +1,33 @@
-"use client";
-
-import Image from "next/image";
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import type { WorkSectionPropsBase } from "@/types/work";
+// components/zones/work/WorkHero.tsx
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
+import { CroppedImage } from "@/components/ui/CroppedImage"
+import { SectionImage } from "@/types/ui"
 
 const defaults = {
-	className: 'relative'
+	className: 'work-hero relative',
+	headerClassName: 'max-w-4xl space-y-4',
 }
 
-export function WorkHero({
+export const WorkHero = ({
+	weight = 0,
 	align = 'center',
 	width = 'full',
-	spacing = 'spacious',
+	spacing = 'default',
 	className,
 	eyebrow,
 	title,
 	subtitle,
-	imageSrc,
-	imageAlt = "",
-	variant = "hybrid",
+	image,
 	tags = [],
-}: WorkHeroProps) {
+}: WorkHeroProps) => {
 
-	/** Variant → color bias */
-	const glowClass =
-		variant === "engineering"
-			? "bg-accent/20"           // blue glow
-			: variant === "cinematic"
-				? "bg-accent-subtle/30"    // amber glow
-				: "bg-accent/18";             // hybrid balanced glow
+	const headerClassName = cn(defaults.headerClassName, (align === 'center') && 'mx-auto text-center')
 
 	return (
 		<Section
+			weight={weight}
 			align={align}
 			width={width}
 			spacing={spacing}
@@ -41,12 +36,12 @@ export function WorkHero({
 			<div className="layout-inner-xl flex flex-col gap-10 md:gap-14">
 
 				{/* HEADER CONTENT */}
-				<header className="max-w-4xl text-center space-y-4">
+				<header className={headerClassName}>
 					<p className="text-xs font-semibold tracking-[0.18em] uppercase text-text-muted">
 						{eyebrow}
 					</p>
 
-					<h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-text">
+					<h1 className="font-heading text-4xl md:text-5xl lg:text-6xl">
 						{title}
 					</h1>
 
@@ -71,44 +66,27 @@ export function WorkHero({
 				</header>
 
 				{/* HERO IMAGE */}
-				<div className="relative w-full overflow-hidden rounded-lg border border-border bg-card-bg shadow-lg">
-					<Image
-						src={imageSrc}
-						alt={imageAlt}
-						width={2400}
-						height={1350}
-						className="w-full h-auto object-cover"
-						priority
-					/>
-				</div>
-			</div>
-
-			{/* AMBIENT BACKGROUND WASH */}
-			<div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.75]">
-				<div className={cn(
-					"absolute -top-32 left-[-10%] h-[26rem] w-[26rem] rounded-full blur-3xl",
-					glowClass
-				)} />
-
-				<div className={cn(
-					"absolute bottom-[-20%] right-[-5%] h-[28rem] w-[28rem] rounded-full blur-3xl",
-					glowClass
-				)} />
+				{image && (
+					<div className="relative w-full overflow-hidden rounded-lg border border-border bg-card-bg shadow-lg">
+						<CroppedImage
+							src={image.src}
+							alt={image.alt}
+							width={2400}
+							horizontal={18}
+							vertical={9}
+							imgClassName="w-full h-auto"
+						/>
+					</div>
+				)}
+				
 			</div>
 		</Section>
-	);
+	)
+}
+
+type WorkHeroProps = WorkSectionPropsBase & {
+	image?: SectionImage
+	tags?: string[]
 }
 
 export default WorkHero
-
-type WorkHeroVariant = "engineering" | "cinematic" | "hybrid"
-
-type WorkHeroProps = WorkSectionPropsBase & {
-	eyebrow: string
-	title: string
-	subtitle?: string
-	imageSrc: string
-	imageAlt?: string
-	variant?: WorkHeroVariant
-	tags?: string[]
-}

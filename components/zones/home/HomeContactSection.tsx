@@ -7,24 +7,22 @@ import { ContactCTAButton } from "@/components/zones/contact/ContactCTAButton";
 export function HomeContactSection() {
 	return (
 		<Section
-			align="center"
 			width="wide"
 			spacing="comfortable"
 			className="section-space-tight-bottom layout-section-bleed relative bg-surface-alt"
 			eyebrow="Next steps"
-			title="Have a product, story, or project in mind?"
-			subtitle="Whether it’s engineering, direction, or both, I can help plan, build, and ship something considered."
+			title="Let’s build something great together."
+			subtitle="Whether you need end-to-end engineering and cinematic storytelling or just a specific slice, I’m ready to help you make it happen."
 		>
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 				<div className="space-y-2 max-w-xl">
 					<p className="text-sm md:text-base text-text-muted">
 						I work well on product teams, in close collaboration with designers,
 						or directly with founders and producers. Tell me what you’re trying
-						to make and where you’re stuck.
+						to make and where you’re trying to go.
 					</p>
 					<p className="text-xs text-text-muted/80">
-						Engineering + cinematic storytelling, end-to-end — or just the
-						slice you need most right now.
+						Ready to get started? Reach out with an opportunity or for a free consultation.
 					</p>
 				</div>
 

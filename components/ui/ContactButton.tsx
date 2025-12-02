@@ -1,9 +1,8 @@
-"use client"
+'use client'
 
-import { useContactModal } from "@/hooks/useContactModal";
-import { Button } from "./Button";
-import React from "react";
-import { ButtonVariantT } from "@/types/ui";
+import { useContactModal } from '@/hooks/useContactModal'
+import { Button } from './Button'
+import { ButtonVariant } from '@/types/ui'
 
 export const ContactButton = ({ children, variant = 'primary', className = '' }: ContactButtonProps) => {
 	const { open } = useContactModal();
@@ -17,11 +16,12 @@ export const ContactButton = ({ children, variant = 'primary', className = '' }:
 			{children}
 		</Button>
 	)
-
 }
 
 type ContactButtonProps = {
-    variant?: ButtonVariantT;
-    className?: string;
-    children:  React.ReactNode;
+    variant?: ButtonVariant
+    className?: string
+    children:  React.ReactNode
 }
+
+export default ContactButton

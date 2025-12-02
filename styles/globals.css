@@ -1,6 +1,7 @@
 /* styles/globals.css */
 
 /* Import design tokens */
+@import "./colors.css";
 @import "./style-guide.css";
 
 @tailwind base;
@@ -30,7 +31,7 @@
   body {
     font-family: var(--font-engineering);
     font-size: var(--text-base);
-    line-height: 1.7;
+    line-height: calc(1rem * 24/16);
     background-color: var(--color-bg);
     color: var(--color-text);
   }
@@ -48,8 +49,8 @@
   h6 {
     font-family: var(--font-cinematic);
     font-weight: 600;
-    line-height: 1.2;
-    color: var(--color-text);
+    line-height: 1.33;
+    /* color: var(--color-text); */
     margin: 0 0 var(--space-4);
   }
 
@@ -88,7 +89,7 @@
   /* Text elements */
   p {
     margin: var(--space-4) 0;
-    color: var(--color-text);
+    /* color: var(--color-text); */
   }
 
   strong,
@@ -134,6 +135,11 @@
   ol {
     margin: var(--space-4) 0 var(--space-4) var(--space-6);
     padding: 0;
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: outside;
   }
 
   li {

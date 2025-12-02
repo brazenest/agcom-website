@@ -1,7 +1,8 @@
 // components/zones/work/WorkProblemApproachOutcome.tsx
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
+import { Label } from "@/components/ui/section/Label"
 
 const defaults = {
 	className: 'work-pao',
@@ -10,18 +11,29 @@ const defaults = {
 	subtitle: 'A brief overview of how we tackled challenges and delivered results through a structured process.',
 }
 
-export function WorkProblemApproachOutcome({
+export const WorkProblemApproachOutcome	= ({
+	weight = 0,
 	align,
 	width,
-	spacing = 'comfortable',
+	spacing = 'default',
 	className,
 	eyebrow = defaults.eyebrow,
 	title = defaults.title,
 	subtitle = defaults.subtitle,
-	sections,
-}: WorkPAOProps) {
+	problem,
+	approach,
+	outcome,
+}: WorkPAOProps) => {
+
+	const items = [
+		{ title: 'Problem', content: problem.content },
+		{ title: 'Approach', content: approach.content },
+		{ title: 'Outcome', content: outcome.content },
+	]
+
 	return (
 		<Section
+			weight={weight}
 			width={width}
 			spacing={spacing}
 			align={align}
@@ -30,30 +42,41 @@ export function WorkProblemApproachOutcome({
 			title={title}
 			subtitle={subtitle}
 		>
-			<div className="grid gap-10 md:grid-cols-3">
-				{sections.map((s, i) => (
-					<div key={i} className="space-y-4">
-						<h3 className="font-heading text-lg text-text">
-							{s.title}
-						</h3>
-						<p className="text-text-muted">{s.body}</p>
-					</div>
-				))}
-			</div>
+			<WorkPAOItemGrid items={items} />
 		</Section>
 	);
 }
 
-export default WorkProblemApproachOutcome
+const WorkPAOItem = ({ title, content }) => (
+	<div className="space-y-4">
+		<Label text={title} />
+		<p className="text-text-muted">{content}</p>
+	</div>
+)
 
-type PAOItem = {
-	title: string
-	body: string
+const WorkPAOItemGrid = ({ items }) => (
+	<div className="grid gap-10 md:grid-cols-3">
+		{items.map((item, i) => (
+			<WorkPAOItem
+				key={i}
+				title={item.title}
+				content={item.content}
+			/>
+		))}
+	</div>
+)
+
+type WorkPAOItemData = {
+	content: string
 }
 
 type WorkPAOProps = WorkSectionPropsBase & {
-	sections: PAOItem[]
 	eyebrow?: string
 	title?: string
 	subtitle?: string
+	problem: WorkPAOItemData
+	approach: WorkPAOItemData
+	outcome: WorkPAOItemData
 }
+
+export default WorkProblemApproachOutcome

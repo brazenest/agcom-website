@@ -1,76 +1,79 @@
-import { Section } from "@/components/ui/Section";
-import { Pill } from "@/components/ui/Pill";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+// components/zones/work/WorkMeta.tsx
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
+import { ColumnGrid } from "@/components/ui/section/ColumnGrid"
+import { Column } from "@/components/ui/section/Column"
+import { Pill } from "@/components/ui/Pill"
 
 const defaults = {
 	className: 'work-meta',
 	title: 'At a glance',
 }
 
-export function WorkMeta({
+export const WorkMeta = ({
+	weight = 0,
 	align,
 	width,
-	spacing = 'comfortable',
+	spacing = 'default',
 	className,
 	subtitle,
 	columns,
-}: WorkMetaProps) {
-	return (
-		<Section
-			align={align}
-			width={width}
-			spacing={spacing}
-			className={cn(defaults.className, className)}
-			title={defaults.title}
-			subtitle={subtitle}
-		>
-			<div className='grid gap-6 md:grid-cols-2 xl:grid-cols-4'>
-				{columns.map((col, i) => (
-					<div key={i} className='space-y-2'>
-						<p className='text-xs font-semibold tracking-wide uppercase text-text-muted'>
-							{col.label}
-						</p>
+}: WorkMetaProps) => (
+	<Section
+		weight={weight}
+		align={align}
+		width={width}
+		spacing={spacing}
+		className={cn(defaults.className, className)}
+		title={defaults.title}
+		subtitle={subtitle}
+	>
+		<ColumnGrid numAcross={{ base: 1, md: 2, lg: 3 }}>
+			
+			{columns.map((col, i) => (
 
-						{Array.isArray(col.value)
-							? col.usePills
-								? (
-									<div className='flex flex-wrap gap-2'>
-										{col.value.map(v => (
-											<Pill key={v} size='sm' variant='subtle'>
-												{v}
-											</Pill>
-										))}
-									</div>
-								)
-								: (
-									<ul className='space-y-1 text-sm text-text-muted'>
-										{col.value.map(v => (
-											<li key={v}>{v}</li>
-										))}
-									</ul>
-								)
+				<Column label={col.label} key={i}>
+					{Array.isArray(col.value)
+						? col.usePills
+							? (
+								<div className='flex flex-wrap gap-2'>
+									{col.value.map(v => (
+										<Pill key={v} size='sm' variant='subtle'>
+											{v}
+										</Pill>
+									))}
+								</div>
+							)
 							: (
-								<p className='text-sm text-text-muted'>
-									{col.value}
-								</p>
-							)}
-					</div>
-				))}
-			</div>
-		</Section>
-	);
-}
+								<ul className='space-y-1 text-sm text-text-muted'>
+									{col.value.map(v => (
+										<li key={v}>{v}</li>
+									))}
+								</ul>
+							)
+						: (
+							<p className='text-sm text-text-muted'>
+								{col.value}
+							</p>
+						)}
+				</Column>
+			))}
 
-export default WorkMeta
+		</ColumnGrid>
+
+	</Section>
+)
 
 type MetaColumn = {
 	label: string
 	value: string | string[]
 	usePills?: boolean
-};
+}
 
 type WorkMetaProps = WorkSectionPropsBase & {
 	subtitle: string
 	columns: MetaColumn[]
 }
+
+export default WorkMeta

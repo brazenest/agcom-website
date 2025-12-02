@@ -1,58 +1,31 @@
-import { Section } from "@/components/ui/Section";
-import { ContactCTAButton } from "@/components/zones/contact/ContactCTAButton";
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { ButtonLink } from "@/components/ui/ButtonLink";
-import { WorkSectionPropsBase } from "@/types/work";
+// components/zones/work/WorkCTA.tsx
+import { cn } from "@/lib/utils"
+import { SectionColorWeight } from "@/types/section"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
+import { ContactCTAButton } from "@/components/zones/contact/ContactCTAButton"
+import { ButtonLink } from "@/components/ui/ButtonLink"
+import workData from "@/data/work.json" assert { type: "json" }
 
 const defaults = {
 	className: 'work-cta layout-section-bleed bg-bg-alt relative',
 }
 
-export function WorkCTA({
+export const WorkCTA = ({
 	variant = 'general',
+	weight = 4,
 	align,
 	width,
-	spacing = 'comfortable',
+	spacing = 'spacious',
 	className,
-}: WorkCTAProps) {
+}: WorkCTAProps) => {
 
-	// Variant messaging dictionary
-	const content = {
-		dna: {
-			title: "Need an activation flow or onboarding that scales?",
-			subtitle:
-				"I design flows that reduce friction, guide users clearly, and hold up under massive volume.",
-			secondary: "View more engineering work",
-			secondaryHref: "/work",
-		},
-		timeshare: {
-			title: "Have a complex interface or content-heavy product?",
-			subtitle:
-				"I specialize in clarity for dense data: search flows, listings, filters, and systemized components.",
-			secondary: "See more product UX work",
-			secondaryHref: "/work",
-		},
-		shadowcat: {
-			title: "Need cinematic clarity for a product or story?",
-			subtitle:
-				"I shoot, edit, and direct pieces that feel intentional—rhythm, color, and camera work included.",
-			secondary: "Explore more visuals",
-			secondaryHref: "/work",
-		},
-		general: {
-			title: "Have a project in mind?",
-			subtitle:
-				"Whether engineering, design, or cinematic storytelling, I can help you build something considered.",
-			secondary: "Browse all work",
-			secondaryHref: "/work",
-		},
-	} as const
-
-	const { title, subtitle, secondary, secondaryHref } = content[variant]
+	const ctaData = workData["shadowcat-bellagio-fountains"].sections.cta;
+	const { title, subtitle, secondary, secondaryHref } = ctaData.content[variant]
 
 	return (
 		<Section
+			weight={weight}
 			align={align}
 			width={width}
 			spacing={spacing}
@@ -61,20 +34,25 @@ export function WorkCTA({
 			subtitle={subtitle}
 		>
 			<div className='flex flex-wrap gap-4'>
-				<ContactCTAButton size='lg' />
+
+				<ContactCTAButton size='lg'>
+					{ctaData.primaryButton?.text || 'Get in touch'}
+				</ContactCTAButton>
 
 				<ButtonLink href={secondaryHref} variant='secondary' size='lg'>
 					{secondary}
 				</ButtonLink>
+
 			</div>
 		</Section>
-	);
+	)
 }
-
-export default WorkCTA
 
 type WorkCTAVariant = 'dna' | 'timeshare' | 'shadowcat' | 'general'
 
 type WorkCTAProps = WorkSectionPropsBase & {
 	variant?: WorkCTAVariant
+	weight?: SectionColorWeight
 }
+
+export default WorkCTA

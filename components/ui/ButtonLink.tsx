@@ -1,6 +1,7 @@
+// components/ui/ButtonLink.tsx
 import Link from "next/link"
 import { Button } from "./Button"
-import { ButtonVariantT } from "@/types/ui"
+import { ButtonVariant } from "@/types/ui"
 
 export const ButtonLink = ({ href, size = 'md', variant = "secondary", className = '', children}: ButtonLinkProps) => (
 	<Button variant={variant} size={size} className={className}>
@@ -14,6 +15,6 @@ type ButtonLinkProps = {
     href: string,
 		size?: 'sm' | 'md' | 'lg',
 		className?: string,
-    variant?: ButtonVariantT,
+    variant?: ButtonVariant,
     children: string | React.ReactNode,
 }

@@ -1,15 +1,16 @@
 // components/zones/work/WorkChallenges.tsx
-
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
+import { Label } from "@/components/ui/section/Label"
 
 const defaults = {
 	className: 'work-challenges',
 	title: 'Challenges',
 }
 
-export function WorkChallenges({
+export const WorkChallenges = ({
+	weight = 0,
 	align,
 	width,
 	spacing = 'default',
@@ -17,29 +18,26 @@ export function WorkChallenges({
 	title = defaults.title,
 	subtitle,
 	items,
-}: WorkChallengesProps) {
-	return (
-		<Section
-			align={align}
-			width={width}
-			spacing={spacing}
-			className={cn(defaults.className, className)}
-			title={title}
-			subtitle={subtitle}
-		>
-			<div className='space-y-8'>
-				{items.map((c, i) => (
-					<div key={i} className='space-y-2'>
-						<h3 className='font-heading text-lg text-text'>{c.title}</h3>
-						<p className='text-text-muted'>{c.body}</p>
-					</div>
-				))}
-			</div>
-		</Section>
-	);
-}
-
-export default WorkChallenges
+}: WorkChallengesProps) => (
+	<Section
+		weight={weight}
+		align={align}
+		width={width}
+		spacing={spacing}
+		className={cn(defaults.className, className)}
+		title={title}
+		subtitle={subtitle}
+	>
+		<div className='space-y-6'>
+			{items.map((c, i) => (
+				<div key={i} className='space-y-2'>
+					<Label text={c.title} />
+					<p className='text-text-muted'>{c.body}</p>
+				</div>
+			))}
+		</div>
+	</Section>
+)
 
 type Challenge = {
 	title: string
@@ -51,3 +49,5 @@ type WorkChallengesProps = WorkSectionPropsBase & {
 	subtitle?: string
 	items: Challenge[]
 }
+
+export default WorkChallenges

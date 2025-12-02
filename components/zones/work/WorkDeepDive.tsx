@@ -1,15 +1,15 @@
 // components/zones/work/WorkDeepDive.tsx
-
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
 
 const defaults = {
-	className: 'work-deep-dive',
+	className: 'work-deepdive',
 	eyebrow: 'Deep Dive',
 }
 
-export function WorkDeepDive({
+export const WorkDeepDive = ({
+	weight = 0,
 	align,
 	width,
 	spacing = 'default',
@@ -17,31 +17,28 @@ export function WorkDeepDive({
 	eyebrow = defaults.eyebrow,
 	title,
 	subtitle,
+	content,
 	children
-}: WorkDeepDiveProps) {
+}: WorkDeepDiveProps) => (
+	<Section
+		weight={weight}
+		align={align}
+		width={width}
+		spacing={spacing}
+		className={cn(defaults.className, className)}
+		eyebrow={eyebrow}
+		title={title}
+		subtitle={subtitle}
+	>
+		<div className="layout-prose space-y-6 text-text-muted">
+			{children ? children : content}
+		</div>
+	</Section>
+)
 
-	return (
-		<Section
-			align={align}
-			width={width}
-			spacing={spacing}
-			className={cn(defaults.className, className)}
-			eyebrow={eyebrow}
-			title={title}
-			subtitle={subtitle}
-		>
-			<div className="layout-prose space-y-6 text-text-muted">
-				{children}
-			</div>
-		</Section>
-	);
+type WorkDeepDiveProps = WorkSectionPropsBase & {
+	content?: React.ReactNode
+	children?: React.ReactNode
 }
 
 export default WorkDeepDive
-
-type WorkDeepDiveProps = WorkSectionPropsBase & {
-	eyebrow?: string
-	title: string
-	subtitle?: string
-	children: React.ReactNode
-}

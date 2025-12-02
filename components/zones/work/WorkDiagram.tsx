@@ -1,7 +1,7 @@
 // components/work/WorkDiagram.tsx
-import { Section } from "@/components/ui/Section";
-import { cn } from "@/lib/utils";
-import { WorkSectionPropsBase } from "@/types/work";
+import { cn } from "@/lib/utils"
+import type { WorkSectionPropsBase } from "@/types/work"
+import { Section } from "@/components/ui/Section"
 
 const defaults = {
 	className: 'work-diagram',
@@ -9,6 +9,7 @@ const defaults = {
 }
 
 export const WorkDiagram = ({
+	weight = 0,
 	align = 'left',
 	width = 'wide',
 	spacing = 'default',
@@ -18,6 +19,7 @@ export const WorkDiagram = ({
 	children,
 }: WorkDiagramProps) => (
 	<Section
+		weight={weight}
 		align={align}
 		width={width}
 		spacing={spacing}
@@ -28,10 +30,12 @@ export const WorkDiagram = ({
 	>
 		<div className="w-full flex justify-center">{children}</div>
 	</Section>
-);
+)
 
 type WorkDiagramProps = WorkSectionPropsBase & {
-	title: string;
-	subtitle?: string;
-	children: React.ReactNode;
+	title: string
+	subtitle?: string
+	children: React.ReactNode
 }
+
+export default WorkDiagram
