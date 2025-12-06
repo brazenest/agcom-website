@@ -1,6 +1,5 @@
 // components/zones/work/WorkCTA.tsx
 import { cn } from "@/lib/utils"
-import { SectionColorWeight } from "@/types/section"
 import type { WorkSectionPropsBase } from "@/types/work"
 import { Section } from "@/components/ui/Section"
 import { ContactCTAButton } from "@/components/zones/contact/ContactCTAButton"
@@ -13,14 +12,14 @@ const defaults = {
 
 export const WorkCTA = ({
 	variant = 'general',
-	weight = 4,
+	weight = 5,
 	align,
 	width,
 	spacing = 'spacious',
 	className,
 }: WorkCTAProps) => {
 
-	const ctaData = workData["shadowcat-bellagio-fountains"].sections.cta;
+	const ctaData = workData.caseStudies["shadowcat-bellagio-fountains"].sections.cta
 	const { title, subtitle, secondary, secondaryHref } = ctaData.content[variant]
 
 	return (
@@ -33,7 +32,7 @@ export const WorkCTA = ({
 			title={title}
 			subtitle={subtitle}
 		>
-			<div className='flex flex-wrap gap-4'>
+			<div className='flex flex-wrap gap-4 justify-center'>
 
 				<ContactCTAButton size='lg'>
 					{ctaData.primaryButton?.text || 'Get in touch'}
@@ -52,7 +51,4 @@ type WorkCTAVariant = 'dna' | 'timeshare' | 'shadowcat' | 'general'
 
 type WorkCTAProps = WorkSectionPropsBase & {
 	variant?: WorkCTAVariant
-	weight?: SectionColorWeight
 }
-
-export default WorkCTA

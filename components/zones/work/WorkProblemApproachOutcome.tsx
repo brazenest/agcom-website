@@ -12,7 +12,7 @@ const defaults = {
 }
 
 export const WorkProblemApproachOutcome	= ({
-	weight = 0,
+	weight = 1,
 	align,
 	width,
 	spacing = 'default',
@@ -78,5 +78,3 @@ type WorkPAOProps = WorkSectionPropsBase & {
 	approach: WorkPAOItemData
 	outcome: WorkPAOItemData
 }
-
-export default WorkProblemApproachOutcome

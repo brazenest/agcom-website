@@ -30,7 +30,7 @@ export const WorkDeepDive = ({
 		title={title}
 		subtitle={subtitle}
 	>
-		<div className="layout-prose space-y-6 text-text-muted">
+		<div className="layout-prose space-y-6 text-fg-alt">
 			{children ? children : content}
 		</div>
 	</Section>
@@ -40,5 +40,3 @@ type WorkDeepDiveProps = WorkSectionPropsBase & {
 	content?: React.ReactNode
 	children?: React.ReactNode
 }
-
-export default WorkDeepDive

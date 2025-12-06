@@ -1,52 +1,21 @@
 // components/ui/Section.tsx
+import { cn } from '@/lib/utils'
+import { SectionAlign, SectionWidth } from '@/types/ui'
+import { Eyebrow } from './section/Eyebrow'
+import { Title } from './section/Title'
+import { Subtitle } from './section/Subtitle'
+import { getSectionAlign, getSectionWidth } from '@/lib/constants'
+import { SectionSpacingName, SectionSpacingSet, SectionTheme, SectionThemeWeightName } from '@/types/section'
+import sectionData from '@/data/section.json' assert { type: 'json' }
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
-import { SectionAlign, SectionSpacing, SectionWidth } from "@/types/ui";
-import { Eyebrow } from "./section/Eyebrow";
-import { Title } from "./section/Title";
-import { Subtitle } from "./section/Subtitle";
-import { getSectionAlign, getSectionWidth } from "@/lib/constants";
-import { SectionColorWeight } from "@/types/section";
-
-const defaults = {
-	className: 'section layout-section',
-	variantStyles: {
-		0: "bg-white text-black dark:bg-zinc-950 dark:text-zinc-50",
-		1: "bg-zinc-100 text-gray-900 dark:bg-zinc-900 dark:text-zinc-100",
-		2: "bg-zinc-200 text-gray-900 dark:bg-zinc-800 dark:text-zinc-100",
-		3: "bg-zinc-300 text-gray-900 dark:bg-zinc-700 dark:text-zinc-100",
-		4: "bg-zinc-400 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
-	},
-	spacing: {
-		tight: {
-			default: 'py-[clamp(1rem,3vw,4rem)]',
-			top: 'pt-[clamp(1rem,3vw,4rem)]',
-			bottom: 'pb-[clamp(1rem,3vw,4rem)]',
-		},
-		default: {
-			default: 'py-[clamp(2rem,5vw,7rem)]',
-			top: 'pt-[clamp(2rem,5vw,7rem)]',
-			bottom: 'pb-[clamp(2rem,5vw,7rem)]',
-		},
-		comfortable: {
-			default: 'py-[clamp(3rem,9vw,11rem)]',
-			top: 'pt-[clamp(3rem,9vw,11rem)]',
-			bottom: 'pb-[clamp(3rem,9vw,11rem)]',
-		},
-		spacious: {
-			default: 'py-[clamp(4rem,12vw,14rem)]',
-			top: 'pt-[clamp(4rem,12vw,14rem)]',
-			bottom: 'pb-[clamp(4rem,12vw,14rem)]',
-		},
-	}
-}
+const theme: SectionTheme = sectionData.themes.default
+const spacings: SectionSpacingSet = theme.spacings
 
 export const Section = ({
 	weight = 0,
-	align = "left",
-	width = "default",
-	spacing = "default",
+	align = 'left',
+	width = 'default',
+	spacing = 'default',
 	spacingTop,
 	spacingBottom,
 	eyebrow,
@@ -56,23 +25,23 @@ export const Section = ({
 	children,
 }: SectionProps) => {
 
-	const variantClass = defaults.variantStyles[weight] || ''
+	const variantClass = cn(`section-variant-default-weight-${weight}`, theme.variants.default.weights[weight])
 	const alignClass = getSectionAlign(align)
 	const widthClass = getSectionWidth(width)
 	const spacingClass = cn(
-		!spacingTop && !spacingBottom && defaults.spacing[spacing].default,
-		spacingTop && defaults.spacing[spacing].top,
-		spacingBottom && defaults.spacing[spacing].bottom,
+		!spacingTop && !spacingBottom && spacings[spacing].default,
+		spacingTop && spacings[spacing].top,
+		spacingBottom && spacings[spacing].bottom,
 	);
 
 	return (
-		<section className={cn(defaults.className, variantClass, spacingClass, className)}>
-			<div className={cn(widthClass, "flex flex-col gap-10", alignClass)}>
+		<section className={cn(sectionData.classNameBase, variantClass, spacingClass, className)}>
+			<div className={cn(widthClass, "flex flex-col gap-8 sm:gap-10", alignClass)}>
 				{(title || subtitle) && (
-					<header className="max-w-2xl lg:max-w-3xl space-y-4">
-						{eyebrow && <Eyebrow text={eyebrow} />}
+					<header className="max-w-2xl lg:max-w-3xl">
+						{eyebrow && <Eyebrow text={eyebrow} className="mb-6" />}
 
-						{title && <Title text={title} />}
+						{title && <Title text={title} className="leading-9.5 mt-5 mb-6" />}
 
 						{subtitle && <Subtitle text={subtitle} />}
 					</header>
@@ -83,18 +52,19 @@ export const Section = ({
 	);
 }
 
+
+
+
 type SectionProps = {
-	weight?: SectionColorWeight
+	weight?: SectionThemeWeightName
 	align?: SectionAlign
 	width?: SectionWidth
-	spacing?: SectionSpacing
-	spacingTop?: SectionSpacing
-	spacingBottom?: SectionSpacing
+	spacing?: SectionSpacingName
+	spacingTop?: SectionSpacingName
+	spacingBottom?: SectionSpacingName
 	eyebrow?: string
 	title?: string
 	subtitle?: string
 	className?: string
 	children?: React.ReactNode
 }
-
-export default Section

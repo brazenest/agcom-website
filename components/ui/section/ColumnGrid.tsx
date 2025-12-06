@@ -8,7 +8,7 @@
 import { cn } from "@/lib/utils"
 
 const defaults = {
-	className: 'section-column-grid grid gap-6',
+	className: 'section-column-grid grid gap-4 md:gap-6 lg:gap-8',
 }
 
 export const ColumnGrid = ({ numAcross, children }: ColumnGridProps) => {

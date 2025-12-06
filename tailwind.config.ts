@@ -3,10 +3,6 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
 	darkMode: ['class', '[data-theme="dark"]'],
-	content: [
-		'./app/**/*.{ts,tsx,js,jsx,mdx}',
-		'./components/**/*.{ts,tsx,js,jsx,mdx}',
-	],
 	theme: {
 		extend: {
 			fontFamily: {
@@ -44,33 +40,6 @@ const config: Config = {
 					'Segoe UI',
 					'sans-serif',
 				],
-			},
-			colors: {
-				bg: "var(--color-bg)",
-				"bg-alt": "var(--color-bg-alt)",
-				text: "var(--color-text)",
-				"text-muted": "var(--color-text-muted)",
-				title: "var(--color-title)",
-				accent: "var(--color-accent)",
-				"accent-hover": "var(--color-accent-hover)",
-				"accent-subtle": "var(--color-accent-subtle)",
-				border: "var(--color-border)",
-				"border-strong": "var(--color-border-strong)",
-				"card-bg": "var(--color-card-bg)",
-				"card-bg-hover": "var(--color-card-bg-hover)",
-				brand: {
-					50: "var(--color-brand-50)",
-					100: "var(--color-brand-100)",
-					200: "var(--color-brand-200)",
-					300: "var(--color-brand-300)",
-					400: "var(--color-brand-400)",
-					500: "var(--color-brand-500)",   // primary engineering blue
-					600: "var(--color-brand-600)",
-					700: "var(--color-brand-700)",
-					800: "var(--color-brand-800)",
-					900: "var(--color-brand-900)",
-				},
-
 			},
 			borderRadius: {
 				sm: "var(--radius-sm)",

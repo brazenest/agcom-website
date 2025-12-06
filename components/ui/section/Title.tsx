@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils"
 
 const defaults = {
-	className: 'font-heading text-3xl md:text-4xl lg:text-5xl text-title',
+	className: 'font-heading text-3xl md:text-4xl lg:text-5xl font-semibold',
 }
 
 export const Title = ({ className, text }: TitleProps) => (

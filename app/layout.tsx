@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import 'dotenv/config'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Space_Grotesk, Inter } from "next/font/google";
-import "@/styles/globals.css";
+import "@/styles/tw-test.css"
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LinkT } from "@/types/link";
-import { SectionProvider } from "@/components/providers/SectionProvider";
 import ContactModal from "@/components/zones/contact/ContactModal";
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 const fontTech = Inter({
 	variable: '--font-tech',
@@ -43,7 +41,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Alden Gillespy — Full-Stack Software Engineer, Web Designer & Video Producer",
 		description:
-      "Full-stack engineering meets cinematic storytelling — portfolio, case studies, and articles.",
+			"Full-stack engineering meets cinematic storytelling — portfolio, case studies, and articles.",
 		url: "https://aldengillespy.com",
 		type: "website",
 	},
@@ -75,88 +73,30 @@ const footerLinks: LinkT[] = [
 export default function RootLayout({
 	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
 	return (
 		<html id="root" lang="en" suppressHydrationWarning>
-
-			<head>
-				<style
-					dangerouslySetInnerHTML={{
-						__html: `
-			:root {
-				color-scheme: light dark;
-			}
-			[data-theme="light"] {
-				color-scheme: light;
-			}
-			[data-theme="dark"] {
-				color-scheme: dark;
-			}
-
-			/* Theme initializer */
-			html {
-				--tmp-theme: light;
-			}
-			@media (prefers-color-scheme: dark) {
-				html {
-					--tmp-theme: dark;
-				}
-			}
-			html[data-theme] {
-				--tmp-theme: initial;
-			}
-		`,
-					}}
-				/>
-
-				<script
-					id="theme-init"
-					async
-					dangerouslySetInnerHTML={{
-						__html: `
-			(function() {
-				try {
-					const stored = localStorage.getItem('theme');
-					if (stored) {
-						document.documentElement.dataset.theme = stored;
-					} else {
-						const media = window.matchMedia('(prefers-color-scheme: dark)');
-						if (media.matches) document.documentElement.dataset.theme = 'dark';
-						else document.documentElement.dataset.theme = 'light';
-					}
-				} catch (_) {}
-			})();
-		`,
-					}}
-				/>
-			</head>
 
 			{/* The BODY tag and page content */}
 
 			<body
 				id="site"
-				className={`${fontTech.variable} ${fontCinema.variable} antialiased bg-background dark:bg-backgroundDark text-text dark:text-dark-text`}
+				className={`${fontTech.variable} ${fontCinema.variable} bg-bg text-fg transition-colors duration-300 ease-in-out`}
 			>
 
-				<ThemeProvider>
-					<SectionProvider>
+				{/* Header */}
+				<SiteHeader />
 
-						{/* Header */}
-						<SiteHeader />
+				{/* Content */}
+				<div id="site-content-wrap" className="min-h-screen mt-20">
+					{children}
+				</div>
 
-						{/* Content */}
-						<div id="site-content-wrap" className="min-h-screen mt-20">
-							{children}
-						</div>
+				{/* Footer */}
+				<SiteFooter links={footerLinks} />
 
-						{/* Footer */}
-						<SiteFooter links={footerLinks} />
-
-					</SectionProvider>
-
-					<ContactModal />  {/* Mount ONCE here */}
-				</ThemeProvider>
+				<ContactModal />  {/* Mount ONCE here */}
 
 				<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID!} />
 

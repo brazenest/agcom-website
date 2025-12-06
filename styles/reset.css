@@ -1,0 +1,31 @@
+@layer base {
+
+  ul,
+  ol {
+    margin-block: 1rem;
+  }
+  
+  ul > li,
+  ol > li {
+    margin-block: 1rem;
+  }
+
+  /* -------- Base Layer: HTML elements, typography, layout -------- */
+  section :not(button) > a:any-link {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+
+  section :not(button) > a:hover {
+    color: var(--color-accent-hover);
+    text-decoration-color: var(--color-accent-hover);
+  }
+
+  section button:not(.primary):hover {
+    background: var(--color-accent-muted);
+    color: var(--color-light)
+  }
+}

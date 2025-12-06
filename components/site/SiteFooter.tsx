@@ -9,25 +9,27 @@ export const SiteFooter = ({ links }) => (
 		<Section
 			title="Alden Gillespy"
 			subtitle="Engineering + Cinematic Storytelling"
-			className="py-16 text-center bg-surface dark:bg-dark-surface"
+			align="center"
 		>
+			<div className="space-y-10">
+				<div className="flex justify-center gap-6 text-sm font-engineering">
+					{links.map(({ href, content }) => (
+						<FooterLink key={href} href={href}>
+							{content}
+						</FooterLink>
+					))}
+				</div>
 
-			<div className="flex justify-center gap-6 text-sm font-engineering">
-				{links.map(({ href, content }) => (
-					<FooterLink key={href} href={href}>
-						{content}
-					</FooterLink>
-				))}
+				<SiteFooterSocialIconsBar />
+
+				<p className="text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
+					© {new Date().getFullYear()} Alden Gillespy. All rights reserved.
+				</p>
+				<p className="text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
+					version {process.env.NEXT_PUBLIC_SITE_VERSION}
+				</p>
 			</div>
-
-			<SiteFooterSocialIconsBar className="mt-10" />
-
-			<p className="mt-10 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
-        © {new Date().getFullYear()} Alden Gillespy. All rights reserved.
-			</p>
-			<p className="mt-4 text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
-        version {process.env.NEXT_PUBLIC_SITE_VERSION}
-			</p>
+			
 		</Section>
 	</footer>
 )

@@ -9,7 +9,7 @@ const defaults = {
 }
 
 export const WorkGallery = ({
-	weight = 0,
+	weight = 4,
 	align = 'center',
 	width = 'wide',
 	spacing = 'default',
@@ -56,5 +56,3 @@ type WorkGalleryProps = WorkSectionPropsBase & {
 	images: string[]
 	caption?: string
 }
-
-export default WorkGallery

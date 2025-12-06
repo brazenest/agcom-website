@@ -8,7 +8,7 @@ export type SectionSpacing =
   | 'spacious'
 export type SectionSpacingPosition = 'default' | 'top' | 'bottom'
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "outline" | "soft"
+export type ButtonVariant = "primary" | "secondary"
 export type ButtonSize = "sm" | "md" | "lg"
 
 export type SelectDropdownOption = {

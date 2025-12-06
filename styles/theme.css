@@ -1,51 +1,6 @@
-@reference "tailwindcss";
+@import "tailwindcss";
 
-/* ============================================
-   Alden Gillespy — Engineering Blue (light)
-   and Cinematic Amber (dark)
-   ============================================ */
-
-@theme {
-  /* ---------- LIGHT THEME — ENGINEERING BLUE ---------- */
-  --color-brand-50:  #f3f8ff;
-  --color-brand-100: #e1efff;
-  --color-brand-200: #bddcff;
-  --color-brand-300: #8cc4ff;
-  --color-brand-400: #55aaff;
-  --color-brand-500: #3a9cff;   /* primary engineering blue */
-  --color-brand-600: #1d7edb;
-  --color-brand-700: #1765b0;
-  --color-brand-800: #144f8a;
-  --color-brand-900: #123f6f;
-
-  --color-surface: #ffffff;
-  --color-surface-muted: #f7f9fb;
-
-  --color-text: #0c1b2a;
-  --color-text-secondary: #4a5568;
-  --color-text-inverse: #ffffff;
-
-  --color-border: #d7dde3;
-  --color-accent: #3a9cff;
-
-  /* ---------- DARK THEME — CINEMATIC AMBER ---------- */
-  --color-dark-brand-50:  #3c2e1a;
-  --color-dark-brand-100: #4d351c;
-  --color-dark-brand-200: #714a23;
-  --color-dark-brand-300: #915f2a;
-  --color-dark-brand-400: #b67533;
-  --color-dark-brand-500: #ff9c4a;   /* primary cinematic amber */
-  --color-dark-brand-600: #ffa85f;
-  --color-dark-brand-700: #ffb776;
-  --color-dark-brand-800: #ffc98f;
-  --color-dark-brand-900: #ffddb2;
-
-  --color-dark-surface: #151719;
-  --color-dark-surface-muted: #0c0d0f;
-
-  --color-dark-text: #f2f1ed;
-  --color-dark-text-secondary: #a99f95;
-  --color-dark-text-inverse: #0c0d0f;
-
-  --color-dark-border: #2a2c31;
-}
+@import "./reset.css";
+@import "./colors.css";
+@import "./layout.css";
+/* @source "../app"; */

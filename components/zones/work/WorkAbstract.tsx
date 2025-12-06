@@ -9,7 +9,7 @@ const defaults = {
 }
 
 export const WorkAbstract = ({
-	weight = 0,
+	weight = 1,
 	align,
 	width,
 	spacing = 'default',
@@ -38,5 +38,3 @@ type WorkAbstractProps = WorkSectionPropsBase & {
 	content?: React.ReactNode
 	children?: React.ReactNode
 }
-
-export default WorkAbstract

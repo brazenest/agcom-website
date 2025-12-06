@@ -47,5 +47,3 @@ type WorkBodyProps = WorkSectionPropsBase & {
 	content?: React.ReactNode
 	children?: React.ReactNode
 }
-
-export default WorkBody

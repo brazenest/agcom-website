@@ -39,5 +39,3 @@ type WorkIndexGridProps = {
 	className?: string,
 	workItems: WorkIndexItem[],
 }
-
-export default WorkIndexGrid
