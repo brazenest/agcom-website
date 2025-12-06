@@ -81,5 +81,3 @@ type WorkSearchFlowProps = WorkSectionPropsBase & {
 	subtitle?: string
 	steps: FlowStep[]
 }
-
-export default WorkSearchFlow

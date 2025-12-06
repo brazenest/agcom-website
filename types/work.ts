@@ -1,5 +1,5 @@
 // types/work.ts
-import { SectionColorWeight } from './section'
+import { SectionThemeWeightName } from './section'
 import type { SectionAlign, SectionWidth, SectionSpacing } from './ui'
 
 /**
@@ -8,7 +8,7 @@ import type { SectionAlign, SectionWidth, SectionSpacing } from './ui'
  * consistent with the Newton-spec <Section> component
  */
 export type WorkSectionPropsBase = {
-  weight?: SectionColorWeight
+  weight?: SectionThemeWeightName
   align?: SectionAlign
   width?: SectionWidth
   spacing?: SectionSpacing

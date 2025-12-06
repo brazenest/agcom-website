@@ -20,9 +20,7 @@ export const SiteHeader = () => {
 			role="banner"
 			className={clsx(
 				"fixed top-0 left-0 w-full z-50 transition-all duration-500",
-				scrolled
-					? "bg-bg-alt shadow-md"
-					: "bg-transparent"
+				scrolled && "shadow-md bg-bg-alt/75 backdrop-blur-sm"
 			)}
 		>
 			<SiteNavbar />

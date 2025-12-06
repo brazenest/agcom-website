@@ -9,7 +9,7 @@ const defaults = {
 }
 
 export const WorkAbstract = ({
-	weight = 0,
+	weight = 1,
 	align,
 	width,
 	spacing = 'default',
@@ -28,7 +28,7 @@ export const WorkAbstract = ({
 		title={title}
 		subtitle={subtitle}
 	>
-		<div className="max-w-3xl space-y-4 md:space-y-6 md:text-lg">
+		<div className="max-w-3xl space-y-4 md:space-y-6 md:text-center mx-auto">
 			{children ? children : content}
 		</div>
 	</Section>
@@ -38,5 +38,3 @@ type WorkAbstractProps = WorkSectionPropsBase & {
 	content?: React.ReactNode
 	children?: React.ReactNode
 }
-
-export default WorkAbstract

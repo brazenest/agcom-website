@@ -51,5 +51,3 @@ type WorkInteractionsProps = WorkSectionPropsBase & {
 	subtitle?: string
 	items: InteractionItem[]
 }
-
-export default WorkInteractions

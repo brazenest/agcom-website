@@ -35,5 +35,3 @@ type CroppedImageProps = {
   className?: string
   imgClassName?: string
 }
-
-export default CroppedImage

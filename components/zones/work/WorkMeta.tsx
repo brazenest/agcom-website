@@ -12,7 +12,7 @@ const defaults = {
 }
 
 export const WorkMeta = ({
-	weight = 0,
+	weight = 2,
 	align,
 	width,
 	spacing = 'default',
@@ -75,5 +75,3 @@ type WorkMetaProps = WorkSectionPropsBase & {
 	subtitle: string
 	columns: MetaColumn[]
 }
-
-export default WorkMeta

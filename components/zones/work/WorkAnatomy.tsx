@@ -12,7 +12,7 @@ const defaults = {
 
 export const WorkAnatomy = ({
 	variant = 'side',
-	weight = 1,
+	weight = 3,
 	align,
 	width,
 	spacing = 'default',
@@ -42,7 +42,7 @@ export const WorkAnatomy = ({
 			<div
 				className={
 					variant === 'side'
-						? 'grid gap-10 md:grid-cols-[1.3fr,1fr]'
+						? 'grid gap-10 md:grid-cols-[1.3fr_1fr]'
 						: 'grid gap-10'
 				}
 			>
@@ -105,5 +105,3 @@ type WorkAnatomyProps = WorkSectionPropsBase & {
 	imageCallouts?: AnatomyImageCallout[]
 	children?: React.ReactNode
 }
-
-export default WorkAnatomy

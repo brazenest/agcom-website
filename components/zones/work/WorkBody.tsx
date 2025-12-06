@@ -21,7 +21,7 @@ export const WorkBody = ({
 	children
 }: WorkBodyProps) => {
 
-	const innerClassName = (!title && !subtitle && !eyebrow) ? 'w-full pb-12' : ''
+	const innerClassName = (!title && !subtitle && !eyebrow) ? 'w-full' : ''
 
 	return (
 		<Section
@@ -47,5 +47,3 @@ type WorkBodyProps = WorkSectionPropsBase & {
 	content?: React.ReactNode
 	children?: React.ReactNode
 }
-
-export default WorkBody

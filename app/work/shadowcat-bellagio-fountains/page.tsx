@@ -16,26 +16,11 @@ import { WorkChallenges } from "@/components/zones/work/WorkChallenges"
 import { WorkBeforeAfter } from "@/components/zones/work/WorkBeforeAfter"
 import { WorkCTA } from "@/components/zones/work/WorkCTA"
 
-import caseStudyData from '@/data/work.json' assert { type: 'json' }
+import workData from '@/data/work.json' assert { type: 'json' }
 
-const hero = caseStudyData["shadowcat-bellagio-fountains"].sections.hero
-const abstract = caseStudyData["shadowcat-bellagio-fountains"].sections.abstract
-const meta = caseStudyData["shadowcat-bellagio-fountains"].sections.meta
-const pao = caseStudyData["shadowcat-bellagio-fountains"].sections.pao
-const anatomy = caseStudyData["shadowcat-bellagio-fountains"].sections.anatomy
-const bodyOne = caseStudyData["shadowcat-bellagio-fountains"].sections.bodyOne
-const gallery = caseStudyData["shadowcat-bellagio-fountains"].sections.gallery
-const deepDive = caseStudyData["shadowcat-bellagio-fountains"].sections.deepDive
-const bodyTwo = caseStudyData["shadowcat-bellagio-fountains"].sections.bodyTwo
-const interactions = caseStudyData["shadowcat-bellagio-fountains"].sections.interactions
-const performance = caseStudyData["shadowcat-bellagio-fountains"].sections.performance
-const challenges = caseStudyData["shadowcat-bellagio-fountains"].sections.challenges
-const beforeAndAfter = caseStudyData["shadowcat-bellagio-fountains"].sections.beforeAndAfter
-const bodyThree = caseStudyData["shadowcat-bellagio-fountains"].sections.bodyThree
+const { hero, abstract, meta, pao, anatomy, bodyOne, gallery, deepDive, bodyTwo, interactions, performance, challenges, beforeAndAfter, bodyThree } = workData.caseStudies["shadowcat-bellagio-fountains"].sections
 
 export default function WorkShadowcatBellagioFountainsPage() {
-
-	
 
 	return (
 		<Page id="work-page-shadowcat-bellagio-fountains">
@@ -53,7 +38,6 @@ export default function WorkShadowcatBellagioFountainsPage() {
 
 			{/* META / AT A GLANCE */}
 			<WorkMeta
-				weight={1}
 				subtitle={meta.subtitle}
 				columns={meta.columns}
 			/>
@@ -67,7 +51,6 @@ export default function WorkShadowcatBellagioFountainsPage() {
 
 			{/* ANATOMY */}
 			<WorkAnatomy
-				weight={1}
 				variant="side"
 				title={anatomy.title}
 				subtitle={anatomy.subtitle}
@@ -86,7 +69,6 @@ export default function WorkShadowcatBellagioFountainsPage() {
 
 			{/* GALLERY */}
 			<WorkGallery
-				weight={1}
 				title={gallery.title}
 				subtitle={gallery.subtitle}
 				images={gallery.images}
@@ -118,7 +100,6 @@ export default function WorkShadowcatBellagioFountainsPage() {
 
 			{/* PERFORMANCE - Metrics & Examples */}
 			<WorkPerformance
-				weight={2}
 				title={performance.title}
 				subtitle={performance.subtitle}
 				metrics={performance.metrics}
@@ -134,7 +115,6 @@ export default function WorkShadowcatBellagioFountainsPage() {
 
 			{/* BEFORE / AFTER */}
 			<WorkBeforeAfter
-				weight={1}
 				title={beforeAndAfter.title}
 				subtitle={beforeAndAfter.subtitle}
 				before={beforeAndAfter.before}
@@ -142,10 +122,10 @@ export default function WorkShadowcatBellagioFountainsPage() {
 			/>
 
 			{/* BODY — narrative #3 */}
-			<WorkBody content={renderMarkdown(bodyThree.content)} />
+			<WorkBody weight={3} content={renderMarkdown(bodyThree.content)} />
 
 			{/* CTA */}
-			<WorkCTA variant="shadowcat" align='center' weight={4} />
+			<WorkCTA variant="shadowcat" align='center' />
 
 		</Page>
 	);

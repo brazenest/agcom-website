@@ -3,10 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
-import { useActiveSection } from "@/components/providers/SectionProvider";
-import { ThemeToggle } from "../ui/ThemeToggle";
 import { ContactButton } from "../ui/ContactButton";
-
 
 export function SiteNavbar() {
 
@@ -26,12 +23,12 @@ export function SiteNavbar() {
 
 	return (
 		<>
-			<nav className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between transition-all duration-300">
+			<nav className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between transition-all duration-300 no-underline!">
 
 				{/* ---------- Logo ---------- */}
 				<Link
 					href="/"
-					className="text-2xl text-text dark:text-dark-text"
+					className="text-2xl"
 				>
 					Alden Gillespy
 				</Link>
@@ -44,8 +41,6 @@ export function SiteNavbar() {
 					<NavLink id="about" href="/about">About</NavLink>
 					<NavLink id="blog" href="/blog">Blog</NavLink>
 					<NavLink id="contact" href="/resume">Resume</NavLink>
-
-					<ThemeToggle />
 
 					<ContactButton
 						variant="primary"
@@ -109,10 +104,6 @@ export function SiteNavbar() {
 						Resume
 					</MobileNavLink>
 
-					<div className="flex justify-between items-center mt-4">
-						<ThemeToggle />
-					</div>
-
 					<ContactButton
 						variant="primary"
 						className="mt-2"
@@ -135,15 +126,12 @@ function NavLink({
   children: React.ReactNode;
   id: string; // required for section-based highlighting
 }) {
-	const activeSection = useActiveSection();
-	const active = activeSection === id;
 
 	return (
 		<Link
 			href={href}
 			className={clsx(
 				"relative group transition-all duration-300 text-text dark:text-dark-text",
-				active && "text-primary dark:text-dark-primary font-semibold"
 			)}
 		>
 			{children}
@@ -159,8 +147,6 @@ function NavLink({
 
 /* ---------- Mobile Nav Link ---------- */
 function MobileNavLink({ href, id, children, onClick }: MobileNavLinkProps) {
-	const activeSection = useActiveSection();
-	const active = activeSection === id;
 
 	return (
 		<Link
@@ -169,9 +155,6 @@ function MobileNavLink({ href, id, children, onClick }: MobileNavLinkProps) {
 			onClick={onClick}
 			className={clsx(
 				"block text-lg transition-all duration-300",
-				active
-					? "text-primary dark:text-dark-primary font-semibold"
-					: "text-text dark:text-dark-text"
 			)}
 		>
 			{children}

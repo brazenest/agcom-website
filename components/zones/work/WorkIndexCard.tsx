@@ -62,5 +62,3 @@ type WorkIndexCardProps = {
 	tags: string[]
 	className?: string
 }
-
-export default WorkIndexCard

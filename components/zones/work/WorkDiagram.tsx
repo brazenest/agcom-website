@@ -37,5 +37,3 @@ type WorkDiagramProps = WorkSectionPropsBase & {
 	subtitle?: string
 	children: React.ReactNode
 }
-
-export default WorkDiagram

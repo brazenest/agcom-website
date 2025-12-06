@@ -7,7 +7,7 @@ import { SectionImage } from "@/types/ui"
 
 const defaults = {
 	className: 'work-hero relative',
-	headerClassName: 'max-w-4xl space-y-4',
+	headerClassName: 'max-w-4xl px-6 lg:px-0 space-y-7',
 }
 
 export const WorkHero = ({
@@ -33,7 +33,7 @@ export const WorkHero = ({
 			spacing={spacing}
 			className={cn(defaults.className, className)}
 		>
-			<div className="layout-inner-xl flex flex-col gap-10 md:gap-14">
+			<div className="layout-inner-xl flex flex-col gap-6">
 
 				{/* HEADER CONTENT */}
 				<header className={headerClassName}>
@@ -41,7 +41,7 @@ export const WorkHero = ({
 						{eyebrow}
 					</p>
 
-					<h1 className="font-heading text-4xl md:text-5xl lg:text-6xl">
+					<h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold !leading-tight">
 						{title}
 					</h1>
 
@@ -67,7 +67,7 @@ export const WorkHero = ({
 
 				{/* HERO IMAGE */}
 				{image && (
-					<div className="relative w-full overflow-hidden rounded-lg border border-border bg-card-bg shadow-lg">
+					<div className="relative w-full overflow-hidden rounded-lg bg-card-bg shadow-lg">
 						<CroppedImage
 							src={image.src}
 							alt={image.alt}
@@ -88,5 +88,3 @@ type WorkHeroProps = WorkSectionPropsBase & {
 	image?: SectionImage
 	tags?: string[]
 }
-
-export default WorkHero

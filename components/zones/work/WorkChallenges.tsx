@@ -49,5 +49,3 @@ type WorkChallengesProps = WorkSectionPropsBase & {
 	subtitle?: string
 	items: Challenge[]
 }
-
-export default WorkChallenges

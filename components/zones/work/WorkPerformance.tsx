@@ -9,7 +9,7 @@ const defaults = {
 }
 
 export const WorkPerformance = ({
-	weight = 0,
+	weight = 3,
 	align = 'left',
 	width = 'default',
 	spacing = 'default',
@@ -59,7 +59,7 @@ const MetricsBlock = ({
 			{metrics.map((metric, index) => (
 				<div
 					key={index}
-					className="text-center md:text-left"
+					className="md:text-center md:text-left"
 				>
 					{/* Value */}
 					<div className="font-cinematic text-3xl md:text-4xl font-bold tracking-tight transition-opacity duration-700">
@@ -98,5 +98,3 @@ type WorkPerformanceProps = WorkSectionPropsBase & {
 	body?: React.ReactNode
 	children?: React.ReactNode
 }
-
-export default WorkPerformance

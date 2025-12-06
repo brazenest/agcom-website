@@ -11,7 +11,7 @@ const defaults = {
 }
 
 export const WorkBeforeAfter = ({
-	weight = 0,
+	weight = 2,
 	align,
 	width,
 	spacing = 'default',
@@ -75,5 +75,3 @@ type WorkBeforeAfterProps = WorkSectionPropsBase & {
 	before: BeforeAfterSide
 	after: BeforeAfterSide
 }
-
-export default WorkBeforeAfter

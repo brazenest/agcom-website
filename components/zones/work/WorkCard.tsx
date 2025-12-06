@@ -53,5 +53,3 @@ type WorkCardProps = {
 	category: "engineering" | "cinematic" | "hybrid"
 	image: string
 }
-
-export default WorkCard
