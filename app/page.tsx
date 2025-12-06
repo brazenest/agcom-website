@@ -11,7 +11,7 @@ import { BlogArticlesSection } from "@/components/zones/blog/BlogArticlesSection
 import { getArticlesFromDB } from "@/functions/getArticlesFromDB";
 
 import type { ArticleT } from "@/types/blog";
-import HomeIntroSection from "@/components/zones/home/HomeIntroSection";
+import { HomeIntroSection } from "@/components/zones/home/HomeIntroSection";
 
 export default async function HomePage() {
 	const articles: ArticleT[] = await getArticlesFromDB({});
@@ -21,22 +21,22 @@ export default async function HomePage() {
 			{/* Spotlight hero */}
 			<HomeHero />
 
-			<HomeIntroSection />
+			<HomeIntroSection weight={4} />
 
 			{/* Core roles / pillars (keep this as the single “who I am” grid) */}
 			<HomeCoreRolesSection />
 
 			{/* [Optional] “what I do” philosophy / story (later: make this more prose-like) */}
-			<HomeWhatIDoSection />
+			<HomeWhatIDoSection weight={1} />
 
 			{/* Featured work – visual gallery / cards */}
-			<HomeFeaturedWorkSection />
+			<HomeFeaturedWorkSection weight={3} />
 
 			{/* Latest writing / thinking */}
-			<BlogArticlesSection articles={articles} />
+			<BlogArticlesSection articles={articles} weight={1} />
 
 			{/* Full-bleed CTA band */}
-			<HomeContactSection />
+			<HomeContactSection weight={5}/>
 		</Page>
 	);
 }

@@ -6,12 +6,12 @@ import { Card, CardContent } from "@/components/ui/Card";
 import { Pill } from "@/components/ui/Pill";
 import type { ArticleT } from "@/types/blog";
 import { formatDate } from "@/functions/formatDate";
+import { SectionPropsBase } from "@/types/section";
 
-interface BlogArticlesSectionProps {
-	articles: ArticleT[];
-}
-
-export function BlogArticlesSection({ articles }: BlogArticlesSectionProps) {
+export function BlogArticlesSection({
+	weight,
+	articles,
+}: BlogArticlesSectionProps) {
 	if (!articles || articles.length === 0) return null;
 
 	// Take the first as featured, show a few more as compact rows
@@ -20,18 +20,16 @@ export function BlogArticlesSection({ articles }: BlogArticlesSectionProps) {
 
 	return (
 		<Section
-			align="left"
-			width="default"
-			spacing="comfortable"
+			weight={weight}
 			eyebrow="Notes & process"
 			title="Writing on engineering, design, and cinematic craft."
 			subtitle="Short pieces on resilient systems, motion, design language, and the intersection of code and camera."
 		>
-			<div className="section-editorial-top mt-6 md:mt-8 grid gap-10 md:grid-cols-2">
+			<div className="grid gap-10 md:grid-cols-2">
 				{/* Featured article */}
 				<Link
 					href={`/blog/articles/${featured.slug}`}
-					className="group block"
+					className="group block no-underline h-full"
 				>
 					<Card className="h-full bg-card-bg border-border/60 shadow-none group-hover:border-accent transition-all">
 						<CardContent className="p-5 md:p-6 space-y-3">
@@ -75,7 +73,7 @@ export function BlogArticlesSection({ articles }: BlogArticlesSectionProps) {
 								<Link
 									key={article.slug}
 									href={`/blog/articles/${article.slug}`}
-									className="group flex items-start justify-between gap-4 py-4"
+									className="group flex items-start justify-between gap-4 py-4 no-underline"
 								>
 									<div className="space-y-1">
 										<h4 className="font-heading text-sm md:text-base text-text group-hover:text-accent transition-colors">
@@ -112,4 +110,6 @@ export function BlogArticlesSection({ articles }: BlogArticlesSectionProps) {
 	);
 }
 
-export default BlogArticlesSection;
+type BlogArticlesSectionProps = SectionPropsBase & {
+	articles: ArticleT[];
+}

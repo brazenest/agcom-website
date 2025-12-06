@@ -1,12 +1,14 @@
 // components/home/WhatIDoSection.tsx
 import * as React from "react";
 import { Section } from "@/components/ui/Section";
+import { SectionPropsBase } from "@/types/section";
 
-export function HomeWhatIDoSection() {
+export function HomeWhatIDoSection({
+	weight,
+}: HomeWhatIDoSectionProps) {
 	return (
 		<Section
-			align="left"
-			width="default"
+			weight={weight}
 			eyebrow="What I do"
 			title="How I move between code, design, and camera."
 			subtitle="I work across architecture, UI, pacing, and color — shaping both how things function and how they feel to use."
@@ -70,12 +72,14 @@ export function HomeWhatIDoSection() {
 					</div>
 				</div>
 
-				
 
-				
+
+
 			</div>
 		</Section>
 	);
 }
 
-export default HomeWhatIDoSection;
+type HomeWhatIDoSectionProps = SectionPropsBase & {
+
+}

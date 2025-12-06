@@ -1,15 +1,14 @@
 // Example IntroSection with headshot
 import { Section } from "@/components/ui/Section";
+import { SectionPropsBase } from "@/types/section";
 import Image from "next/image";
 
-export function HomeIntroSection() {
+export function HomeIntroSection({
+	weight,
+}: HomeIntroSectionProps) {
 	return (
 		<Section
-			align="left"
-			// 👇 keep this contained
-			width="default"
-			// 👇 no layout-section-bleed here
-			className=""
+			weight={weight}
 			eyebrow="Hi, I'm Alden"
 			title="Glad to meet you."
 			subtitle="I bridge product-grade engineering with cinematic storytelling — code, design, camera, and color."
@@ -31,12 +30,12 @@ export function HomeIntroSection() {
 				{/* Copy */}
 				<div className="space-y-4 text-sm md:text-base text-text-muted">
 					<p>
-            I&apos;m a full-stack software engineer and web designer, and a video
-            producer / photographer focused on cinematic, intentional visuals.
+						I&apos;m a full-stack software engineer and web designer, and a video
+						producer / photographer focused on cinematic, intentional visuals.
 					</p>
 					<p>
-            On the engineering side, I care about reliability, clarity, and
-            systems. On the cinematic side, it&apos;s framing, pacing, and color.
+						On the engineering side, I care about reliability, clarity, and
+						systems. On the cinematic side, it&apos;s framing, pacing, and color.
 					</p>
 				</div>
 			</div>
@@ -44,4 +43,6 @@ export function HomeIntroSection() {
 	);
 }
 
-export default HomeIntroSection;
+type HomeIntroSectionProps = SectionPropsBase & {
+
+}

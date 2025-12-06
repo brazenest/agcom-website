@@ -10,7 +10,6 @@ export function HomeHero() {
 		<Section
 			align="center"
 			width="full"
-			spacing="comfortable"
 			className="section-space-tight-top relative overflow-hidden layout-section-bleed"
 			eyebrow="Engineering × Cinematic Storytelling"
 			title="I build interfaces with product-grade engineering and cinematic polish."

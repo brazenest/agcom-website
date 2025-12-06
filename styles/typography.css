@@ -15,3 +15,13 @@
   --text-5xl: 3rem;
   --text-6xl: 3.75rem;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family: var(--font-cinematic);
+}

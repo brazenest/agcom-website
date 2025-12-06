@@ -4,17 +4,19 @@ import { Section } from "@/components/ui/Section";
 import { Card, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { SectionPropsBase } from "@/types/section";
 
-export function HomeFeaturedWorkSection() {
+export function HomeFeaturedWorkSection({
+	weight,
+}: HomeFeaturedWorkSectionProps) {
 	return (
 		<Section
-			align="left"
+			weight={weight}
 			width="wide"
-			spacing="spacious"
 			className="layout-section-bleed relative bg-surface-alt"
 			eyebrow="Selected work"
 			title="Products and visuals built for clarity and reliability."
-			subtitle="CFrom consumer DNA activation to content-heavy search, here are a few projects where craft mattered end-to-end."
+			subtitle="From consumer DNA activation to content-heavy search, here are a few projects where craft mattered end-to-end."
 		>
 			<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
 				{/* Project 1 — DNA Kit Activation */}
@@ -45,7 +47,6 @@ export function HomeFeaturedWorkSection() {
 							</div>
 							<ButtonLink
 								href="/work/ancestry-dna-kit-activation"
-								variant="ghost"
 								size="sm"
 								className="mt-2 px-0 text-xs inline-flex items-center gap-1"
 							>
@@ -83,7 +84,6 @@ export function HomeFeaturedWorkSection() {
 							</div>
 							<ButtonLink
 								href="/work/timeshare-search-rentals"
-								variant="ghost"
 								size="sm"
 								className="mt-2 px-0 text-xs inline-flex items-center gap-1"
 							>
@@ -132,4 +132,6 @@ export function HomeFeaturedWorkSection() {
 	);
 }
 
-export default HomeFeaturedWorkSection;
+type HomeFeaturedWorkSectionProps = SectionPropsBase & {
+
+}

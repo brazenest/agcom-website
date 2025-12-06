@@ -39,9 +39,9 @@ export const Section = ({
 			<div className={cn(widthClass, "flex flex-col gap-8 sm:gap-10", alignClass)}>
 				{(title || subtitle) && (
 					<header className="max-w-2xl lg:max-w-3xl">
-						{eyebrow && <Eyebrow text={eyebrow} className="mb-6" />}
+						{eyebrow && <Eyebrow text={eyebrow} className="mb-6 lg:mb-12" />}
 
-						{title && <Title text={title} className="leading-9.5 mt-5 mb-6" />}
+						{title && <Title text={title} className="mt-5 mb-6 lg:my-7" />}
 
 						{subtitle && <Subtitle text={subtitle} />}
 					</header>

@@ -39,3 +39,8 @@ export type SectionThemeSet = {
 export type SectionDefaults = {
   themes: SectionThemeSet
 }
+
+export type SectionPropsBase = {
+  weight?: SectionThemeWeightName
+  className?: string
+}

@@ -3,15 +3,19 @@ import * as React from "react";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ContactCTAButton } from "@/components/zones/contact/ContactCTAButton";
+import { SectionPropsBase } from "@/types/section";
 
-export function HomeContactSection() {
+export function HomeContactSection({
+	weight,
+}: HomeContactSectionProps) {
 	return (
 		<Section
+			weight={weight}
+			align="center"
 			width="wide"
-			spacing="comfortable"
 			className="section-space-tight-bottom layout-section-bleed relative bg-surface-alt"
 			eyebrow="Next steps"
-			title="Let’s build something great together."
+			title="Let’s build something great together!"
 			subtitle="Whether you need end-to-end engineering and cinematic storytelling or just a specific slice, I’m ready to help you make it happen."
 		>
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -26,7 +30,7 @@ export function HomeContactSection() {
 					</p>
 				</div>
 
-				<div className="flex flex-wrap gap-3">
+				<div className="flex flex-wrap gap-3 justify-center">
 					<ContactCTAButton size="lg" />
 					<ButtonLink href="/work" variant="secondary" size="lg">
 						View work
@@ -43,4 +47,6 @@ export function HomeContactSection() {
 	);
 }
 
-export default HomeContactSection;
+type HomeContactSectionProps = SectionPropsBase & {
+
+}
