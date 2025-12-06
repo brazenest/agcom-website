@@ -37,7 +37,7 @@ export const SiteFooter = ({ links }) => (
 const FooterLink = ({ href, children }) => (
 	<Link
 		href={href}
-		className="text-text dark:text-dark-text hover:text-brand-500 dark:hover:text-dark-brand-500 transition-colors"
+		className="no-underline cursor-pointer transition-colors"
 	>
 		{children}
 	</Link>
