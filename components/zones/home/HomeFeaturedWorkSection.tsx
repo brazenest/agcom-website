@@ -21,40 +21,40 @@ export function HomeFeaturedWorkSection({
 			<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
 				{/* Project 1 — DNA Kit Activation */}
 				<Card className="bg-card-bg/90 border-border/70 shadow-lg">
-					<CardContent className="p-0 overflow-hidden">
-						{/* Visual strip / thumbnail */}
-						<div className="h-28 md:h-32 w-full bg-[radial-gradient(circle_at_10%_0%,rgba(58,167,255,0.35),transparent_55%),radial-gradient(circle_at_90%_100%,rgba(255,188,120,0.45),transparent_55%)]" />
 
-						<div className="p-5 md:p-6 space-y-3">
-							<div className="flex items-center justify-between gap-2">
-								<p className="text-xs font-semibold tracking-[0.16em] uppercase text-text-muted">
+					{/* Visual strip / thumbnail */}
+					<div className="h-28 md:h-32 w-full bg-[radial-gradient(circle_at_10%_0%,rgba(58,167,255,0.35),transparent_55%),radial-gradient(circle_at_90%_100%,rgba(255,188,120,0.45),transparent_55%)]" />
+
+					<div className="p-5 md:p-6 space-y-3">
+						<div className="flex items-center justify-between gap-2">
+							<p className="text-xs font-semibold tracking-[0.16em] uppercase text-text-muted">
 									Consumer DNA · Ancestry
-								</p>
-								<Badge variant="soft">Engineering</Badge>
-							</div>
-							<h3 className="font-heading text-lg md:text-xl text-text">
+							</p>
+							<Badge variant="soft">Engineering</Badge>
+						</div>
+						<h3 className="font-heading text-lg md:text-xl text-text">
 								DNA kit activation flow
-							</h3>
-							<p className="text-sm text-text-muted">
+						</h3>
+						<p className="text-sm text-text-muted">
 								Full-stack React + Node flow for activating DNA kits, built for
 								millions of daily users with rock-solid reliability.
-							</p>
-							<div className="flex flex-wrap gap-2 text-[0.7rem]">
-								<Badge variant="outline">React</Badge>
-								<Badge variant="outline">TypeScript</Badge>
-								<Badge variant="outline">Node</Badge>
-								<Badge variant="soft">UX &amp; Motion</Badge>
-							</div>
-							<ButtonLink
-								href="/work/ancestry-dna-kit-activation"
-								size="sm"
-								className="mt-2 px-0 text-xs inline-flex items-center gap-1"
-							>
-								View case study
-								<span aria-hidden>↗</span>
-							</ButtonLink>
+						</p>
+						<div className="flex flex-wrap gap-2 text-[0.7rem]">
+							<Badge variant="outline">React</Badge>
+							<Badge variant="outline">TypeScript</Badge>
+							<Badge variant="outline">Node</Badge>
+							<Badge variant="soft">UX &amp; Motion</Badge>
 						</div>
-					</CardContent>
+						<ButtonLink
+							href="/work/ancestry-dna-kit-activation"
+							size="sm"
+							className="button-work-ancestry-kit-activation mt-2"
+							variant="primary"
+						>
+								View case study
+							<span aria-hidden>↗</span>
+						</ButtonLink>
+					</div>
 				</Card>
 
 				{/* Project 2 — Timeshare / listings */}
@@ -85,7 +85,8 @@ export function HomeFeaturedWorkSection({
 							<ButtonLink
 								href="/work/timeshare-search-rentals"
 								size="sm"
-								className="mt-2 px-0 text-xs inline-flex items-center gap-1"
+								className="mt-2"
+								variant="primary"
 							>
 								View case study
 								<span aria-hidden>↗</span>
@@ -122,12 +123,7 @@ export function HomeFeaturedWorkSection({
 					</CardContent>
 				</Card>
 			</div>
-
-			{/* Ambient band wash */}
-			<div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
-				<div className="absolute -top-20 left-0 h-40 w-40 rounded-full blur-3xl bg-accent/18" />
-				<div className="absolute -bottom-24 right-10 h-48 w-48 rounded-full blur-3xl bg-accent-subtle/30" />
-			</div>
+			
 		</Section>
 	);
 }

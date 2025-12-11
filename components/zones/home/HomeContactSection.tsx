@@ -20,7 +20,7 @@ export function HomeContactSection({
 		>
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 				<div className="space-y-2 max-w-xl">
-					<p className="text-sm md:text-base text-text-muted">
+					<p className="text-xs text-muted mt-3">
 						I work well on product teams, in close collaboration with designers,
 						or directly with founders and producers. Tell me what you’re trying
 						to make and where you’re trying to go.
@@ -31,8 +31,8 @@ export function HomeContactSection({
 				</div>
 
 				<div className="flex flex-wrap gap-3 justify-center">
-					<ContactCTAButton size="lg" />
-					<ButtonLink href="/work" variant="secondary" size="lg">
+					<ContactCTAButton size="xl" />
+					<ButtonLink href="/work" variant="secondary" size="xl">
 						View work
 					</ButtonLink>
 				</div>

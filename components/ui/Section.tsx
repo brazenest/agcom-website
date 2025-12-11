@@ -25,7 +25,7 @@ export const Section = ({
 	children,
 }: SectionProps) => {
 
-	const variantClass = cn(`section-variant-default-weight-${weight}`, theme.variants.default.weights[weight])
+	const variantClass = cn(`section-variant-default-weight-${weight}`)
 	const alignClass = getSectionAlign(align)
 	const widthClass = getSectionWidth(width)
 	const spacingClass = cn(
@@ -36,12 +36,12 @@ export const Section = ({
 
 	return (
 		<section className={cn(sectionData.classNameBase, variantClass, spacingClass, className)}>
-			<div className={cn(widthClass, "flex flex-col gap-8 sm:gap-10", alignClass)}>
+			<div className={cn(widthClass, "flex flex-col gap-6.5", alignClass)}>
 				{(title || subtitle) && (
 					<header className="max-w-2xl lg:max-w-3xl">
-						{eyebrow && <Eyebrow text={eyebrow} className="mb-6 lg:mb-12" />}
+						{eyebrow && <Eyebrow text={eyebrow} className="mb-6" />}
 
-						{title && <Title text={title} className="mt-5 mb-6 lg:my-7" />}
+						{title && <Title text={title} className="mt-10 mb-7 text-rted-500 leading-10.5" />}
 
 						{subtitle && <Subtitle text={subtitle} />}
 					</header>

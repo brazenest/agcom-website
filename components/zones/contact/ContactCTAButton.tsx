@@ -3,6 +3,7 @@
 
 import { useContactModal } from "@/hooks/useContactModal"
 import { Button } from "@/components/ui/Button"
+import { ButtonSize } from "@/types/ui"
 
 export const ContactCTAButton = ({
 	size = "lg",
@@ -25,7 +26,7 @@ export const ContactCTAButton = ({
 }
 
 type ContactCTAButtonProps = {
-  size?: "sm" | "md" | "lg"
+  size?: ButtonSize
   children?: React.ReactNode
   className?: string
 }

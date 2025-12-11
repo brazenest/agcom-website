@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import { ContactButton } from "../ui/ContactButton";
+import { ThemeToggleButton } from "../theme/ThemeToggleButton";
 
 export function SiteNavbar() {
 
@@ -41,7 +42,7 @@ export function SiteNavbar() {
 					<NavLink id="about" href="/about">About</NavLink>
 					<NavLink id="blog" href="/blog">Blog</NavLink>
 					<NavLink id="contact" href="/resume">Resume</NavLink>
-
+					
 					<ContactButton
 						variant="primary"
 					>

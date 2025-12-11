@@ -1,141 +1,56 @@
-/* -------------------------------------------------
-   1. STATIC THEME TOKENS (DO NOT go inside media queries)
---------------------------------------------------- */
+/*
+
+aldengillespy.com - Color System
+
+NOTE: The desired primary palette is the final palette imported.
+
+Imports:
+1. Initial tokens + association of the specification and such tokens
+2. Desired secondary palettes, in order of increasing priority
+3. Primary palette
+
+Palette files implement the light/dark theme associations.
+
+*/
+@import './colors/base.css';
+@import './colors/cine-amber.css';
+@import './colors/eng-blue.css';
+@import './colors/neutral.css';
+
 @theme {
-  --h-engineering: 212;
-  --h-engineering-accent: 222;
-  --h-engineering-accent-subtle: 210;
-  --h-engineering-accent-muted: 214;
-  --h-engineeering-accent-strong: 208;
-  --h-engineering-accent-stronger: 206;
-  --h-engineering-accent-strongest: 204;
-  --h-engineering-accent-light: 216;
-  --h-engineering-accent-lighter: 218;
-  --h-engineering-accent-lightest: 220;
-  --h-engineering-accent-dark: 204;
-  --h-engineering-accent-darker: 202;
-  --h-engineering-accent-darkest: 200;
+  --color-bg-default: var(--color-50);
+  --color-bg-subtle: var(--color-100);
+  --color-bg-surface: var(--color-150);
+  --color-bg-raised: var(--color-200);
+  --color-bg-overlay: var(--color-250);
 
-  --h-cinematic: 33;
-  --h-cinematic-accent: 42;
-  --h-cinematic-accent-subtle: 30;
-  --h-cinematic-accent-muted: 36;
-  --h-cinematic-accent-strong: 28;
-  --h-cinematic-accent-stronger: 26;
-  --h-cinematic-accent-strongest: 24;
-  --h-cinematic-accent-light: 38;
-  --h-cinematic-accent-lighter: 40;
-  --h-cinematic-accent-lightest: 44;
-  --h-cinematic-accent-dark: 28;
-  --h-cinematic-accent-darker: 26;
-  --h-cinematic-accent-darkest: 24;
+  --color-fg-default: var(--color-900);
+  --color-fg-muted: var(--color-700);
+  --color-fg-subtle: var(--color-650);
+  --color-fg-disabled: var(--color-600);
 
-  --color-light: var(--color-zinc-50);
-  --color-light-alt: var(--color-zinc-100);
-  --color-light-alt-strong: var(--color-zinc-400);
-  --color-dark: var(--color-zinc-950);
-  --color-dark-alt: var(--color-zinc-900);
-  --color-dark-alt-strong: var(--color-zinc-600);
-  --color-muted: var(--color-zinc-500);
+  --color-border: var(--color-300);
+  --color-border-strong: var(--color-400);
+  --color-divider: var(--color-200);
 
-  --color-bg: white;
-  --color-bg-alt: white;
-  --color-bg-alt-strong: white;
-  --color-fg: black;
-  --color-fg-alt: black;
-  --color-fg-alt-strong: black;
-  --color-text: black;
-  --color-text-alt: black;
-  --color-text-alt-strong: black;
-  --color-text-muted: black;
-  --color-accent: blue;
-  --color-accent-hover: blue;
-  --color-accent-subtle: blue;
-  --color-accent-muted: blue;
-  --color-border: black;
-  --color-border-strong: black;
-  --color-card-bg: white;
-  --color-card-bg-hover: white;
-}
+  --color-accent-primary: var(--color-accent-600);
+  --color-accent-hover: var(--color-accent-650);
+  --color-accent-active: var(--color-accent-700);
+  --color-accent-muted: var(--color-accent-300);
 
-/* -------------------------------------------------
-   2. LIGHT MODE VARIABLES
---------------------------------------------------- */
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-brand-50: #f3f8ff;
-    --color-brand-100: #e1efff;
-    --color-brand-200: #bddcff;
-    --color-brand-300: #8cc4ff;
-    --color-brand-400: #55aaff;
-    --color-brand-500: #3a9cff;
-    --color-brand-600: #1d7edb;
-    --color-brand-700: #1765b0;
-    --color-brand-800: #144f8a;
-    --color-brand-900: #123f6f;
+  --color-accent-fg: var(--color-0);
+  --color-accent-strong-fg: var(--color-0);
 
-    --color-bg: var(--color-light);
-    --color-bg-alt: var(--color-light-alt);
-    --color-bg-alt-strong: var(--color-light-alt-strong);
-    --color-fg: var(--color-dark);
-    --color-fg-alt: var(--color-dark-alt);
-    --color-fg-alt-strong: var(--color-dark-alt-strong);
+  --color-accent-bg-subtle: var(--color-accent-50);
+  --color-accent-bg-soft: var(--color-accent-100);
+  --color-accent-bg-strong: var(--color-accent-150);
+  --color-accent-bg-surface: var(--color-accent-200);
 
-    --color-text: var(--color-dark);
-    --color-text-alt: var(--color-dark-alt);
-    --color-text-alt-strong: var(--color-dark-alt-strong);
-    --color-text-muted: var(--color-muted);
+  --color-accent-border: var(--color-accent-400);
+  --color-accent-border-strong: var(--color-accent-600);
+  --color-accent-focus: var(--color-accent-500);
 
-    --color-accent: hsl(var(--h-engineering) 85% 54%);
-    --color-accent-hover: hsl(var(--h-engineering) 85% 46%);
-    --color-accent-subtle: hsl(var(--h-engineering) 90% 92%);
-    --color-accent-muted: hsl(var(--h-engineering) 85% 72%);
-
-    --color-border: #e2e8f0;
-    --color-border-strong: #cbd5e1;
-
-    --color-card-bg: #ffffff;
-    --color-card-bg-hover: hsl(var(--h-engineering) 75% 98%);
-  }
-}
-
-/* -------------------------------------------------
-   3. DARK MODE VARIABLES
---------------------------------------------------- */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-brand-50: #3c2e1a;
-    --color-brand-100: #4d351c;
-    --color-brand-200: #714a23;
-    --color-brand-300: #915f2a;
-    --color-brand-400: #b67533;
-    --color-brand-500: #ff9c4a;
-    --color-brand-600: #ffa85f;
-    --color-brand-700: #ffb776;
-    --color-brand-800: #ffc98f;
-    --color-brand-900: #ffddb2;
-
-    --color-bg: var(--color-dark);
-    --color-bg-alt: var(--color-dark-alt);
-    --color-bg-alt-strong: var(--color-dark-alt-strong);
-    --color-fg: var(--color-light);
-    --color-fg-alt: var(--color-light-alt);
-    --color-fg-alt-strong: var(--color-light-alt-strong);
-
-    --color-text: var(--color-light);
-    --color-text-alt: var(--color-light-alt);
-    --color-text-alt-strong: var(--color-light-alt-strong);
-    --color-text-muted: var(--color-light-alt-strong);
-
-    --color-accent: hsl(var(--h-cinematic) 90% 60%);
-    --color-accent-hover: hsl(var(--h-cinematic) 90% 55%);
-    --color-accent-subtle: hsl(var(--h-cinematic) 85% 28%);
-    --color-accent-muted: hsl(var(--h-cinematic) 85% 40%);
-
-    --color-border: #1e2230;
-    --color-border-strong: #2d3244;
-
-    --color-card-bg: #14161b;
-    --color-card-bg-hover: hsl(var(--h-cinematic) 75% 18%);
-  }
+  --color-link: var(--color-accent-600);
+  --color-link-hover: var(--color-accent-650);
+  --color-link-active: var(--color-accent-700);
 }

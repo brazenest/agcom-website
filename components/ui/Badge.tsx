@@ -1,26 +1,31 @@
-/* -------------------------------------------------------------------------- */
-/*                                    Badge                                   */
-/* -------------------------------------------------------------------------- */
+import { cn } from "@/lib/utils"
 
-import { cn } from "@/lib/utils";
-
-export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-    variant?: "default" | "outline" | "soft";
+const defaults = {
+	className: 'text-xs font-medium px-2.5 py-1 rounded-full'
 }
-
-export const Badge: React.FC<BadgeProps> = ({
+export const Badge = ({
 	variant = "default",
 	className,
-	...props
-}) => {
-	const styles: Record<NonNullable<BadgeProps["variant"]>, string> = {
+	children
+}: BadgeProps) => {
+	const styles: BadgeVariantSet = {
 		default:
-            "bg-accent-subtle text-text text-xs font-medium px-2.5 py-1 rounded-full",
+            "bg-subtle text-fg-default",
 		outline:
-            "border border-border text-text-muted text-xs font-medium px-2.5 py-1 rounded-full",
+            "border border-border text-fg-muted ",
 		soft:
-            "bg-card-bg-hover text-text text-xs font-medium px-2.5 py-1 rounded-full",
-	};
+            "bg-bg-raised text-fg-default",
+	}
 
-	return <span className={cn(styles[variant], className)} {...props} />;
-};
+	return <span className={cn(defaults.className, styles[variant], className)}>{children}</span>;
+}
+
+type BadgeVariantSet = {
+	[k in BadgeVariant]: string
+}
+type BadgeVariant = "default" | "outline" | "soft"
+type BadgeProps = {
+	variant?: BadgeVariant
+	className?: string
+	children: React.ReactNode
+}

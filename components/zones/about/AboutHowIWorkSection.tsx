@@ -1,6 +1,7 @@
-import { Section } from "@/components/ui/Section";
-import { AboutHowIWorkWorkCard } from "./AboutHowIWorkWorkCard";
-import { AboutHowIWorkWorkT } from "@/types/about";
+import { Section } from "@/components/ui/Section"
+import { AboutHowIWorkWorkCard } from "./how-i-work/AboutHowIWorkWorkCard"
+import { AboutHowIWorkWorkT } from "@/types/about"
+import { SectionPropsBase } from "@/types/section"
 
 const works: AboutHowIWorkWorkT[] = [
 	{
@@ -31,13 +32,12 @@ const works: AboutHowIWorkWorkT[] = [
 		],
 	},
 ]
-/* How you work: engineering / cinematic / glue */
-export const AboutHowIWorkSection = () => (
+
+export const AboutHowIWorkSection = ({
+	weight = 0,
+}: AboutHowIWorkSectionProps) => (
 	<Section
-		align="left"
-		width="default"
-		spacing="default"
-		className="section-space-tight-top"
+		weight={weight}
 		eyebrow="How I work"
 		title="Two core lenses, one standard of craft."
 		subtitle="Different toolchains, same expectation for reliability, clarity, and intention."
@@ -47,3 +47,7 @@ export const AboutHowIWorkSection = () => (
 		</div>
 	</Section>
 )
+
+type AboutHowIWorkSectionProps = SectionPropsBase & {
+
+}

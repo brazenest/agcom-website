@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 import 'dotenv/config'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google"
 import "@/styles/theme.css"
-import { SiteHeader } from "@/components/site/SiteHeader";
-import { SiteFooter } from "@/components/site/SiteFooter";
-import { LinkT } from "@/types/link";
-import ContactModal from "@/components/zones/contact/ContactModal";
+import { SiteHeader } from "@/components/site/SiteHeader"
+import { SiteFooter } from "@/components/site/SiteFooter"
+import { LinkT } from "@/types/link"
+import ContactModal from "@/components/zones/contact/ContactModal"
+import { ThemeProvider } from "@/components/theme/ThemeContext"
 
 const fontTech = Inter({
 	variable: '--font-tech',
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
 		url: "https://aldengillespy.com",
 		type: "website",
 	},
-};
+}
 
 const footerLinks: LinkT[] = [
 	{
@@ -73,34 +74,30 @@ const footerLinks: LinkT[] = [
 export default function RootLayout({
 	children,
 }: Readonly<{
-	children: React.ReactNode;
+	children: React.ReactNode
 }>) {
 	return (
 		<html id="root" lang="en" suppressHydrationWarning>
-
-			{/* The BODY tag and page content */}
-
 			<body
 				id="site"
-				className={`${fontTech.variable} ${fontCinema.variable} bg-bg text-fg transition-colors duration-300 ease-in-out`}
+				className={`${fontTech.variable} ${fontCinema.variable} bg-page text-body transition-colors duration-300 ease-in-out`}
 			>
+				<ThemeProvider>
 
-				{/* Header */}
-				<SiteHeader />
+					<SiteHeader />
 
-				{/* Content */}
-				<div id="site-content-wrap" className="min-h-screen mt-20">
-					{children}
-				</div>
+					<div id="site-content-wrap" className="min-h-screen mt-20">
+						{children}
+					</div>
 
-				{/* Footer */}
-				<SiteFooter links={footerLinks} />
+					<SiteFooter links={footerLinks} />
 
-				<ContactModal />  {/* Mount ONCE here */}
+					<ContactModal />
+
+				</ThemeProvider>
 
 				<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID!} />
-
 			</body>
-		</html >
-	);
+		</html>
+	)
 }

@@ -7,19 +7,20 @@ import workData from '@/data/work.json' assert { type: 'json' }
 
 const { eyebrow, title, subtitle, items } = workData.indexPage
 
-export const WorkIndexPage = () => (
-	<Page id='work-index-page'>
+export default function WorkIndexPage() {
+	return (
+		<Page id='work-index-page'>
 
-		<Section
-			align='left'
-			width='default'
-			spacing='spacious'
-			eyebrow={eyebrow}
-			title={title}
-			subtitle={subtitle}
-		/>
+			<Section
+				eyebrow={eyebrow}
+				title={title}
+				subtitle={subtitle}
+			>
 
-		<WorkIndexGrid workItems={items as WorkIndexItem[]} />
+				<WorkIndexGrid workItems={items as WorkIndexItem[]} />
 
-	</Page>
-)
+			</Section>
+
+		</Page>
+	)
+}

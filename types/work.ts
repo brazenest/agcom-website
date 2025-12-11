@@ -58,3 +58,13 @@ export type CaseStudyData = {
     outcome: string
   }
 }
+
+export type WorkDiscipline = 'engineering' | 'cinematic' | 'hybrid'
+export type CoreRoleBullet = string
+export type CoreRole = {
+  discipline: WorkDiscipline,
+  badgeText: string,
+  headingText: string,
+  bodyText: string,
+  bullets: CoreRoleBullet[],
+}

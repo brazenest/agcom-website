@@ -12,9 +12,9 @@ export function Heading({
 	children,
 	className,
 }: {
-    level?: 1 | 2 | 3 | 4 | 5 | 6,
-    children: React.ReactNode,
-    className?: string,
+	level?: 1 | 2 | 3 | 4 | 5 | 6,
+	children: React.ReactNode,
+	className?: string,
 }) {
 	const baseClasses = BASE_CLASSES.map(c => [getClassPrefix(c), c])
 	const componentClasses = className
@@ -41,9 +41,9 @@ export function Heading({
 	case 1:
 		return <h1 className={classes}>{children}</h1>
 	case 2:
-	default:
 		return <h2 className={classes}>{children}</h2>
 	case 3:
+	default:
 		return <h3 className={classes}>{children}</h3>
 	case 4:
 		return <h4 className={classes}>{children}</h4>
@@ -53,3 +53,11 @@ export function Heading({
 		return <h6 className={classes}>{children}</h6>
 	}
 }
+
+export type HeadingProps = {
+	level: HeadingLevel
+	className?: string
+	children: React.ReactNode
+}
+
+export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6

@@ -12,6 +12,7 @@ export function HomeIntroSection({
 			eyebrow="Hi, I'm Alden"
 			title="Glad to meet you."
 			subtitle="I bridge product-grade engineering with cinematic storytelling — code, design, camera, and color."
+			className="bg-bg-surface"
 		>
 			<div className="grid gap-8 md:grid-cols-[auto,minmax(0,1fr)] items-center">
 				{/* Headshot */}

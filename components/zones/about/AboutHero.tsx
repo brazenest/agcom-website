@@ -29,7 +29,7 @@ export function HomeHero() {
 					</p>
 
 					<div className="flex flex-wrap gap-3">
-						<Button size="lg">
+						<Button variant="primary" size="lg">
                             View Work
 						</Button>
 						<Button variant="secondary" size="lg">

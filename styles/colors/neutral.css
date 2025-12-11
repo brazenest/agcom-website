@@ -1,0 +1,127 @@
+/**
+ * Theme Palette
+ * SOFT MODERN NEUTRAL
+ * Supports: light dark
+ */
+
+@theme {
+
+  /* ------------------------------------------
+      SOFT MODERN NEUTRAL — LIGHT MODE
+  ------------------------------------------ */
+
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #fbfcfe;
+  --color-neutral-100: #f7f8fa;
+  --color-neutral-150: #f2f4f6;
+  --color-neutral-200: #eceff2;
+  --color-neutral-250: #e4e8ec;
+  --color-neutral-300: #dde2e7;
+  --color-neutral-350: #d2d7dd;
+  --color-neutral-400: #c7ccd3;
+  --color-neutral-450: #b9bfc7;
+  --color-neutral-500: #aab0b9;
+  --color-neutral-550: #9aa1ab;
+  --color-neutral-600: #8a919b;
+  --color-neutral-650: #757c86;
+  --color-neutral-700: #5e6570;
+  --color-neutral-750: #525860;
+  --color-neutral-800: #444a52;
+  --color-neutral-850: #353a41;
+  --color-neutral-900: #2a2e35;
+  --color-neutral-950: #1d2127;
+  --color-neutral-975: #14171c;
+  --color-neutral-1000: #0b0d0f;
+
+
+  /* ------------------------------------------
+      SOFT MODERN NEUTRAL — DARK MODE
+  ------------------------------------------ */
+
+  --color-neutral-dark-0: #000000;
+  --color-neutral-dark-50: #050608;
+  --color-neutral-dark-100: #090b0f;
+  --color-neutral-dark-150: #0d1015;
+  --color-neutral-dark-200: #11141a;
+  --color-neutral-dark-250: #161920;
+  --color-neutral-dark-300: #1b1f27;
+  --color-neutral-dark-350: #20242f;
+  --color-neutral-dark-400: #262a36;
+  --color-neutral-dark-450: #2d313e;
+  --color-neutral-dark-500: #343846;
+  --color-neutral-dark-550: #3d414f;
+  --color-neutral-dark-600: #474a58;
+  --color-neutral-dark-650: #515462;
+  --color-neutral-dark-700: #5c5f6d;
+  --color-neutral-dark-750: #686b78;
+  --color-neutral-dark-800: #757885;
+  --color-neutral-dark-850: #848693;
+  --color-neutral-dark-900: #9495a2;
+  --color-neutral-dark-950: #a5a6b1;
+  --color-neutral-dark-975: #b7b8c0;
+  --color-neutral-dark-1000: #c9cad0;
+}
+
+
+/* -------------------------------------------------
+    LIGHT MODE VARIABLES
+------------------------------------------------- */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-0: var(--color-neutral-0);
+    --color-50: var(--color-neutral-50);
+    --color-100: var(--color-neutral-100);
+    --color-150: var(--color-neutral-150);
+    --color-200: var(--color-neutral-200);
+    --color-250: var(--color-neutral-250);
+    --color-300: var(--color-neutral-300);
+    --color-350: var(--color-neutral-350);
+    --color-400: var(--color-neutral-400);
+    --color-450: var(--color-neutral-450);
+    --color-500: var(--color-neutral-500);
+    --color-550: var(--color-neutral-550);
+    --color-600: var(--color-neutral-600);
+    --color-650: var(--color-neutral-650);
+    --color-700: var(--color-neutral-700);
+    --color-750: var(--color-neutral-750);
+    --color-800: var(--color-neutral-800);
+    --color-850: var(--color-neutral-850);
+    --color-900: var(--color-neutral-900);
+    --color-950: var(--color-neutral-950);
+    --color-975: var(--color-neutral-975);
+    --color-1000: var(--color-neutral-1000);
+  }
+}
+
+
+/* -------------------------------------------------
+    DARK MODE VARIABLES
+------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-0: var(--color-neutral-dark-0);
+    --color-50: var(--color-neutral-dark-50);
+    --color-100: var(--color-neutral-dark-100);
+    --color-150: var(--color-neutral-dark-150);
+    --color-200: var(--color-neutral-dark-200);
+    --color-250: var(--color-neutral-dark-250);
+    --color-300: var(--color-neutral-dark-300);
+    --color-350: var(--color-neutral-dark-350);
+    --color-400: var(--color-neutral-dark-400);
+    --color-450: var(--color-neutral-dark-450);
+    --color-500: var(--color-neutral-dark-500);
+    --color-550: var(--color-neutral-dark-550);
+    --color-600: var(--color-neutral-dark-600);
+    --color-650: var(--color-neutral-dark-650);
+    --color-700: var(--color-neutral-dark-700);
+    --color-750: var(--color-neutral-dark-750);
+    --color-800: var(--color-neutral-dark-800);
+    --color-850: var(--color-neutral-dark-850);
+    --color-900: var(--color-neutral-dark-900);
+    --color-950: var(--color-neutral-dark-950);
+    --color-975: var(--color-neutral-dark-975);
+    --color-1000: var(--color-neutral-dark-1000);
+  }
+}

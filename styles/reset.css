@@ -4,11 +4,6 @@
   ol {
     margin-block: 1rem;
   }
-  
-  ul > li,
-  ol > li {
-    margin-block: 1rem;
-  }
 
   /* -------- Base Layer: HTML elements, typography, layout -------- */
   section :not(button) > a:any-link {

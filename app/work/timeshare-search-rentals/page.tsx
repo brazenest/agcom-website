@@ -16,6 +16,27 @@ import { WorkBody } from "@/components/zones/work/WorkBody";
 
 
 export default function TimeshareSearchRentalsPage() {
+
+	const image = {
+		src: "/assets/images/work/timeshare-search-rentals/hero.png",
+		alt: "Timeshare Search & Rentals - Property search interface on desktop and mobile devices",
+	}
+
+	const pao = {
+		problem: {
+			content:
+				"Listing density, inconsistent formatting, and unclear hierarchy made decision-making harder than necessary. Important details blended together, and comparison was mentally heavy for users."
+		},
+		approach: {
+			content:
+				"Rebuild the listing card system with a strong hierarchy, clear structure, and consistent patterns for price, dates, and amenities. Improve scanning ergonomics and unify the visual language."
+		},
+		outcome: {
+			content:
+				"A predictable, easier-to-compare listings experience. Users could more quickly evaluate options, identify deal-breakers, and move confidently into the booking flow."
+		}	
+	}
+
 	return (
 		<main id="work-timeshare-search-rentals" className="layout-page">
 
@@ -23,16 +44,12 @@ export default function TimeshareSearchRentalsPage() {
 				eyebrow="Property Search · Timeshare Platform"
 				title="Timeshare Search & Rentals"
 				subtitle="A high-clarity listings and booking experience built for dense content, trust, and conversion."
-				imageSrc="/assets/images/work/timeshare/timeshare-hero.jpg"
+				image={image}
 			/>
 
 			<WorkAbstract>
 				<p>
-					Timeshare listings carry heavy information density—multiple date
-					ranges, amenities, room types, owner notes, price fluctuations, and
-					varying availability states. The original interface was flexible but
-					visually inconsistent, making comparison and decision-making harder
-					for users.
+					Timeshare listings carry heavy information density—multiple date ranges, amenities, room types, owner notes, price fluctuations, and varying availability states. The original interface was flexible but visually inconsistent, making comparison and decision-making harder for users.
 				</p>
 				<p>
 					I redesigned the listing card system, search interactions, and
@@ -67,23 +84,9 @@ export default function TimeshareSearchRentalsPage() {
 
 			<WorkProblemApproachOutcome
 				spacing="comfortable"
-				sections={[
-					{
-						title: "Problem",
-						body:
-							"Listing density, inconsistent formatting, and unclear hierarchy made decision-making harder than necessary. Important details blended together, and comparison was mentally heavy for users."
-					},
-					{
-						title: "Approach",
-						body:
-							"Rebuild the listing card system with a strong hierarchy, clear structure, and consistent patterns for price, dates, and amenities. Improve scanning ergonomics and unify the visual language."
-					},
-					{
-						title: "Outcome",
-						body:
-							"A predictable, easier-to-compare listings experience. Users could more quickly evaluate options, identify deal-breakers, and move confidently into the booking flow."
-					}
-				]}
+				problem={pao.problem}
+				approach={pao.approach}
+				outcome={pao.outcome}
 			/>
 
 			<WorkBody>

@@ -1,16 +1,16 @@
-import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
-import { ContactCTAButton } from "../contact/ContactCTAButton";
-import Link from "next/link";
-import { ButtonLink } from "@/components/ui/ButtonLink";
+import { Section } from "@/components/ui/Section"
+import { ContactCTAButton } from "../contact/ContactCTAButton"
+import { ButtonLink } from "@/components/ui/ButtonLink"
+import { SectionPropsBase } from "@/types/section"
 
-{/* CTA band */ }
-export const AboutCTASection = () => (
+export const AboutCTASection = ({
+	weight = 0,
+}: AboutCTASectionProps) => (
 	<Section
+		weight={weight}
 		align="center"
 		width="wide"
-		spacing="comfortable"
-		className="section-space-tight-bottom layout-section-bleed relative bg-surface-alt"
+		className="layout-section-bleed relative bg-surface-alt"
 		eyebrow="Next steps"
 		title="Have a role or project where this combination is useful?"
 		subtitle="I’m open to full-time roles and select freelance work where the mix of engineering and cinematic storytelling truly matters."
@@ -22,20 +22,16 @@ export const AboutCTASection = () => (
 				helpful when I can sit across a couple of those layers at once.
 			</p>
 			<div className="flex flex-wrap gap-3 justify-center">
-				{/* 🔻 Opens the same contact modal as your header */}
 				<ContactCTAButton size="lg" />
 				
-				{/* “View work” can stay a normal navigation button/link */}
 				<ButtonLink variant="secondary" size="lg" href="/work">
 					View work
 				</ButtonLink>
 			</div>
 		</div>
-
-		{/* Ambient CTA wash (optional, matches your other bands) */}
-		<div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
-			<div className="absolute -top-16 right-0 h-40 w-40 rounded-full blur-3xl bg-accent/20" />
-			<div className="absolute -bottom-20 left-8 h-40 w-40 rounded-full blur-3xl bg-accent-subtle/35" />
-		</div>
 	</Section>
 )
+
+type AboutCTASectionProps = SectionPropsBase & {
+
+}

@@ -18,15 +18,16 @@ const buttonBase =
 
 const buttonVariants: Record<ButtonVariant, string> = {
 	primary:
-        "primary bg-accent text-bg shadow-md hover:bg-accent-hover focus-visible:ring-accent",
+        "bg-accent-primary text-bg-default shadow-md hover:bg-accent-hover focus-visible:ring-accent",
 	secondary:
-        "secondary border border-border",
+        "bg-accent-secondary border border-border",
 };
 
 const buttonSizes: Record<ButtonSize, string> = {
-	sm: "text-sm px-3 py-1.5",
-	md: "text-sm px-4 py-2",
-	lg: "text-base px-5 py-2.5",
+	sm: "text-xs sm:text-sm px-3 py-1.5",
+	md: "text-sm sm:text-md px-4 py-2",
+	lg: "text-sm sm:text-md px-5 py-2.5",
+	xl: "sm:text-lg px-6 py-3",
 };
 
 export const Button: React.FC<ButtonProps> = ({

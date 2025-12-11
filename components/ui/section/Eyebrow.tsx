@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 
 const defaults = {
-	className: "text-xs font-semibold tracking-[0.18em] uppercase text-text-muted"
+	className: "text-xs font-semibold tracking-[0.18em] uppercase text-text-muted mb-8"
 }
 export const Eyebrow = ({ text, className }: EyebrowProps) => (
 	<p className={cn(defaults.className, className)}>

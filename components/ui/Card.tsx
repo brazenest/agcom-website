@@ -1,13 +1,56 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import { CardModel } from "@/types/ui"
+import { Badge } from "./Badge"
+import NextImage from 'next/image'
+import { CardBulletList } from "./card/CardBulletList"
+import { CardHeading } from "./card/CardHeading"
 
-export type CardProps = React.HTMLAttributes<HTMLDivElement>;
+export const Card = ({ badge, image, heading, text, bullets, className, children }: CardProps) => {
 
-export const Card: React.FC<CardProps> = ({ className, ...props }) => (
-	<div
-		className={cn("bg-card-bg border border-border rounded-xl shadow-sm", className)}
-		{...props}
-	/>
-);
+	return (
+		<div
+			className={cn("named-card", "bg-card-bg border border-border rounded-xl shadow-sm", className)}>
+
+				{badge && (
+					<Badge variant="soft" text={badge.text} className="bg-accent-bg-soft!" />
+				)}
+
+				{image && (
+					<span className="image-wrap">
+						<NextImage
+							src={image.src}
+							alt={image.alt}
+						/>
+					</span>
+				)}
+
+				{heading && (
+					<CardHeading level={3} className="font-heading text-lg md:text-xl mt-4.5 mb-3">
+						{heading}
+					</CardHeading>
+				)}
+
+				{text && (
+					<p className="text-sm">
+						{text}
+					</p>
+				)}
+
+
+				{bullets && (
+					<CardBulletList bullets={bullets} className="card-list space-y-1" />
+				)}
+
+				{children}
+
+		</div>
+	)
+}
+
+type CardProps = CardModel & {
+	className?: string
+	children?: React.ReactNode
+}
 
 export type CardHeaderProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -48,7 +91,7 @@ export const CardContent: React.FC<CardContentProps> = ({
 	className,
 	...props
 }) => (
-	<div className={cn("px-6 pb-5 pt-2 space-y-3", className)} {...props} />
+	<div className={cn("px-6 pb-5 pt-2 rounded-xl", className)} {...props} />
 );
 
 export type CardFooterProps = React.HTMLAttributes<HTMLDivElement>;

@@ -1,11 +1,11 @@
-import { Section } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section"
+import { SectionPropsBase } from "@/types/section"
 
-/* A bit of background / story */
-export const AboutBackground = () => (
+export const AboutBackground = ({
+	weight = 0,
+}: AboutBackgroundSectionProps) => (
 	<Section
-		align="left"
-		width="default"
-		spacing="comfortable"
+		weight={weight}
 		eyebrow="Background"
 		title="A path that runs through both code and camera."
 		subtitle="I’ve spent years bouncing between engineering, design, and production — the throughline is making things feel considered."
@@ -21,3 +21,7 @@ export const AboutBackground = () => (
 		</div>
 	</Section>
 )
+
+type AboutBackgroundSectionProps = SectionPropsBase & {
+
+}
