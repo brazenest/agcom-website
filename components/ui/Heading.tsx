@@ -1,40 +1,63 @@
+import { getClassPrefix } from "@/functions/getClassPrefix"
+
+/*
+ * DEFINE component's base classes HERE.
+ */
+const BASE_CLASSES = [
+	'mb-6'
+]
+
 export function Heading({
-    level = 2,
-    children,
-    className = "",
-    variant = 'normal',
+	level = 2,
+	children,
+	className,
 }: {
-    level?: 1 | 2 | 3 | 4 | 5 | 6;
-    children: React.ReactNode;
-    className?: string;
-    variant?: 'normal' | 'primary' | 'secondary';
+	level?: 1 | 2 | 3 | 4 | 5 | 6,
+	children: React.ReactNode,
+	className?: string,
 }) {
-    const baseClassNameFragments = [`font-cinematic font-semibold ${className}`]
-    if (level === 1) baseClassNameFragments.push("text-4xl md:text-6xl")
-    else if (level === 2) baseClassNameFragments.push("text-3xl md:text-4xl")
-    else baseClassNameFragments.push("text-xl md:text-2xl")
+	const baseClasses = BASE_CLASSES.map(c => [getClassPrefix(c), c])
+	const componentClasses = className
+		? className
+			.split(' ')
+			.map(c => [getClassPrefix(c), c])
+		: []
 
-    if (variant === 'primary') {
-        baseClassNameFragments.push('text-text-brand-500 dark:text-dark-brand-500')
-    }
+	// Override the base classes that interfere with the provided classes
+	componentClasses.forEach(([cPrefix]) => {
+		const index = baseClasses
+			.map(([bPrefix]) => bPrefix)
+			.indexOf(cPrefix)
 
-    const classNameString = baseClassNameFragments.join(' ')
+		if (index > -1) delete baseClasses[index]
+	})
 
+	const classes = [
+		baseClasses.map(([, c]) => c),
+		componentClasses.map(([, c]) => c),
+	].map(parts => parts.join(' ')).join(' ')
 
-
-    switch (level) {
-        case 1:
-            return <h1 className={classNameString}>{children}</h1>
-        case 2:
-        default:
-            return <h2 className={classNameString}>{children}</h2>
-        case 3:
-            return <h3 className={classNameString}>{children}</h3>
-        case 4:
-            return <h4 className={classNameString}>{children}</h4>
-        case 5:
-            return <h5 className={classNameString}>{children}</h5>
-        case 6:
-            return <h6 className={classNameString}>{children}</h6>
-    }
+	switch (level) {
+	case 1:
+		return <h1 className={classes}>{children}</h1>
+	case 2:
+		return <h2 className={classes}>{children}</h2>
+	case 3:
+	default:
+		return <h3 className={classes}>{children}</h3>
+	case 4:
+		return <h4 className={classes}>{children}</h4>
+	case 5:
+		return <h5 className={classes}>{children}</h5>
+	case 6:
+		return <h6 className={classes}>{children}</h6>
+	}
 }
+
+export type HeadingProps = {
+	level: HeadingLevel
+	className?: string
+	children: React.ReactNode
+}
+
+export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6

@@ -8,37 +8,37 @@ import { createApiUrl } from "./createApiUrl";
 
 export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {} }: queryApiParamsT) => {
 
-    // Construct URL with query parameters
-    const requestUrl = createApiUrl({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL!, endpoint, params })
+	// Construct URL with query parameters
+	const requestUrl = createApiUrl({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL!, endpoint, params })
 
-    let fetchParams
+	let fetchParams
 
-    switch (method) {
-        case 'GET':
-            fetchParams = {}
-            break;
+	switch (method) {
+	case 'GET':
+		fetchParams = {}
+		break;
 
-        case 'POST':
-            fetchParams = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            }
-            break;
+	case 'POST':
+		fetchParams = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		}
+		break;
 
-        default:
-            return {
-                ok: false,
-                message: `queryApi(): Invalid HTTP method: ${method}`,
-            };
-    }
+	default:
+		return {
+			ok: false,
+			message: `queryApi(): Invalid HTTP method: ${method}`,
+		};
+	}
 
-    const apiResponse = await fetch(requestUrl, fetchParams)
-    const response = await apiResponse.json()
+	const apiResponse = await fetch(requestUrl, fetchParams)
+	const response = await apiResponse.json()
 
-    return response
+	return response
 }
 
 type queryApiParamsT = {

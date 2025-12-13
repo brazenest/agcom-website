@@ -1,0 +1,136 @@
+/**
+ * ACCENT PALETTE
+ * Cinematic Amber
+ * Supports: light dark
+ */
+
+@theme {
+
+  /* ------------------------------------------
+     CINEMATIC AMBER — LIGHT MODE
+    ------------------------------------------ */
+
+  --color-cineamber-0: #fffefb;
+  /* warm white, reserved */
+  --color-cineamber-50: #fff8f1;
+  --color-cineamber-100: #feeeda;
+  --color-cineamber-150: #fce5c2;
+  --color-cineamber-200: #fbdcad;
+  --color-cineamber-250: #f9d298;
+  --color-cineamber-300: #f8c884;
+  --color-cineamber-350: #f5bf71;
+  --color-cineamber-400: #f3b55d;
+  --color-cineamber-450: #f0ab4b;
+  --color-cineamber-500: #eea23f;
+  --color-cineamber-550: #f09235;
+  --color-cineamber-600: #ff9c4a;
+  /* PRIMARY cinematic amber */
+  --color-cineamber-650: #e68739;
+  --color-cineamber-700: #c87430;
+  /* text on amber tints */
+  --color-cineamber-750: #a76327;
+  --color-cineamber-800: #87521f;
+  --color-cineamber-850: #6a4218;
+  --color-cineamber-900: #4e3312;
+  /* heading text on warm surfaces */
+  --color-cineamber-950: #3a270d;
+  --color-cineamber-975: #281c09;
+  --color-cineamber-1000: #191207;
+  /* warm ink tone */
+
+
+  /* ------------------------------------------
+     CINEMATIC AMBER — DARK MODE
+    ------------------------------------------ */
+
+  --color-cineamber-dark-0: #000000;
+  /* reserved */
+  --color-cineamber-dark-50: #1a1209;
+  --color-cineamber-dark-100: #24180c;
+  --color-cineamber-dark-150: #2e1e0f;
+  --color-cineamber-dark-200: #382413;
+  --color-cineamber-dark-250: #422a16;
+  --color-cineamber-dark-300: #4d311a;
+  --color-cineamber-dark-350: #58381e;
+  --color-cineamber-dark-400: #634023;
+  --color-cineamber-dark-450: #704828;
+  --color-cineamber-dark-500: #7e522e;
+  --color-cineamber-dark-550: #8e5c34;
+  --color-cineamber-dark-600: #a76d3d;
+  --color-cineamber-dark-650: #c17f46;
+  --color-cineamber-dark-700: #dd914f;
+  /* dark-mode primary amber */
+  --color-cineamber-dark-750: #f2a45a;
+  --color-cineamber-dark-800: #ffc373;
+  --color-cineamber-dark-850: #ffd699;
+  /* text on warm dark surfaces */
+  --color-cineamber-dark-900: #ffe7b9;
+  --color-cineamber-dark-950: #fff2d6;
+  --color-cineamber-dark-975: #fff9eb;
+  --color-cineamber-dark-1000: #ffffff;
+  /* reserved */
+}
+
+
+/* -------------------------------------------------
+   LIGHT MODE VARIABLES
+  ------------------------------------------------- */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-accent-0: var(--color-cineamber-0);
+    --color-accent-50: var(--color-cineamber-50);
+    --color-accent-100: var(--color-cineamber-100);
+    --color-accent-150: var(--color-cineamber-150);
+    --color-accent-200: var(--color-cineamber-200);
+    --color-accent-250: var(--color-cineamber-250);
+    --color-accent-300: var(--color-cineamber-300);
+    --color-accent-350: var(--color-cineamber-350);
+    --color-accent-400: var(--color-cineamber-400);
+    --color-accent-450: var(--color-cineamber-450);
+    --color-accent-500: var(--color-cineamber-500);
+    --color-accent-550: var(--color-cineamber-550);
+    --color-accent-600: var(--color-cineamber-600);
+    --color-accent-650: var(--color-cineamber-650);
+    --color-accent-700: var(--color-cineamber-700);
+    --color-accent-750: var(--color-cineamber-750);
+    --color-accent-800: var(--color-cineamber-800);
+    --color-accent-850: var(--color-cineamber-850);
+    --color-accent-900: var(--color-cineamber-900);
+    --color-accent-950: var(--color-cineamber-950);
+    --color-accent-975: var(--color-cineamber-975);
+    --color-accent-1000: var(--color-cineamber-1000);
+  }
+}
+
+
+/* -------------------------------------------------
+   DARK MODE VARIABLES
+  ------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent-0: var(--color-cineamber-dark-0);
+    --color-accent-50: var(--color-cineamber-dark-50);
+    --color-accent-100: var(--color-cineamber-dark-100);
+    --color-accent-150: var(--color-cineamber-dark-150);
+    --color-accent-200: var(--color-cineamber-dark-200);
+    --color-accent-250: var(--color-cineamber-dark-250);
+    --color-accent-300: var(--color-cineamber-dark-300);
+    --color-accent-350: var(--color-cineamber-dark-350);
+    --color-accent-400: var(--color-cineamber-dark-400);
+    --color-accent-450: var(--color-cineamber-dark-450);
+    --color-accent-500: var(--color-cineamber-dark-500);
+    --color-accent-550: var(--color-cineamber-dark-550);
+    --color-accent-600: var(--color-cineamber-dark-600);
+    --color-accent-650: var(--color-cineamber-dark-650);
+    --color-accent-700: var(--color-cineamber-dark-700);
+    --color-accent-750: var(--color-cineamber-dark-750);
+    --color-accent-800: var(--color-cineamber-dark-800);
+    --color-accent-850: var(--color-cineamber-dark-850);
+    --color-accent-900: var(--color-cineamber-dark-900);
+    --color-accent-950: var(--color-cineamber-dark-950);
+    --color-accent-975: var(--color-cineamber-dark-975);
+    --color-accent-1000: var(--color-cineamber-dark-1000);
+  }
+}

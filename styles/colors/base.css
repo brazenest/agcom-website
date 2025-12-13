@@ -1,0 +1,97 @@
+@theme {
+
+  /* ------------------------------------------
+     INITIAL TOKENS
+  ------------------------------------------ */
+
+  /* For base palette */
+  --color-0: white;
+  --color-50: white;
+  --color-100: white;
+  --color-150: white;
+  --color-200: white;
+  --color-250: white;
+  --color-300: white;
+  --color-350: white;
+  --color-400: white;
+  --color-450: white;
+  --color-500: white;
+  --color-550: white;
+  --color-600: white;
+  --color-650: white;
+  --color-700: white;
+  --color-750: white;
+  --color-800: white;
+  --color-850: white;
+  --color-900: white;
+  --color-950: white;
+  --color-975: white;
+  --color-1000: white;
+
+  /* For accent palette */
+  --color-accent-0: white;
+  --color-accent-50: white;
+  --color-accent-100: white;
+  --color-accent-150: white;
+  --color-accent-200: white;
+  --color-accent-250: white;
+  --color-accent-300: white;
+  --color-accent-350: white;
+  --color-accent-400: white;
+  --color-accent-450: white;
+  --color-accent-500: white;
+  --color-accent-550: white;
+  --color-accent-600: white;
+  --color-accent-650: white;
+  --color-accent-700: white;
+  --color-accent-750: white;
+  --color-accent-800: white;
+  --color-accent-850: white;
+  --color-accent-900: white;
+  --color-accent-950: white;
+  --color-accent-975: white;
+  --color-accent-1000: white;
+
+
+  /* ------------------------------------------
+     COLOR USAGE SPECIFICATION
+     Every routine use case of color should
+     be defined in this area.
+    ------------------------------------------ */
+
+   --color-bg-default: white;
+   --color-bg-subtle: white;
+   --color-bg-surface: white;
+   --color-bg-raised: white;
+   --color-bg-overlay: white;
+
+   --color-fg-default: white;
+   --color-fg-muted: white;
+   --color-fg-subtle: white;
+   --color-fg-disabled: white;
+
+   --color-border: white;
+   --color-border-strong: white;
+   --color-divider: white;
+
+   --color-accent-primary: white;
+   --color-accent-hover: white;
+   --color-accent-active: white;
+   --color-accent-muted: white;
+
+   --color-accent-fg: white;
+   --color-accent-strong-fg: white;
+
+   --color-accent-bg-subtle: white;
+   --color-accent-bg-soft: white;
+   --color-accent-bg-strong: white;
+   --color-accent-bg-surface: white;
+
+   --color-accent-border: white;
+   --color-accent-border-strong: white;
+   --color-accent-focus: white;
+
+   --color-link: white;
+   --color-link-hover: white;
+   --color-link-active: white;
+}

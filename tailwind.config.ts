@@ -1,85 +1,90 @@
-import type { Config } from 'tailwindcss';
+// tailwind.config.ts
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  darkMode: ['class', '[data-theme="dark"]'],
-  content: [
-    './app/**/*.{ts,tsx,js,jsx,mdx}',
-    './components/**/*.{ts,tsx,js,jsx,mdx}',
-  ],
-  theme: {
-    extend: {
-      colors: {
-        /* ------------------------------------------
-          LIGHT THEME — ENGINEERING BLUE
-        ------------------------------------------ */
-        primary: '#3a9cff',
-        background: '#ffffff',
+	darkMode: ['class', '[data-theme="dark"]'],
+	theme: {
+		extend: {
+			fontFamily: {
+				// default body
+				sans: [
+					'var(--font-engineering)',
+					'system-ui',
+					'-apple-system',
+					'BlinkMacSystemFont',
+					'Segoe UI',
+					'sans-serif',
+				],
+				// explicit classes: font-engineering, font-cinematic, font-heading
+				engineering: [
+					'var(--font-engineering)',
+					'system-ui',
+					'-apple-system',
+					'BlinkMacSystemFont',
+					'Segoe UI',
+					'sans-serif',
+				],
+				cinematic: [
+					'var(--font-cinematic)',
+					'system-ui',
+					'-apple-system',
+					'BlinkMacSystemFont',
+					'Segoe UI',
+					'sans-serif',
+				],
+				heading: [
+					'var(--font-cinematic)',
+					'system-ui',
+					'-apple-system',
+					'BlinkMacSystemFont',
+					'Segoe UI',
+					'sans-serif',
+				],
+			},
+			borderRadius: {
+				sm: "var(--radius-sm)",
+				md: "var(--radius-md)",
+				lg: "var(--radius-lg)",
+				xl: "var(--radius-xl)",
+			},
+			boxShadow: {
+				sm: "var(--shadow-sm)",
+				md: "var(--shadow-md)",
+				lg: "var(--shadow-lg)",
+			},
+			spacing: {
+				1: "var(--space-1)",
+				2: "var(--space-2)",
+				3: "var(--space-3)",
+				4: "var(--space-4)",
+				6: "var(--space-6)",
+				8: "var(--space-8)",
+				12: "var(--space-12)",
+				16: "var(--space-16)",
+				gutter: 'var(--layout-gutter)',
+			},
+			fontSize: {
+				xs: "var(--text-xs)",
+				sm: ["var(--text-sm)", "calc(0.875rem * 24 / 14)"],
+				base: "var(--text-base)",
+				lg: ["var(--text-lg)", "calc(1.125rem * 26 / 18)"],
+				xl: "var(--text-xl)",
+				"2xl": "var(--text-2xl)",
+				"3xl": "var(--text-3xl)",
+				"4xl": "var(--text-4xl)",
+				"5xl": ["var(--text-5xl)", "calc(3rem * 56 / 48)"],
+				"6xl": ["var(--text-6xl)", "calc(3.75rem * 74 / 60)"],
+			},
+			screens: {
+				'3xl': '1920px',
+			},
+			maxWidth: {
+				'content-max': 'var(--layout-content-max)',
+				'content-wide': 'var(--layout-content-wide)',
+			},
+		},
+	},
+	plugins: [],
+}
 
-        brand: {
-          50: '#f3f8ff',
-          100: '#e1efff',
-          200: '#bddcff',
-          300: '#8cc4ff',
-          400: '#55aaff',
-          500: '#3a9cff',   // primary engineering blue
-          600: '#1d7edb',
-          700: '#1765b0',
-          800: '#144f8a',
-          900: '#123f6f',
-        },
-
-        surface: {
-          DEFAULT: '#ffffff',
-          muted: '#f7f9fb',
-        },
-
-        text: {
-          DEFAULT: '#0c1b2a',
-          secondary: '#4a5568',
-          inverse: '#ffffff',
-        },
-
-        border: '#d7dde3',
-        accent: '#3a9cff',
-
-        dark: {
-          /* ------------------------------------------
-            DARK THEME — CINEMATIC AMBER
-          ------------------------------------------ */
-          primary: '#ff9c4a',
-          background: '#151719',
-
-          brand: {
-            50: '#3c2e1a',
-            100: '#4d351c',
-            200: '#714a23',
-            300: '#915f2a',
-            400: '#b67533',
-            500: '#ff9c4a',   // primary cinematic amber
-            600: '#ffa85f',
-            700: '#ffb776',
-            800: '#ffc98f',
-            900: '#ffddb2',
-          },
-          surface: {
-            DEFAULT: '#151719',
-            muted: '#0c0d0f',
-          },
-          text: {
-            DEFAULT: '#f2f1ed',
-            secondary: '#a99f95',
-            inverse: '#0c0d0f',
-          },
-          border: '#2a2c31',
-        },
-      },
-      fontFamily: {
-        cinematic: 'Space Grotesk, Inter, sans-serif',
-        engineering: 'Inter, sans-serif',
-      }
-    },
-  },
-  plugins: [],
-};
-
-export default config;
+export default config

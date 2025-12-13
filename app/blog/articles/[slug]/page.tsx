@@ -1,36 +1,42 @@
 // app/blog/articles/[slug]/page.tsx
+
+// These 3 calls together force metadata to run as though it is in client component mode.
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const fetchCache = "force-no-store";
 
-import { getArticles } from "@/functions/getArticles";
 import { notFound } from "next/navigation";
-import BlogArticleClient from "@/components/BlogArticleClient"; // 👈 import client component
-import { formatDate } from "@/functions/formatDate";
-import { ArticleT } from "@/types/article";
+import { getArticleFromDB } from "@/functions/getArticleFromDB";
+import { BlogArticleBody } from "@/components/zones/blog/BlogArticleBody";
+import { BlogArticleHero } from "@/components/zones/blog/BlogArticleHero";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const article = await getArticles({ params: { slug: params.slug } });
-
-  return {
-    title: `${article.title} – Blog by Alden Gillespy`,
-    description: article.excerpt,
-  };
+export async function generateMetadata({ params }) {
+	const { slug } = await params
+	const article = await getArticleFromDB({ slug });
+	if (!article) return {};
+	return {
+		title: article.title,
+		description: article.excerpt ?? undefined,
+	};
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const { slug } = await params
-  const articles: ArticleT[] = (
-    await getArticles({ params: { slug } })
-  ).map(article => ({
-    ...article,
-    date: formatDate(article.date, 'MMMM YYYY'),
-  }))
+export default async function BlogPostPage({ params }: BlogPostPageParams) {
+	const { slug } = await params
 
-  if (!articles[0]) return notFound();
+	const article = await getArticleFromDB({ slug })
+	if (!article) return notFound();
 
-  // Pass the article down to the client component
-  return <BlogArticleClient article={articles[0]} />;
+	// Pass the article down to the client component
+	return (
+		<>
+			<BlogArticleHero article={article} />
+			<BlogArticleBody body={article.body} />
+		</>
+	)
+}
+
+type BlogPostPageParams = {
+  params: {
+    slug: string,
+  }
 }

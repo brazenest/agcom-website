@@ -1,3 +1,6 @@
+import { RowDataPacket } from "mysql2/promise"
+import { ArticleT } from "./blog"
+
 export type DbClause = {
     keyword: string,
     predicate: DbClausePredicateValue | DbClausePredicateArray | DbClausePredicateEquality[],
@@ -17,3 +20,5 @@ export type DbQueryStatement = string
 
 export type DbQueryValue = string
 export type DbQueryValues = DbQueryValue[]
+
+export type DbArticle = RowDataPacket & ArticleT

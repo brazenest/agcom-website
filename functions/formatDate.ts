@@ -1,8 +1,44 @@
-const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+// functions/formatDate.ts
 
-export const formatDate = (date: string, template: string) => {
-    const dateObj = new Date(date)
-    return template
-    .replace(/M{4}/g, monthNames[dateObj.getMonth() - 1])
-    .replace(/Y{4}/g, String(dateObj.getFullYear()))
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+/**
+ * Format a Date or date-like string into a nice, readable form.
+ */
+export function formatDate(input: Date | string | null | undefined, format: DateFormat): string {
+	if (!input) return ""
+
+	let date: Date
+
+	if (input instanceof Date) {
+		date = input
+	} else {
+		const parsed = new Date(input)
+		console.log('formatDate(): Parsing failed.')
+		if (Number.isNaN(parsed.getTime())) {
+			// Fallback: give back the raw string if parsing fails
+			return String(input)
+		}
+		date = parsed
+	}
+
+	switch (format) {
+	case 'MMMM YYYY':
+	case 'monthyear':
+		return `${months[date.getMonth()]} ${date.getFullYear()}`
+		break
+
+	case 'datetime':
+		return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`
+
+	case 'default':
+	default:
+		return date.toLocaleDateString("en-US", {
+			year: "numeric",
+			month: "short",
+			day: "numeric",
+		})
+	}
 }
+
+type DateFormat = 'monthyear'| 'MMMM YYYY' | 'datetime' | 'default'
