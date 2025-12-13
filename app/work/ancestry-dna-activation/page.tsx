@@ -21,9 +21,10 @@ export default function DNAKitActivationPage() {
 				eyebrow="Consumer DNA • Ancestry"
 				title="Ancestry DNA Kit Activation"
 				subtitle="A React-based activation experience designed for reliability, clarity, and a cinematic sense of progress across millions of daily users."
-				imageSrc="/assets/images/work/ancestry-dna-activation/hero.jpg"
-				imageAlt="DNA kit activation flow screenshot"
-				variant="engineering"
+				image={{
+					src: "/assets/images/work/ancestry-dna-activation/hero.png",
+					alt: "DNA kit activation flow screenshot",
+				}}
 			/>
 
 			<WorkAbstract>
@@ -82,30 +83,16 @@ export default function DNAKitActivationPage() {
 
 			<WorkProblemApproachOutcome
 				spacing="comfortable"
-				sections={[
-					{
-						title: "Problem",
-						body:
-							"The legacy activation flow relied on mixed UI patterns, unclear validations, and inconsistent messaging. Users felt uncertain during key inputs, creating friction in a high-trust moment."
-					},
-					{
-						title: "Approach",
-						body:
-							"Systemize every step into reusable patterns: inputs, validation groups, progressive disclosure, error surfaces, and motion cues. Each screen needed to feel predictable, calm, and consistent."
-					},
-					{
-						title: "Outcome",
-						body:
-							"A stable, emotionally coherent flow that helped millions of users activate their kits confidently. Both support volume and error rates dropped as the interface became clearer and more consistent."
-					}
-				]}
+				problem={{ content: "The legacy activation flow relied on mixed UI patterns, unclear validations, and inconsistent messaging. Users felt uncertain during key inputs, creating friction in a high-trust moment." }}
+				approach={{ content: "Systemize every step into reusable patterns: inputs, validation groups, progressive disclosure, error surfaces, and motion cues. Each screen needed to feel predictable, calm, and consistent." }}
+				outcome={{ content: "A stable, emotionally coherent flow that helped millions of users activate their kits confidently. Both support volume and error rates dropped as the interface became clearer and more consistent." }}
 			/>
 
 			<WorkAnatomy
 				spacing="comfortable"
 				title="Activation Flow Anatomy"
 				subtitle="Systemized UI patterns made the flow predictable, scannable, and easier to complete under emotional load."
-				image="/assets/images/work/ancestry-dna-activation/anatomy.png"
+				imageSrc="/assets/images/work/ancestry-dna-activation/anatomy.png"
 				imageAlt="Annotated diagram of the DNA activation flow"
 				variant="side"
 				imageCallouts={[
@@ -113,29 +100,29 @@ export default function DNAKitActivationPage() {
 						number: 1,
 						label: "Progress indicator",
 						body: "A calm, low-motion progress bar helped anchor users without adding stress.",
-						x: 14,
-						y: 5
+						x: 20,
+						y: 8
 					},
 					{
 						number: 2,
 						label: "Structured input groups",
 						body: "Inputs were grouped logically with consistent label hierarchy and validation surfaces.",
-						x: 50,
-						y: 25
+						x: 25,
+						y: 20
 					},
 					{
 						number: 3,
 						label: "Guidance sections",
 						body: "Light, unobtrusive helper text improved clarity on sensitive steps.",
-						x: 50,
-						y: 52
+						x: 27,
+						y: 34
 					},
 					{
 						number: 4,
 						label: "Primary action lane",
 						body: "A stable bottom-anchored CTA kept users oriented across every step.",
-						x: 50,
-						y: 88
+						x: 20,
+						y: 72
 					}
 				]}
 			/>
@@ -221,11 +208,9 @@ export default function DNAKitActivationPage() {
 				title="Refining the activation experience"
 				subtitle="How the flow changed from scattered and inconsistent to structured, clear, and emotionally grounded."
 				before={{
-					label: "Before",
 					body: "Inconsistent UI patterns, scattered validation, and unclear sequencing created friction and uncertainty."
 				}}
 				after={{
-					label: "After",
 					body: "A structured, calm flow with clear validation, consistent layouts, and predictable user guidance."
 				}}
 			/>

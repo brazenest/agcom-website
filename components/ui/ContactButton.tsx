@@ -2,9 +2,9 @@
 
 import { useContactModal } from '@/hooks/useContactModal'
 import { Button } from './Button'
-import { ButtonVariant } from '@/types/ui'
+import { ButtonSize, ButtonVariant } from '@/types/ui'
 
-export const ContactButton = ({ children, variant = 'primary', className = '' }: ContactButtonProps) => {
+export const ContactButton = ({ children, variant = 'primary', size = 'xl', className = '' }: ContactButtonProps) => {
 	const { open } = useContactModal();
 
 	return (
@@ -12,6 +12,7 @@ export const ContactButton = ({ children, variant = 'primary', className = '' }:
 			className={className}
 			onClick={open}
 			variant={variant}
+			size={size}
 		>
 			{children}
 		</Button>
@@ -20,6 +21,7 @@ export const ContactButton = ({ children, variant = 'primary', className = '' }:
 
 type ContactButtonProps = {
     variant?: ButtonVariant
+		size?: ButtonSize
     className?: string
     children:  React.ReactNode
 }

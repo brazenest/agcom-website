@@ -1,10 +1,6 @@
-import { Badge } from "../ui/Badge"
-import { Card, CardContent } from "../ui/Card"
-import { CardBulletList } from "../ui/card/CardBulletList"
+import { Card } from "../ui/Card"
 import { CoreRoleBullet, WorkDiscipline } from "@/types/work"
-import { Heading } from "../ui/Heading"
-import { CardHeading } from "../ui/card/CardHeading"
-import { BadgeModel, ImageModel } from "@/types/ui"
+import { BadgeModel } from "@/types/ui"
 
 export const CoreRolesCard = ({
 	badgeText,

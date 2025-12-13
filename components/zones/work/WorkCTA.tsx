@@ -34,7 +34,7 @@ export const WorkCTA = ({
 		>
 			<div className='flex flex-wrap gap-4 justify-center'>
 
-				<ContactCTAButton size='lg'>
+				<ContactCTAButton size='xl'>
 					{ctaData.primaryButton?.text || 'Get in touch'}
 				</ContactCTAButton>
 

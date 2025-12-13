@@ -11,7 +11,7 @@ export const BlogArticleHero = ({ article }: BlogArticleHeroProps) => {
 				<p className="text-xs font-semibold tracking-[0.18em] uppercase text-text-muted">
 					Notes &amp; Process
 				</p>
-				<h1 className="mt-3 font-heading text-3xl md:text-4xl text-text">
+				<h1 className="mt-3 font-heading text-4xl md:text-5xl leading-16.5 text-text">
 					{article.title}
 				</h1>
 				{article.excerpt && (

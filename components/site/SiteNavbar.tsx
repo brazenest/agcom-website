@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import { ContactButton } from "../ui/ContactButton";
-import { ThemeToggleButton } from "../theme/ThemeToggleButton";
 
 export function SiteNavbar() {
 
@@ -45,6 +44,7 @@ export function SiteNavbar() {
 					
 					<ContactButton
 						variant="primary"
+						size="xl"
 					>
 						Contact
 					</ContactButton>
@@ -121,7 +121,6 @@ export function SiteNavbar() {
 function NavLink({
 	href,
 	children,
-	id,
 }: {
   href: string;
   children: React.ReactNode;

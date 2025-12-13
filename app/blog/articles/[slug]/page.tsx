@@ -9,7 +9,6 @@ import { notFound } from "next/navigation";
 import { getArticleFromDB } from "@/functions/getArticleFromDB";
 import { BlogArticleBody } from "@/components/zones/blog/BlogArticleBody";
 import { BlogArticleHero } from "@/components/zones/blog/BlogArticleHero";
-import { BlogIntroSection } from "@/components/zones/blog/BlogIntroSection";
 
 export async function generateMetadata({ params }) {
 	const { slug } = await params

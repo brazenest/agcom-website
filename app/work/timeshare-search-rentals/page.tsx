@@ -1,7 +1,6 @@
 import { WorkHero } from "@/components/zones/work/WorkHero";
 import { WorkAbstract } from "@/components/zones/work/WorkAbstract";
 import { WorkProblemApproachOutcome } from "@/components/zones/work/WorkProblemApproachOutcome";
-import { WorkGallery } from "@/components/zones/work/WorkGallery";
 import { WorkDeepDive } from "@/components/zones/work/WorkDeepDive";
 import { WorkAnatomy } from "@/components/zones/work/WorkAnatomy";
 import { WorkSearchFlow } from "@/components/zones/work/WorkSearchFlow";
@@ -13,12 +12,10 @@ import { WorkChallenges } from "@/components/zones/work/WorkChallenges";
 import { WorkMeta } from "@/components/zones/work/WorkMeta";
 import { WorkBody } from "@/components/zones/work/WorkBody";
 
-
-
 export default function TimeshareSearchRentalsPage() {
 
 	const image = {
-		src: "/assets/images/work/timeshare-search-rentals/hero.png",
+		src: "/assets/images/work/timeshare-search-rentals/hero.webp",
 		alt: "Timeshare Search & Rentals - Property search interface on desktop and mobile devices",
 	}
 
@@ -101,7 +98,7 @@ export default function TimeshareSearchRentalsPage() {
 				spacing="comfortable"
 				title="Listing Card Anatomy"
 				subtitle="A structured card system that made dense inventory predictable, comparable, and trustworthy."
-				image="/assets/images/work/timeshare-search-rentals/anatomy-diagram.png"
+				imageSrc="/assets/images/work/timeshare-search-rentals/anatomy/timeshare-search-rentals__anatomy__diagram.png"
 				imageAlt="Timeshare listing card anatomy diagram"
 				variant="side"
 				imageCallouts={[
@@ -247,16 +244,14 @@ export default function TimeshareSearchRentalsPage() {
 				title="Improving clarity without increasing cognitive load"
 				subtitle="A comparison of the original listing card structure and the redesigned, systemized model."
 				before={{
-					label: "Before",
 					body: "Inconsistent card layouts made scanning difficult—pricing, dates, and amenities shifted locations between listings. Users had to re-learn the card structure each time."
 				}}
 				after={{
-					label: "After",
 					body: "A unified, predictable card design created stable scanning paths. Pricing, date ranges, and amenities appear in consistent lanes, making comparison effortless."
 				}}
 			/>
 
-			<WorkCTA variant="timeshare" spacing="comfortable" />
+			<WorkCTA variant="timeshare" />
 
 		</main>
 	);

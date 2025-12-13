@@ -2,7 +2,7 @@
 import type { WorkIndexItem } from "@/types/work"
 import { WorkIndexCard } from "./WorkIndexCard"
 
-export const WorkIndexGrid = ({ className, workItems }: WorkIndexGridProps) => (
+export const WorkIndexGrid = ({ workItems }: WorkIndexGridProps) => (
 
 	<div className='grid gap-10 md:grid-cols-2 xl:grid-cols-3'>
 

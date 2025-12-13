@@ -115,28 +115,18 @@ const markdownComponents: Components = {
 		</em>
 	),
 
-	// Inline + block code
-	code: (props: any) => {
-		const isInline = props.inline === true;
-
-		if (isInline) {
-			return (
-				<code className="px-1.5 py-0.5 rounded-sm bg-accent-subtle text-sm font-mono">
-					{props.children}
-				</code>
-			);
-		}
-
+	// block code
+	code: (props) => {
 		// Code block
 		return (
 			<pre className="p-4 rounded-md bg-bg-alt border border-border overflow-auto my-6">
 				<code className={props.className}>{props.children}</code>
 			</pre>
-		);
+		)
 	},
 
 	// Images (Markdown ![]())
-	img: (props: any) => {
+	img: (props) => {
 		const src =
             typeof props.src === "string"
             	? props.src

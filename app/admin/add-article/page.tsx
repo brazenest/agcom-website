@@ -5,7 +5,6 @@ import Select from 'react-select'
 import { calculateReadtime } from '@/functions/calculateReadtime';
 import { DateSelector } from '@/components/admin/DateSelector';
 import { queryApi } from '@/functions/queryApi';
-import { SelectDropdown } from '@/components/ui/SelectDropdown';
 import { SelectDropdownOption } from '@/types/ui';
 
 const ContentEditor = dynamic(() => import('@/components/admin/ContentEditor'), {
@@ -16,7 +15,7 @@ export default function BlogAdminAddArticlePage() {
 	const [articleSlug, setArticleSlug] = useState('')
 	const [articleSlugIsVirgin, setArticleSlugIsVirgin] = useState(true)
 	const [articleTitle, setArticleTitle] = useState('')
-  const [articleCategory, setArticleCategory] = useState<SelectDropdownOption | null>(null)
+	const [articleCategory, setArticleCategory] = useState<SelectDropdownOption | null>(null)
 	const [articleExcerpt, setArticleExcerpt] = useState('')
 	const [articleDate, setArticleDate] = useState(new Date())
 	const [articleBody, setArticleBody] = useState('')

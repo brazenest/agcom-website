@@ -7,7 +7,6 @@ import { SiteHeader } from "@/components/site/SiteHeader"
 import { SiteFooter } from "@/components/site/SiteFooter"
 import { LinkT } from "@/types/link"
 import ContactModal from "@/components/zones/contact/ContactModal"
-import { ThemeProvider } from "@/components/theme/ThemeContext"
 
 const fontTech = Inter({
 	variable: '--font-tech',
@@ -82,19 +81,15 @@ export default function RootLayout({
 				id="site"
 				className={`${fontTech.variable} ${fontCinema.variable} bg-page text-body transition-colors duration-300 ease-in-out`}
 			>
-				<ThemeProvider>
+				<SiteHeader />
 
-					<SiteHeader />
+				<div id="site-content-wrap" className="min-h-screen mt-20">
+					{children}
+				</div>
 
-					<div id="site-content-wrap" className="min-h-screen mt-20">
-						{children}
-					</div>
+				<SiteFooter links={footerLinks} />
 
-					<SiteFooter links={footerLinks} />
-
-					<ContactModal />
-
-				</ThemeProvider>
+				<ContactModal />
 
 				<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID!} />
 			</body>

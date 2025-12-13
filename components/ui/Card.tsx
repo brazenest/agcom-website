@@ -9,39 +9,39 @@ export const Card = ({ badge, image, heading, text, bullets, className, children
 
 	return (
 		<div
-			className={cn("named-card", "bg-card-bg border border-border rounded-xl shadow-sm", className)}>
+			className={cn("named-card", "bg-bg-subtle p-3 border border-border rounded-xl shadow-sm", className)}>
 
-				{badge && (
-					<Badge variant="soft" text={badge.text} className="bg-accent-bg-soft!" />
-				)}
+			{badge && (
+				<Badge variant="soft" className="bg-accent-bg-soft!">{badge.text}</Badge>
+			)}
 
-				{image && (
-					<span className="image-wrap">
-						<NextImage
-							src={image.src}
-							alt={image.alt}
-						/>
-					</span>
-				)}
+			{image && (
+				<span className="image-wrap">
+					<NextImage
+						src={image.src}
+						alt={image.alt}
+					/>
+				</span>
+			)}
 
-				{heading && (
-					<CardHeading level={3} className="font-heading text-lg md:text-xl mt-4.5 mb-3">
-						{heading}
-					</CardHeading>
-				)}
+			{heading && (
+				<CardHeading level={3} className="font-heading text-lg md:text-xl mt-4.5 mb-3">
+					{heading}
+				</CardHeading>
+			)}
 
-				{text && (
-					<p className="text-sm">
-						{text}
-					</p>
-				)}
+			{text && (
+				<p className="text-sm">
+					{text}
+				</p>
+			)}
 
 
-				{bullets && (
-					<CardBulletList bullets={bullets} className="card-list space-y-1" />
-				)}
+			{bullets && (
+				<CardBulletList bullets={bullets} className="card-list space-y-1" />
+			)}
 
-				{children}
+			{children}
 
 		</div>
 	)
