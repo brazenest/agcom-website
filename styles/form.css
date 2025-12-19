@@ -1,0 +1,5 @@
+.layout-prose ul,
+.layout-prose ol {
+  list-style-type: disc;
+  list-style-position: inside;
+}

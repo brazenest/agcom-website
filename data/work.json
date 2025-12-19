@@ -23,7 +23,7 @@
         "title": "Timeshare Search & Rentals",
         "subtitle": "A high-clarity booking and search experience for dense inventory and high-variation data.",
         "href": "/work/timeshare-search-rentals",
-        "imageSrc": "/assets/images/work/timeshare-search-rentals/hero.png",
+        "imageSrc": "/assets/images/work/timeshare-search-rentals/hero.webp",
         "tags": [
           "Next.js",
           "TypeScript",
