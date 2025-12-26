@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/cn"
 import { CardModel } from "@/types/ui"
 import { Badge } from "./Badge"
 import NextImage from 'next/image'

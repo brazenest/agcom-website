@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/cn"
 import { CardModel } from "@/types/ui"
 import { Card } from "../Card"
 
@@ -26,6 +26,6 @@ export const CardList = ({ cards, className }: CardListProps) => (
 )
 
 type CardListProps = {
-  cards: CardModel[]
-  className?: string
+	cards: CardModel[]
+	className?: string
 }

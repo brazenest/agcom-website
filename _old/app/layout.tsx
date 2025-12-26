@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import 'dotenv/config'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Space_Grotesk, Inter } from "next/font/google"
-import "@/styles/theme.css"
+import "@/styles/globals.css"
 import { SiteHeader } from "@/components/site/SiteHeader"
 import { SiteFooter } from "@/components/site/SiteFooter"
 import { LinkT } from "@/types/link"

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/cn"
 
 const defaults = {
 	className: 'text-xs font-medium px-2.5 py-1 rounded-full'
@@ -10,11 +10,11 @@ export const Badge = ({
 }: BadgeProps) => {
 	const styles: BadgeVariantSet = {
 		default:
-            "bg-subtle text-fg-default",
+			"bg-subtle text-fg-default",
 		outline:
-            "border border-border text-fg-muted ",
+			"border border-border text-fg-muted ",
 		soft:
-            "bg-bg-raised text-fg-default",
+			"bg-bg-raised text-fg-default",
 	}
 
 	return <span className={cn(defaults.className, styles[variant], className)}>{children}</span>;

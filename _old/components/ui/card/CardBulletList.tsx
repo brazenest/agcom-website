@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/cn"
 import { ListItemModel } from "@/types/ui"
 
 export const CardBulletList = ({ bullets, className }: CardBulletListProps) => (
@@ -8,6 +8,6 @@ export const CardBulletList = ({ bullets, className }: CardBulletListProps) => (
 )
 
 type CardBulletListProps = {
-  bullets: ListItemModel[]
+	bullets: ListItemModel[]
 	className?: string
 }

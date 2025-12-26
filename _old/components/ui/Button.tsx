@@ -2,25 +2,25 @@
 /*                                   Button                                   */
 /* -------------------------------------------------------------------------- */
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { ButtonVariant, ButtonSize } from "@/types/ui";
 
 export interface ButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: ButtonVariant;
-    size?: ButtonSize;
+	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	variant?: ButtonVariant;
+	size?: ButtonSize;
 }
 
 const buttonBase =
-    "inline-flex items-center justify-center font-medium transition-colors " +
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent " +
-    "disabled:opacity-60 disabled:cursor-not-allowed rounded-lg cursor-pointer";
+	"inline-flex items-center justify-center font-medium transition-colors " +
+	"focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent " +
+	"disabled:opacity-60 disabled:cursor-not-allowed rounded-lg cursor-pointer";
 
 const buttonVariants: Record<ButtonVariant, string> = {
 	primary:
-        "bg-accent-primary text-bg-default shadow-md hover:bg-accent-hover focus-visible:ring-accent",
+		"bg-accent-primary text-bg-default shadow-md hover:bg-accent-hover focus-visible:ring-accent",
 	secondary:
-        "bg-accent-secondary border border-border",
+		"bg-accent-secondary border border-border",
 };
 
 const buttonSizes: Record<ButtonSize, string> = {
@@ -42,15 +42,15 @@ export const Button: React.FC<ButtonProps> = ({
 		buttonSizes[size],
 		className
 	) && (
-		<button
-			className={cn(
-				buttonBase,
-				buttonVariants[variant],
-				buttonSizes[size],
-				className
-			)}
-			{...props}
-		/>
-	);
+			<button
+				className={cn(
+					buttonBase,
+					buttonVariants[variant],
+					buttonSizes[size],
+					className
+				)}
+				{...props}
+			/>
+		);
 };
 

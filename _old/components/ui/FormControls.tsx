@@ -2,7 +2,7 @@
 /*                              Form Controls                                */
 /* -------------------------------------------------------------------------- */
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 // Extra “React-y” versions using ComponentProps
 

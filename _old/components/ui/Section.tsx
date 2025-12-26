@@ -1,5 +1,5 @@
 // components/ui/Section.tsx
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/cn'
 import { SectionAlign, SectionWidth } from '@/types/ui'
 import { Eyebrow } from './section/Eyebrow'
 import { Title } from './section/Title'

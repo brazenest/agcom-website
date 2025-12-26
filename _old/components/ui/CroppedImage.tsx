@@ -1,6 +1,6 @@
 // components/ui/CroppedImage.tsx
 import Image from 'next/image'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/cn'
 
 const defaults = {
 	className: 'relative w-full overflow-hidden rounded-3xl',
@@ -27,11 +27,11 @@ export const CroppedImage = ({ src, alt, width, horizontal, vertical, className,
 }
 
 type CroppedImageProps = {
-  src: string
-  alt: string
-  width?: number
-  horizontal: number
-  vertical: number
-  className?: string
-  imgClassName?: string
+	src: string
+	alt: string
+	width?: number
+	horizontal: number
+	vertical: number
+	className?: string
+	imgClassName?: string
 }

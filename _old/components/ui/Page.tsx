@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/cn"
 
 export const Page = ({ id, className = '', children }: PageProps) => {
 	return (
@@ -9,7 +9,7 @@ export const Page = ({ id, className = '', children }: PageProps) => {
 }
 
 type PageProps = {
-    id: string,
-    className?: string,
-    children: React.ReactNode,
+	id: string,
+	className?: string,
+	children: React.ReactNode,
 }

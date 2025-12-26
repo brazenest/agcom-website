@@ -1,5 +1,5 @@
 // components/ui/section/Column.tsx
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/cn"
 import { Label } from "./Label"
 
 const defaults = {
@@ -14,9 +14,9 @@ export const Column = ({ className, label, children }: ColumnProps) => (
 )
 
 type ColumnProps = {
-  className?: string
-  label?: string
-  children: React.ReactNode
+	className?: string
+	label?: string
+	children: React.ReactNode
 }
 
 export default Column

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/cn"
 import { Heading, HeadingLevel } from "../Heading"
 
 const defaults = {
@@ -12,7 +12,7 @@ export const CardHeading = ({ level, className, children }: CardHeadingProps) =>
 }
 
 type CardHeadingProps = {
-  level?: HeadingLevel
-  className?: string
-  children: React.ReactNode
+	level?: HeadingLevel
+	className?: string
+	children: React.ReactNode
 }
