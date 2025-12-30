@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+#home-page #hero-focus {
+  background-image: url('/assets/images/home-page/hero-engineering-bg.png');
+}
