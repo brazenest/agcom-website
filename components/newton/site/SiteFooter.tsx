@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import Link from "next/link";
-import { Section } from "@/components/newton/ui/Section";
+import { Section } from "@/components/newton/layout/Section";
 import { SiteFooterSocialIconsBar } from "../../newton-old/site/SiteFooterSocialIconsBar";
 
 export const SiteFooter = ({ links }) => (
@@ -29,7 +29,7 @@ export const SiteFooter = ({ links }) => (
 					version {process.env.NEXT_PUBLIC_SITE_VERSION}
 				</p>
 			</div>
-			
+
 		</Section>
 	</footer>
 )
