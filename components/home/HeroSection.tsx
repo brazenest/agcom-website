@@ -20,7 +20,7 @@ export const HeroSection = ({
 			<div className="absolute inset-0 bg-black/40"></div>
 			<div className="relative z-10 text-white">
 
-				<h1 className="max-w-4xl mx-auto text-6xl font-heading font-semibold leading-21.75 mb-8.5">{title}</h1>
+				<h1 className="max-w-3xl mx-auto text-5xl font-heading font-semibold leading-15.75 mb-8.5">{title}</h1>
 				{subtitle && (
 					<p className="max-w-4xl mx-auto text-2xl text-gray-500 dark:text-gray-500">{subtitle}</p>
 				)}

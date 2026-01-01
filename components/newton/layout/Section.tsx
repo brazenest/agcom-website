@@ -9,7 +9,7 @@ export const Section = ({ width = 'default', id, backgroundImage, className, chi
 		default: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
 		full: "w-full px-4 sm:px-6 lg:px-8",
 	}
-	const spacingClasses = "py-8 sm:py-12 md:py-16 lg:py-24"
+	const spacingClasses = "py-8 sm:py-12 md:py-20 lg:py-32"
 	const borderClasses = "border-y2 border-gray-100 dark:border-gray-900"
 
 	return (

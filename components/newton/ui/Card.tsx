@@ -1,7 +1,19 @@
-export const Card = ({ title, actions, children }: CardProps) => (
+import NextImage from "next/image"
+import { ImageModel } from "@/types/content"
+
+export const Card = ({ title, image, actions, children }: CardProps) => (
 	<div className="flex flex-col bg-gray-100 dark:bg-gray-900 shadow-md rounded-lg p-4">
 		{title && (
 			<h4 className="text-2xl font-heading font-semibold mb-4">{title}</h4>
+		)}
+		{image && (
+			<NextImage
+				src={image.src}
+				alt={image.alt}
+				width={image.width}
+				height={image.height}
+				className="rounded-md mb-4"
+			/>
 		)}
 		<span className="card-content grow-1">
 			{children}
@@ -28,6 +40,7 @@ export const Card = ({ title, actions, children }: CardProps) => (
 
 type CardProps = {
   title?: string
+	image?: ImageModel
   actions?: { text: string; link: string; variant?: 'primary' | 'secondary' }[]
   children: React.ReactNode
 }
