@@ -45,3 +45,8 @@ export type BadgeModel = {
   icon?: string
   text: string
 }
+
+export type SelectDropdownOption = {
+  value: string,
+  label: string,
+}

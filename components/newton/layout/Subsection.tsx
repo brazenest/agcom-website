@@ -22,9 +22,9 @@ export const Subsection = ({
 					/>
 				</span>
 			)}
-			<span className={`subsection-content-wrap ${image ? 'w-3/5' : 'w-full'} py-2.75"`}>
+			<span className={`subsection-content-wrap ${image ? 'w-3/5' : 'w-full'} py-1.5`}>
 				{title && (
-					<h3 className="subsection-title text-2xl font-semibold mb-3.25">{title}</h3>
+					<h3 className="subsection-title text-2xl font-heading font-semibold mb-4.25">{title}</h3>
 				)}
 				{badges && (
 					<span className="subsection-badges">Badges go here.</span>
