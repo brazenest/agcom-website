@@ -9,7 +9,7 @@ export interface ButtonProps
 	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: ButtonVariant;
 	size?: ButtonSize;
-	text: string
+	children: React.ReactNode
 }
 
 const buttonSizes: Record<ButtonSize, string> = {
@@ -30,24 +30,24 @@ export const Button: React.FC<ButtonProps> = ({
 	variant = "secondary",
 	size = "md",
 	className,
-	text,
+	children,
 	...props
 }) => {
 	return cn(
 		buttonSizes[size],
 		className
 	) && (
-			<button
-				className={cn(
-					buttonSizes[size],
-					variantStyles[variant],
-					'rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition  ',
-					className
-				)}
-				{...props}
-			>
-				{text}
-			</button>
-		);
+		<button
+			className={cn(
+				buttonSizes[size],
+				variantStyles[variant],
+				'rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition  ',
+				className
+			)}
+			{...props}
+		>
+			{children}
+		</button>
+	);
 };
 
