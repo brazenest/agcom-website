@@ -1,8 +1,8 @@
 import { SplitContentVariant } from "@/types/newton/content"
-import { PageTitle } from "../ui/PageTitle"
 import { Section } from "./Section"
 import { cn } from "@/lib/cn"
-import { Panel } from "../ui/Panel"
+import { Panel } from "./Panel"
+import { SectionHeading } from "./SectionHeading"
 
 export const SplitContentPanelSection = ({ id, title, subtitle, leftContent, rightContent, variant = 'half' }: SplitContentSectionProps) => {
 	if (!leftContent || !rightContent) throw new Error("Both leftContent and rightContent props are required.")
@@ -31,10 +31,11 @@ export const SplitContentPanelSection = ({ id, title, subtitle, leftContent, rig
 	}
 	const leftVariantClass = variantClasses[variant]['left']
 	const rightVariantClass = variantClasses[variant]['right']
+
 	return (
 		<Section id={id}>
 			{title && (
-				<PageTitle title={title} subtitle={subtitle} />
+				<SectionHeading title={title} subtitle={subtitle} />
 			)}
 			<Panel>
 				<div className="flex flex-col md:flex-row gap-5">

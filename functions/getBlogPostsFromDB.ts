@@ -1,13 +1,19 @@
-import { DbBlogPost, DbQueryValue } from '@/types/db'
+import { DbQueryValue } from '@/types/db'
 import { queryDatabase } from './queryDatabase'
+import { DB_PostModel } from '@/types/blog'
+import { getTags } from './getTags'
 
-export const getBlogPostsFromDB = async ({ showHidden = false }: fnGetArticlesFromDBParams) => {
+export const getBlogPostsFromDB = async ({ slug, showHidden = false }: fnGetpostsFromDBParams) => {
 
 	const values: DbQueryValue[] = []
 
 	// Build the WHERE predicate.
 	const whereParts: string[] = []
 
+	if (slug) {
+		whereParts.push('posts.slug = ?')
+		values.push(slug)
+	}
 	if (!showHidden) {
 		whereParts.push('visible = ?')
 		values.push('1')
@@ -15,28 +21,32 @@ export const getBlogPostsFromDB = async ({ showHidden = false }: fnGetArticlesFr
 
 	// SELECT clause
 	const select = new DBQuerySelectClause([
-		'articles.slug AS slug',
-		'articles.title AS title',
-		'articles.date AS date',
+		'posts.slug AS slug',
+		'posts.title AS title',
+		'posts.dateposted AS datePosted',
 		'categories.slug AS category',
-		'articles.excerpt AS excerpt',
-		'articles.body AS body',
+		'posts.excerpt AS excerpt',
+		'posts.dek AS dek',
+		'posts.body AS body',
+		'posts.tags AS tags',
 	])
 
 	// FROM clause
-	const from = new DBQueryFromClause(['articles'])
+	const from = new DBQueryFromClause(['posts'])
 
 	// JOIN clause
 	const join = new DBQueryJoinClause(['categories'])
 
 	// ON clause
-	const on = new DBQueryOnClause(['articles.category = categories.slug'])
+	const on = new DBQueryOnClause(['posts.category = categories.slug'])
 
 	// WHERE clause
 	const where = new DBQueryWhereClause(whereParts)
 
 	// ORDER BY clause
-	const orderBy = new DBQueryOrderByClause(['articles.date DESC'])
+	const orderBy = new DBQueryOrderByClause(['posts.dateposted DESC'])
+
+	let substitutionValue = 0
 
 	// Build the query string.
 	const query = [
@@ -46,16 +56,25 @@ export const getBlogPostsFromDB = async ({ showHidden = false }: fnGetArticlesFr
 		on,
 		where,
 		orderBy,
-	].join(' ')
+	]
+		.join(' ')
+		.replace(/\?/g, () => `$${++substitutionValue}`)
 
 	// Return the result of the direct-to-DB query.
-	const result = await queryDatabase<DbBlogPost>({ query, values });
+	const result: DB_PostModel[] = await queryDatabase<DB_PostModel>({ query, values });
+	const posts = await Promise.all(
+		result.map(async (post) => ({
+			...post,
+			tags: await getTags(post.tags),
+		}))
+	)
 
-	return result
+	return posts
 }
 
-type fnGetArticlesFromDBParams = {
-  showHidden?: boolean,
+type fnGetpostsFromDBParams = {
+	slug?: string
+	showHidden?: boolean
 }
 
 abstract class DBQueryClause {
@@ -82,7 +101,7 @@ abstract class DBQueryClause {
 }
 
 type DBQueryClauseParams = {
-  conjoiner?: string
+	conjoiner?: string
 }
 
 class DBQuerySelectClause extends DBQueryClause {

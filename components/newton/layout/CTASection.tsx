@@ -1,22 +1,25 @@
-import { CTAButtonModel } from "@/types/ui"
+import { ActionModel } from "@/types/ui"
 import { EmphasisSection } from "./EmphasisSection"
 
 export const CTASection = ({
+	id,
 	heading,
 	text,
-	buttons,
+	actions,
 }: CTASectionProps) => {
 	return (
 		<EmphasisSection
+			id={id}
 			heading={heading}
 			text={text}
-			buttons={buttons}
+			actions={actions}
 		/>
 	)
 }
 
 type CTASectionProps = {
+	id: string
   heading: string
   text: string
-  buttons: CTAButtonModel[]
+  actions: ActionModel[]
 }

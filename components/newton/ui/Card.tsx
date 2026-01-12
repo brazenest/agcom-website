@@ -1,46 +1,103 @@
 import NextImage from "next/image"
 import { ImageModel } from "@/types/content"
+import { ActionModel, BadgeModel, CardLayoutVariant, CardSize, CardSizeStyleMap } from "@/types/ui"
+import { CardActionBar } from "../layout/CardActionBar"
+import { BadgeBar } from "../layout/BadgeBar"
+import { LinkSymbol } from "./LinkSymbol"
+import { cn } from "@/lib/cn"
+import { AsymmetricLayout } from "../layout/AsymmetricLayout"
 
-export const Card = ({ title, image, actions, children }: CardProps) => (
-	<div className="flex flex-col bg-gray-100 dark:bg-gray-900 shadow-md rounded-lg p-4">
-		{title && (
-			<h4 className="text-2xl font-heading font-semibold mb-4">{title}</h4>
-		)}
-		{image && (
-			<NextImage
-				src={image.src}
-				alt={image.alt}
-				width={image.width}
-				height={image.height}
-				className="rounded-md mb-4"
-			/>
-		)}
-		<span className="card-content grow-1">
-			{children}
-		</span>
-		{actions && actions.length > 0 && (
-			<div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800 flex space-x-4">
-				{actions.map((action, index) => (
-					<a
-						key={index}
-						className={`px-4 py-2 rounded-md ${
-							action.variant === 'primary'
-								? 'bg-blue-500 text-white'
-								: 'bg-gray-50 text-gray-950'
-						}`}
-						href={action.link}
-					>
-						{action.text}
-					</a>
-				))}
-			</div>
-		)}
-	</div>
-)
+export const Card = ({
+	size = 'md',
+	layoutVariant = 'default',
+	id,
+	title,
+	image,
+	actions = [],
+	badges = [],
+	withLinkSymbol = false,
+	children,
+}: CardProps) => {
+
+	const cardSizeClasses: CardSizeStyleMap = {
+		sm: {
+			title: 'text-xl mb-4.5',
+			content: 'text-sm',
+		},
+		md: {
+			title: 'text-2xl mb-5.25',
+			content: 'text-base',
+		},
+		lg: {
+			title: 'text-3xl',
+			content: 'text-lg',
+		},
+	}
+
+
+
+	return (
+		<div id={id} className="card flex flex-col bg-gray-100 dark:bg-gray-900 shadow-md rounded-lg p-4 sm:p-5.5">
+
+			{/* Card title */}
+			{title && (
+				<h4 className={cn('card-title text-2xl font-heading font-semibold leading-7.75 text-gray-800 dark:text-gray-200', cardSizeClasses[size].title)}>
+					{title}
+					{withLinkSymbol && (
+						<LinkSymbol />
+					)}
+				</h4>
+			)}
+
+			{layoutVariant === 'default' ? (
+				<span className="text-gray-600 dark:text-gray-400">
+					{children}
+				</span>
+			) : (<>
+				<AsymmetricLayout 
+					variant={layoutVariant}
+					first={image && (<>
+						{/* Card image */}
+						<NextImage
+							src={image.src}
+							alt={image.alt}
+							width={image.width}
+							height={image.height}
+							className="card-image rounded-md pb-5.5 bg-green-5020"
+						/>
+					</>)}
+					second={<>
+						{/* Card content */}
+						<span className={cn('card-content col-span-2 text-gray-600 dark:text-gray-300', cardSizeClasses[size].content)}>
+							{children}
+						</span>
+					</>}
+				/>
+
+				{badges.length > 0 && (
+					<span className="card-badges mt-3.25">
+						<BadgeBar badges={badges} />
+					</span>
+				)}
+
+				{/* Card actions */}
+				{actions.length > 0 && (
+					<CardActionBar actions={actions} />
+				)}
+			</>)}
+
+		</div>
+	)
+}
 
 type CardProps = {
-  title?: string
+	size?: CardSize
+	layoutVariant?: CardLayoutVariant
+	id?: string
+	title?: string
 	image?: ImageModel
-  actions?: { text: string; link: string; variant?: 'primary' | 'secondary' }[]
-  children: React.ReactNode
+	badges?: BadgeModel[]
+	actions?: ActionModel[]
+	withLinkSymbol?: boolean
+	children: React.ReactNode
 }
