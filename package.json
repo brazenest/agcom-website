@@ -19,6 +19,7 @@
     "@uiw/react-md-editor": "^4.0.8",
     "aws-sdk": "^2.1692.0",
     "dotenv": "^17.2.3",
+    "framer-motion": "^12.26.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.546.0",
     "net": "^1.0.2",

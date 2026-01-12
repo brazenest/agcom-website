@@ -1,5 +1,5 @@
 // components/ui/work/AnatomyImageCallout.tsx
-import { Label } from "../section/Label"
+import { Label } from "../../../../components/newton/ui/section/Label"
 import { AnatomyImageCalloutSymbol } from "./AnatomyImageCalloutSymbol"
 
 export const AnatomyImageCallout = ({ number, label, body }: AnatomyImageCalloutProps) => (

@@ -1,5 +1,5 @@
 import { Section } from "@/components/ui/Section"
-import { ContactCTAButton } from "../contact/ContactCTAButton"
+import { ContactCTAButton } from "../../../../components/newton/contact/ContactCTAButton"
 import { ButtonLink } from "@/components/ui/ButtonLink"
 import { SectionPropsBase } from "@/types/section"
 
