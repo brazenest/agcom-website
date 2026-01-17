@@ -1,32 +1,33 @@
-// types/ui.ts
-export type SectionAlign = 'left' | 'center' | 'responsive'
-export type SectionWidth = 'default' | 'wide' | 'full'
-export type SectionSpacing =
-  | 'tight'
-  | 'default'
-  | 'comfortable'
-  | 'spacious'
-export type SectionSpacingPosition = 'default' | 'top' | 'bottom'
+import { AsymmetricLayoutVariant } from "./layout"
 
-export type ButtonVariant = "primary" | "secondary"
-export type ButtonSize = "sm" | "md" | "lg" | 'xl'
-
-export type SelectDropdownOption = {
-  value: string,
-  label: string,
-}
-
-export type SectionImage = {
-  src: string
-  alt: string
-}
-
-export type CalloutSymbolProps = {
-  number: number
-}
-
-export type CardBulletListItemModel = {
+export type ActionModel = {
+  variant?: ButtonVariant
   text: string
+  href?: string
+  onClick?: () => void
+}
+
+export type ButtonModel = {
+  variant: ButtonVariant
+  text: string
+  link: string
+}
+
+export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl'
+export type ButtonSizeStyleMap = {
+  [key in ButtonSize]: string
+}
+
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
+export type ButtonVariantStyleMap = {
+  [key in ButtonVariant]: string
+}
+
+export type CTAButtonModel = ButtonModel & {}
+
+export type LinkModel = {
+  href: string,
+  content: string | React.ReactNode,
 }
 
 export type CardModel = {
@@ -38,9 +39,28 @@ export type CardModel = {
   link?: LinkModel
 }
 
+export type CardSize = 'sm' | 'md' | 'lg'
+export type CardSizeStyleMap = {
+  [key in CardSize]: {
+    title?: string
+    content?: string
+  }
+}
+
+export type CardLayoutVariant = AsymmetricLayoutVariant | 'default'
+export type CardLayoutVariantStyleMap = {
+  [key in CardLayoutVariant]: {
+    container: string
+    first: string
+    second: string
+  }
+}
+
 export type ImageModel = {
   src: string
   alt: string
+  width: number
+  height: number
 }
 
 export type ListItemModel = {
@@ -57,11 +77,12 @@ export type BadgeModel = {
   text: string
 }
 
-type TagModel = BadgeModel & {
-  removable: boolean
+export type TagModel = {
+  name: string
+  slug?: string
 }
 
-type LinkModel = {
-  href: string
-  title?: string
+export type SelectDropdownOption = {
+  value: string,
+  label: string,
 }

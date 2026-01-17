@@ -1,0 +1,46 @@
+@theme {
+  --spacing-apollo-xl: 8rem;
+  --spacing-apollo-lg: 6rem;
+  --spacing-apollo-md: 4rem;
+  --spacing-apollo-sm: 2rem;
+
+  --width-apollo-content: 1200px;
+  --width-apollo-prose: 720px;
+  --width-apollo-utility: 960px;
+
+
+  --spacing-xl: var(--spacing-apollo-xl);
+  --spacing-lg: var(--spacing-apollo-lg);
+  --spacing-md: var(--spacing-apollo-md);
+  --spacing-sm: var(--spacing-apollo-sm);
+
+  --width-content: var(--width-apollo-content);
+  --width-prose: var(--width-apollo-prose);
+  --width-utility: var(--width-apollo-utility);
+
+
+  --container-apollo-content: 1200px;
+  --container-apollo-prose: 720px;
+  --container-apollo-utility: 960px;
+}
+
+@layer base {
+  .apollo-prose p {
+    margin-bottom: 1.25em;
+  }
+
+  .apollo-prose p:last-child {
+    margin-bottom: 0;
+  }
+
+  .apollo-prose h2,
+  .apollo-prose h3 {
+    margin-top: 2.5em;
+    margin-bottom: 1.25em;
+  }
+
+  .apollo-prose h2:first-child,
+  .apollo-prose h3:first-child {
+    margin-top: 0;
+  }
+}

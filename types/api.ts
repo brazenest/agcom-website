@@ -1,15 +1,3 @@
-import { ArticleT } from "./blog"
-import { UrlQueryParam } from "./generic"
-
-export type ApiArticlesQueryResponse = {
-    ok: boolean,
-    data: ArticleT[],
-}
+import { UrlQueryParam } from './generic'
 
 export type ApiQueryParam = UrlQueryParam
-
-export type ApiQueryResponseT = {
-    ok: boolean,
-    data?: any,
-    message?: string,
-}
