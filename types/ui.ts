@@ -1,3 +1,12 @@
+import { AsymmetricLayoutVariant } from "./layout"
+
+export type ActionModel = {
+  variant?: ButtonVariant
+  text: string
+  href?: string
+  onClick?: () => void
+}
+
 export type ButtonModel = {
   variant: ButtonVariant
   text: string
@@ -5,7 +14,14 @@ export type ButtonModel = {
 }
 
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl'
-export type ButtonVariant = 'primary' | 'secondary'
+export type ButtonSizeStyleMap = {
+  [key in ButtonSize]: string
+}
+
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
+export type ButtonVariantStyleMap = {
+  [key in ButtonVariant]: string
+}
 
 export type CTAButtonModel = ButtonModel & {}
 
@@ -14,8 +30,6 @@ export type LinkModel = {
   content: string | React.ReactNode,
 }
 
-export type SectionAlign = 'start' | 'center'
-
 export type CardModel = {
   badge?: BadgeModel
   image?: ImageModel
@@ -23,6 +37,23 @@ export type CardModel = {
   text?: string
   bullets?: ListItemModel[]
   link?: LinkModel
+}
+
+export type CardSize = 'sm' | 'md' | 'lg'
+export type CardSizeStyleMap = {
+  [key in CardSize]: {
+    title?: string
+    content?: string
+  }
+}
+
+export type CardLayoutVariant = AsymmetricLayoutVariant | 'default'
+export type CardLayoutVariantStyleMap = {
+  [key in CardLayoutVariant]: {
+    container: string
+    first: string
+    second: string
+  }
 }
 
 export type ImageModel = {
@@ -44,6 +75,11 @@ export type ListModel = {
 export type BadgeModel = {
   icon?: string
   text: string
+}
+
+export type TagModel = {
+  name: string
+  slug?: string
 }
 
 export type SelectDropdownOption = {
