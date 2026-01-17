@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn"
 import { PageTitleAlign, PageTitleAlignClassMap } from "@/types/layout"
 
-export const PageTitle = ({ align = 'center', title, subtitle }: PageTitleProps) => {
+export const PageTitle = ({ align = 'center', title, subtitle, className }: PageTitleProps) => {
 	
 	const alignClasses: PageTitleAlignClassMap = {
 		center: {
@@ -14,10 +14,10 @@ export const PageTitle = ({ align = 'center', title, subtitle }: PageTitleProps)
 		},
 	}
 	return (
-		<span className="page-title-wrap pb-3 block">
-			<h1 className={cn('page-title max-w-5xl text-5xl leading-12.75 font-heading font-semibold tracking-tight sm:leading-16.75', alignClasses[align].title)}>{title}</h1>
+		<span className={cn("page-title-wrap pb-3 block", className)}>
+			<h1 className={cn('page-title max-w-3xl lg:max-w-5xl text-4xl md:text-5xl lg:text-6xl md:leading-13.75 font-heading font-semibold text-shadow-md tracking-t3ight lg:leading-19', alignClasses[align].title)}>{title}</h1>
 			{subtitle && (
-				<p className={cn('page-subtitle max-w-4xl text-lg sm:text-2xl text-gray-500 dark:text-slate-400 mt-8.25 leading-6.25', alignClasses[align].subtitle)}>{subtitle}</p>
+				<p className={cn('page-subtitle lg:max-w-4xl text-lg sm:text-2xl md:max-w-3xl text-gray-500 dark:text-gray-500 mt-8.25 md:leading-7.5', alignClasses[align].subtitle)}>{subtitle}</p>
 			)}
 		</span>
 	)

@@ -53,19 +53,15 @@ const footerLinks: LinkModel[] = [
 		content: 'Home',
 	},
 	{
-		href: '/#work',
-		content: 'Work',
+		href: '/about',
+		content: 'About Me',
 	},
 	{
 		href: '/blog',
 		content: 'Blog',
 	},
 	{
-		href: '/about',
-		content: 'About',
-	},
-	{
-		href: 'mailto:ag@aldengillespy.com',
+		href: 'mailto:contact@aldengillespy.com',
 		content: 'Contact',
 	}
 ]

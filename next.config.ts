@@ -39,8 +39,8 @@ const nextConfigFn = (phase, { defaultConfig }) => {
       return [
         {
           source: '/blog',
-          destination: '/blog/articles',
-          permanent: false,
+          destination: '/blog/posts',
+          permanent: true,
         },
       ];
     },

@@ -21,16 +21,16 @@ export default async function BlogPostsSinglePage({
   
 	return (
 		<Page id="blog-posts-single-page">
-			<article id={`blog-post--${post.id}`}>
+			<article id={`blog-post--${post.id}`} className="px-5 md:px-9.25 lg:px-8">
 
 				{/* Post header */}
 				<header className="blog-post-header mb-9.5 pb-3 pt-10.25 w-full">
 					<div className="max-w-5xl mx-auto">
 						<hgroup>
-							<h1 className="blog-post--title mb-7.5 mt-3.5 text-5xl md:max-w-3xl text-center mx-auto leading-14.5 font-heading font-semibold">
+							<h1 className="blog-post--title mb-7.5 mt-3.5 text-5xl md:max-w-4xl text-center mx-auto leading-13.75 font-heading font-semibold">
 								{post.title}
 							</h1>
-							<p className="blog-post--dek text-lg leading-6.75 md:max-w-2xl mx-auto text-center my-1.75 text-gray-700 dark:text-gray-300">
+							<p className="blog-post--dek text-xl leading-6.5 md:max-w-2xl mx-auto text-center my-1.75 text-gray-700 dark:text-gray-300">
 								{post.dek}
 							</p>
 						</hgroup>

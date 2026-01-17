@@ -59,10 +59,11 @@ export default function ContactModal() {
 						className="
               relative w-full max-w-lg 
               rounded-2xl 
-              bg-[var(--color-bg-elevated)] 
+              bg-gray-50
+							dark:bg-gray-950 
               p-8 
               shadow-2xl 
-              border border-[var(--color-border)]
+              border border-gray-700 dark:border-gray-400
             "
 					>
 						{/* CLOSE BUTTON */}

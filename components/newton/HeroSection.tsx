@@ -14,6 +14,7 @@ export const HeroSection = ({
 	title,
 	subtitle,
 	actions,
+	pageTitleClassName,
 	className,
 }: HeroSectionProps) => {
 
@@ -32,7 +33,7 @@ export const HeroSection = ({
 			backgroundImage={backgroundImage}
 			className={cn('hero-section bg-gray-200 dark:bg-gray-950 py-10 lg:py-27.5 relative overflow-hidden', className)}
 		>
-			<PageTitle align={align} title={title} subtitle={subtitle} />
+			<PageTitle align={align} title={title} subtitle={subtitle} className={pageTitleClassName} />
 
 			{actions && (
 				<div className={cn("hero-section-actions-wrap", alignClasses[align].actionsWrap)}>
@@ -57,5 +58,6 @@ type HeroSectionProps = {
 	title: string
 	subtitle?: string
 	actions?: ActionModel[]
+	pageTitleClassName?: string
 	className?: string
 }

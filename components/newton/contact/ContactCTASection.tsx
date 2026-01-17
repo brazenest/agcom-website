@@ -1,6 +1,5 @@
 'use client'
 
-import { useContactModal } from "@/hooks/useContactModal"
 import { CTASection } from "../layout/CTASection"
 import { ActionModel } from "@/types/ui"
 
@@ -11,13 +10,11 @@ export const ContactCTASection = ({
 	actions = [],
 }: ContactCTASectionProps) => {
 
-	const { open: openContactModal } = useContactModal()
-
 	const ctaSectionActions: ActionModel[] = [
 		{
 			variant: 'primary',
 			text: 'Contact Me',
-			onClick: openContactModal,
+			href: 'mailto:contact@aldengillespy.com',
 		},
 		...actions,
 	]

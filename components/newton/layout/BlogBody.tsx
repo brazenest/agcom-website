@@ -3,7 +3,7 @@ import Markdown from "react-markdown"
 
 export const BlogBody = ({ className, children }: BlogBodyProps) => {
 	return (
-		<span className={cn('blog-body prose block mx-auto', className)}>
+		<span className={cn('blog-body prose dark:prose-invert block mx-auto', className)}>
 			<Markdown>{children.replace(/\\n/g, '\n')}</Markdown>
 		</span>
 	)

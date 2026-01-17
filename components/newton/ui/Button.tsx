@@ -3,7 +3,7 @@ import { ButtonVariantStyleMap, ButtonSizeStyleMap } from '@/types/ui'
 import { ActionPropsBase } from './Action'
 
 const defaults = {
-	className: 'rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition'
+	className: 'rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition hover:cursor-pointer'
 }
 
 const buttonSizes: ButtonSizeStyleMap = {
@@ -15,7 +15,7 @@ const buttonSizes: ButtonSizeStyleMap = {
 
 const variantStyles: ButtonVariantStyleMap = {
 	primary:
-		'bg-blue-600 text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300',
+		'bg-blue-700 text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-400',
 	secondary:
 		'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-4 focus:ring-gray-400',
 	tertiary:

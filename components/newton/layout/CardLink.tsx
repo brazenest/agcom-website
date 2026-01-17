@@ -10,13 +10,14 @@ export const CardLink = ({
 	badges,
 	children,
 }: CardLinkProps) => (
-	<a href={href} className="cardlink no-underline hover:text-blue-500">
+	<a href={href} className="cardlink no-underline">
 		<Card
 			size={size}
 			image={image}
 			title={title}
 			badges={badges}
 			withLinkSymbol={true}
+			className="hover:text-blue-600!"
 		>
 			{children}
 		</Card>

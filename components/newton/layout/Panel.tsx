@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn"
 
 export const Panel = ({ id, title, className, children }: PanelProps) => (
-	<div id={id} className={`panel bg-gray-50 dark:bg-gray-950 border-gray-200 dark:border-gray-800 p-1.75 sm:p-3.75 shadow-sm`}>
+	<div id={id} className={`panel bg-gray-50 dark:bg-gray-950 border-gray-100 dark:border-gray-900 p-1.75 md:m-4 sm:p-3.75 shadow-sm`}>
 		{title && (
 			<h3 className="panel-title text-3xl font-heading font-bold mb-5.75">{title}</h3>
 		)}
@@ -12,7 +12,7 @@ export const Panel = ({ id, title, className, children }: PanelProps) => (
 )
 
 type PanelProps = {
-	id: string
+	id?: string
   title?: string
   className?: string
   children: React.ReactNode

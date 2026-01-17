@@ -16,6 +16,7 @@ export const Card = ({
 	actions = [],
 	badges = [],
 	withLinkSymbol = false,
+	className,
 	children,
 }: CardProps) => {
 
@@ -37,11 +38,11 @@ export const Card = ({
 
 
 	return (
-		<div id={id} className="card flex flex-col bg-gray-100 dark:bg-gray-900 shadow-md rounded-lg p-4 sm:p-5.5">
+		<div id={id} className={cn("card flex flex-col bg-gray-100 dark:bg-gray-900 shadow-md p-4 sm:p-5.5", className)}>
 
 			{/* Card title */}
 			{title && (
-				<h4 className={cn('card-title text-2xl font-heading font-semibold leading-7.75 text-gray-800 dark:text-gray-200', cardSizeClasses[size].title)}>
+				<h4 className={cn('card-title text-2xl font-heading font-semibold leading-7.75 text-gray-800 dark:text-gray-200 hover:text-inherit', cardSizeClasses[size].title)}>
 					{title}
 					{withLinkSymbol && (
 						<LinkSymbol />
@@ -99,5 +100,6 @@ type CardProps = {
 	badges?: BadgeModel[]
 	actions?: ActionModel[]
 	withLinkSymbol?: boolean
+	className?: string
 	children: React.ReactNode
 }

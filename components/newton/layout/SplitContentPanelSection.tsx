@@ -3,8 +3,9 @@ import { Section } from "./Section"
 import { cn } from "@/lib/cn"
 import { Panel } from "./Panel"
 import { SectionHeading } from "./SectionHeading"
+import { ImageModel } from "@/types/ui"
 
-export const SplitContentPanelSection = ({ id, title, subtitle, leftContent, rightContent, variant = 'half' }: SplitContentSectionProps) => {
+export const SplitContentPanelSection = ({ id, title, subtitle, thumbnail, leftContent, rightContent, variant = 'half' }: SplitContentSectionProps) => {
 	if (!leftContent || !rightContent) throw new Error("Both leftContent and rightContent props are required.")
 
 	const variantClasses: SplitContentVariantClasses = {
@@ -35,7 +36,7 @@ export const SplitContentPanelSection = ({ id, title, subtitle, leftContent, rig
 	return (
 		<Section id={id}>
 			{title && (
-				<SectionHeading title={title} subtitle={subtitle} />
+				<SectionHeading title={title} subtitle={subtitle} thumbnail={thumbnail} />
 			)}
 			<Panel>
 				<div className="flex flex-col md:flex-row gap-5">
@@ -55,6 +56,7 @@ type SplitContentSectionProps = {
 	id: string
 	title?: string
 	subtitle?: string
+	thumbnail: ImageModel
 	leftContent: React.ReactNode
 	rightContent: React.ReactNode
 	variant: SplitContentVariant

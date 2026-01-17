@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import { ContactButton } from "@/components/newton/contact/ContactButton";
+import { ButtonLink } from "../ui/ButtonLink";
+import { SiteLogoMark } from "@/components/newton/site/SiteLogoMark";
 
 export function SiteNavbar() {
 
@@ -23,38 +25,39 @@ export function SiteNavbar() {
 
 	return (
 		<>
-			<nav className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between transition-all duration-300 no-underline!">
+			<nav className="sm:bg-red-500 md:bg-green-500 lg:bg-blue-500 xl:bg-yellow-500 max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center md:justify-between transition-all duration-300 no-underline! text-gray-800">
 
 				{/* ---------- Logo ---------- */}
 				<Link
 					href="/"
-					className="text-2xl"
+					className="flex grow-1 items-center text-2xl"
 				>
-					Alden Gillespy
+					<SiteLogoMark />
+					<span className="site-logo-text">Alden Gillespy</span>
 				</Link>
 
 				{/* ---------- Desktop Nav ---------- */}
 				<div className="hidden md:flex items-center gap-8">
 
 					<NavLink id="hero" href="/">Home</NavLink>
-					<NavLink id="work" href="/work">Work</NavLink>
 					<NavLink id="about" href="/about">About</NavLink>
 					<NavLink id="blog" href="/blog">Blog</NavLink>
 					<NavLink id="contact" href="/resume">Resume</NavLink>
-					
-					<ContactButton
+
+					<ButtonLink
 						variant="primary"
 						size="xl"
+						href="mailto:contact@aldengillespy.com"
 					>
-						Contact
-					</ContactButton>
+							Contact
+					</ButtonLink>
 
 				</div>
 
 				{/* ---------- Mobile Menu Toggle ---------- */}
 				<button
 					onClick={() => setMobileOpen((v) => !v)}
-					className="md:hidden text-text dark:text-dark-text focus:outline-none"
+					className="md:hidden focus:outline-none"
 				>
 					<div className="space-y-1.5">
 						<span
@@ -83,17 +86,14 @@ export function SiteNavbar() {
 			<div
 				ref={mobileMenuRef}
 				className={clsx(
-					"md:hidden fixed top-20 left-0 w-full bg-surface dark:bg-dark-surface border-t border-border dark:border-dark-border shadow-lg transition-all duration-300 bg-bg-alt z-50",
+					"md:hidden fixed top-20 left-0 w-full bg-gray-50 dark:bg-gray-950 shadow-lg transition-all duration-300 z-50",
 					mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
 				)}
 			>
-				<div className="flex flex-col py-6 px-6 text-text dark:text-dark-text gap-6">
+				<div className="flex flex-col p-6 gap-6">
 
 					<MobileNavLink id="hero" href="/" onClick={() => setMobileOpen(false)}>
 						Home
-					</MobileNavLink>
-					<MobileNavLink id="work" href="/work" onClick={() => setMobileOpen(false)}>
-						Work
 					</MobileNavLink>
 					<MobileNavLink id="contact" href="/about" onClick={() => setMobileOpen(false)}>
 						About
@@ -105,12 +105,15 @@ export function SiteNavbar() {
 						Resume
 					</MobileNavLink>
 
-					<ContactButton
+					<ButtonLink
 						variant="primary"
-						className="mt-2"
+						size="lg"
+						className="mt-2 text-center"
+						href="mailto:contact@aldengillespy.com"
 					>
-						Contact
-					</ContactButton>
+							Contact
+					</ButtonLink>
+
 				</div>
 			</div>
 		</>

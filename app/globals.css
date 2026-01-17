@@ -10,7 +10,7 @@
 }
 
 @theme inline {
-  --color-accent: var(--color-blue-400);
+  --color-accent: var(--color-blue-600);
 }
 
 .cardlink .card-title::after {
