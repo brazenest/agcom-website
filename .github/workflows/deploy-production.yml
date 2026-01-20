@@ -26,7 +26,9 @@ jobs:
           echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
           echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Run remote commands
-        working-directory: ./scripts
         run: |
-          ssh myserver 'bash -s' < "./deploy_production_script.sh"
+          ssh myserver 'bash -s' < "./scripts/deploy_production_script.sh"
