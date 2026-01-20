@@ -28,4 +28,4 @@ jobs:
 
       - name: Run remote commands
         run: |
-          ssh myserver 'bash -s' < "${{ github.workflow_ref }}/deploy_production_script.sh"
+          ssh myserver 'bash -s' < "${{ github.workflow_ref }}/scripts/deploy_production_script.sh"
