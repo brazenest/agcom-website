@@ -27,5 +27,6 @@ jobs:
           echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Run remote commands
+        working-directory: ./scripts
         run: |
-          ssh myserver 'bash -s' < "${{ github.action_path }}/scripts/deploy_production_script.sh"
+          ssh myserver 'bash -s' < "./deploy_production_script.sh"
