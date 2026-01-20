@@ -1,4 +1,4 @@
-cd ~/webapps/agcom-website/branches/production
+cd ~/webapps/agcom-website/deployments/production
 git pull origin main
 npm ci
 npm run build
