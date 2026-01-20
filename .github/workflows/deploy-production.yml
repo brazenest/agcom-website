@@ -1,0 +1,48 @@
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-slim
+
+    if: github.ref == 'refs/heads/master'
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test
+
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -avzr --delete
+          path: ./*
+          remote_path: "${{ secrets.EC2_SERVER_PATH }}"
+          remote_host: "${{ secrets.EC2_SERVER_HOST }}"
+          remote_user: "${{ secrets.EC2_SERVER_USER }}}"
+          remote_key: "${{ secrets.EC2_SERVER_KEY }}"
+      
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.EC2_SERVER_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "Host myserver " >> ~/.ssh/config
+          echo "  HostName ${{ secrets.EC2_SERVER_HOST }}" >> ~/.ssh/config
+          echo "  User ${{ secrets.EC2_SERVER_USER }}" >> ~/.ssh/config
+          echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+
+      - name: Run remote commands
+        run: |
+          ssh myserver 'bash -s' < ./deploy_production_script.sh
