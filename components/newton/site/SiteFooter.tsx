@@ -19,14 +19,14 @@ export const SiteFooter = ({ links }) => (
 
 				<SiteFooterSocialIconsBar />
 
-<div className="colophon text-center">
+				<div className="colophon text-center">
 					<p className="text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
 						© {new Date().getFullYear()} Alden Gillespy. All rights reserved.
 					</p>
 					<p className="text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
 						version {process.env.NEXT_PUBLIC_SITE_VERSION}
 					</p>
-	</div>
+				</div>
 
 			</div>
 

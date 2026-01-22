@@ -1,9 +1,9 @@
 import { BlogLatestPosts } from "@/components/newton/BlogLatestPosts"
+import { ContactCTASection } from "@/components/newton/contact/ContactCTASection"
 import { BlogBody } from "@/components/newton/layout/BlogBody"
 import { Page } from "@/components/newton/layout/Page"
 import { Panel } from "@/components/newton/layout/Panel"
 import { TagBar } from "@/components/newton/layout/TagBar"
-import { ButtonLink } from "@/components/newton/ui/ButtonLink"
 import { formatBlogPostDate } from "@/functions/formatBlogPostDate"
 import { getBlogPostsFromDB } from "@/functions/getBlogPostsFromDB"
 import { notFound } from "next/navigation"
@@ -24,13 +24,13 @@ export default async function BlogPostsSinglePage({
 			<article id={`blog-post--${post.id}`} className="px-5 md:px-9.25 lg:px-8">
 
 				{/* Post header */}
-				<header className="blog-post-header mb-9.5 pb-3 pt-10.25 w-full">
+				<header className="blog-post-header pb-3 pt-8.75 w-full border-b border-blue-300">
 					<div className="max-w-5xl mx-auto">
 						<hgroup>
-							<h1 className="blog-post--title mb-7.5 mt-3.5 text-5xl md:max-w-4xl text-center mx-auto leading-13.75 font-heading font-semibold">
+							<h1 className="blog-post--title mb-7.75 mt-3.5 text-4xl md:max-w-4xl text-center mx-auto leading-10.25 lg:leading-13.75 font-heading font-medium lg:font-semibold">
 								{post.title}
 							</h1>
-							<p className="blog-post--dek text-xl leading-6.5 md:max-w-2xl mx-auto text-center my-1.75 text-gray-700 dark:text-gray-300">
+							<p className="blog-post--dek text-lg leading-7.25 md:max-w-2xl mx-auto text-center my-1.75 text-gray-700 dark:text-gray-300">
 								{post.dek}
 							</p>
 						</hgroup>
@@ -38,7 +38,7 @@ export default async function BlogPostsSinglePage({
 				</header>
 
 				{/* Post body */}
-				<BlogBody className="my-8.75">
+				<BlogBody className="my-10 px-0.25">
 					{post.body}
 				</BlogBody>
 
@@ -78,6 +78,15 @@ export default async function BlogPostsSinglePage({
 			</article>
 
 			<BlogLatestPosts />
+
+			<ContactCTASection
+				id="blog-post--contact-cta"
+				heading="Ready to begin a journey together?"
+				text="Reach out to me today to let me know how I can assist you with your projects. I am ready to help accomplish your goals regardless which phase of development your team is in."
+				actions={[
+					{ text: "View resume", href: "/assets/files/Resume_2026-01.pdf", variant: "secondary" },
+				]}
+			/>
 
 		</Page>
 	)

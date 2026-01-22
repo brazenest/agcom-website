@@ -2,7 +2,6 @@ import NextImage from 'next/image'
 import { Page } from "@/components/newton/layout/Page"
 import { Card } from '@/components/newton/ui/Card'
 import { Section } from '@/components/newton/layout/Section'
-import { ActionModel } from '@/types/ui'
 import { HeroSection } from '@/components/newton/HeroSection'
 import { Panel } from '@/components/newton/layout/Panel'
 import { SectionHeading } from '@/components/newton/layout/SectionHeading'
@@ -126,7 +125,7 @@ export default function AboutMePage() {
 
 			<ContactCTASection
 				id="about-me--closing-cta"
-				heading="Have a role or project where this combination is useful?"
+				heading="Have a role or project where I can help?"
 				text="Whether you need someone deep in the code, helping shape the interface, or working on visuals that explain it, I’m open to full-time roles and select freelance work where the mix of engineering and cinematic storytelling truly matters."
 				actions={[
 					{

@@ -61,7 +61,7 @@ const footerLinks: LinkModel[] = [
 		content: 'Blog',
 	},
 	{
-		href: 'mailto:contact@aldengillespy.com',
+		href: 'mailto:contact@aldengillespy.com?subject=Reaching out from your site',
 		content: 'Contact',
 	}
 ]
