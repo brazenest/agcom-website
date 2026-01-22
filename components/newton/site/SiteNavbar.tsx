@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
-import { ContactButton } from "@/components/newton/contact/ContactButton";
 import { ButtonLink } from "../ui/ButtonLink";
 import { SiteLogoMark } from "@/components/newton/site/SiteLogoMark";
 

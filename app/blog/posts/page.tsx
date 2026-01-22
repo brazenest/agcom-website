@@ -1,7 +1,9 @@
+import { ContactCTASection } from "@/components/newton/contact/ContactCTASection"
 import { HeroSection } from "@/components/newton/HeroSection"
 import { CardLink } from "@/components/newton/layout/CardLink"
 import { Page } from "@/components/newton/layout/Page"
 import { Panel } from "@/components/newton/layout/Panel"
+import { Section } from "@/components/newton/layout/Section"
 import { getBlogPostsFromDB } from "@/functions/getBlogPostsFromDB"
 
 export default async function BlogPostsIndexPage() {
@@ -14,9 +16,11 @@ export default async function BlogPostsIndexPage() {
 			<HeroSection
 				title="My Blog Posts"
 				subtitle="Insights on software engineering, design systems, and the intersection of code and creativity."
+				className="bg-blue-700 text-gray-200"
+				subtitleClassName="text-gray-300"
 			/>
 
-			<div className="max-w-7xl mx-auto">
+			<Section id="blog-posts-index-section" className="py-12 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 border-b border-blue-100 dark:border-blue-900/50">
 				<Panel id="blog-posts-list-panel">
 					<ol id="blog-posts-list" className="md:columns-2 space-y-6">
 						{posts.map((post, i) => (
@@ -33,9 +37,17 @@ export default async function BlogPostsIndexPage() {
 						))}
 					</ol>
 				</Panel>
-			</div>
+			</Section>
 
-
+			<ContactCTASection
+				id="blog-post--contact-cta"
+				heading="Ready to begin a journey together?"
+				text="Reach out to me today to let me know how I can assist you with your projects. I am ready to help accomplish your goals regardless which phase of development your team is in."
+				actions={[
+					{ text: "View resume", href: "/assets/files/Resume_2026-01.pdf", variant: "secondary" },
+				]}
+			/>
+			
 		</Page>
 	)
 }

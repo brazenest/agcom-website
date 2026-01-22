@@ -17,7 +17,7 @@ export default async function HomePage() {
 		{
 			variant: 'primary',
 			text: 'Contact Me',
-			href: 'mailto:contact@aldengillespy.com',
+			href: 'mailto:contact@aldengillespy.com?subject=Just visited your home page',
 		},
 		{
 			variant: 'secondary',

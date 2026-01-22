@@ -14,7 +14,7 @@ export const ContactCTASection = ({
 		{
 			variant: 'primary',
 			text: 'Contact Me',
-			href: 'mailto:contact@aldengillespy.com',
+			href: 'mailto:contact@aldengillespy.com?subject=Reaching out to you from your site',
 		},
 		...actions,
 	]

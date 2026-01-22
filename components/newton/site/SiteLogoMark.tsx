@@ -58,17 +58,6 @@ export const SiteLogoMark = ({ size = 32 }: { size?: number }) => (
 		>
       Alden Gillespy
 		</text>
-		{/* <text
-      x="70"
-      y="28"
-      fontFamily="Space Grotesk, sans-serif"
-        fontWeight="400"
-        fontSize="7"
-        fill="var(--color-text)"
-        letterSpacing="0.02em"
-      >
-        @brazenest / @agthecreative
-      </text> */}
 	</motion.svg>
 )
 
