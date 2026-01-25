@@ -6,7 +6,7 @@ handle_error() {
 cd ~/webapps/agcom-website/deployments/production
 git pull origin main
 trap 'handle_error "Failed to pull from origin"' ERR
-npm ci
-npm run build
-npm run test
+yarn install --frozen-lockfile
+yarn build
+yarn test
 pm2 restart agcom-website-production
