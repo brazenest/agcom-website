@@ -1,5 +1,5 @@
-handle_error(msg) {
-  echo "A fatal error occurred: $msg"
+handle_error() {
+  echo "A fatal error occurred: $1"
   exit 1
 }
 
