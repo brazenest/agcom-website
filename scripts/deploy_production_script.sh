@@ -1,12 +1,16 @@
 handle_error() {
-  echo "A fatal error occurred: $1"
+  echo "$1. Terminating script..."
   exit 1
 }
 
 cd ~/webapps/agcom-website/deployments/production
-git pull origin main
 trap 'handle_error "Failed to pull from origin"' ERR
-yarn install --frozen-lockfile
+git pull origin main
+trap 'handle_error "Failed to install dependencies"' ERR
+yarn install
+trap 'handle_error "Failed to build project"' ERR
 yarn build
+trap 'handle_error "Failed to run tests"' ERR
 yarn test
+trap 'handle_error "Failed to restart production server"' ERR
 pm2 restart agcom-website-production
