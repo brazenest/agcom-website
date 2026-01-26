@@ -11,6 +11,7 @@ if ! [ -f "package.json" ]; then
   rm -rf *
   git clone github:brazenest/agcom-website.git
   mv agcom-website/* .
+  mv agcom-website/.* .
   rmdir agcom-website
 fi
 
