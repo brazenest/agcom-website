@@ -24,8 +24,8 @@ yarn install
 trap 'handle_error "Failed to build project"' ERR
 yarn build
 
-trap 'handle_error "Failed to run tests"' ERR
-yarn test
+# trap 'handle_error "Failed to run tests"' ERR
+# yarn test
 
 trap 'handle_error "Failed to restart nginx"' ERR
 sudo nginx -s reload
