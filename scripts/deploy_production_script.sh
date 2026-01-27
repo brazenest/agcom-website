@@ -3,20 +3,29 @@ handle_error() {
   exit 1
 }
 
-cd ~/webapps/agcom-website/deployments/production
+BASE_PATH="~/webapps/agcom-website"
+
+cd $BASE_PATH/deployments/production
+
+# Delete all existing files except .env.*
+rm -rf *
+mv .env.* ..
 
 # Clone repository if that hasn't been done yet.
+
 trap 'handle_error "Failed to clone repository"' ERR
-if ! [ -f "package.json" ]; then
-  rm -rf *
-  git clone github:brazenest/agcom-website.git
-  mv agcom-website/* .
-  mv agcom-website/.* .
-  rmdir agcom-website
-fi
+rm -rf *
+git clone github:brazenest/agcom-website.git
+mv $BASE_PATH/* .
+mv $BASE_PATH/.* .
+rmdir $BASE_PATH
+
+mv ../.env.* .
 
 trap 'handle_error "Failed to pull from origin"' ERR
 git pull origin main
+
+# Prepare app for launch
 
 trap 'handle_error "Failed to install dependencies"' ERR
 yarn install
@@ -31,6 +40,14 @@ trap 'handle_error "Failed to restart nginx"' ERR
 sudo nginx -s reload
 
 trap 'handle_error "Failed to restart production server"' ERR
-pm2 restart agcom-website-production
+pm2_status='pm2 describe agcom-website-production'
 
-echo "Successfully deployed production version of agcom-website."
+if {
+  [ -z "$pm2_status" ] || [[ $pm2_status == *"agcom-webite-production doesn't exist"* ]]; 
+} then {
+  pm2 start npm --name "agcom-website-production" -- run start
+} else {
+  pm2 restart agcom-website-production
+}
+
+echo "Successfully deployed production build of agcom-website."
