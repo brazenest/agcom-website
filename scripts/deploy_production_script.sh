@@ -34,7 +34,8 @@ rm -rf .*     # All remaining dot directories and files
 
 
 # Clone repository if that hasn't been done yet.
-
+echo "node version: $(node --version)"
+echo "npm version: $(npm --version)"
 trap 'handle_error "Failed to clone repository"' ERR
 git clone github:brazenest/agcom-website.git
 mv $GIT_PULL_PATH/* .
