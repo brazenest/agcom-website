@@ -15,7 +15,7 @@ cd "$APP_PROD_PATH"
 # trap 'handle_error "Failed to obtain app status (i.e. whether it exists)"' ERR
 # pm2_status="$(pm2 describe $APP_PROD_DEPLOYMENT_NAME)"
 # echo "pm2 status: $pm2_status"
-
+#
 # If app is running, then stop its pm2 process.
 # if {
 #   ! [[ $pm2_status == *"$APP_PROD_DEPLOYMENT_NAME doesn't exist"* ]]; 
