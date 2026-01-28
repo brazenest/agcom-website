@@ -9,8 +9,10 @@ BASE_PATH="~/a/$APP_NAME"
 APP_PROD_PATH="$BASE_PATH/deployments/production"
 GIT_PULL_PATH="$APP_PROD_PATH/$APP_NAME"
 
-cd $APP_PROD_PATH
+trap 'handle_error "Failed to switch to production path"' ERR
+cd ~/a/agcom-website/deployments/production
 
+trap 'handle_error "Failed to obtain app status (i.e. whether it exists)"' ERR
 pm2_status="$(pm2 describe $APP_PROD_DEPLOYMENT_NAME)"
 
 # If app is running, then stop its pm2 process.
@@ -62,3 +64,4 @@ trap 'handle_error "Failed to restart production server"' ERR
 pm2 start npm --name "$APP_PROD_DEPLOYMENT_NAME" -- run start
 
 echo "Successfully deployed production build of $APP_NAME.\n\n"
+exit 0
