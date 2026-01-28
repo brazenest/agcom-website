@@ -12,19 +12,19 @@ GIT_PULL_PATH="$APP_PROD_PATH/$APP_NAME"
 trap 'handle_error "Failed to switch to production path"' ERR
 cd "$APP_PROD_PATH"
 
-trap 'handle_error "Failed to obtain app status (i.e. whether it exists)"' ERR
-pm2_status="$(pm2 describe $APP_PROD_DEPLOYMENT_NAME)"
-echo "pm2 status: $pm2_status"
+# trap 'handle_error "Failed to obtain app status (i.e. whether it exists)"' ERR
+# pm2_status="$(pm2 describe $APP_PROD_DEPLOYMENT_NAME)"
+# echo "pm2 status: $pm2_status"
 
 # If app is running, then stop its pm2 process.
-if {
-  ! [[ $pm2_status == *"$APP_PROD_DEPLOYMENT_NAME doesn't exist"* ]]; 
-} then {
+# if {
+#   ! [[ $pm2_status == *"$APP_PROD_DEPLOYMENT_NAME doesn't exist"* ]]; 
+# } then {
   trap 'handle_error "Failed to stop and delete old pm2 process"' ERR
   pm2 stop $APP_PROD_DEPLOYMENT_NAME
   pm2 delete $APP_PROD_DEPLOYMENT_NAME
-}
-fi
+# }
+# fi
 
 # Delete all existing files except .env.*
 trap 'handle_error "Failed to clear deployment directory"' ERR
