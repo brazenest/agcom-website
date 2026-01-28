@@ -63,7 +63,7 @@ yarn build
 # yarn test
 
 trap 'handle_error "Failed to restart nginx"' ERR
-sudo nginx -s reload
+sudo nginx -s restart
 
 trap 'handle_error "Failed to restart production server"' ERR
 pm2 start npm --name "$APP_PROD_DEPLOYMENT_NAME" -- run start
