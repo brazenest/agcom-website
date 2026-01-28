@@ -3,27 +3,46 @@ handle_error() {
   exit 1
 }
 
-BASE_PATH="~/webapps/agcom-website"
+APP_NAME="agcom-website"
+APP_PROD_DEPLOYMENT_NAME="$APP_NAME-production"
+BASE_PATH="~/a/$APP_NAME"
+APP_PROD_PATH="$BASE_PATH/deployments/production"
+GIT_PULL_PATH="$APP_PROD_PATH/$APP_NAME"
 
-cd $BASE_PATH/deployments/production
+cd $APP_PROD_PATH
+
+pm2_status="$(pm2 describe $APP_PROD_DEPLOYMENT_NAME)"
+
+# If app is running, then stop its pm2 process.
+if {
+  ! [[ $pm2_status == *"$APP_PROD_DEPLOYMENT_NAME doesn't exist"* ]]; 
+} then {
+  pm2 stop $APP_PROD_DEPLOYMENT_NAME
+  pm2 delete $APP_PROD_DEPLOYMENT_NAME
+}
 
 # Delete all existing files except .env.*
-rm -rf *
+rm -rf *      # All remaining non-dot directories and files
 mv .env.* ..
+rm -rf .*     # All remaining dot directories and files
+
 
 # Clone repository if that hasn't been done yet.
 
 trap 'handle_error "Failed to clone repository"' ERR
-rm -rf *
 git clone github:brazenest/agcom-website.git
-mv $BASE_PATH/* .
-mv $BASE_PATH/.* .
-rmdir $BASE_PATH
+mv $GIT_PULL_PATH/* .
+mv $GIT_PULL_PATH/.* .
+rmdir $GIT_PULL_PATH
 
 mv ../.env.* .
 
-trap 'handle_error "Failed to pull from origin"' ERR
-git pull origin main
+
+# Pull latest changes from main branch
+
+#trap 'handle_error "Failed to pull from origin"' ERR
+#git pull origin main
+
 
 # Prepare app for launch
 
@@ -40,14 +59,6 @@ trap 'handle_error "Failed to restart nginx"' ERR
 sudo nginx -s reload
 
 trap 'handle_error "Failed to restart production server"' ERR
-pm2_status='pm2 describe agcom-website-production'
+pm2 start npm --name "$APP_PROD_DEPLOYMENT_NAME" -- run start
 
-if {
-  [ -z "$pm2_status" ] || [[ $pm2_status == *"agcom-webite-production doesn't exist"* ]]; 
-} then {
-  pm2 start npm --name "agcom-website-production" -- run start
-} else {
-  pm2 restart agcom-website-production
-}
-
-echo "Successfully deployed production build of agcom-website."
+echo "Successfully deployed production build of $APP_NAME.\n\n"
