@@ -5,7 +5,7 @@ handle_error() {
 
 APP_NAME="agcom-website"
 APP_PROD_DEPLOYMENT_NAME="$APP_NAME-production"
-BASE_PATH="~/a/$APP_NAME"
+BASE_PATH="/home/ec2-user/a/$APP_NAME"
 APP_PROD_PATH="$BASE_PATH/deployments/production"
 GIT_PULL_PATH="$APP_PROD_PATH/$APP_NAME"
 
