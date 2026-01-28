@@ -10,7 +10,7 @@ APP_PROD_PATH="$BASE_PATH/deployments/production"
 GIT_PULL_PATH="$APP_PROD_PATH/$APP_NAME"
 
 trap 'handle_error "Failed to switch to production path"' ERR
-cd /home/ec2-user/a/agcom-website/deployments/production
+cd "$APP_PROD_PATH"
 
 trap 'handle_error "Failed to obtain app status (i.e. whether it exists)"' ERR
 pm2_status="$(pm2 describe $APP_PROD_DEPLOYMENT_NAME)"
@@ -19,11 +19,14 @@ pm2_status="$(pm2 describe $APP_PROD_DEPLOYMENT_NAME)"
 if {
   ! [[ $pm2_status == *"$APP_PROD_DEPLOYMENT_NAME doesn't exist"* ]]; 
 } then {
+  trap 'handle_error "Failed to stop and delete old pm2 process"' ERR
   pm2 stop $APP_PROD_DEPLOYMENT_NAME
   pm2 delete $APP_PROD_DEPLOYMENT_NAME
 }
+fi
 
 # Delete all existing files except .env.*
+trap 'handle_error "Failed to clear deployment directory"' ERR
 rm -rf *      # All remaining non-dot directories and files
 mv .env.* ..
 rm -rf .*     # All remaining dot directories and files
