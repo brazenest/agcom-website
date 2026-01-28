@@ -10,7 +10,7 @@ APP_PROD_PATH="$BASE_PATH/deployments/production"
 GIT_PULL_PATH="$APP_PROD_PATH/$APP_NAME"
 
 trap 'handle_error "Failed to switch to production path"' ERR
-cd ~/a/agcom-website/deployments/production
+cd /home/ec2-user/a/agcom-website/deployments/production
 
 trap 'handle_error "Failed to obtain app status (i.e. whether it exists)"' ERR
 pm2_status="$(pm2 describe $APP_PROD_DEPLOYMENT_NAME)"
