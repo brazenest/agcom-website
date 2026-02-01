@@ -1,10 +1,6 @@
-/**
-queryApi.ts
-*/
-
 import 'dotenv/config'
-import { ApiQueryParam } from "@/types/api";
-import { createApiUrl } from "./createApiUrl";
+import { ApiQueryParam } from '@/types/api'
+import { createApiUrl } from './createApiUrl'
 
 export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {} }: queryApiParamsT) => {
 
@@ -16,7 +12,7 @@ export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {
 	switch (method) {
 	case 'GET':
 		fetchParams = {}
-		break;
+		break
 
 	case 'POST':
 		fetchParams = {
@@ -26,13 +22,13 @@ export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {
 			},
 			body: JSON.stringify(data),
 		}
-		break;
+		break
 
 	default:
 		return {
 			ok: false,
 			message: `queryApi(): Invalid HTTP method: ${method}`,
-		};
+		}
 	}
 
 	const apiResponse = await fetch(requestUrl, fetchParams)
@@ -42,8 +38,8 @@ export const queryApi = async ({ endpoint, params = [], method = 'GET', data = {
 }
 
 type queryApiParamsT = {
-    endpoint: string;
-    params?: ApiQueryParam[];
-    method?: 'GET' | 'POST';
-    data?: any;
+  endpoint: string
+  params?: ApiQueryParam[]
+  method?: 'GET' | 'POST'
+  data?: any
 }

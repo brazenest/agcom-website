@@ -1,11 +1,11 @@
 'use client'
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import Select from 'react-select'
-import { calculateReadtime } from '@/functions/calculateReadtime';
-import { DateSelector } from '@/components/admin/DateSelector';
-import { queryApi } from '@/functions/queryApi';
-import { SelectDropdownOption } from '@/types/ui';
+import { calculateReadtime } from '@/functions/calculateReadtime'
+import { DateSelector } from '@/components/admin/DateSelector'
+import { queryApi } from '@/functions/queryApi'
+import { SelectDropdownOption } from '@/types/ui'
 
 const ContentEditor = dynamic(() => import('@/components/admin/ContentEditor'), {
 	ssr: false,
@@ -19,7 +19,6 @@ export default function BlogAdminAddArticlePage() {
 	const [articleExcerpt, setArticleExcerpt] = useState('')
 	const [articleDate, setArticleDate] = useState(new Date())
 	const [articleBody, setArticleBody] = useState('')
-
 
 	const handleChangeArticleTitle = (ev) => {
 		if (articleSlugIsVirgin) {
@@ -76,8 +75,8 @@ export default function BlogAdminAddArticlePage() {
 		{ value: 'engineering', label: 'Engineering' },
 		{ value: 'cinematic', label: 'Cinematic' },
 		{ value: 'process', label: 'Process' },
-		{ value: 'other' , label: 'Other' },
-	];
+		{ value: 'other', label: 'Other' },
+	]
 
 	return (
 		<div className="max-w-4xl mx-auto">
@@ -147,7 +146,7 @@ export default function BlogAdminAddArticlePage() {
 				<button
 					type="submit"
 					onClick={handleClickSubmit}>
-            Submit article
+          Submit article
 				</button>
 			</form>
 
@@ -156,5 +155,5 @@ export default function BlogAdminAddArticlePage() {
 				<li>For an initial article, as you type into the title field, the slug field will automatically generate an acceptable slug for your article. The autogeneration will cease permanently upon your placing focus on the slug field.</li>
 			</ul>
 		</div>
-	);
+	)
 }

@@ -2,11 +2,11 @@ import type { Metadata } from "next"
 import 'dotenv/config'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Space_Grotesk, Inter } from "next/font/google"
-import "@/styles/theme.css"
-import { SiteHeader } from "@/components/site/SiteHeader"
-import { SiteFooter } from "@/components/site/SiteFooter"
-import { LinkT } from "@/types/link"
-import ContactModal from "@/components/zones/contact/ContactModal"
+import "@/app/globals.css"
+import { SiteHeader } from "@/components/newton/site/SiteHeader"
+import { SiteFooter } from "@/components/newton/site/SiteFooter"
+import { LinkModel } from "@/types/ui"
+import ContactModal from "@/components/newton/contact/ContactModal"
 
 const fontTech = Inter({
 	variable: '--font-tech',
@@ -47,25 +47,21 @@ export const metadata: Metadata = {
 	},
 }
 
-const footerLinks: LinkT[] = [
+const footerLinks: LinkModel[] = [
 	{
 		href: '/',
 		content: 'Home',
 	},
 	{
-		href: '/#work',
-		content: 'Work',
+		href: '/about',
+		content: 'About Me',
 	},
 	{
 		href: '/blog',
 		content: 'Blog',
 	},
 	{
-		href: '/about',
-		content: 'About',
-	},
-	{
-		href: 'mailto:ag@aldengillespy.com',
+		href: 'mailto:contact@aldengillespy.com?subject=Reaching out from your site',
 		content: 'Contact',
 	}
 ]
@@ -79,11 +75,11 @@ export default function RootLayout({
 		<html id="root" lang="en" suppressHydrationWarning>
 			<body
 				id="site"
-				className={`${fontTech.variable} ${fontCinema.variable} bg-page text-body transition-colors duration-300 ease-in-out`}
+				className={`${fontTech.variable} ${fontCinema.variable} bg-white dark:bg-black text-gray-900 dark:text-gray-100 font-body transition-colors duration-300 ease-in-out`}
 			>
 				<SiteHeader />
 
-				<div id="site-content-wrap" className="min-h-screen mt-20">
+				<div id="page-wrap" className="min-h-screen mt-20">
 					{children}
 				</div>
 

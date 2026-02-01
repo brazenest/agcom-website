@@ -1,8 +1,8 @@
-import rehypeSanitize from "rehype-sanitize"
-import dynamic from "next/dynamic";
-import "@uiw/react-md-editor/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
-import { ArticleBodyT } from "@/types/blog";
+import rehypeSanitize from 'rehype-sanitize'
+import dynamic from 'next/dynamic'
+import '@uiw/react-md-editor/markdown-editor.css'
+import '@uiw/react-markdown-preview/markdown.css'
+import { BlogPostBodyModel } from '@/types/blog'
 
 const MDEditor = dynamic(
 	() => import("@uiw/react-md-editor"),
@@ -26,6 +26,6 @@ export default function ContentEditor({ content, handleChange }: ContentEditorPr
 }
 
 type ContentEditorProps = {
-    content: ArticleBodyT,
-    handleChange: (value) => void,
+  content: BlogPostBodyModel,
+  handleChange: (value) => void,
 }

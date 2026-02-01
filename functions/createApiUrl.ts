@@ -1,5 +1,5 @@
-import { ApiQueryParam } from "@/types/api";
-import { createUrl } from "./createUrl";
+import { ApiQueryParam } from '@/types/api'
+import { createUrl } from './createUrl'
 
 export const createApiUrl = ({ baseUrl, endpoint, params = [] }: createApiUrlParamsT) => (
 	createUrl({
@@ -9,7 +9,7 @@ export const createApiUrl = ({ baseUrl, endpoint, params = [] }: createApiUrlPar
 )
 
 type createApiUrlParamsT = {
-    baseUrl: string,
-    endpoint: string,
-    params: ApiQueryParam[],
+  baseUrl: string,
+  endpoint: string,
+  params: ApiQueryParam[],
 }

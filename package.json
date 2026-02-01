@@ -1,6 +1,6 @@
 {
   "name": "@agcom/website",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -17,10 +17,14 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/postcss": "^4.1.17",
     "@tinymce/tinymce-react": "^6.3.0",
+    "@types/pg": "^8.16.0",
     "@uiw/react-md-editor": "^4.0.11",
+    "aws-sdk": "^2.1692.0",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.29.2",
-    "mysql2": "^3.16.2",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.546.0",
+    "net": "^1.0.2",
     "next": "latest",
     "next-mdx-remote": "^5.0.0",
     "next-remove-imports": "^1.0.12",
@@ -28,6 +32,7 @@
     "node-html-parser": "^7.0.1",
     "nodemailer": "^7.0.7",
     "nodemailer-ses-transport": "^1.5.1",
+    "pg": "^8.16.3",
     "react": "19.1.0",
     "react-datepicker": "^8.8.0",
     "react-dom": "19.1.0",
@@ -48,11 +53,15 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+<<<<<<< HEAD
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.7.1",
+=======
+    "@tailwindcss/typography": "^0.5.19",
+>>>>>>> release/2.0.0
     "@types/nodemailer": "^7.0.2",
     "@types/nodemailer-ses-transport": "^1.5.5",
     "@types/react": "^19",

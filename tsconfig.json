@@ -41,7 +41,13 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -49,6 +55,7 @@
     "**/*.tsx",
     "types.d.ts",
     ".next/types/**/*.ts",
+    "postcss.config.mjs",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
