@@ -1,4 +1,3 @@
-import { RowDataPacket } from 'mysql2/promise'
 import { BlogPostModel } from './blog'
 
 export type DbClause = {
@@ -21,4 +20,4 @@ export type DbQueryStatement = string
 export type DbQueryValue = string
 export type DbQueryValues = DbQueryValue[]
 
-export type DbBlogPost = RowDataPacket & BlogPostModel
+export type DbBlogPost = BlogPostModel

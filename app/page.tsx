@@ -1,7 +1,6 @@
 import NextImage from 'next/image'
 import { Page } from '@/components/newton/layout/Page'
 import { Card } from '@/components/newton/ui/Card'
-import { CardLink } from '@/components/newton/layout/CardLink'
 import { Panel } from '@/components/newton/layout/Panel'
 import { Section } from '@/components/newton/layout/Section'
 import { ActionModel } from '@/types/ui'
@@ -19,14 +18,6 @@ export default async function HomePage() {
 			text: 'Contact Me',
 			href: 'mailto:contact@aldengillespy.com?subject=Just visited your home page',
 		},
-		{
-			variant: 'secondary',
-			text: 'Learn About Me',
-			href: '/about',
-		},
-	]
-
-	const interstitialCtaActions: ActionModel[] = [
 		{
 			variant: 'secondary',
 			text: 'Learn About Me',
