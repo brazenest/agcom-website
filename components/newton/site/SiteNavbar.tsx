@@ -41,7 +41,7 @@ export function SiteNavbar() {
 					<NavLink id="hero" href="/">Home</NavLink>
 					<NavLink id="about" href="/about">About</NavLink>
 					<NavLink id="blog" href="/blog">Blog</NavLink>
-					<NavLink id="contact" href="/resume">Resume</NavLink>
+					<NavLink id="contact" href="/resume" linkTarget="_blank"f>Resume</NavLink>
 
 					<ButtonLink
 						variant="primary"
@@ -122,6 +122,7 @@ export function SiteNavbar() {
 /* ---------- Desktop Nav Link ---------- */
 function NavLink({
 	href,
+	linkTarget,
 	children,
 }: {
   href: string;
@@ -132,6 +133,7 @@ function NavLink({
 	return (
 		<Link
 			href={href}
+			target={linkTarget}
 			className={clsx(
 				"relative group transition-all duration-300 text-text dark:text-dark-text",
 			)}
