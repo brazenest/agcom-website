@@ -20,9 +20,6 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "types": [
-      "@testing-library/jest-dom"
-    ],
     "paths": {
       "@/components/*": [
         "components/*"
@@ -41,13 +38,7 @@
       {
         "name": "next"
       }
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "*"
-      ]
-    }
+    ]
   },
   "include": [
     "next-env.d.ts",
