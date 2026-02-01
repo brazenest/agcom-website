@@ -1,1 +1,0 @@
-export type ContentCategoryEnumT = "engineering" | "cinematic" | "hybrid"

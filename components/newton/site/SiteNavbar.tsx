@@ -41,7 +41,7 @@ export function SiteNavbar() {
 					<NavLink id="hero" href="/">Home</NavLink>
 					<NavLink id="about" href="/about">About</NavLink>
 					<NavLink id="blog" href="/blog">Blog</NavLink>
-					<NavLink id="contact" href="/resume" linkTarget="_blank"f>Resume</NavLink>
+					<NavLink id="contact" href="/resume" linkTarget="_blank">Resume</NavLink>
 
 					<ButtonLink
 						variant="primary"
@@ -100,7 +100,7 @@ export function SiteNavbar() {
 					<MobileNavLink id="blog" href="/blog" onClick={() => setMobileOpen(false)}>
 						Blog
 					</MobileNavLink>
-					<MobileNavLink id="blog" href="/resume" onClick={() => setMobileOpen(false)}>
+					<MobileNavLink id="blog" href="/resume" linkTarget="_blank" onClick={() => setMobileOpen(false)}>
 						Resume
 					</MobileNavLink>
 
@@ -126,6 +126,7 @@ function NavLink({
 	children,
 }: {
   href: string;
+	linkTarget?: string;
   children: React.ReactNode;
   id: string; // required for section-based highlighting
 }) {
@@ -150,12 +151,13 @@ function NavLink({
 }
 
 /* ---------- Mobile Nav Link ---------- */
-function MobileNavLink({ href, id, children, onClick }: MobileNavLinkProps) {
+function MobileNavLink({ href, id, linkTarget, children, onClick }: MobileNavLinkProps) {
 
 	return (
 		<Link
 			id={id}
 			href={href}
+			target={linkTarget}
 			onClick={onClick}
 			className={clsx(
 				"block text-lg transition-all duration-300",
@@ -169,6 +171,7 @@ function MobileNavLink({ href, id, children, onClick }: MobileNavLinkProps) {
 type MobileNavLinkProps = {
   href: string,
   id: string,
+	linkTarget?: string,
   children: string,
   onClick: () => void,
 }

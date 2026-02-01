@@ -4,8 +4,8 @@ The code for the official website for Alden Gillespy
 
 ## Release info
 
-* Version __1.3.0__
-* Released on 2025-12-12
+* Version __2.0.0__
+* Released on 2026-02-01
 
 ## Legal info
 
@@ -25,4 +25,4 @@ Your use of the original code in this project constitutes your acknowledgement a
 
 ## Copyright notice
 
-&copy; 2025 Alden Gillespy. All rights reserved.
+&copy; 2026 Alden Gillespy. All rights reserved.

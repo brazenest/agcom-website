@@ -1,0 +1,35 @@
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-slim
+    environment: production
+    
+    strategy:
+      matrix:
+        node-version: [24.x]
+
+    steps:
+ 
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.EC2_SERVER_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "Host myserver " >> ~/.ssh/config
+          echo "  HostName ${{ secrets.EC2_SERVER_HOST }}" >> ~/.ssh/config
+          echo "  User ${{ secrets.EC2_SERVER_USER }}" >> ~/.ssh/config
+          echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run remote commands
+        run: |
+          ssh myserver 'bash -s' < "./scripts/deploy_production_script.sh"
