@@ -109,7 +109,7 @@ export default async function HomePage() {
 					title="My dual approach: where code meets creativity."
 					subtitle="Integrating robust engineering with cinematic storytelling to deliver engaging digital experiences that combine technical excellence, visual polish, and user-centered design—creating products that function flawlessly and resonate emotionally."
 					thumbnail={{
-						src: "/assets/images/home/ChatGPT Image Jan 14, 2026, 03_32_52 PM.jpg",
+						src: "/assets/images/home/dual-approach-thumbnail.jpg",
 						alt: "A collage of images including a humanoid robot in front of an image of a rocketship, a couple of men working at a computer with multiple monitors, a man wearing a hoodie behind a production video camera, and an image of a human head looking left superimposed with a role of film slightly unfurled.",
 						width: 400,
 						height: 200,
@@ -122,7 +122,7 @@ export default async function HomePage() {
 						variant="two-thirds-right"
 						first={
 							<NextImage
-								src="/assets/images/roles/software-engineer/ChatGPT Image Dec 30, 2025, 12_33_47 PM.jpeg"
+								src="/assets/images/roles/software-engineer/approach-overview_technical-precision.jpg"
 								alt="Software engineer working at a multi-monitor setup with code displayed on screens"
 								width={800}
 								height={533}
@@ -145,7 +145,7 @@ export default async function HomePage() {
 						variant="two-thirds-left"
 						first={
 							<NextImage
-								src="/assets/images/roles/video-producer/ChatGPT Image Dec 30, 2025, 12_35_23 PM.jpeg"
+								src="/assets/images/roles/video-producer/approach-overview_video-editor.jpg"
 								alt="Video editor working at a large monitor setup with an editing software program running"
 								width={800}
 								height={533}
@@ -168,7 +168,7 @@ export default async function HomePage() {
 						variant="two-thirds-right"
 						first={
 							<NextImage
-								src="/assets/images/roles/photographer/ChatGPT Image Dec 30, 2025, 03_21_35 PM.jpeg"
+								src="/assets/images/roles/photographer/approach-overview_photographer-editor.jpg"
 								alt="A man sitting at his laptop with photographs in a photo-editing software program"
 								width={800}
 								height={533}
