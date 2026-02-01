@@ -19,7 +19,7 @@ export const SiteFooter = ({ links }) => (
 
 				<SiteFooterSocialIconsBar />
 
-				<div className="colophon text-center">
+				<div className="colophon text-center text-gray-400 dark:text-gray-600 space-y-2">
 					<p className="text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
 						© {new Date().getFullYear()} Alden Gillespy. All rights reserved.
 					</p>
