@@ -201,68 +201,6 @@ export default async function HomePage() {
 			</Section>
 
 
-			<ContactCTASection
-				id="interstitial-contact-cta"
-				heading="Ready to Get Started?"
-				text="Contact me today to discuss your project and see how I can help bring your vision to life."
-				actions={interstitialCtaActions}
-			/>
-
-
-			<Section id="selected-projects">
-				<SectionHeading
-					title="Selected projects that showcase my dual expertise."
-					subtitle="A curated selection of my work that highlights the intersection of robust engineering and cinematic storytelling, showcasing how technical precision and creative vision combine to deliver excellent digital experiences that inspire."
-					thumbnail={{
-						src: "/assets/images/home/ChatGPT Image Jan 14, 2026, 01_55_41 PM.jpg",
-						alt: "Random alt message",
-						width: 400,
-						height: 200,
-					}}
-				/>
-				<Panel id="selected-projects-panel">
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-						<CardLink
-							title="Consumer DNA Kit Activation Flow"
-							href="/work/consumer-dna-kit-activation-flow"
-							image={{
-								src: '/assets/images/work/ancestry-dnakitactivationflow-16x9.png',
-								alt: '',
-								width: 1099,
-								height: 618,
-							}}
-						>
-							A full-stack web application that guides users through the activation process for their consumer DNA testing kits, ensuring a seamless and engaging experience.
-						</CardLink>
-						<CardLink
-							title="Timeshare Sales and Rentals Platform"
-							href="/work/timeshare-sales-rental-platform"
-							image={{
-								src: "/assets/images/work/smtn-disney-16x9.png",
-								alt: "Project 2 Image",
-								width: 766,
-								height: 431,
-							}}
-						>
-							A comprehensive web platform that facilitates the buying, selling, and renting of timeshare properties, complete with user accounts, listings, and secure payment processing.
-						</CardLink>
-						<CardLink
-							title="Multi-Angle Videos of Dancing Fountains"
-							href="/work/bellagio-dancing-water-fountains"
-							image={{
-								src: "/assets/images/work/fountains-16x9.png",
-								alt: "Project 3 Image",
-								width: 1195,
-								height: 673,
-							}}
-						>
-							A series of visually stunning videos capturing the intricate movements of dancing fountains from multiple angles, showcasing the beauty and precision of water choreography.
-						</CardLink>
-					</div>
-				</Panel>
-			</Section>
-
-
 			<BlogLatestPosts />
 
 

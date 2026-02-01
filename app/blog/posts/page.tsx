@@ -11,16 +11,16 @@ export default async function BlogPostsIndexPage() {
 	const posts = await getBlogPostsFromDB({})
 
 	return (
-		<Page id="blog-index-page" >
+		<Page id="blog-index-page" className="px-5 md:px-9.25 lg:px-8">
 
 			<HeroSection
 				title="My Blog Posts"
 				subtitle="Insights on software engineering, design systems, and the intersection of code and creativity."
-				className="bg-blue-700 text-gray-200"
-				subtitleClassName="text-gray-300"
+				className="bg-blue-100 dark:bg-blue-900 text-gray-950 dark:text-gray-50"
+				subtitleClassName="text-gray-800 dark:text-gray-200"
 			/>
 
-			<Section id="blog-posts-index-section" className="py-12 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 border-b border-blue-100 dark:border-blue-900/50">
+			<Section id="blog-posts-index-section" className="py-12">
 				<Panel id="blog-posts-list-panel">
 					<ol id="blog-posts-list" className="md:columns-2 space-y-6">
 						{posts.map((post, i) => (
@@ -41,7 +41,7 @@ export default async function BlogPostsIndexPage() {
 
 			<ContactCTASection
 				id="blog-post--contact-cta"
-				heading="Ready to begin a journey together?"
+				heading="Ready to begin a productive journey together?"
 				text="Reach out to me today to let me know how I can assist you with your projects. I am ready to help accomplish your goals regardless which phase of development your team is in."
 				actions={[
 					{ text: "View resume", href: "/assets/files/Resume_2026-01.pdf", variant: "secondary" },

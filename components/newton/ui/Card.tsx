@@ -38,7 +38,7 @@ export const Card = ({
 
 
 	return (
-		<div id={id} className={cn("card flex flex-col bg-gray-100 dark:bg-gray-900 shadow-md p-4 sm:p-5.5", className)}>
+		<div id={id} className={cn("card flex flex-col bg-blue-50 dark:bg-gray-950 border-blue-100 rounded-lg shadow-md p-4 sm:p-5.5", className)}>
 
 			{/* Card title */}
 			{title && (

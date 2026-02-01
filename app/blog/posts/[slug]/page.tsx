@@ -20,17 +20,17 @@ export default async function BlogPostsSinglePage({
 	if (!post) notFound()
   
 	return (
-		<Page id="blog-posts-single-page">
-			<article id={`blog-post--${post.id}`} className="px-5 md:px-9.25 lg:px-8">
+		<Page id="blog-posts-single-page" className="px-5 md:px-9.25 lg:px-8">
+			<article id={`blog-post--${post.id}`}>
 
 				{/* Post header */}
-				<header className="blog-post-header pb-3 pt-8.75 w-full border-b border-blue-300">
+				<header className="blog-post-header py-15 w-full border-b border-blue-200 dark:border-blue-800 rounded-3xl bg-blue-100 dark:bg-blue-900 text-gray-800 dark:text-gray-200">
 					<div className="max-w-5xl mx-auto">
 						<hgroup>
-							<h1 className="blog-post--title mb-7.75 mt-3.5 text-4xl md:max-w-4xl text-center mx-auto leading-10.25 lg:leading-13.75 font-heading font-medium lg:font-semibold">
+							<h1 className="blog-post--title max-w-3xl lg:max-w-5xl text-4xl md:text-5xl lg:text-6xl md:leading-13.75 font-heading font-semibold text-shadow-md lg:leading-18.25 mx-auto text-center mb-4.25">
 								{post.title}
 							</h1>
-							<p className="blog-post--dek text-lg leading-7.25 md:max-w-2xl mx-auto text-center my-1.75 text-gray-700 dark:text-gray-300">
+							<p className="blog-post--dek text-xl leading-7.25 md:max-w-2xl mx-auto text-center text-gray-600 dark:text-gray-400">
 								{post.dek}
 							</p>
 						</hgroup>
@@ -38,7 +38,7 @@ export default async function BlogPostsSinglePage({
 				</header>
 
 				{/* Post body */}
-				<BlogBody className="my-10 px-0.25">
+				<BlogBody className="my-15.25 px-0.25">
 					{post.body}
 				</BlogBody>
 

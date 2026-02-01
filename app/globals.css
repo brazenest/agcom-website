@@ -32,3 +32,10 @@ a:hover {
 html {
   font-size: 16px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .prose strong {
+    color: inherit;
+    font-weight: 700;
+  }
+}

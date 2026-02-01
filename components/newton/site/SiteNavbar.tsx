@@ -24,7 +24,7 @@ export function SiteNavbar() {
 
 	return (
 		<>
-			<nav className="sm:bg-red-500 md:bg-green-500 lg:bg-blue-500 xl:bg-yellow-500 max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center md:justify-between transition-all duration-300 no-underline! text-gray-800">
+			<nav className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center md:justify-between transition-all duration-300 no-underline! text-gray-800">
 
 				{/* ---------- Logo ---------- */}
 				<Link
@@ -46,7 +46,7 @@ export function SiteNavbar() {
 					<ButtonLink
 						variant="primary"
 						size="xl"
-						href="mailto:contact@aldengillespy.com"
+						href="mailto:contact@aldengillespy.com?subject=Visiting your site"
 					>
 							Contact
 					</ButtonLink>

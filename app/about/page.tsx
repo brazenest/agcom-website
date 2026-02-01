@@ -83,7 +83,7 @@ export default function AboutMePage() {
 						</Card>
 					</div>
 
-					<p className="max-w-3xl mx-auto mt-13.25 py-1.5 text-lg text-gray-800">
+					<p className="max-w-3xl mx-auto mt-13.25 py-1.5 text-lg text-gray-700 dark:text-gray-300">
 						<strong>By balancing these two roles,</strong> I am able to deliver comprehensive solutions that not only meet technical requirements but also captivate audiences through compelling design and storytelling with a unique balance of art and science.
 					</p>
 				</Panel>
@@ -105,7 +105,7 @@ export default function AboutMePage() {
 								height={1200}
 							/>
 						</div>
-						<div className="more-description--text lg:col-span-1 prose mx-auto">
+						<div className="more-description--text lg:col-span-1 prose mx-auto text-gray-700 dark:text-gray-300">
 							<p>Whether I’m engineering a product or producing a video, my philosophy stays the same: <strong>clarity over complexity, craft over shortcuts, and emotion over decoration.</strong> Code should feel as intentional as narrative editing. Interfaces should have rhythm. Great experiences — whether interactive or cinematic — are invisible when they work and unforgettable when they’re well-designed.</p>
 
 							<p>I believe the best digital products feel less like software and more like stories you move through. <strong>Every transition, every interaction, every frame should serve a purpose.</strong> Just like in film, pacing and structure matter. What you choose not to include matters just as much as what you do. My goal is always to remove friction, reduce cognitive load<strong></strong>, and let people focus on what they came for.</p>
@@ -125,7 +125,7 @@ export default function AboutMePage() {
 
 			<ContactCTASection
 				id="about-me--closing-cta"
-				heading="Have a role or project where I can help?"
+				heading="Available for roles blending code and creative storytelling."
 				text="Whether you need someone deep in the code, helping shape the interface, or working on visuals that explain it, I’m open to full-time roles and select freelance work where the mix of engineering and cinematic storytelling truly matters."
 				actions={[
 					{
