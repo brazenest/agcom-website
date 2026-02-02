@@ -7,6 +7,7 @@ const params = {
 	password: process.env.NEXT_PUBLIC_DB_PASSWORD,
 	database: process.env.NEXT_PUBLIC_DB_NAME,
 	ssl: true,
+	rejectUnauthorized: false,
 }
 
 const pool = new Pool(params)
