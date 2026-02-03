@@ -44,7 +44,7 @@ export const getBlogPostsFromDB = async ({ slug, showHidden = false }: fnGetpost
 	const where = new DBQueryWhereClause(whereParts)
 
 	// ORDER BY clause
-	const orderBy = new DBQueryOrderByClause(['posts.dateposted DESC'])
+	const orderBy = new DBQueryOrderByClause(['posts.date DESC'])
 
 	let substitutionValue = 0
 
