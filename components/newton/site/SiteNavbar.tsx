@@ -24,7 +24,7 @@ export function SiteNavbar() {
 
 	return (
 		<>
-			<nav className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center md:justify-between transition-all duration-300 no-underline! text-gray-800">
+			<nav className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center md:justify-between transition-all duration-300 no-underline! text-gray-800 dark:text-gray-200">
 
 				{/* ---------- Logo ---------- */}
 				<Link
