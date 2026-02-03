@@ -11,7 +11,7 @@ export default async function BlogPostsIndexPage() {
 	const posts = await getBlogPostsFromDB({})
 
 	return (
-		<Page id="blog-index-page" className="px-5 md:px-9.25 lg:px-8">
+		<Page id="blog-index-page">
 
 			<HeroSection
 				title="My Blog Posts"
@@ -20,7 +20,7 @@ export default async function BlogPostsIndexPage() {
 				subtitleClassName="text-gray-800 dark:text-gray-200"
 			/>
 
-			<Section id="blog-posts-index-section" className="py-12">
+			<Section id="blog-posts-index-section" className="px-5 md:px-9.25 lg:px-8 py-12">
 				<Panel id="blog-posts-list-panel">
 					<ol id="blog-posts-list" className="md:columns-2 space-y-6">
 						{posts.map((post, i) => (
