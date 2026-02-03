@@ -48,7 +48,7 @@ export function SiteNavbar() {
 						size="xl"
 						href="mailto:contact@aldengillespy.com?subject=Visiting your site"
 					>
-							Contact
+							Contact Me
 					</ButtonLink>
 
 				</div>
@@ -106,11 +106,11 @@ export function SiteNavbar() {
 
 					<ButtonLink
 						variant="primary"
-						size="lg"
+						size="xl"
 						className="mt-2 text-center"
 						href="mailto:contact@aldengillespy.com"
 					>
-							Contact
+							Contact Me
 					</ButtonLink>
 
 				</div>
@@ -136,7 +136,7 @@ function NavLink({
 			href={href}
 			target={linkTarget}
 			className={clsx(
-				"relative group transition-all duration-300 text-text dark:text-dark-text",
+				"tracking-widest relative group transition-all duration-300 text-text dark:text-dark-text",
 			)}
 		>
 			{children}
@@ -160,7 +160,7 @@ function MobileNavLink({ href, id, linkTarget, children, onClick }: MobileNavLin
 			target={linkTarget}
 			onClick={onClick}
 			className={clsx(
-				"block text-lg transition-all duration-300",
+				"block text-lg transition-all duration-300 tracking-widest",
 			)}
 		>
 			{children}
