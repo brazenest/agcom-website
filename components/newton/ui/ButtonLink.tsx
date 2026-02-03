@@ -16,9 +16,9 @@ const buttonSizes: ButtonSizeStyleMap = {
 
 const variantStyles: ButtonVariantStyleMap = {
 	primary:
-			'bg-blue-700 text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-400',
+			'bg-blue-700 text-white! hover:text-gray-200! hover:bg-blue-800 focus:ring-4 focus:ring-blue-400',
 	secondary:
-			'bg-gray-300 text-gray-900! hover:bg-gray-400 focus:ring-4 focus:ring-gray-500',
+			'bg-gray-300 text-gray-900! hover:text-gray-800! hover:bg-gray-400 focus:ring-4 focus:ring-gray-500',
 	tertiary:
 			'bg-transparent text-gray-800 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400',
 };
