@@ -15,7 +15,7 @@ export const getBlogPostsFromDB = async ({ slug, showHidden = false }: fnGetpost
 		values.push(slug)
 	}
 	if (!showHidden) {
-		whereParts.push('visible = ?')
+		whereParts.push('posts.visible = ?')
 		values.push('1')
 	}
 
