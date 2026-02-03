@@ -50,7 +50,7 @@ export default function BlogAdminAddArticlePage() {
 			body: articleBody,
 		}
 
-		const queryResponse = await queryApi({ endpoint: 'articles', method: 'POST', data })
+		const queryResponse = await queryApi({ endpoint: 'posts', method: 'POST', data })
 		if (!queryResponse.ok) {
 			console.log('Admin | BlogAdminAddArticlePage(): API response not-ok for adding article |-|', queryResponse.message)
 			return
