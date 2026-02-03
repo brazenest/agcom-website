@@ -13,7 +13,7 @@ export const BlogLatestPosts = async () => {
 			title="Insights from the Intersection of Code and Creativity"
 			subtitle="Stay updated with my most recent articles exploring software engineering, design systems, creative workflows, and the intersection of technical precision and visual storytelling from an experienced software engineer and video producer."
 			thumbnail={{
-				src: "/assets/images/home/ChatGPT Image Jan 14, 2026, 02_56_17 PM.jpg",
+				src: "/assets/images/home/blog-thumbnail.jpg",
 				alt: "A collage of images, including a laptop, tablet, and smartphone, a piece of engineering equipment, a man wearing a hoodie and headphones, working on a laptop, with a cup of coffee, on a motion picture production set.",
 				width: 400,
 				height: 200,
