@@ -23,7 +23,7 @@ export const getBlogPostsFromDB = async ({ slug, showHidden = false }: fnGetpost
 	const select = new DBQuerySelectClause([
 		'posts.slug AS slug',
 		'posts.title AS title',
-		'posts.dateposted AS datePosted',
+		'posts.date AS date',
 		'categories.slug AS category',
 		'posts.excerpt AS excerpt',
 		'posts.dek AS dek',
