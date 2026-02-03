@@ -50,7 +50,7 @@ export default async function BlogPostsSinglePage({
 								<span className="blog-post--meta--col-1 md:block space-y-4">
 									<div className="blog-post--meta--col-item">
 										<dt className="font-heading font-semibold my-1">Posted on</dt>
-										<dd><time dateTime={post.dateposted.toISOString()}>{formatBlogPostDate(post.dateposted)}</time></dd>
+										<dd><time dateTime={post.date.toISOString()}>{formatBlogPostDate(post.date)}</time></dd>
 									</div>
 									<div className="blog-post--meta--col-item">
 										<dt className="font-heading font-semibold my-0.75">Author</dt>

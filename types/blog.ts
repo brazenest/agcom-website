@@ -20,7 +20,7 @@ export type BlogPostModel = {
   dek: BlogPostDekModel,
   category: BlogPostCategoryModel,
   image: BlogPostImageModel,
-  dateposted: BlogPostDateModel,
+  date: BlogPostDateModel,
   readtime: BlogPostReadtimeModel,
   body: BlogPostBodyModel,
 }
@@ -31,7 +31,7 @@ export type DB_PostModel = {
   title: BlogPostTitleModel
   excerpt: BlogPostExcerptModel
   dek: BlogPostDekModel
-  dateposted: BlogPostDateModel
+  date: BlogPostDateModel
   body: BlogPostBodyModel
   visible: boolean
   readtime: BlogPostReadtimeModel

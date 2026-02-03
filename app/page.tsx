@@ -56,7 +56,7 @@ export default async function HomePage() {
 					title="One creator, dual disciplines, two lenses, one singular vision."
 					subtitle="Bridging software engineering and video production to craft seamless digital experiences where scalable code architecture meets visual storytelling, functional design meets emotionality, and technical reliability meets creative expression."
 					thumbnail={{
-						src: "/assets/images/home/ChatGPT Image Jan 14, 2026, 03_48_33 PM.jpg",
+						src: "/assets/images/home/intro-thumbnail.jpg",
 						alt: "A collage of images including a man facing two camera lenses pointed at opposite directions, with on one side a bank of computers and monitors with a robotic arm, and one the other a motion picture production set with a man wearing a hoodie and headphones behind a production video camera and a man and woman couple in the distant background.",
 						width: 400,
 						height: 200,
