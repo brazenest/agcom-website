@@ -45,7 +45,7 @@ export function SiteNavbar() {
 
 					<ButtonLink
 						variant="primary"
-						size="xl"
+						size="lg"
 						href="mailto:contact@aldengillespy.com?subject=Visiting your site"
 					>
 							Contact Me
