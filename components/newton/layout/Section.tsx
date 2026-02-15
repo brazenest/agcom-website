@@ -16,7 +16,7 @@ export const Section = ({
 		wide: "max-w-8xl mx-auto",
 		full: "w-full",
 	}
-	const spacingClasses = "py-10.75 sm2:py-14 md:py-18 lg:py-11.5"
+	const spacingClasses = "py-10.75 lg:py-11.5"
 	const borderClasses = "border-y border-gray-200 dark:border-gray-800"
 
 	return (
