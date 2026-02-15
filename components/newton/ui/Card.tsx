@@ -26,7 +26,7 @@ export const Card = ({
 			content: 'text-sm',
 		},
 		md: {
-			title: 'text-2xl mb-5.25',
+			title: 'text-2xl mb-5',
 			content: 'text-base',
 		},
 		lg: {
@@ -38,11 +38,11 @@ export const Card = ({
 
 
 	return (
-		<div id={id} className={cn("card flex flex-col bg-blue-50 dark:bg-gray-950 border-blue-100 rounded-lg shadow-md p-4 sm:p-5.5", className)}>
+		<div id={id} className={cn("card flex flex-col bg-blue-50 dark:bg-gray-950 border-blue-100 rounded-lg shadow-md p-4.5", className)}>
 
 			{/* Card title */}
 			{title && (
-				<h4 className={cn('card-title text-2xl font-heading font-semibold leading-7.75 text-gray-800 dark:text-gray-200 hover:text-inherit', cardSizeClasses[size].title)}>
+				<h4 className={cn('card-title text-2xl font-heading font-semibold leading-6.75 text-gray-800 dark:text-gray-200 hover:text-inherit', cardSizeClasses[size].title)}>
 					{title}
 					{withLinkSymbol && (
 						<LinkSymbol />

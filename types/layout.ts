@@ -28,3 +28,5 @@ export type AsymmetricLayoutVariantStyleMap = {
     second: string
   }
 }
+
+export type CardListType = 'ul' | 'div'

@@ -32,7 +32,7 @@ export const HeroSection = ({
 		<Section id={id}
 			width="wide"
 			backgroundImage={backgroundImage}
-			className={cn('hero-section bg-gray-200 dark:bg-gray-950 py-9.75 md:py-13 relative overflow-hidden', className)}
+			className={cn('hero-section bg-gray-200 dark:bg-gray-950 relative overflow-hidden', className)}
 		>
 			<PageTitle align={align} title={title} subtitle={subtitle} subtitleClassName={subtitleClassName} className={pageTitleClassName} />
 

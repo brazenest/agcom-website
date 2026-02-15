@@ -38,7 +38,6 @@ export function SiteNavbar() {
 				{/* ---------- Desktop Nav ---------- */}
 				<div className="hidden md:flex items-center gap-8">
 
-					<NavLink id="hero" href="/">Home</NavLink>
 					<NavLink id="about" href="/about">About</NavLink>
 					<NavLink id="blog" href="/blog">Blog</NavLink>
 					<NavLink id="contact" href="/resume" linkTarget="_blank">Resume</NavLink>
@@ -91,9 +90,6 @@ export function SiteNavbar() {
 			>
 				<div className="flex flex-col p-6 gap-6">
 
-					<MobileNavLink id="hero" href="/" onClick={() => setMobileOpen(false)}>
-						Home
-					</MobileNavLink>
 					<MobileNavLink id="contact" href="/about" onClick={() => setMobileOpen(false)}>
 						About
 					</MobileNavLink>

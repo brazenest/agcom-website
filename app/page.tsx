@@ -9,6 +9,7 @@ import { ContactCTASection } from '@/components/newton/contact/ContactCTASection
 import { SectionHeading } from '@/components/newton/layout/SectionHeading'
 import { BlogLatestPosts } from '@/components/newton/BlogLatestPosts'
 import { AsymmetricLayout } from '@/components/newton/layout/AsymmetricLayout'
+import { CardList } from '@/components/newton/layout/CardList'
 
 export default async function HomePage() {
 
@@ -62,8 +63,8 @@ export default async function HomePage() {
 						height: 200,
 					}}
 				/>
-				<div
-					className="grid grid-cols-1 md:grid-cols-2 gap-6">
+				
+				<CardList>
 					<Card
 						title="Product-grade engineering"
 						actions={[
@@ -74,7 +75,7 @@ export default async function HomePage() {
 						]}
 					>
 						<p>Building production-ready web experiences with React, Next.js, TypeScript, and thoughtful system design.</p>
-						<ul className="list-disc list-inside space-y-1 my-6.25 text-gray-700 dark:text-gray-300">
+						<ul className="list-disc list-inside space-y-1.25 my-6.5 text-sm text-gray-700 dark:text-gray-300">
 							<li>Scalable front-end architectures</li>
 							<li>Design systems and component libraries</li>
 							<li>Robust data flows and API integration</li>
@@ -92,7 +93,7 @@ export default async function HomePage() {
 						]}
 					>
 						<p>Planning, shooting, and editing visual narratives that support products, brands, and people.</p>
-						<ul className="list-disc list-inside space-y-1 my-6.25 text-gray-700 dark:text-gray-300">
+						<ul className="list-disc list-inside space-y-1.25 my-6.5 text-sm text-gray-700 dark:text-gray-300">
 							<li>Direction, storyboarding, and shot planning</li>
 							<li>Camera operation, lighting, and framing</li>
 							<li>Post-production and motion graphics</li>
@@ -100,7 +101,8 @@ export default async function HomePage() {
 							<li>Edit and delivery for web & film</li>
 						</ul>
 					</Card>
-				</div>
+				</CardList>
+
 			</Section>
 
 
@@ -116,7 +118,7 @@ export default async function HomePage() {
 					}}
 				/>
 
-				<Panel id="approach-overview--panel" className="space-y-18.75">
+				<Panel id="approach-overview--panel" className="space-y-10">
 
 					<AsymmetricLayout
 						variant="two-thirds-right"
@@ -129,8 +131,8 @@ export default async function HomePage() {
 							/>
 						}
 						second={
-							<span className="prose text-gray-600 dark:text-gray-400 leading-6.75">
-								<h2 className="font-heading text-gray-800 dark:text-gray-200">Technical Precision Meets Creative Vision</h2>
+							<span className="prose text-gray-600 dark:text-gray-400 leading-5.75">
+								<h2 className="font-heading! text-gray-800 dark:text-gray-200 leading-6.75">Technical Precision Meets Creative Vision</h2>
 								<p>
 									I am a fiercely creative person who believes in the power of combining technical precision with artistic vision to create meaningful digital experiences. My approach is rooted in understanding the user&apos;s journey and crafting interfaces that are both functional and emotionally resonant.
 								</p>
@@ -152,8 +154,8 @@ export default async function HomePage() {
 							/>
 						}
 						second={
-							<span className="prose text-gray-600 dark:text-gray-400 leading-6.75">
-								<h2 className="font-heading text-gray-800 dark:text-gray-200">Bringing Cinematic Vision to Digital Experiences</h2>
+							<span className="prose text-gray-600 dark:text-gray-400 leading-5.75">
+								<h2 className="font-heading text-gray-800 dark:text-gray-200 leading-6.75">Bringing Cinematic Vision to Digital Experiences</h2>
 								<p>
 									On the engineering side, I prioritize writing clean, maintainable code that adheres to best practices and industry standards. I leverage modern frameworks and tools to build scalable applications that perform reliably under various conditions.
 								</p>
@@ -175,8 +177,8 @@ export default async function HomePage() {
 							/>
 						}
 						second={
-							<span className="prose text-gray-600 dark:text-gray-400 leading-6.75">
-								<h2 className="font-heading text-gray-800 dark:text-gray-200">Storytelling Through Visual Design and Motion</h2>
+							<span className="prose text-gray-600 dark:text-gray-400 leading-5.75">
+								<h2 className="font-heading text-gray-800 dark:text-gray-200 leading-6.75">Storytelling Through Visual Design and Motion</h2>
 								<p>
 									From a cinematic perspective, I focus on storytelling through visual design and motion. I utilize principles of cinematography, such as composition, lighting, and pacing, to create engaging narratives that captivate users and enhance their interaction with the product.
 								</p>

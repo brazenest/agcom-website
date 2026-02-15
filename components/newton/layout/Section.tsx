@@ -16,8 +16,8 @@ export const Section = ({
 		wide: "max-w-8xl mx-auto",
 		full: "w-full",
 	}
-	const spacingClasses = "py-10.75 lg:py-11.5"
-	const borderClasses = "border-y border-gray-200 dark:border-gray-800"
+	const spacingClasses = "py-9.75 md:py-13"
+	const borderClasses = ""
 
 	return (
 		<section id={id} className={cn('px-5 md:px-9.25 lg:px-8 shadow-xs', spacingClasses, borderClasses, className)}>
