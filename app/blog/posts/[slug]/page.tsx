@@ -45,7 +45,7 @@ export default async function BlogPostsSinglePage({
 					</BlogBody>
 
 					{/* Post footer */}
-					<footer id={`blog-post-footer--id-${post.id}`} className="md:max-w-3xl lg:max-w-5xl mx-auto" role="contentinfo">
+					<footer id={`blog-post-footer--id-${post.id}`} className="md:max-w-3xl mx-auto" role="contentinfo">
 						<Panel id="blog-post--meta" title="About this post">
 							<div className="flex flex-col md:flex-row gap-6">
 								<dl className="grid md:grid-cols-2 w-full">
