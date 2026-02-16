@@ -18,11 +18,6 @@ const credentialProvider = fromNodeProviderChain({
 	clientConfig: {},
 });
 
-const creds = await credentialProvider()
-setTimeout(() => {
-	console.log("creds after timeout", creds)
-}, 5000)
-
 // 1. Configure the AWS SDK client (uses default credential chain if omitted)
 const sesClient = new SESv2Client({
 	credentials: credentialProvider,
