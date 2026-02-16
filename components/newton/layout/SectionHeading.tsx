@@ -7,7 +7,7 @@ export const SectionHeading = ({ title, subtitle, thumbnail }: SectionHeadingPro
 			<div className="section-heading-textarea md:col-span-3">
 				<h2 className="section-heading-title mb-3.75 lg:max-w-4xl text-4xl lg:text-5xl font-heading font-medium leading-10.25 lg:leading-13.75">{title}</h2>
 				{subtitle && (
-					<p className="section-heading-subtitle max-w-2xl lg:max-w-3xl py-1.25 font-light text-gray-600 dark:text-gray-400 tracking-wide leading-6.25">{subtitle}</p>
+					<p className="section-heading-subtitle max-w-2xl lg:max-w-3xl py-1.25 font-light xl:text-lg text-gray-600 dark:text-gray-400 tracking-wide leading-6.25 xl:leading-6.5">{subtitle}</p>
 				)}
 			</div>
 			{thumbnail && (
