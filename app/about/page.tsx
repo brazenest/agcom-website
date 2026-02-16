@@ -43,7 +43,7 @@ export default function AboutMePage() {
 
 			<Section id="intro">
 				<SectionHeading title="Let Me Introduce Myself" subtitle="My background is a very diverse landscape and deliberately hybrid." />
-				<Panel id="intro-panel" className="md:columns-2 prose dark:prose-invert text-gray-600 dark:text-gray-400 max-w-none leading-5.75">
+				<Panel id="intro-panel" className="md:columns-2 prose dark:prose-invert text-gray-600 dark:text-gray-400 max-w-none leading-6">
 					<p className="mb-4">As a young student of creativity, I studied <strong>Computer Science</strong> at the University of Florida and subsequently earned a <strong>Film & Video Production</strong> degree from Full Sail University. Those two identities collided early in my life and have never separated.</p>
 					<p className="mb-4">I’ve worked as a full-stack engineer on <strong>high-visibility, high-impact projects</strong> including a consumer-scale onboarding flow used by millions annually. I’ve also spent years shooting, editing, and producing videos designed to communicate ideas visually, memorably, and at a professional level. My YouTube channel has been enjoyed by <strong>over 260,000 viewers.</strong></p>
 
@@ -105,7 +105,7 @@ export default function AboutMePage() {
 								height={1200}
 							/>
 						</div>
-						<div className="more-description--text lg:col-span-1 prose mx-auto text-gray-700 dark:text-gray-300 leading-5.75">
+						<div className="more-description--text lg:col-span-1 prose mx-auto text-gray-700 dark:text-gray-300 leading-6">
 							<p>Whether I’m engineering a product or producing a video, my philosophy stays the same: <strong>clarity over complexity, craft over shortcuts, and emotion over decoration.</strong> Code should feel as intentional as narrative editing. Interfaces should have rhythm. Great experiences — whether interactive or cinematic — are invisible when they work and unforgettable when they’re well-designed.</p>
 
 							<p>I believe the best digital products feel less like software and more like stories you move through. <strong>Every transition, every interaction, every frame should serve a purpose.</strong> Just like in film, pacing and structure matter. What you choose not to include matters just as much as what you do. My goal is always to remove friction, reduce cognitive load<strong></strong>, and let people focus on what they came for.</p>
