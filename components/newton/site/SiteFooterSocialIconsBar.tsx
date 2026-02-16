@@ -1,4 +1,4 @@
-import { FaGithub, FaYoutube, FaFlickr, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaFlickr, FaLinkedin, FaTwitter, FaStackOverflow } from "react-icons/fa";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -13,6 +13,12 @@ export function SiteFooterSocialIconsBar({ className = "" }) {
 			</Link>
 			<Link href="https://youtube.com/c/SHADOWCATpictures" target="_blank">
 				<FaYoutube className={iconClass} />
+			</Link>
+			<Link href="https://stackoverflow.com/users/3200445/alden-gillespy" target="_blank">
+				<FaStackOverflow className={iconClass} />
+			</Link>
+			<Link href="https://x.com/AldenGillespy" target="_blank">
+				<FaTwitter className={iconClass} />
 			</Link>
 			<Link href="https://www.linkedin.com/in/alden-gillespy" target="_blank">
 				<FaLinkedin className={iconClass} />

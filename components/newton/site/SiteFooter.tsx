@@ -4,7 +4,7 @@ import { Section } from "@/components/newton/layout/Section";
 import { SiteFooterSocialIconsBar } from "./SiteFooterSocialIconsBar";
 
 export const SiteFooter = ({ links }) => (
-	<footer id="site-footer" className="relative" role="contentinfo">
+	<footer id="site-footer" className="relative">
 
 		<Section id="site-footer-section"
 		>
@@ -21,10 +21,10 @@ export const SiteFooter = ({ links }) => (
 
 				<div className="colophon text-center text-gray-400 dark:text-gray-600 space-y-2">
 					<p className="text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
-						© {new Date().getFullYear()} Alden Gillespy. All rights reserved.
+						© {new Date().getFullYear()} Alden Gillespy
 					</p>
 					<p className="text-xs text-text-secondary dark:text-dark-text-secondary font-engineering">
-						version {process.env.NEXT_PUBLIC_SITE_VERSION}
+						Made with ❤️ in the Silicon Slopes of Salt Lake City, Utah
 					</p>
 				</div>
 
