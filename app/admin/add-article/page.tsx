@@ -79,10 +79,10 @@ export default function BlogAdminAddArticlePage() {
 	]
 
 	return (
-		<div className="max-w-4xl mx-auto">
+		<div className="max-w-6xl mx-auto px-4 py-8">
+			<h2 className="text-5xl font-bold mb-10">Add an article</h2>
 			<form id="blog-admin-add-article-form" onSubmit={(event) => handleFormSubmit(event)}>
 				<div className="max-w-xl my-5 justify-between items-center">
-					<h2 className="col-span-4 text-2xl font-bold mb-7">Add an article</h2>
 					<span className="grid grid-cols-4 grid-rows-1 my-6 items-center">
 						<label htmlFor="title">Title</label>
 						<input
