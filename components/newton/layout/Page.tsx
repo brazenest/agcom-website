@@ -1,5 +1,5 @@
 export const Page = ({ id, className, children }: PageProps) => (
-	<main id={id} role="main" className={className}>
+	<main id={id} className={className}>
 		{children}
 	</main>
 )

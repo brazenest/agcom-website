@@ -2,6 +2,7 @@ import { getBlogPostsFromDB } from "@/functions/getBlogPostsFromDB"
 import { CardLink } from "./layout/CardLink"
 import { SplitContentPanelSection } from "./layout/SplitContentPanelSection"
 import { BlogPostModel } from "@/types/blog"
+import { CardList } from "./layout/CardList"
 
 export const BlogLatestPosts = async () => {
 
@@ -30,7 +31,7 @@ export const BlogLatestPosts = async () => {
 				</span>
 			}
 			rightContent={
-				<ul className="blog-post-list space-y-6.75">
+				<ul className="card-list space-y-4.5">
 					{posts.slice(1, 4).map((post) => (
 						<li key={post.slug} className="blog-post-list-item">
 							<CardLink

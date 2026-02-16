@@ -5,12 +5,12 @@ export const AsymmetricLayout = ({ variant, first, second }: AsymmetricLayoutPro
 
 	const variantClasses: AsymmetricLayoutVariantStyleMap = {
 		'two-thirds-left': {
-			container: 'flex flex-col gap-6.25 md:flex-row-reverse',
+			container: 'flex flex-col gap-8 md:flex-row-reverse',
 			first: 'md:w-1/3',
 			second: 'md:w-2/3',
 		},
 		'two-thirds-right': {
-			container: 'flex flex-col gap-6.25 md:flex-row',
+			container: 'flex flex-col gap-8 md:flex-row',
 			first: 'md:w-1/3',
 			second: 'md:w-2/3',
 		},

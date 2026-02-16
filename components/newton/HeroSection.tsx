@@ -21,7 +21,7 @@ export const HeroSection = ({
 
 	const alignClasses: HeroSectionAlignClassMap = {
 		center: {
-			actionsWrap: 'mx-auto',
+			actionsWrap: 'mt-2.5 md:mt-3.25 mx-auto',
 		},
 		left: {
 			actionsWrap: '',
@@ -32,15 +32,15 @@ export const HeroSection = ({
 		<Section id={id}
 			width="wide"
 			backgroundImage={backgroundImage}
-			className={cn('hero-section bg-gray-200 dark:bg-gray-950 py-10.75 lg:py-27.5 relative overflow-hidden', className)}
+			className={cn('hero-section bg-gray-200 dark:bg-gray-950 relative overflow-hidden', className)}
 		>
 			<PageTitle align={align} title={title} subtitle={subtitle} subtitleClassName={subtitleClassName} className={pageTitleClassName} />
 
 			{actions && (
 				<div className={cn("hero-section-actions-wrap", alignClasses[align].actionsWrap)}>
-					<CTABar className="mt-3.25">
+					<CTABar>
 						{actions.map((button, index) => (
-							<Action key={index} size="lg" href={button.href!} variant={button.variant}>
+							<Action key={index} size="lg" href={button.href!} onClick={button.onClick} isContactAction={button.isContactAction} variant={button.variant}>
 								{button.text}
 							</Action>
 						))}

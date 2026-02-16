@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 			);
 		}
 
-		const adminEmail = "website-mailer@aldengillespy.com";
+		const adminEmail = "website.mailer@aldengillespy.com";
 		const userEmail = "aldengillespy@icloud.com"
 
 		const sendVisitorMessageResponse = await sendVisitorMessage({ adminEmail, userEmail, visitorName, visitorEmail, visitorMessage });

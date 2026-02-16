@@ -3,13 +3,16 @@
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
-import { ButtonLink } from "../ui/ButtonLink";
 import { SiteLogoMark } from "@/components/newton/site/SiteLogoMark";
+import { useContactModal } from "@/hooks/useContactModal";
+import { Button } from "../ui/Button";
 
 export function SiteNavbar() {
 
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+
+	const { open } = useContactModal()
 
 	/* ---------- Close menu on click outside ---------- */
 	useEffect(() => {
@@ -38,18 +41,17 @@ export function SiteNavbar() {
 				{/* ---------- Desktop Nav ---------- */}
 				<div className="hidden md:flex items-center gap-8">
 
-					<NavLink id="hero" href="/">Home</NavLink>
 					<NavLink id="about" href="/about">About</NavLink>
 					<NavLink id="blog" href="/blog">Blog</NavLink>
 					<NavLink id="contact" href="/resume" linkTarget="_blank">Resume</NavLink>
 
-					<ButtonLink
+					<Button
 						variant="primary"
-						size="xl"
-						href="mailto:contact@aldengillespy.com?subject=Visiting your site"
+						size="lg"
+						onClick={open}
 					>
 							Contact Me
-					</ButtonLink>
+					</Button>
 
 				</div>
 
@@ -91,9 +93,6 @@ export function SiteNavbar() {
 			>
 				<div className="flex flex-col p-6 gap-6">
 
-					<MobileNavLink id="hero" href="/" onClick={() => setMobileOpen(false)}>
-						Home
-					</MobileNavLink>
 					<MobileNavLink id="contact" href="/about" onClick={() => setMobileOpen(false)}>
 						About
 					</MobileNavLink>
@@ -104,14 +103,14 @@ export function SiteNavbar() {
 						Resume
 					</MobileNavLink>
 
-					<ButtonLink
+					<Button
 						variant="primary"
 						size="xl"
 						className="mt-2 text-center"
-						href="mailto:contact@aldengillespy.com"
+						onClick={open}
 					>
 							Contact Me
-					</ButtonLink>
+					</Button>
 
 				</div>
 			</div>
