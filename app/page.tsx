@@ -132,7 +132,7 @@ export default function HomePage() {
 							/>
 						}
 						second={
-							<span className="prose text-gray-600 dark:text-gray-400 leading-5.75">
+							<span className="prose text-gray-600 dark:text-gray-400 leading-6">
 								<h2 className="font-heading! text-gray-800 dark:text-gray-200 leading-6.75">Technical Precision Meets Creative Vision</h2>
 								<p>
 									I am a fiercely creative person who believes in the power of combining technical precision with artistic vision to create meaningful digital experiences. My approach is rooted in understanding the user&apos;s journey and crafting interfaces that are both functional and emotionally resonant.
@@ -155,7 +155,7 @@ export default function HomePage() {
 							/>
 						}
 						second={
-							<span className="prose text-gray-600 dark:text-gray-400 leading-5.75">
+							<span className="prose text-gray-600 dark:text-gray-400 leading-6">
 								<h2 className="font-heading text-gray-800 dark:text-gray-200 leading-6.75">Bringing Cinematic Vision to Digital Experiences</h2>
 								<p>
 									On the engineering side, I prioritize writing clean, maintainable code that adheres to best practices and industry standards. I leverage modern frameworks and tools to build scalable applications that perform reliably under various conditions.
@@ -178,7 +178,7 @@ export default function HomePage() {
 							/>
 						}
 						second={
-							<span className="prose text-gray-600 dark:text-gray-400 leading-5.75">
+							<span className="prose text-gray-600 dark:text-gray-400 leading-6">
 								<h2 className="font-heading text-gray-800 dark:text-gray-200 leading-6.75">Storytelling Through Visual Design and Motion</h2>
 								<p>
 									From a cinematic perspective, I focus on storytelling through visual design and motion. I utilize principles of cinematography, such as composition, lighting, and pacing, to create engaging narratives that captivate users and enhance their interaction with the product.
