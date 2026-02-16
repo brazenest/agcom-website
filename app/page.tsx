@@ -11,13 +11,13 @@ import { BlogLatestPosts } from '@/components/newton/BlogLatestPosts'
 import { AsymmetricLayout } from '@/components/newton/layout/AsymmetricLayout'
 import { CardList } from '@/components/newton/layout/CardList'
 
-export default async function HomePage() {
+export default function HomePage() {
 
 	const heroActions: ActionModel[] = [
 		{
 			variant: 'primary',
 			text: 'Contact Me',
-			href: 'mailto:contact@aldengillespy.com?subject=Just visited your home page',
+			isContactAction: true,
 		},
 		{
 			variant: 'secondary',

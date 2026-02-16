@@ -40,7 +40,7 @@ export const HeroSection = ({
 				<div className={cn("hero-section-actions-wrap", alignClasses[align].actionsWrap)}>
 					<CTABar>
 						{actions.map((button, index) => (
-							<Action key={index} size="lg" href={button.href!} variant={button.variant}>
+							<Action key={index} size="lg" href={button.href!} onClick={button.onClick} isContactAction={button.isContactAction} variant={button.variant}>
 								{button.text}
 							</Action>
 						))}

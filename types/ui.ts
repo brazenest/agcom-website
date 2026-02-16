@@ -5,6 +5,7 @@ export type ActionModel = {
   text: string
   href?: string
   onClick?: () => void
+  isContactAction?: boolean
 }
 
 export type ButtonModel = {

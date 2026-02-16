@@ -1,6 +1,9 @@
+'use client'
+
 import { ButtonVariant, ButtonSize } from "@/types/ui"
 import { Button } from "./Button"
 import { ButtonLink } from "./ButtonLink"
+import { useContactModal } from "@/hooks/useContactModal"
 
 export const Action = ({
 	variant,
@@ -9,7 +12,10 @@ export const Action = ({
 	children,
 	href,
 	onClick,
+	isContactAction = false,
 }: ActionProps) => {
+
+	const { open } = useContactModal()
 
 	if (href) {
 		return (
@@ -33,8 +39,20 @@ export const Action = ({
 				{children}
 			</Button>
 		)
+	} else if (isContactAction) {
+
+		return (
+			<Button
+				variant={variant}
+				size={size}
+				className={className}
+				onClick={open}
+			>
+				{children}
+			</Button>
+		)
 	} else
-		throw new Error('Action must have either href or onClick')
+		throw new Error('Action must have either href or onClick or be isContactAction')
 
 }
 
@@ -48,4 +66,5 @@ export type ActionPropsBase = {
 type ActionProps = ActionPropsBase & {
 	href?: string
 	onClick?: () => void
+	isContactAction?: boolean
 }
